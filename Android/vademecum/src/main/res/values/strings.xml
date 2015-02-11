@@ -3,5 +3,9 @@
 
     <string name="app_name">Anmat Vademecum</string>
     <string name="title_detallemedicamento_detail">DetalleMedicamento Detail</string>
+    <string name="title_activity_main_menu">Menu</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_busqueda_medicamento">Busqueda de Medicamentos</string>
 
 </resources>
