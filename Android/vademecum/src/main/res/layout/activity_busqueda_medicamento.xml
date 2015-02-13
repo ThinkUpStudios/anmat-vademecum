@@ -1,57 +1,58 @@
 <LinearLayout
-    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
 
     android:layout_height="fill_parent"
     android:layout_marginTop="20dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:columnCount="2"
     android:gravity="left|right"
+    android:orientation="vertical"
     android:padding="10dp"
-    android:textAlignment="textStart"
+    android:paddingBottom="10dp"
     android:paddingLeft="5dp"
-    android:paddingTop="5dp"
     android:paddingRight="5dp"
-    android:paddingBottom="5dp"
-    android:rowOrderPreserved="true"
-    android:columnCount="2">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:hint="Nombre Genérico"
-        android:layout_margin="10dp"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:hint="Nombre Comercial"
-        android:layout_margin="10dp"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:hint="Laboratorio"
-        android:layout_margin="10dp"
-        />
+    android:paddingTop="10dp"
+    android:rowOrderPreserved="true">
 
 
     <AutoCompleteTextView
+        android:id="@+id/txt_nombre_generico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Laboratorio"
-        android:id="@+id/autoCompleteTextView" />
+        android:layout_gravity="center_horizontal"
+        android:hint="Nombre Genérico"
+
+
+        android:layout_margin="10dp">
+
+        <requestFocus />
+
+        </AutoCompleteTextView>
+
+    <AutoCompleteTextView
+        android:id="@+id/txt_nombre_comercial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:hint="Nombre Comercial"
+>
+
+    </AutoCompleteTextView>
+    <Spinner
+        android:id="@+id/spin_laboratorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+
+        android:layout_margin="10dp" />
 
     <Button
+        android:id="@+id/btn_form_busqueda_buscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buscar"
-        android:id="@+id/btn_form_busqueda_buscar"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:text="Buscar" />
 
 </LinearLayout>
