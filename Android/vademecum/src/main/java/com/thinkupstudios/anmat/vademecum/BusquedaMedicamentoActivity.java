@@ -42,13 +42,15 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         ArrayAdapter adapterCom = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,comerciales);
         this.nombreComercial.setAdapter(adapterCom);
+        
 
         this.nombreGenerico = (AutoCompleteTextView) findViewById(R.id.txt_nombre_generico);
         String[] genericos = getResources().
-                getStringArray(R.array.comerciales_array);
+                getStringArray(R.array.genericos_array);
         ArrayAdapter adapterGen = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,genericos);
         this.nombreGenerico.setAdapter(adapterGen);
+
 
     }
 
