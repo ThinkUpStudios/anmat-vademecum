@@ -45,11 +45,18 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
         this.nombreGenerico = (AutoCompleteTextView) findViewById(R.id.txt_nombre_generico);
         String[] genericos = getResources().
+<<<<<<< HEAD
                 getStringArray(R.array.genericos_array);
         ArrayAdapter adapterGen = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,genericos);
         this.nombreGenerico.setAdapter(adapterGen);
         
+=======
+                getStringArray(R.array.comerciales_array);
+        ArrayAdapter adapterGen = new ArrayAdapter
+                (this,android.R.layout.simple_list_item_1,genericos);
+        this.nombreGenerico.setAdapter(adapterGen);
+>>>>>>> 8180b13d775abb80ee16d20ab60018adb9cad642
 
     }
 
