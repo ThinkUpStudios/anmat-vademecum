@@ -49,6 +49,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         ArrayAdapter adapterGen = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,genericos);
         this.nombreGenerico.setAdapter(adapterGen);
+        
 
     }
 
