@@ -149,5 +149,7 @@
     <string name="presentacion">Presentación:</string>
     <string name="precio">Precio de Venta al Público:</string>
     <string name="GTIN">GTIN:</string>
+    <string name="troquel">Troquel:</string>
+
 
 </resources>

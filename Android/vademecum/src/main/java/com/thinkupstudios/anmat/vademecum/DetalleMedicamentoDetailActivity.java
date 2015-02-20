@@ -45,8 +45,10 @@ public class DetalleMedicamentoDetailActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(DetalleMedicamentoDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(DetalleMedicamentoDetailFragment.ARG_ITEM_ID));
+
+            arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO,
+                    getIntent().getSerializableExtra(MedicamentoBO.MEDICAMENTOBO));
+
             DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
@@ -69,5 +71,22 @@ public class DetalleMedicamentoDetailActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private MedicamentoBO getMedicamentoDummy(){
+        MedicamentoBO m = new MedicamentoBO();
+        m.setCondicionExpendio("BAJO RECETA");
+        m.setCondicionTrazabilidad("1831/12 Anexo");
+        m.setForma("COMPRIMIDO RECUBIERTO");
+        m.setGtin("07795345012681");
+        m.setLaboratorio("LABORATORIO DOMINGUEZ S A");
+        m.setNombreComercial("NULITE");
+        m.setNombreGenerico("BROMURO DE PINAVERIO 100 MG");
+        m.setPaisIndustria("Argentina");
+        m.setNumeroCertificado("47191");
+        m.setPresentacion("BLISTER por 10 UNIDADES");
+        m.setPrecio("49,94");
+        m.setTroquel("515460");
+        return m;
     }
 }
