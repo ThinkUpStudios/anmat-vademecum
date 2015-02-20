@@ -25,7 +25,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Zlx-am-yMZ" kind="show" id="w2i-jl-DMj"/>
+                                    <segue destination="Zlx-am-yMZ" kind="show" id="2iX-lJ-I7h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,7 +71,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n1n-Nk-uX0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="n1n-Nk-uX0">
                                 <rect key="frame" x="195" y="180" width="389" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -85,34 +85,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vug-q1-MYi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="vug-q1-MYi">
                                 <rect key="frame" x="195" y="265" width="389" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zm-wt-aaA">
-                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
-                                <color key="backgroundColor" red="0.90786773990000003" green="0.90786773990000003" blue="0.90786773990000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="tsK-4D-1pJ"/>
-                                </constraints>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q8W-2d-CeV" firstAttribute="top" secondItem="jNk-Ie-f8K" secondAttribute="bottom" id="0VA-hL-9kO"/>
-                            <constraint firstItem="5Zm-wt-aaA" firstAttribute="trailing" secondItem="Q8W-2d-CeV" secondAttribute="trailing" id="22q-QR-txg"/>
                             <constraint firstAttribute="centerX" secondItem="Q8W-2d-CeV" secondAttribute="centerX" id="38R-HM-8sG"/>
-                            <constraint firstItem="37P-eD-FAp" firstAttribute="top" secondItem="5Zm-wt-aaA" secondAttribute="bottom" id="6kA-PE-S8g"/>
                             <constraint firstItem="Q8W-2d-CeV" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leading" id="CDq-Lj-26d"/>
-                            <constraint firstItem="5Zm-wt-aaA" firstAttribute="bottom" secondItem="37P-eD-FAp" secondAttribute="top" id="DlL-zr-kNN"/>
                             <constraint firstAttribute="trailing" secondItem="Q8W-2d-CeV" secondAttribute="trailing" id="GCp-b1-AcY"/>
                             <constraint firstItem="vug-q1-MYi" firstAttribute="leading" secondItem="eUF-S2-4Su" secondAttribute="trailing" constant="15" id="HZx-o7-fxK"/>
                             <constraint firstItem="n1n-Nk-uX0" firstAttribute="leading" secondItem="aw2-VO-qaA" secondAttribute="trailing" constant="15" id="NnN-zk-1G9"/>
                             <constraint firstItem="vug-q1-MYi" firstAttribute="top" secondItem="Q8W-2d-CeV" secondAttribute="bottom" constant="120" id="S60-Gt-EDs"/>
-                            <constraint firstItem="5Zm-wt-aaA" firstAttribute="leading" secondItem="Q8W-2d-CeV" secondAttribute="leading" id="Z99-F2-uAb"/>
                             <constraint firstAttribute="centerX" secondItem="vug-q1-MYi" secondAttribute="centerX" constant="-89.5" id="fEF-Di-QCN"/>
-                            <constraint firstItem="37P-eD-FAp" firstAttribute="top" secondItem="5Zm-wt-aaA" secondAttribute="bottom" id="ihr-Aq-hVR"/>
                             <constraint firstItem="eUF-S2-4Su" firstAttribute="top" secondItem="Q8W-2d-CeV" secondAttribute="bottom" constant="124" id="jlP-A1-jvG"/>
                             <constraint firstAttribute="centerX" secondItem="n1n-Nk-uX0" secondAttribute="centerX" constant="-89.5" id="klp-pi-JFe"/>
                             <constraint firstItem="eUF-S2-4Su" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leading" constant="10" id="obL-jl-aq9"/>
@@ -120,15 +108,8 @@
                             <constraint firstItem="n1n-Nk-uX0" firstAttribute="top" secondItem="Q8W-2d-CeV" secondAttribute="bottom" constant="35" id="xDP-1K-Tl0"/>
                             <constraint firstItem="aw2-VO-qaA" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leading" constant="10" id="zYc-44-1UM"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="6kA-PE-S8g"/>
-                                <exclude reference="ihr-Aq-hVR"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" id="0Nx-wV-V1q">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="eLR-uQ-sak"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="06I-xY-02e">
                             <connections>
                                 <segue destination="xEB-Ul-rPE" kind="show" id="iCV-j5-SzN"/>
@@ -138,7 +119,6 @@
                     <connections>
                         <outlet property="txtComercialName" destination="n1n-Nk-uX0" id="u93-lN-WR9"/>
                         <outlet property="txtLaboratory" destination="vug-q1-MYi" id="DaH-Ef-Xbh"/>
-                        <outlet property="vwGenericName" destination="Q8W-2d-CeV" id="pMz-z3-uLt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZJ-sb-Djx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="bZr-o7-wV1" detailTextLabel="HEX-6H-fR5" style="IBUITableViewCellStyleValue1" id="G0h-J9-JBB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MedicineCell" textLabel="bZr-o7-wV1" detailTextLabel="HEX-6H-fR5" style="IBUITableViewCellStyleValue1" id="G0h-J9-JBB">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G0h-J9-JBB" id="9lB-3B-Lm2">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -246,7 +226,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akv-W6-jvf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="akv-W6-jvf">
                                 <rect key="frame" x="195" y="27" width="389" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

@@ -16,4 +16,16 @@
 
 @implementation MainSearchSectionViewController
 
+-(void) viewDidLoad {
+    [super viewDidLoad];
+    
+    self.txtGenericName.delegate = self;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
 @end
