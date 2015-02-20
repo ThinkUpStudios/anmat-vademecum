@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
+		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
+		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
+		141BC4EE1A97682B00B78F0B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4ED1A97682B00B78F0B /* DetailViewController.m */; };
+		14E29FE21A975D83005292FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE11A975D83005292FE /* main.m */; };
+		14E29FE51A975D83005292FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE41A975D83005292FE /* AppDelegate.m */; };
+		14E29FEB1A975D83005292FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FE91A975D83005292FE /* Main.storyboard */; };
+		14E29FED1A975D83005292FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FEC1A975D83005292FE /* Images.xcassets */; };
+		14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FEE1A975D83005292FE /* LaunchScreen.xib */; };
+		14E29FFC1A975D83005292FE /* Anmat_VademecumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14E29FF61A975D83005292FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14E29FD41A975D83005292FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14E29FDB1A975D83005292FE;
+			remoteInfo = "Anmat Vademecum";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		141BC4E31A97652D00B78F0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		141BC4E41A97652D00B78F0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSearchSectionViewController.h; sourceTree = "<group>"; };
+		141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchSectionViewController.m; sourceTree = "<group>"; };
+		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
+		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		141BC4EC1A97682B00B78F0B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		141BC4ED1A97682B00B78F0B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		14E29FDC1A975D83005292FE /* Anmat Vademecum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anmat Vademecum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E29FE01A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14E29FE11A975D83005292FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14E29FE31A975D83005292FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		14E29FE41A975D83005292FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		14E29FEA1A975D83005292FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14E29FEC1A975D83005292FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		14E29FEF1A975D83005292FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anmat VademecumTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E29FFA1A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Anmat_VademecumTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14E29FD91A975D83005292FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E29FF21A975D83005292FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14E29FD31A975D83005292FE = {
+			isa = PBXGroup;
+			children = (
+				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
+				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
+				14E29FDD1A975D83005292FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14E29FDD1A975D83005292FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14E29FDC1A975D83005292FE /* Anmat Vademecum.app */,
+				14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
+			isa = PBXGroup;
+			children = (
+				14E29FE31A975D83005292FE /* AppDelegate.h */,
+				14E29FE41A975D83005292FE /* AppDelegate.m */,
+				14E29FE91A975D83005292FE /* Main.storyboard */,
+				14E29FEC1A975D83005292FE /* Images.xcassets */,
+				14E29FEE1A975D83005292FE /* LaunchScreen.xib */,
+				14E29FDF1A975D83005292FE /* Supporting Files */,
+				141BC4E31A97652D00B78F0B /* SearchViewController.h */,
+				141BC4E41A97652D00B78F0B /* SearchViewController.m */,
+				141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */,
+				141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */,
+				141BC4E91A97672900B78F0B /* SearchResultsViewController.h */,
+				141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */,
+				141BC4EC1A97682B00B78F0B /* DetailViewController.h */,
+				141BC4ED1A97682B00B78F0B /* DetailViewController.m */,
+			);
+			path = "Anmat Vademecum";
+			sourceTree = "<group>";
+		};
+		14E29FDF1A975D83005292FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14E29FE01A975D83005292FE /* Info.plist */,
+				14E29FE11A975D83005292FE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14E29FF81A975D83005292FE /* Anmat VademecumTests */ = {
+			isa = PBXGroup;
+			children = (
+				14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */,
+				14E29FF91A975D83005292FE /* Supporting Files */,
+			);
+			path = "Anmat VademecumTests";
+			sourceTree = "<group>";
+		};
+		14E29FF91A975D83005292FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14E29FFA1A975D83005292FE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14E29FDB1A975D83005292FE /* Anmat Vademecum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat Vademecum" */;
+			buildPhases = (
+				14E29FD81A975D83005292FE /* Sources */,
+				14E29FD91A975D83005292FE /* Frameworks */,
+				14E29FDA1A975D83005292FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Anmat Vademecum";
+			productName = "Anmat Vademecum";
+			productReference = 14E29FDC1A975D83005292FE /* Anmat Vademecum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14E29FF41A975D83005292FE /* Anmat VademecumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat VademecumTests" */;
+			buildPhases = (
+				14E29FF11A975D83005292FE /* Sources */,
+				14E29FF21A975D83005292FE /* Frameworks */,
+				14E29FF31A975D83005292FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14E29FF71A975D83005292FE /* PBXTargetDependency */,
+			);
+			name = "Anmat VademecumTests";
+			productName = "Anmat VademecumTests";
+			productReference = 14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14E29FD41A975D83005292FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Think Up Studios";
+				TargetAttributes = {
+					14E29FDB1A975D83005292FE = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = F9H7YU5MFP;
+					};
+					14E29FF41A975D83005292FE = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 14E29FDB1A975D83005292FE;
+					};
+				};
+			};
+			buildConfigurationList = 14E29FD71A975D83005292FE /* Build configuration list for PBXProject "Anmat Vademecum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14E29FD31A975D83005292FE;
+			productRefGroup = 14E29FDD1A975D83005292FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14E29FDB1A975D83005292FE /* Anmat Vademecum */,
+				14E29FF41A975D83005292FE /* Anmat VademecumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14E29FDA1A975D83005292FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
+				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
+				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E29FF31A975D83005292FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14E29FD81A975D83005292FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14E29FE51A975D83005292FE /* AppDelegate.m in Sources */,
+				141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */,
+				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
+				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
+				14E29FE21A975D83005292FE /* main.m in Sources */,
+				141BC4EE1A97682B00B78F0B /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E29FF11A975D83005292FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14E29FFC1A975D83005292FE /* Anmat_VademecumTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14E29FF71A975D83005292FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14E29FDB1A975D83005292FE /* Anmat Vademecum */;
+			targetProxy = 14E29FF61A975D83005292FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14E29FE91A975D83005292FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14E29FEA1A975D83005292FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14E29FEE1A975D83005292FE /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14E29FEF1A975D83005292FE /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14E29FFD1A975D83005292FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14E29FFE1A975D83005292FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14E2A0001A975D83005292FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		14E2A0011A975D83005292FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		14E2A0031A975D83005292FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anmat Vademecum.app/Anmat Vademecum";
+			};
+			name = Debug;
+		};
+		14E2A0041A975D83005292FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anmat Vademecum.app/Anmat Vademecum";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14E29FD71A975D83005292FE /* Build configuration list for PBXProject "Anmat Vademecum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14E29FFD1A975D83005292FE /* Debug */,
+				14E29FFE1A975D83005292FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat Vademecum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14E2A0001A975D83005292FE /* Debug */,
+				14E2A0011A975D83005292FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat VademecumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14E2A0031A975D83005292FE /* Debug */,
+				14E2A0041A975D83005292FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14E29FD41A975D83005292FE /* Project object */;
+}
