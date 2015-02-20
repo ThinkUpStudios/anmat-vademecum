@@ -1,0 +1,111 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_height="match_parent"
+android:layout_width="match_parent">
+
+    <TabHost android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TabWidget android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/tabs" />
+
+            <FrameLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@android:id/tabcontent" >
+
+                <LinearLayout android:id="@+id/tab1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <LinearLayout android:id="@+id/contenido"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView android:id="@+id/nroCertificadoPlano"
+                            android:text="@string/nroCertificado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"
+                            android:shadowDy="10"/>
+
+                        <TextView
+                            android:id="@+id/laboratorioPlano"
+                            android:text="@string/laboratorio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/nombre_generico_plano"
+                            android:text="@string/nombre_generico"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/nombre_comercial_plano"
+                            android:text="@string/nombre_comercial"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/pais_industria_plano"
+                            android:text="@string/pais_industria"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/forma_farmacéutica_plano"
+                            android:text="@string/forma_farmacéutica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/condicion_de_expendio_plano"
+                            android:text="@string/condicion_de_expendio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/condicion_de_trazabilidad_plano"
+                            android:text="@string/condicion_de_trazabilidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/presentacion_plano"
+                            android:text="@string/presentacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/precio_plano"
+                            android:text="@string/precio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/vertical_detalles"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/tab2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView android:id="@+id/textView2"
+                        android:text="Contenido Tab 2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </TabHost>
+</LinearLayout>

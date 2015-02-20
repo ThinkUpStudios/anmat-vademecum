@@ -17,4 +17,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
         android:text="Buscar Medicamento" />
+    <Button
+        android:id="@+id/btn_detale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalle Medicamento"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btn_busqueda"
+        android:layout_alignStart="@+id/btn_busqueda" />
+
+
 </RelativeLayout>

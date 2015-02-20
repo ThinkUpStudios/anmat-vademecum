@@ -16,6 +16,8 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         ((Button) findViewById(R.id.btn_busqueda)).setOnClickListener(this);
+        ((Button) findViewById(R.id.btn_detale)).setOnClickListener(this);
+
     }
 
 
@@ -41,6 +43,17 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         Button b = (Button) v;
-        startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+
+
+        switch (b.getId()) {
+            case R.id.btn_busqueda:
+                startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                break;
+            case R.id.btn_detale:
+                startActivity(new Intent(this, DetallesMedicamentoActivity.class));
+                break;
+
+        }
+
     }
 }

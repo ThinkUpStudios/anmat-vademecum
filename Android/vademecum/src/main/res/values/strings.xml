@@ -3,10 +3,12 @@
 
     <string name="app_name">Anmat Vademecum</string>
     <string name="title_detallemedicamento_detail">DetalleMedicamento Detail</string>
+    <string name="title_detalles_medicamento">Detalles Medicamento</string>
     <string name="title_activity_main_menu">Menu</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_busqueda_medicamento">Busqueda de Medicamentos</string>
+
     <string-array name="laboratorios_array">
         <item>ROEMMERS S A I C F</item>
         <item>INVESTI FARMA S A</item>
@@ -17,7 +19,6 @@
         <item>NOVA ARGENTIA S.A.</item>
         <item>ROVAFARM ARGENTINA S A</item>
     </string-array>
-
     <string-array name="comerciales_array">
         <item>PSICOASTEN 10 mg     </item>
         <item>SALAC                </item>
@@ -74,7 +75,6 @@
         <item>PURINETHOL           </item>
         <item>PRINOX               </item>
     </string-array>
-
     <string-array name="genericos_array">
         <item>PAROXETINA 10 M</item>
         <item>CLOBETASOL 17-P</item>
@@ -133,4 +133,21 @@
         <item>ALPRAZOLAM 1 MG</item>
         <item>ALPRAZOLAM 2 MG</item>
     </string-array>
+
+    <string name="title_activity_detalle_medicamento_swipe_view">Detalle Medicamento Swipe View</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="nroCertificado">Nro de Certificado:</string>
+    <string name="laboratorio">Laboratorio::</string>
+    <string name="nombre_generico">Nombre Genérico:</string>
+    <string name="nombre_comercial">Nombre Comercial:</string>
+    <string name="pais_industria">Pais Industria:</string>
+    <string name="forma_farmacéutica">Forma Farmacéutica:</string>
+    <string name="condicion_de_expendio">Condición de expendio::</string>
+    <string name="condicion_de_trazabilidad">Condición de trazabilidad:</string>
+    <string name="presentacion">Presentación:</string>
+    <string name="precio">Precio de Venta al Público:</string>
+    <string name="GTIN">GTIN:</string>
+
 </resources>

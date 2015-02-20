@@ -20,7 +20,7 @@ public class DetalleMedicamentoDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detallemedicamento_detail);
+        setContentView(R.layout.activity_detalle_medicamento);
 
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
