@@ -2,7 +2,9 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.widget.Toast;
 
 
 /**
@@ -29,6 +31,7 @@ public class DetalleMedicamentoListActivity extends Activity
      * device.
      */
     private boolean mTwoPane;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,4 +81,5 @@ public class DetalleMedicamentoListActivity extends Activity
             startActivity(detailIntent);
         }
     }
-}
+
+    }

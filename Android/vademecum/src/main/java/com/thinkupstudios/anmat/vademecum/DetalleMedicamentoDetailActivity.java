@@ -4,6 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
+
+import java.util.List;
+import java.util.Vector;
 
 
 /**

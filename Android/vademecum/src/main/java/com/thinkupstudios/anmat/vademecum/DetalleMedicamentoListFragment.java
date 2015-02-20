@@ -4,10 +4,18 @@ import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
 import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
+import com.thinkupstudios.anmat.vademecum.providers.MedicamentosProvider;
+
+import java.util.List;
+import java.util.Vector;
 
 /**
  * A list fragment representing a list of ResultadosMedicamentos. This fragment
@@ -18,7 +26,7 @@ import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class DetalleMedicamentoListFragment extends ListFragment {
+public class DetalleMedicamentoListFragment extends ListFragment  {
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -26,9 +34,15 @@ public class DetalleMedicamentoListFragment extends ListFragment {
      */
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
     /**
+     *
+     *
      * A dummy implementation of the {@link Callbacks} interface that does
      * nothing. Used only when this fragment is not attached to an activity.
      */
+    private ResultadoAdapter adapter;
+    private ListView listView;
+    private List<MedicamentoBO> resultados = new Vector<>();
+    private MedicamentosProvider provider = new MedicamentosProvider();
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(String id) {
@@ -54,13 +68,8 @@ public class DetalleMedicamentoListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setListAdapter(new ResultadoAdapter(getActivity(),this.provider.getMedicamentos(new FormularioBusqueda())));
 
-        // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
     }
 
     @Override
@@ -96,11 +105,8 @@ public class DetalleMedicamentoListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
-        super.onListItemClick(listView, view, position, id);
-
-        // Notify the active callbacks interface (the activity, if the
-        // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        super.onListItemClick(getListView(), view, position, id);
+mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).content);
     }
 
     @Override
@@ -133,6 +139,8 @@ public class DetalleMedicamentoListFragment extends ListFragment {
 
         mActivatedPosition = position;
     }
+
+
 
     /**
      * A callback interface that all activities containing this fragment must

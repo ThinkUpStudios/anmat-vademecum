@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:padding="5dp"
+    >
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Ibuprofeno"
+        android:id="@+id/txt_nombre_generico"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textIsSelectable="false" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actron - Gador"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/txt_nombre_generico"
+            android:id="@+id/txt_nombre_comercial" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1098192783871623981"
+            android:layout_below="@+id/txt_forma"
+            android:layout_alignLeft="@+id/txt_forma"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/txt_numero_certificado" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Grajeas"
+        android:layout_alignLeft="@+id/txt_nombre_comercial"
+        android:id="@+id/txt_forma"
+        android:layout_below="@+id/txt_nombre_comercial"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$145"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_toRightOf="@+id/txt_forma"
+        android:layout_alignBottom="@+id/txt_numero_certificado"
+        android:layout_alignTop="@+id/txt_forma"
+        android:layout_alignParentRight="true"
+        android:gravity="end"
+        android:id="@+id/txt_precio"
+        />
+
+
+</RelativeLayout>
