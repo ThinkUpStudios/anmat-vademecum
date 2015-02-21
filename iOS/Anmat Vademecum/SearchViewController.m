@@ -30,6 +30,10 @@ NSArray *laboratories;
     laboratories = @[@"Bagho", @"Boehringer", @"Roche", @"Bayer", @"Pfizer", @"Novartis", @"Panalab", @"Gador", @"Ivax", @"Eurolab"];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
     if ([textField isEqual:self.txtLaboratory]) {
         [textField resignFirstResponder];
