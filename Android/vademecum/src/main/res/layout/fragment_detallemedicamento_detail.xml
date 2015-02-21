@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
@@ -7,9 +7,13 @@
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -17,321 +21,312 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp" />
 
             <ScrollView
                 android:id="@+id/scrollDetalle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@android:id/tabs"
+                android:layout_marginLeft="0dp">
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
 
-                    <LinearLayout
+                    android:padding="@dimen/margen_entre_lineas_detalle">
+
+                    <RelativeLayout
                         android:id="@+id/detalle"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="fill_parent"
+
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_num_certificado"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/nroCertificado"
+                            android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nroCertificado"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/nroCertificadoValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/nroCertificado"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/nroCertificadoValor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lbl_num_certificado"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_num_certificado"
+                            android:shadowDy="10"
+                            android:text="@string/nroCertificado"
+                            android:textStyle="italic" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/laboratorio"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/laboratorioValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/laboratorio"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_laboratorio"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/nroCertificadoValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/laboratorio"
+                            android:textStyle="bold" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nombre_generico"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/nombre_generico_Valor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/nombre_generico"
-                                android:textStyle="italic" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/laboratorioValor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lbl_laboratorio"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_laboratorio"
+                            android:shadowDy="10"
+                            android:text="@string/laboratorio"
+                            android:textStyle="italic" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/nombre_comercial"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/nombre_comercialValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/nombre_generico"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_nombre_generico"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/laboratorioValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/nombre_generico"
+                            android:textStyle="bold" />/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/troquel"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/troquelValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/troquel"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/nombre_generico_Valor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lbl_nombre_generico"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@id/lbl_nombre_generico"
+                            android:shadowDy="10"
+                            android:text="@string/nombre_generico"
+                            android:textStyle="italic" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/pais_industria"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/pais_industriaValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/nombre_generico"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_nombre_comercial"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/nombre_generico_Valor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/nombre_comercial"
+                            android:textStyle="bold" />/>
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/forma_farmacéutica"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/forma_farmaceuticaValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/forma_farmacéutica"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/nombre_comercialValor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
 
-                            <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lbl_nombre_comercial"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_nombre_comercial"
+                            android:shadowDy="10"
+                            android:text="@string/nombre_generico"
+                            android:textStyle="italic" />
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/condicion_de_expendio"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/condicion_de_expendioValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/condicion_de_expendio"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_troquel"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/nombre_comercialValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/troquel"
+                            android:textStyle="bold" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/condicion_de_trazabilidad"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/condicion_de_trazabilidadValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/condicion_de_trazabilidad"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/troquelValor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/lbl_troquel"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@id/lbl_troquel"
 
-                            <TextView
+                            android:shadowDy="10"
+                            android:text="@string/troquel"
+                            android:textStyle="italic" />
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/presentacion"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/presentacionValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/presentacion"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/lbl_pais_industria"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/troquelValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/pais_industria"
+                            android:textStyle="bold" />
 
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/precio"
-                                android:textStyle="bold" />/>
-
-                            <TextView
-                                android:id="@+id/precioValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/precio"
-                                android:textStyle="italic" />
-                        </LinearLayout>
-
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/pais_industriaValor"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/vertical_detalles"
-                            android:layout_marginLeft="@dimen/abc_text_size_title_material"
-                            android:orientation="horizontal">
+                            android:layout_height="wrap_content"
 
-                            <TextView
+                            android:layout_alignTop="@+id/lbl_pais_industria"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_pais_industria"
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/GTIN"
-                                android:textStyle="bold" />/>
+                            android:shadowDy="10"
+                            android:text="@string/nombre_generico"
+                            android:textStyle="italic" />
 
-                            <TextView
-                                android:id="@+id/gtinValor"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/distancia_plano_valor"
-                                android:shadowDy="10"
-                                android:text="@string/GTIN"
-                                android:textStyle="italic" />
+                        <TextView
+                            android:id="@+id/lbl_forma"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/pais_industriaValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/forma_farmacéutica"
+                            android:textStyle="bold" />/>
 
-                            <Button
-                                android:id="@+id/btn_recomentados"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/recomendados"/>
-                        </LinearLayout>
-                    </LinearLayout>
+                        <TextView
+                            android:id="@+id/forma_farmaceuticaValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                    <LinearLayout
+                            android:layout_alignTop="@+id/lbl_forma"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_forma"
+                            android:shadowDy="10"
+                            android:text="@string/forma_farmacéutica"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/lbl_condicion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/forma_farmaceuticaValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/condicion_de_expendio"
+                            android:textStyle="bold" />/>
+
+                        <TextView
+                            android:id="@+id/condicion_de_expendioValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignTop="@+id/lbl_condicion"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@id/lbl_condicion"
+
+                            android:shadowDy="10"
+                            android:text="@string/condicion_de_expendio"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/lbl_condicion_trazabilidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/condicion_de_expendioValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/condicion_de_trazabilidad"
+                            android:textStyle="bold" />/>
+
+                        <TextView
+                            android:id="@+id/condicion_de_trazabilidadValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignTop="@+id/lbl_condicion_trazabilidad"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@id/lbl_condicion_trazabilidad"
+                            android:shadowDy="10"
+                            android:text="@string/condicion_de_trazabilidad"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/lbl_presentacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/condicion_de_trazabilidadValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/presentacion"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/presentacionValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignTop="@+id/lbl_presentacion"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_toRightOf="@+id/lbl_presentacion"
+                            android:shadowDy="10"
+                            android:text="@string/presentacion"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/lbl_precio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/presentacionValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/precio"
+                            android:textStyle="bold" />/>
+
+                        <TextView
+                            android:id="@+id/precioValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/lbl_precio"
+                            android:layout_alignTop="@+id/lbl_precio"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+
+                            android:layout_toRightOf="@id/lbl_precio"
+
+                            android:shadowDy="10"
+                            android:text="@string/precio"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/lbl_GTIN"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/precioValor"
+                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                            android:text="@string/GTIN"
+                            android:textStyle="bold" />/>
+
+                        <TextView
+                            android:id="@+id/gtinValor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignTop="@+id/lbl_GTIN"
+                            android:layout_marginLeft="@dimen/distancia_plano_valor"
+
+                            android:layout_toRightOf="@id/lbl_GTIN"
+                            android:shadowDy="10"
+                            android:text="@string/GTIN"
+                            android:textStyle="italic" />
+
+                        <Button
+
+                            android:id="@+id/btn_recomentados"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/gtinValor"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/recomendados" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:id="@+id/tab2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
 
-                    </LinearLayout>
+                    </RelativeLayout>
 
 
                 </FrameLayout>
             </ScrollView>
-        </LinearLayout>
+        </RelativeLayout>
 
     </TabHost>
-</LinearLayout>
+</RelativeLayout>

@@ -88,7 +88,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        this.formualario.setLaboratorio(((TextView)view).getText().toString());
+        //this.formualario.setLaboratorio(((TextView)view).getText().toString());
     }
 
     @Override
