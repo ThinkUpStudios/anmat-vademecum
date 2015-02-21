@@ -2,10 +2,13 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
@@ -77,12 +80,11 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Restore the previously serialized activated item position.
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
-    }
+     }
 
     @Override
     public void onAttach(Activity activity) {
