@@ -1,6 +1,7 @@
 package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -71,6 +73,16 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             public void onTabChanged(String tabId) {
                 Log.i("AndroidTabsDemo", "Pulsada pestaña: " + tabId);
+            }
+        });
+
+        Button recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
+        recomendados.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(DetalleMedicamentoDetailFragment.this.getActivity(),
+                        DetalleMedicamentoListActivity.class);
+                i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
+                startActivity(i);
             }
         });
 
