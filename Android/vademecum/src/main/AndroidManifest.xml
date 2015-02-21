@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thinkupstudios.anmat.vademecum">
+    package="com.thinkupstudios.anmat.vademecum" >
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
-            android:name="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity"
-            android:label="@string/app_name"></activity>
+            android:name=".DetalleMedicamentoListActivity"
+            android:label="@string/app_name" />
         <activity
-            android:name="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoDetailActivity"
+            android:name=".DetalleMedicamentoDetailActivity"
             android:label="@string/title_detallemedicamento_detail"
-            android:parentActivityName="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity">
+            android:parentActivityName=".DetalleMedicamentoListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity" />
         </activity>
         <activity
-            android:name="com.thinkupstudios.anmat.vademecum.MainMenuActivity"
-            android:label="@string/title_activity_main_menu">
+            android:name=".MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +28,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.thinkupstudios.anmat.vademecum.BusquedaMedicamentoActivity"
-            android:label="@string/title_activity_busqueda_medicamento"></activity>
+            android:name=".BusquedaMedicamentoActivity"
+            android:label="@string/title_activity_busqueda_medicamento"/>
+        <activity
+            android:name=".DetallesMedicamentoActivity"
+            android:label="@string/title_detalles_medicamento"/>
     </application>
 
 </manifest>

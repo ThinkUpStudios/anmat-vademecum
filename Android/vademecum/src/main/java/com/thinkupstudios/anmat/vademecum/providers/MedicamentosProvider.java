@@ -39,6 +39,21 @@ public class MedicamentosProvider {
         m.setNumeroCertificado("51205");
         m.setPrecio(" $  30.80 ");
         list.add(m);
+
+        m = new MedicamentoBO();
+        m.setCondicionExpendio("BAJO RECETA");
+        m.setCondicionTrazabilidad("1831/12 Anexo");
+        m.setForma("COMPRIMIDO RECUBIERTO");
+        m.setGtin("07795345012681");
+        m.setLaboratorio("LABORATORIO DOMINGUEZ S A");
+        m.setNombreComercial("NULITE");
+        m.setNombreGenerico("BROMURO DE PINAVERIO 100 MG");
+        m.setPaisIndustria("Argentina");
+        m.setNumeroCertificado("47191");
+        m.setPresentacion("BLISTER por 10 UNIDADES");
+        m.setPrecio("49,94");
+        m.setTroquel("515460");
+        list.add(m);
         return list;
 
 

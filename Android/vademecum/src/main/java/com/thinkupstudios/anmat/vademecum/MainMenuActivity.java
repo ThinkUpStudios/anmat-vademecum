@@ -41,6 +41,13 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         Button b = (Button) v;
-        startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+
+
+        switch (b.getId()) {
+            case R.id.btn_busqueda:
+                startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                break;
+         }
+
     }
 }

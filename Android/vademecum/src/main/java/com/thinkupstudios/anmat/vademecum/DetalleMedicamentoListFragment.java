@@ -45,7 +45,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private MedicamentosProvider provider = new MedicamentosProvider();
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(String id) {
+        public void onItemSelected(MedicamentoBO id) {
         }
     };
     /**
@@ -68,7 +68,8 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ResultadoAdapter(getActivity(),this.provider.getMedicamentos(new FormularioBusqueda())));
+        this.resultados = this.provider.getMedicamentos(new FormularioBusqueda());
+        setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
 
     }
 
@@ -106,7 +107,8 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(getListView(), view, position, id);
-mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).content);
+        MedicamentoBO bo = resultados.get(position);
+        mCallbacks.onItemSelected(bo);
     }
 
     @Override
@@ -151,6 +153,6 @@ mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).content);
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(String id);
+        public void onItemSelected(MedicamentoBO medicamento);
     }
 }

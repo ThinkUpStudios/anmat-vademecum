@@ -6,6 +6,8 @@ import android.media.Image;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+
 
 /**
  * An activity representing a list of ResultadosMedicamentos. This activity
@@ -60,13 +62,14 @@ public class DetalleMedicamentoListActivity extends Activity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(String id) {
+    public void onItemSelected(MedicamentoBO m) {
+
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(DetalleMedicamentoDetailFragment.ARG_ITEM_ID, id);
+            arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO, m);
             DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
@@ -77,7 +80,7 @@ public class DetalleMedicamentoListActivity extends Activity
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, DetalleMedicamentoDetailActivity.class);
-            detailIntent.putExtra(DetalleMedicamentoDetailFragment.ARG_ITEM_ID, id);
+            detailIntent.putExtra(MedicamentoBO.MEDICAMENTOBO, m);
             startActivity(detailIntent);
         }
     }

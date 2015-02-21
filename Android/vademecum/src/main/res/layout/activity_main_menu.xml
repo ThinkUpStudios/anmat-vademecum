@@ -17,4 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
         android:text="Buscar Medicamento" />
+
+
+
 </RelativeLayout>

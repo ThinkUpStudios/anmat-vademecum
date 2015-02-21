@@ -1,1 +1,1 @@
-include ':vademecum'
+include ':vademecum', ':pruebaswipe'
