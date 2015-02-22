@@ -15,7 +15,7 @@ public class MedicamentosProvider {
         List<MedicamentoBO> list = new Vector<>();
         MedicamentoBO m = new MedicamentoBO();
         m.setLaboratorio("LABORATORIOS BETA S.A.");
-        m.setNombreGenerico("PAROXETINA 10 MG");
+        m.setNombreGenerico("PAROXETINA 10 MG + ROSUVASTATINA 10 MG ");
         m.setForma("COMPRIMIDO RECUBIERTO");
         m.setNombreComercial("PSICOASTEN 10 mg");
         m.setNumeroCertificado("47191");
@@ -24,7 +24,7 @@ public class MedicamentosProvider {
 
         m = new MedicamentoBO();
         m.setLaboratorio("ROEMMERS S A I C F");
-        m.setNombreGenerico("ROSUVASTATINA 10 MG");
+        m.setNombreGenerico("PAROXETINA 10 MG + ROSUVASTATINA 10 MG");
         m.setForma("COMPRIMIDO RECUBIERTO");
         m.setNombreComercial("ROVARTAL 10");
         m.setNumeroCertificado("33439");
