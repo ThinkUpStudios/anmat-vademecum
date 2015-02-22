@@ -2,7 +2,9 @@ package com.thinkupstudios.anmat.vademecum.bo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,15 +65,28 @@ public class ResultadoAdapter extends BaseAdapter{
                         .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
                 convertView = mInflater.inflate(R.layout.list_item_layout, null);
             }
+            int color = 0;
+            if(position % 2 == 0){
+                convertView.findViewById(R.id.list_item_layout).setBackgroundResource(R.drawable.list_item_background);
+                color = convertView.getResources().getColor(R.color.anmat_azul);
 
+            }else{
+                convertView.findViewById(R.id.list_item_layout).setBackgroundResource(R.drawable.list_item_background2);
+                color = Color.WHITE;
+            }
             /****** View Holder Object to contain tabitem.xml file elements ******/
 
             holder = new ViewHolder();
             holder.nombreComercial = (TextView) convertView.findViewById(R.id.txt_nombre_comercial);
+            holder.nombreComercial.setTextColor(color);
             holder.nombreGenerico=(TextView)convertView.findViewById(R.id.txt_nombre_generico);
+            holder.nombreGenerico.setTextColor(color);
             holder.precio=(TextView)convertView.findViewById(R.id.txt_precio);
+            holder.precio.setTextColor(color);
             holder.forma=(TextView)convertView.findViewById(R.id.txt_forma);
+            holder.forma.setTextColor(color);
             holder.numeroCertificado=(TextView)convertView.findViewById(R.id.txt_numero_certificado);
+            holder.numeroCertificado.setTextColor(color);
 
             /************  Set holder with LayoutInflater ************/
             convertView.setTag( holder );

@@ -3,6 +3,8 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 
@@ -56,19 +58,20 @@ public class DetalleMedicamentoDetailActivity extends Activity {
                     .commit();
         }
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.mnu_buscar) {
-            navigateUpToFromChild(this,new Intent(this, BusquedaMedicamentoActivity.class));
+            startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
             return true;
         }
 
-        if (id == R.id.mnu_home) {
-            navigateUpToFromChild(this,new Intent(this, MainMenuActivity.class));
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 

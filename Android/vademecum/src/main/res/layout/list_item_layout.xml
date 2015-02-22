@@ -2,8 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    android:padding="5dp"
+    android:layout_marginTop="5dp"
+android:id="@+id/list_item_layout"
+    android:padding="16dp"
+    android:background="@drawable/list_item_background"
     >
 
 
@@ -11,14 +13,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Ibuprofeno"
+        android:textColor="#FFFFFF"
         android:id="@+id/txt_nombre_generico"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
         android:textIsSelectable="false" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:text="Actron - Gador"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_below="@+id/txt_nombre_generico"
@@ -28,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1098192783871623981"
+            android:textColor="#FFFFFF"
             android:layout_below="@+id/txt_forma"
             android:layout_alignLeft="@+id/txt_forma"
             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -37,6 +43,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Grajeas"
         android:layout_alignLeft="@+id/txt_nombre_comercial"
@@ -53,6 +60,8 @@
         android:layout_alignBottom="@+id/txt_numero_certificado"
         android:layout_alignTop="@+id/txt_forma"
         android:layout_alignParentRight="true"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         android:gravity="end"
         android:id="@+id/txt_precio"
         />
