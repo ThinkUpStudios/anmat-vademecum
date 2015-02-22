@@ -11,15 +11,15 @@
             android:name=".DetalleMedicamentoListActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".DetalleMedicamentoDetailActivity"
+            android:name="DetalleMedicamentoDetailActivity"
             android:label="@string/title_detallemedicamento_detail"
-            android:parentActivityName=".DetalleMedicamentoListActivity" >
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity" />
         </activity>
         <activity
-            android:name=".MainMenuActivity"
+            android:name="MainMenuActivity"
             android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +28,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BusquedaMedicamentoActivity"
+            android:name="BusquedaMedicamentoActivity"
             android:label="@string/title_activity_busqueda_medicamento"/>
-        <activity
-            android:name=".DetallesMedicamentoActivity"
-            android:label="@string/title_detalles_medicamento"/>
     </application>
 
 </manifest>
