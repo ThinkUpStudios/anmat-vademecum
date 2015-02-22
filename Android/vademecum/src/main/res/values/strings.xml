@@ -2,11 +2,11 @@
 <resources>
 
     <string name="app_name">Anmat Vademecum</string>
-    <string name="title_detallemedicamento_detail">DetalleMedicamento Detail</string>
+    <string name="title_detallemedicamento_detail">Detalle</string>
     <string name="title_detalles_medicamento">Detalles Medicamento</string>
-    <string name="title_activity_main_menu">Menu</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_menu">Anmat Vademecum</string>
+    <string name="opciones">Opciones</string>
+    <string name="buscar_medicamento">Buscar Medicamento</string>
     <string name="title_activity_busqueda_medicamento">Busqueda de Medicamentos</string>
 
     <string-array name="laboratorios_array">

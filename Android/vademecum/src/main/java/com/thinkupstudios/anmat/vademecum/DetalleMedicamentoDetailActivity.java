@@ -60,17 +60,17 @@ public class DetalleMedicamentoDetailActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) {
-            // This ID represents the Home or Up button. In the case of this
-            // activity, the Up button is shown. For
-            // more details, see the Navigation pattern on Android Design:
-            //
-            // http://developer.android.com/design/patterns/navigation.html#up-vs-back
-            //
-            navigateUpTo(new Intent(this, DetalleMedicamentoListActivity.class));
+        if (id == R.id.mnu_buscar) {
+            navigateUpToFromChild(this,new Intent(this, BusquedaMedicamentoActivity.class));
+            return true;
+        }
+
+        if (id == R.id.mnu_home) {
+            navigateUpToFromChild(this,new Intent(this, MainMenuActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

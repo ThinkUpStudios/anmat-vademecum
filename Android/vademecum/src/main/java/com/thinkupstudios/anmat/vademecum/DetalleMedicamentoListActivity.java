@@ -40,7 +40,7 @@ public class DetalleMedicamentoListActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detallemedicamento_list);
         if(getIntent().getExtras() != null && getIntent().getStringExtra("COMERCIAL_RECOMENDADO")!= null){
-            this.setTitle("Medicamento Comercial: "+getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
+            this.setTitle("Comercial: "+getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
         }
         if (findViewById(R.id.detallemedicamento_detail_container) != null) {
             // The detail container view will be present only in the
