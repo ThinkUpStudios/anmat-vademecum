@@ -2,7 +2,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    >
 
     <TabHost
         android:id="@android:id/tabhost"
@@ -315,12 +316,52 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/tab2"
+                        android:id="@+id/formula"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
 
+                        <TableLayout
+                            android:id="@+id/tableFormula"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+
+                            <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                                android:padding="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="IFA"
+                                    android:textStyle="bold"
+                                    android:textAppearance="?android:textAppearanceMedium"
+                                    android:id="@+id/ifa"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cant."
+                                    android:textStyle="bold"
+                                    android:textAppearance="?android:textAppearanceMedium"
+                                    android:id="@+id/cant"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Unidad"
+                                    android:textStyle="bold"
+                                    android:textAppearance="?android:textAppearanceMedium"
+                                    android:id="@+id/unidadDeMedida"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+
+                            </TableRow>
+                        </TableLayout>
                     </RelativeLayout>
 
 

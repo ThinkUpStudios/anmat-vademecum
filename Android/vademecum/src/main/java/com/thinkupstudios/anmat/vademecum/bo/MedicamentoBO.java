@@ -1,6 +1,8 @@
 package com.thinkupstudios.anmat.vademecum.bo;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by FaQ on 19/02/2015.
@@ -118,5 +120,33 @@ public class MedicamentoBO implements Serializable {
 
     public void setTroquel(String troquel) {
         this.troquel = troquel;
+    }
+
+    public List<FormulaMedicamento> getFormula() {
+        List<FormulaMedicamento> formulaLista = new Vector<>();
+        String genericoTemporal = this.getNombreGenerico();
+        String formulaTemporal = "";
+        genericoTemporal += "+";
+        while(genericoTemporal.contains("+")){
+
+            formulaTemporal = genericoTemporal.substring(0,genericoTemporal.indexOf("+"));
+            FormulaMedicamento formulaMedicamento = this.parsearFormula(formulaTemporal.trim());
+            formulaLista.add(formulaMedicamento);
+            genericoTemporal = genericoTemporal.substring(genericoTemporal.indexOf("+")+1);
+        }
+        return formulaLista;
+    }
+
+    private FormulaMedicamento parsearFormula(String formulaTemporal) {
+        FormulaMedicamento formulaMedicamento = new FormulaMedicamento();
+
+        formulaMedicamento.setIfa(formulaTemporal.substring(0,formulaTemporal.indexOf(" ")));
+
+        formulaTemporal = formulaTemporal.substring(formulaTemporal.indexOf(" ")+1);
+
+        formulaMedicamento.setCantidad("22");
+        formulaMedicamento.setUnidad("ML");
+
+        return formulaMedicamento;
     }
 }

@@ -1,5 +1,6 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -11,10 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
+
+import java.util.List;
 
 /**
  * A fragment representing a single DetalleMedicamento detail screen.
@@ -53,7 +59,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detallemedicamento_detail, container, false);
 
-        this.setValores(rootView, this.medicamento);
+        this.setValores(rootView, this.medicamento, container);
 
         TabHost tabs=(TabHost)rootView.findViewById(android.R.id.tabhost);
         tabs.setup();
@@ -64,7 +70,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
         tabs.addTab(spec);
 
         spec=tabs.newTabSpec("mitab2");
-        spec.setContent(R.id.tab2);
+        spec.setContent(R.id.formula);
         spec.setIndicator("Formula");
         tabs.addTab(spec);
 
@@ -75,6 +81,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
                 Log.i("AndroidTabsDemo", "Pulsada pestaña: " + tabId);
             }
         });
+
 
         Button recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
         recomendados.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +97,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
     }
 
 
-    public void setValores(View rootView, MedicamentoBO m){
+    public void setValores(View rootView, MedicamentoBO m, ViewGroup container){
 
 
         ((TextView)rootView.findViewById(R.id.condicion_de_expendioValor)).setText(m.getCondicionExpendio());
@@ -105,6 +112,26 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
         ((TextView)rootView.findViewById(R.id.presentacionValor)).setText(m.getPresentacion());
         ((TextView)rootView.findViewById(R.id.precioValor)).setText(m.getPrecio());
         ((TextView)rootView.findViewById(R.id.troquelValor)).setText(m.getTroquel());
+        this.cargarSolapaFormula(m.getFormula(), container, rootView);
+    }
+
+    private void cargarSolapaFormula(List<FormulaMedicamento> formulaLista, ViewGroup container, View rootView) {
+        LayoutInflater mInflater = (LayoutInflater) this.getActivity()
+                .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+
+        TableLayout tablaFormula = (TableLayout) rootView.findViewById(R.id.tableFormula);
+
+        View formulaRow = mInflater.inflate(R.layout.formula, container, false);
+
+        for(FormulaMedicamento formula : formulaLista){
+            formulaRow = mInflater.inflate(R.layout.formula, container, false);
+            ((TextView) formulaRow.findViewById(R.id.ifa)).setText(formula.getIfa());
+            ((TextView) formulaRow.findViewById(R.id.cant)).setText(formula.getCantidad());
+            ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setText(formula.getUnidad());
+            tablaFormula.addView(formulaRow);
+        }
+
 
     }
+
 }
