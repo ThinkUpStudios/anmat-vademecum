@@ -17,9 +17,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
+import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
 
+import java.text.Normalizer;
 import java.util.List;
 
 /**
@@ -89,7 +91,12 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
                 Intent i = new Intent(DetalleMedicamentoDetailFragment.this.getActivity(),
                         DetalleMedicamentoListActivity.class);
                 i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
+                FormularioBusqueda f = new FormularioBusqueda();
+                f.setNombreGenerico(medicamento.getNombreGenerico());
+                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,f);
                 startActivity(i);
+                DetalleMedicamentoDetailFragment.this.getActivity()
+                        .overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
             }
         });
 

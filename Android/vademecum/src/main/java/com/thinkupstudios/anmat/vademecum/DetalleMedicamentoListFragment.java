@@ -71,8 +71,13 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.resultados = this.provider.getMedicamentos(new FormularioBusqueda());
+        this.resultados = this.provider
+                .getMedicamentos((FormularioBusqueda)
+                        this.getActivity().getIntent().getExtras()
+                                .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
+                );
         setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
+        ;
 
     }
 
