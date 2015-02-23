@@ -9,6 +9,7 @@
         android:theme="@style/CustomActionBarTheme" >
         <activity
             android:name="DetalleMedicamentoListActivity"
+            android:parentActivityName="MainMenuActivity"
             android:label="@string/app_name" />
         <activity
             android:name="DetalleMedicamentoDetailActivity"
@@ -16,7 +17,7 @@
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity" />
+                android:value="com.thinkupstudios.anmat.vademecum.MainMenuActivity" />
         </activity>
         <activity
             android:name="MainMenuActivity"
@@ -29,6 +30,7 @@
         </activity>
         <activity
             android:name="BusquedaMedicamentoActivity"
+            android:parentActivityName="MainMenuActivity"
             android:label="@string/title_activity_busqueda_medicamento"/>
     </application>
 

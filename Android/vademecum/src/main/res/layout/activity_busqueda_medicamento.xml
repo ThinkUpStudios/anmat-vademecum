@@ -2,16 +2,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
 
-    android:layout_height="fill_parent"
-    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content"
     android:columnCount="2"
-    android:gravity="left|right"
     android:orientation="vertical"
+    android:layout_marginTop="20dp"
     android:padding="10dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingTop="10dp"
     android:rowOrderPreserved="true">
 
 
@@ -21,11 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:hint="Nombre Genérico"
-
-
-
+        android:nextFocusForward="@+id/txt_nombre_comercial"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         android:layout_margin="10dp">
-
         <requestFocus />
 
         </AutoCompleteTextView>
@@ -34,8 +28,11 @@
         android:id="@+id/txt_nombre_comercial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:nextFocusForward="@+id/spin_laboratorio"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:imeOptions="actionDone"
         android:hint="Nombre Comercial"
 >
 
@@ -46,16 +43,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
 
-
         android:layout_margin="10dp" />
 
     <Button
         android:id="@+id/btn_form_busqueda_buscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
 
+        android:layout_gravity="center"
         android:textColor="@color/anmat_azul"
         android:paddingLeft="20dp"
         android:paddingRight="76dp"

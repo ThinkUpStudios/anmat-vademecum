@@ -3,10 +3,13 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -23,13 +26,17 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     private Spinner laboratorio;
     private AutoCompleteTextView nombreComercial;
     private AutoCompleteTextView nombreGenerico;
+    private Button buscarBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda_medicamento);
 
-        ((Button) findViewById(R.id.btn_form_busqueda_buscar)).setOnClickListener(this);
+        buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
+        buscarBtn.setOnClickListener(this);
+        buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
         this.laboratorio = (Spinner)findViewById(R.id.spin_laboratorio);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.laboratorios_array));
@@ -43,7 +50,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         ArrayAdapter adapterCom = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,comerciales);
         this.nombreComercial.setAdapter(adapterCom);
-        
+
 
         this.nombreGenerico = (AutoCompleteTextView) findViewById(R.id.txt_nombre_generico);
         String[] genericos = getResources().
@@ -51,6 +58,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         ArrayAdapter adapterGen = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,genericos);
         this.nombreGenerico.setAdapter(adapterGen);
+
 
 
     }
@@ -68,11 +76,12 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     public void onClick(View v) {
         Button b = (Button) v;
         Intent i = new Intent(this, DetalleMedicamentoListActivity.class);
-//        formualario.setLaboratorio(this.laboratorio.getSelectedItem().toString());
-//        formualario.setNombreComercial(this.nombreComercial.getText().toString());
-//        formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
-//        i.getExtras().putSerializable("formulario",this.formualario);
+        this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
+        this.formualario.setNombreComercial(this.nombreComercial.getText().toString());
+        this.formualario.setLaboratorio(this.laboratorio.getSelectedItem().toString());
+        i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
         startActivity(i);
+        overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
 
     }
 
@@ -88,11 +97,26 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.mnu_buscar) {
-            startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
-            return true;
+        switch (id) {
+            case R.id.mnu_buscar:
+                startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    class MyEditorActionListener implements TextView.OnEditorActionListener{
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                buscarBtn.performClick();
+                return true;
+            }
+            return false;
+        }
     }
 }

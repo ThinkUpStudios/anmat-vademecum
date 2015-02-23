@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 
 
@@ -46,20 +48,19 @@ public class DetalleMedicamentoListActivity extends Activity
             this.setTitle("Comercial: "+getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
         }
         if (findViewById(R.id.detallemedicamento_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-large and
-            // res/values-sw600dp). If this view is present, then the
-            // activity should be in two-pane mode.
             mTwoPane = true;
+            DetalleMedicamentoListFragment fragment =
+                    ((DetalleMedicamentoListFragment) getFragmentManager()
+                            .findFragmentById(R.id.detallemedicamento_list));
 
-            // In two-pane mode, list items should be given the
-            // 'activated' state when touched.
-            ((DetalleMedicamentoListFragment) getFragmentManager()
-                    .findFragmentById(R.id.detallemedicamento_list))
-                    .setActivateOnItemClick(true);
+                    fragment.setActivateOnItemClick(true);
+            Bundle arguments = new Bundle();
+
+            arguments.putSerializable(FormularioBusqueda.FORMULARIO_MANUAL,
+                    this.getIntent().getExtras().getSerializable(FormularioBusqueda.FORMULARIO_MANUAL));
+            fragment.setArguments(arguments);
+
         }
-
-        // TODO: If exposing deep links into your app, handle intents here.
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,16 +93,21 @@ public class DetalleMedicamentoListActivity extends Activity
             Intent detailIntent = new Intent(this, DetalleMedicamentoDetailActivity.class);
             detailIntent.putExtra(MedicamentoBO.MEDICAMENTOBO, m);
             startActivity(detailIntent);
+            overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
         }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.mnu_buscar) {
-            startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
-            return true;
+        switch (id) {
+            case R.id.mnu_buscar:
+                startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
-    }
+ }
