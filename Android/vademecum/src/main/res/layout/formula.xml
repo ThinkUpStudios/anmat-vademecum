@@ -3,7 +3,7 @@
     android:layout_width="fill_parent" android:layout_height="wrap_content"
     android:id="@+id/rowFormula"
     android:padding="5dp"
-
+    android:background="#CCCCCC"
     >
 
     <TextView
@@ -12,6 +12,7 @@
         android:text="New Text"
         android:id="@+id/ifa"
         android:layout_weight="1"
+
         android:gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
@@ -19,6 +20,7 @@
         android:text="New Text"
         android:id="@+id/cant"
         android:layout_weight="1"
+
         android:gravity="center"/>
     <TextView
         android:layout_width="wrap_content"
@@ -26,6 +28,7 @@
         android:text="New Text"
         android:id="@+id/unidadDeMedida"
         android:layout_weight="1"
+
         android:gravity="center"/>
 
 </TableRow>
