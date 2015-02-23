@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
@@ -58,7 +61,12 @@ public class DetalleMedicamentoListActivity extends Activity
 
         // TODO: If exposing deep links into your app, handle intents here.
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
     /**
      * Callback method from {@link DetalleMedicamentoListFragment.Callbacks}
      * indicating that the item with the given ID was selected.
@@ -86,5 +94,14 @@ public class DetalleMedicamentoListActivity extends Activity
             startActivity(detailIntent);
         }
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.mnu_buscar) {
+            startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+            return true;
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
     }

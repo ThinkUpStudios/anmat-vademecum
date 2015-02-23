@@ -9,6 +9,7 @@
     tools:context="com.thinkupstudios.anmat.vademecum.MainMenuActivity">
 
 
+
     <Button
         android:id="@+id/btn_busqueda"
         android:layout_width="wrap_content"
@@ -16,7 +17,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="81dp"
+        android:textColor="#1B5687"
+        android:paddingLeft="20dp"
+        android:paddingRight="76dp"
+    android:background="@drawable/button_txt_search"
         android:text="Buscar Medicamento" />
+
 
 
 

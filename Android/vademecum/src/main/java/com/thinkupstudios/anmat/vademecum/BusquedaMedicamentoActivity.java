@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -57,9 +58,9 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.busqueda_medicamento, menu);
-        return true;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 
@@ -87,10 +88,11 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-/*        if (id == R.id.mnu_home) {
-            navigateUpToFromChild(this,new Intent(this, MainMenuActivity.class));
+        if (id == R.id.mnu_buscar) {
+            startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
             return true;
-        }*/
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

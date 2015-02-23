@@ -48,6 +48,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
 
+
+
                         android:orientation="vertical">
 
                         <TextView
@@ -311,6 +313,11 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_below="@+id/gtinValor"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/anmat_azul"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="76dp"
+                            android:background="@drawable/button_txt_related"
                             android:layout_marginTop="20dp"
                             android:text="@string/recomendados" />
                     </RelativeLayout>
@@ -319,6 +326,7 @@
                         android:id="@+id/formula"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+
                         android:orientation="vertical">
 
 
@@ -330,16 +338,20 @@
                             <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
                                 android:layout_width="fill_parent" android:layout_height="wrap_content"
                                 android:padding="5dp"
+                                android:background="@color/anmat_azul"
                                 >
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="IFA"
-                                    android:textStyle="bold"
+
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/ifa"
                                     android:layout_weight="1"
+                                    android:textColor="@android:color/white"
+
+                                    android:textStyle="bold"
                                     android:gravity="center"/>
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -349,11 +361,14 @@
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/cant"
                                     android:layout_weight="1"
+                                    android:textColor="@android:color/white"
+
                                     android:gravity="center"/>
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Unidad"
+                                    android:textColor="@android:color/white"
                                     android:textStyle="bold"
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/unidadDeMedida"

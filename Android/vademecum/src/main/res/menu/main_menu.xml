@@ -6,6 +6,7 @@
     <item
         android:id="@+id/mnu_buscar"
         android:orderInCategory="101"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         android:title="@string/buscar_medicamento"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
