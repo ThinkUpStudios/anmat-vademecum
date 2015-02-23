@@ -10,6 +10,7 @@
     <string name="title_activity_busqueda_medicamento">Busqueda de Medicamentos</string>
 
     <string-array name="laboratorios_array">
+        <item>TODOS LOS LABORATORIOS</item>
         <item>ROEMMERS S A I C F</item>
         <item>INVESTI FARMA S A</item>
         <item>ATLAS FARMACEUTICA S A</item>

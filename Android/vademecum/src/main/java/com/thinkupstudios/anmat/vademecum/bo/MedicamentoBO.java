@@ -11,18 +11,18 @@ import java.util.Vector;
 public class MedicamentoBO implements Serializable {
 
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
-    private String nombreComercial;
-    private String nombreGenerico;
-    private String numeroCertificado;
-    private String precio;
-    private String laboratorio;
-    private String forma;
-    private String paisIndustria;
-    private String condicionExpendio;
-    private String condicionTrazabilidad;
-    private String presentacion;
-    private String gtin;
-    private String troquel;
+    private String nombreComercial = " ";
+    private String nombreGenerico= " ";
+    private String numeroCertificado= " ";
+    private String precio= " ";
+    private String laboratorio= " ";
+    private String forma= " ";
+    private String paisIndustria= " ";
+    private String condicionExpendio= " ";
+    private String condicionTrazabilidad= " ";
+    private String presentacion= " ";
+    private String gtin= " ";
+    private String troquel= " ";
 
 
 
