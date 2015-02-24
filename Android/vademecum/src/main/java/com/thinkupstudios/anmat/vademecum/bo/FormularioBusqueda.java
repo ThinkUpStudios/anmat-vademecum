@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by FaQ on 12/02/2015.
  */
 public class FormularioBusqueda implements Serializable {
+    public static String FORMULARIO_MANUAL = "Formulario_Busqueda";
     private String laboratorio;
     private String nombreGenerico;
     private String nombreComercial;
