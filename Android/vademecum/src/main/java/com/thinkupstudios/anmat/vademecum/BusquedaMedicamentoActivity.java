@@ -18,6 +18,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.providers.LaboratoriosProvider;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 
 public class BusquedaMedicamentoActivity extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -27,19 +29,21 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     private AutoCompleteTextView nombreComercial;
     private AutoCompleteTextView nombreGenerico;
     private Button buscarBtn;
+    private LaboratoriosProvider laboratoriosProvider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda_medicamento);
-
+        laboratoriosProvider = new LaboratoriosProvider(new DatabaseHelper(this));
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
         buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         this.laboratorio = (Spinner)findViewById(R.id.spin_laboratorio);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.laboratorios_array));
+                android.R.layout.simple_spinner_item, laboratoriosProvider.getAll());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         laboratorio.setAdapter(dataAdapter);
         laboratorio.setOnItemSelectedListener(this);
