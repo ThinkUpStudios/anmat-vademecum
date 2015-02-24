@@ -16,6 +16,7 @@ import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
 import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
 import com.thinkupstudios.anmat.vademecum.providers.MedicamentosProvider;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import java.util.List;
 import java.util.Vector;
@@ -45,7 +46,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private ResultadoAdapter adapter;
     private ListView listView;
     private List<MedicamentoBO> resultados = new Vector<>();
-    private MedicamentosProvider provider = new MedicamentosProvider();
+    private MedicamentosProvider provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(MedicamentoBO id) {
@@ -73,8 +74,8 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
         super.onCreate(savedInstanceState);
         this.resultados = this.provider
                 .getMedicamentos((FormularioBusqueda)
-                        this.getActivity().getIntent().getExtras()
-                                .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
+                                this.getActivity().getIntent().getExtras()
+                                        .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
                 );
         setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
         ;

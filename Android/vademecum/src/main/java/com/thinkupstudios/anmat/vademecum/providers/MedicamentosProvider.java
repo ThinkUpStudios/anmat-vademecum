@@ -2,7 +2,9 @@ package com.thinkupstudios.anmat.vademecum.providers;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
 
@@ -10,7 +12,15 @@ import java.util.Vector;
  * Created by FaQ on 19/02/2015.
  */
 public class MedicamentosProvider {
-
+    private DatabaseHelper db;
+public MedicamentosProvider(DatabaseHelper helper){
+    this.db = helper;
+    try {
+        db.createDataBase();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
     public List<MedicamentoBO> getMedicamentos(FormularioBusqueda form){
         List<MedicamentoBO> list = new Vector<>();
         MedicamentoBO m = new MedicamentoBO();
