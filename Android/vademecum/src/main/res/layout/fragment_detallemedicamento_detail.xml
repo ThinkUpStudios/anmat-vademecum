@@ -17,7 +17,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TabWidget
                 android:id="@android:id/tabs"
@@ -47,7 +48,7 @@
                         android:id="@+id/detalle"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-
+                        android:layout_weight="1"
 
 
                         android:orientation="vertical">
@@ -149,7 +150,6 @@
                             android:layout_alignTop="@+id/lbl_troquel"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_troquel"
-
                             android:shadowDy="10"
                             android:text="@string/troquel"
                             android:textStyle="italic" />
@@ -326,7 +326,7 @@
                         android:id="@+id/formula"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
 

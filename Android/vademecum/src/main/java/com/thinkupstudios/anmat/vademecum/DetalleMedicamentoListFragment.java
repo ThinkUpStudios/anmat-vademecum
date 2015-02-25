@@ -46,7 +46,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private ResultadoAdapter adapter;
     private ListView listView;
     private List<MedicamentoBO> resultados = new Vector<>();
-    private MedicamentosProvider provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
+    private MedicamentosProvider provider;
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(MedicamentoBO id) {
@@ -72,8 +72,9 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
         this.resultados = this.provider
-                .getMedicamentos((FormularioBusqueda)
+                .findMedicamentos((FormularioBusqueda)
                                 this.getActivity().getIntent().getExtras()
                                         .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
                 );
