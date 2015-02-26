@@ -8,10 +8,11 @@
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginTop="0dp">
 
         <RelativeLayout
@@ -41,7 +42,7 @@
                     android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:layout_marginBottom="36dp"
                     android:padding="@dimen/margen_entre_lineas_detalle">
 
                     <RelativeLayout
@@ -364,6 +365,7 @@
 
                 </FrameLayout>
             </ScrollView>
+
         </RelativeLayout>
 
     </TabHost>
@@ -374,7 +376,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-       android:textColor="@color/anmat_azul"
+        android:textColor="@color/anmat_azul"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_txt_related"
 

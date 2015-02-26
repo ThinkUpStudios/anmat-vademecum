@@ -25,8 +25,16 @@
     <string name="precio">Precio de Venta al Público:</string>
     <string name="GTIN">GTIN:</string>
     <string name="troquel">Troquel:</string>
-
+    <string name="sin_campo_busqueda">Ingrese un campo de busqueda</string>
     <string name="recomendados">Recomendados</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_splash_screen">Splash</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 
 

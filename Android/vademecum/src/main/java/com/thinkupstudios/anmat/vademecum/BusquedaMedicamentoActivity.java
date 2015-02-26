@@ -15,8 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import com.thinkupstudios.anmat.vademecum.providers.tables.ComercialesTable;
 import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
 import com.thinkupstudios.anmat.vademecum.providers.tables.GenericoTable;
@@ -47,6 +49,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         comercialesProvider = new GenericProvider(new DatabaseHelper(this));
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
+        buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
         buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         this.laboratorio = (AutoCompleteTextView) findViewById(R.id.txt_laboratorio);
@@ -83,14 +86,20 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+
         Button b = (Button) v;
         Intent i = new Intent(this, DetalleMedicamentoListActivity.class);
         this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
         this.formualario.setNombreComercial(this.nombreComercial.getText().toString());
         this.formualario.setLaboratorio(this.laboratorio.getText().toString());
-        i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
-        startActivity(i);
-        overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+        if(this.formualario.isEmprty()){
+            Toast.makeText(this, R.string.sin_campo_busqueda,Toast.LENGTH_LONG).show();
+        }else{
+            i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
+            startActivity(i);
+            overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+
+        }
 
     }
 

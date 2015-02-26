@@ -6,4 +6,5 @@
     <dimen name="vertical_detalles">100dp</dimen>
     <dimen name="distancia_plano_valor">40dp</dimen>
     <dimen name="margen_entre_lineas_detalle">40dp</dimen>
+    <dimen name="espacio_hasta_recomendados">80dp</dimen>
 </resources>
