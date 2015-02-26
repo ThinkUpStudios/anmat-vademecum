@@ -5,7 +5,7 @@
     android:layout_marginTop="5dp"
 android:id="@+id/list_item_layout"
     android:padding="16dp"
-    android:background="@drawable/list_item_background"
+    android:background="@color/anmat_azul"
     >
 
 
@@ -14,6 +14,8 @@ android:id="@+id/list_item_layout"
         android:layout_height="wrap_content"
         android:text="Ibuprofeno"
         android:textColor="#FFFFFF"
+        android:lines="2"
+        android:maxLines="2"
         android:id="@+id/txt_nombre_generico"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"

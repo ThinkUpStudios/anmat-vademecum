@@ -113,6 +113,7 @@ public class ResultadoAdapter extends BaseAdapter{
 
 
         }
+        convertView.setSelected(true);
         return convertView;
     }
     /********* Create a holder Class to contain inflated xml file elements *********/

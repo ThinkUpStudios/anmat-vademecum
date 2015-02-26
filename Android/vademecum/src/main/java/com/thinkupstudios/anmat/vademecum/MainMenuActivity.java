@@ -9,14 +9,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
+
 
 public class MainMenuActivity extends Activity implements View.OnClickListener {
-
+private Button btnBuscar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        ((Button) findViewById(R.id.btn_busqueda)).setOnClickListener(this);
+        this.btnBuscar =(Button) findViewById(R.id.btn_busqueda);
+        this.btnBuscar.setOnTouchListener(new DarkenerButtonTouchListener());
+        this.btnBuscar.setOnClickListener(this);
+
     }
 
 

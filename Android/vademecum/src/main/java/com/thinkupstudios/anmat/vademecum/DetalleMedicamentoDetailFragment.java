@@ -20,6 +20,7 @@ import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 import java.text.Normalizer;
 import java.util.List;
@@ -38,6 +39,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     private MedicamentoBO medicamento;
+    private Button recomendados;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -85,7 +87,8 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
         });
 
 
-        Button recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
+        this.recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
+        recomendados.setOnTouchListener(new DarkenerButtonTouchListener());
         recomendados.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(DetalleMedicamentoDetailFragment.this.getActivity(),

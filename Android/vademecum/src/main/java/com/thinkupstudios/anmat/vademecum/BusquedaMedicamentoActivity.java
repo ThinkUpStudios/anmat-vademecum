@@ -14,61 +14,59 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
-import com.thinkupstudios.anmat.vademecum.providers.tables.ComercialesTable;
-import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
-import com.thinkupstudios.anmat.vademecum.providers.tables.GenericoTable;
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
+import com.thinkupstudios.anmat.vademecum.providers.LaboratoriosProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
-import com.thinkupstudios.anmat.vademecum.providers.tables.LaboratorioTable;
-
-import java.util.List;
 
 
 public class BusquedaMedicamentoActivity extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private FormularioBusqueda formualario = new FormularioBusqueda();
-    private AutoCompleteTextView laboratorio;
+    private Spinner laboratorio;
     private AutoCompleteTextView nombreComercial;
     private AutoCompleteTextView nombreGenerico;
     private Button buscarBtn;
-    private GenericProvider laboratoriosProvider;
-    private GenericProvider genericosProvider;
-    private GenericProvider comercialesProvider;
+    private LaboratoriosProvider laboratoriosProvider;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda_medicamento);
-        laboratoriosProvider = new GenericProvider(new DatabaseHelper(this));
-        genericosProvider = new GenericProvider(new DatabaseHelper(this));
-        comercialesProvider = new GenericProvider(new DatabaseHelper(this));
+        laboratoriosProvider = new LaboratoriosProvider(new DatabaseHelper(this));
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
         buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
 
-        this.laboratorio = (AutoCompleteTextView) findViewById(R.id.txt_laboratorio);
+        this.laboratorio = (Spinner)findViewById(R.id.spin_laboratorio);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, laboratoriosProvider.getAllCollumnName(LaboratorioTable.TABLE_NAME, LaboratorioTable.COLUMNS));
+                android.R.layout.simple_spinner_item, laboratoriosProvider.getAll());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         laboratorio.setAdapter(dataAdapter);
+        laboratorio.setOnItemSelectedListener(this);
+
+        this.nombreComercial = (AutoCompleteTextView) findViewById(R.id.txt_nombre_comercial);
+        String[] comerciales = getResources().
+                getStringArray(R.array.comerciales_array);
+        ArrayAdapter adapterCom = new ArrayAdapter
+                (this,android.R.layout.simple_list_item_1,comerciales);
+        this.nombreComercial.setAdapter(adapterCom);
 
 
         this.nombreGenerico = (AutoCompleteTextView) findViewById(R.id.txt_nombre_generico);
-        List<String> genericos = this.genericosProvider.getAllCollumnName(GenericoTable.TABLE_NAME, GenericoTable.COLUMNS);
-        ArrayAdapter adapterCom = new ArrayAdapter
-                (this,android.R.layout.simple_list_item_1,genericos);
-        adapterCom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.nombreGenerico.setAdapter(adapterCom);
-
-        this.nombreComercial = (AutoCompleteTextView) findViewById(R.id.txt_nombre_comercial);
-        List<String> comerciales = this.comercialesProvider.getAllCollumnName(ComercialesTable.TABLE_NAME, ComercialesTable.COLUMNS);
+        String[] genericos = getResources().
+                getStringArray(R.array.genericos_array);
         ArrayAdapter adapterGen = new ArrayAdapter
-                (this,android.R.layout.simple_list_item_1,comerciales);
-        adapterCom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.nombreComercial.setAdapter(adapterGen);
+                (this,android.R.layout.simple_list_item_1,genericos);
+        this.nombreGenerico.setAdapter(adapterGen);
+
+
 
     }
 
@@ -84,10 +82,11 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     @Override
     public void onClick(View v) {
         Button b = (Button) v;
+
         Intent i = new Intent(this, DetalleMedicamentoListActivity.class);
         this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
         this.formualario.setNombreComercial(this.nombreComercial.getText().toString());
-        this.formualario.setLaboratorio(this.laboratorio.getText().toString());
+        this.formualario.setLaboratorio(this.laboratorio.getSelectedItem().toString());
         i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
         startActivity(i);
         overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
