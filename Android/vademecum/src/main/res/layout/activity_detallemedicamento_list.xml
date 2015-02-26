@@ -7,6 +7,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     tools:context="com.thinkupstudios.anmat.vademecum.DetalleMedicamentoListActivity"
-    tools:layout="@android:layout/list_content" />
+    tools:layout="@android:layout/list_content"
+    />
 
 
