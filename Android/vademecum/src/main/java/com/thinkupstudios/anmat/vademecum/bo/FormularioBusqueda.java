@@ -34,4 +34,10 @@ public class FormularioBusqueda implements Serializable {
     public void setNombreComercial(String nombreComercial) {
         this.nombreComercial = nombreComercial;
     }
+
+    public boolean isEmprty(){
+        return  this.laboratorio.isEmpty()
+                && this.nombreComercial.isEmpty()
+                && this.nombreGenerico.isEmpty();
+    }
 }
