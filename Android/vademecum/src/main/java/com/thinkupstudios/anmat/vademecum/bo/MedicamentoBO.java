@@ -154,20 +154,21 @@ public class MedicamentoBO implements Serializable {
         boolean continuar = true;
         //Primero busco la droga.
         String droga = new String();
-        while (continuar){
-            char caracter = formulaTemporal.charAt(i);
-            if(!Character.isDigit(caracter) && (caracter != ',')){
-                droga += caracter;
-                i++;
+
+            while (continuar && i <formulaTemporal.length()) {
+                char caracter = formulaTemporal.charAt(i);
+                if (!Character.isDigit(caracter) && (caracter != ',')) {
+                    droga += caracter;
+                    i++;
+
+                } else continuar = false;
             }
-            else continuar = false;
-        }
         formulaMedicamento.setIfa(droga);
 
         //Ahora busca la cantidad.
         continuar = true;
         String cantidad = new String();
-        while (continuar){
+        while (continuar && i < formulaTemporal.length()){
             char caracter = formulaTemporal.charAt(i);
             if(Character.isDigit(caracter) || (caracter == ',')){
                 cantidad += caracter;
