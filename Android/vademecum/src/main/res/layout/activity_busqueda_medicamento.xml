@@ -51,8 +51,9 @@
         android:layout_height="wrap_content"
 
         android:layout_gravity="center"
+        android:gravity="center"
         android:textColor="@color/anmat_azul"
-        android:paddingLeft="20dp"
+        android:paddingLeft="76dp"
         android:paddingRight="76dp"
         android:background="@drawable/button_txt_search"
         android:text="Buscar" />

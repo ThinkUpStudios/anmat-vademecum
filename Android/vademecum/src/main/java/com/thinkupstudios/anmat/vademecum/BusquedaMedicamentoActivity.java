@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import com.thinkupstudios.anmat.vademecum.providers.LaboratoriosProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
@@ -32,6 +33,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     private LaboratoriosProvider laboratoriosProvider;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
         buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
 
         this.laboratorio = (Spinner)findViewById(R.id.spin_laboratorio);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -79,6 +82,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     @Override
     public void onClick(View v) {
         Button b = (Button) v;
+
         Intent i = new Intent(this, DetalleMedicamentoListActivity.class);
         this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
         this.formualario.setNombreComercial(this.nombreComercial.getText().toString());

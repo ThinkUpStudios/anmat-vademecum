@@ -3,6 +3,7 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,6 +38,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
      * activated item position. Only used on tablets.
      */
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
+    private View selectedView;
     /**
      *
      *
@@ -46,7 +48,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private ResultadoAdapter adapter;
     private ListView listView;
     private List<MedicamentoBO> resultados = new Vector<>();
-    private MedicamentosProvider provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
+    private MedicamentosProvider provider;
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(MedicamentoBO id) {
@@ -72,24 +74,29 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
         this.resultados = this.provider
                 .getMedicamentos((FormularioBusqueda)
                                 this.getActivity().getIntent().getExtras()
                                         .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
                 );
         setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
-        ;
+
 
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        getListView().setSelector(R.drawable.abc_ab_share_pack_holo_dark);
+
 
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
      }
 
     @Override
@@ -115,8 +122,21 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(getListView(), view, position, id);
+
+        this.selectedView = view;
+
+        selectedView.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.DARKEN);
+
         MedicamentoBO bo = resultados.get(position);
         mCallbacks.onItemSelected(bo);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(this.selectedView!= null){
+            this.selectedView.getBackground().clearColorFilter();
+        }
     }
 
     @Override
