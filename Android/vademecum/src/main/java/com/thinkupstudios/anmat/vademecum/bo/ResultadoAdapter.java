@@ -57,7 +57,7 @@ public class ResultadoAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
-
+        int color = 0;
         if(convertView==null){
 
             if (convertView == null) {
@@ -65,17 +65,20 @@ public class ResultadoAdapter extends BaseAdapter{
                         .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
                 convertView = mInflater.inflate(R.layout.list_item_layout, null);
             }
-            int color = 0;
-            if(position % 2 == 0){
-                convertView.findViewById(R.id.list_item_layout).setBackgroundResource(R.drawable.list_item_background);
-                color = convertView.getResources().getColor(R.color.anmat_azul);
 
-            }else{
-                convertView.findViewById(R.id.list_item_layout).setBackgroundResource(R.drawable.list_item_background2);
-                color = Color.WHITE;
-            }
+        }  else {
+            holder = (ViewHolder) convertView.getTag();
+        }
             /****** View Holder Object to contain tabitem.xml file elements ******/
 
+        if(position % 2 == 1){
+            convertView.setBackgroundResource(R.drawable.list_item_background);
+            color = convertView.getResources().getColor(R.color.anmat_azul);
+
+        }else{
+            convertView.setBackgroundResource(R.drawable.list_item_background2);
+            color = Color.WHITE;
+        }
             holder = new ViewHolder();
             holder.nombreComercial = (TextView) convertView.findViewById(R.id.txt_nombre_comercial);
             holder.nombreComercial.setTextColor(color);
@@ -90,13 +93,13 @@ public class ResultadoAdapter extends BaseAdapter{
 
             /************  Set holder with LayoutInflater ************/
             convertView.setTag( holder );
-        }  else {
-            holder = (ViewHolder) convertView.getTag();
-        }
 
         if(data.size()<=0){
-            holder.nombreGenerico.setText("No Data");
-
+            holder.nombreGenerico.setText("Sin Resultados");
+            holder.nombreComercial.setText(" ");
+            holder.numeroCertificado.setText(" ");
+            holder.forma.setText(" ");
+            holder.precio.setText(" ");
         } else {
             /***** Get each Model object from Arraylist ********/
             tempValues=null;

@@ -8,19 +8,18 @@
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
         <activity
-            android:name="DetalleMedicamentoListActivity"
-            android:parentActivityName="MainMenuActivity"
-            android:label="@string/app_name" />
+            android:name=".DetalleMedicamentoListActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainMenuActivity" />
         <activity
-            android:name="DetalleMedicamentoDetailActivity"
-            android:label="@string/title_detallemedicamento_detail"
-            >
+            android:name=".DetalleMedicamentoDetailActivity"
+            android:label="@string/title_detallemedicamento_detail" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thinkupstudios.anmat.vademecum.MainMenuActivity" />
         </activity>
         <activity
-            android:name="MainMenuActivity"
+            android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,9 +28,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="BusquedaMedicamentoActivity"
-            android:parentActivityName="MainMenuActivity"
-            android:label="@string/title_activity_busqueda_medicamento"/>
+            android:name=".BusquedaMedicamentoActivity"
+            android:label="@string/title_activity_busqueda_medicamento"
+            android:parentActivityName=".MainMenuActivity" />
+        <activity
+            android:name="com.thinkupstudios.annmat.vademecum.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/title_activity_splash_screen" >
+        </activity>
     </application>
 
 </manifest>
