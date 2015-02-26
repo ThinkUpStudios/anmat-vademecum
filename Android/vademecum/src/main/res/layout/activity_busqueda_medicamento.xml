@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:nextFocusForward="@+id/spin_laboratorio"
+        android:nextFocusForward="@+id/txt_laboratorio"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:imeOptions="actionDone"
@@ -37,13 +37,17 @@
 >
 
     </AutoCompleteTextView>
-    <Spinner
-        android:id="@+id/spin_laboratorio"
+    <AutoCompleteTextView
+        android:id="@+id/txt_laboratorio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:nextFocusForward="@+id/btn_form_busqueda_buscar"
         android:layout_gravity="center_horizontal"
-
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:imeOptions="actionDone"
+        android:hint="Laboratorio">
+    </AutoCompleteTextView>
 
     <Button
         android:id="@+id/btn_form_busqueda_buscar"

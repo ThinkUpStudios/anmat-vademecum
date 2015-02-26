@@ -76,7 +76,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
         super.onCreate(savedInstanceState);
         this.provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
         this.resultados = this.provider
-                .getMedicamentos((FormularioBusqueda)
+                .findMedicamentos((FormularioBusqueda)
                                 this.getActivity().getIntent().getExtras()
                                         .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
                 );

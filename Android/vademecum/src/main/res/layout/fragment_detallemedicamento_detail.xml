@@ -17,7 +17,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TabWidget
                 android:id="@android:id/tabs"
@@ -47,7 +48,7 @@
                         android:id="@+id/detalle"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-
+                        android:layout_weight="1"
 
 
                         android:orientation="vertical">
@@ -149,7 +150,6 @@
                             android:layout_alignTop="@+id/lbl_troquel"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_troquel"
-
                             android:shadowDy="10"
                             android:text="@string/troquel"
                             android:textStyle="italic" />
@@ -313,7 +313,7 @@
                         android:id="@+id/formula"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
 
@@ -329,39 +329,34 @@
                                 >
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
                                     android:text="IFA"
-
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/ifa"
-                                    android:layout_weight="1"
                                     android:textColor="@android:color/white"
-
                                     android:textStyle="bold"
-                                    android:gravity="center"/>
+                                    android:gravity="center"
+                                    android:paddingRight="3dip"
+                                    android:layout_width="0px"
+                                    android:layout_weight="0.40"/>
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
                                     android:text="Cant."
                                     android:textStyle="bold"
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/cant"
-                                    android:layout_weight="1"
                                     android:textColor="@android:color/white"
-
-                                    android:gravity="center"/>
+                                    android:gravity="center"
+                                    android:layout_width="0px"
+                                    android:layout_weight="0.15"/>
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
                                     android:text="Unidad"
                                     android:textColor="@android:color/white"
                                     android:textStyle="bold"
                                     android:textAppearance="?android:textAppearanceMedium"
                                     android:id="@+id/unidadDeMedida"
-                                    android:layout_weight="1"
-                                    android:gravity="center"/>
-
+                                    android:gravity="center"
+                                    android:paddingLeft="3dip"
+                                    android:layout_width="0px"
+                                    android:layout_weight="0.45"/>
                             </TableRow>
                         </TableLayout>
                     </RelativeLayout>

@@ -11,18 +11,28 @@ import java.util.Vector;
 public class MedicamentoBO implements Serializable {
 
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
-    private String nombreComercial;
-    private String nombreGenerico;
-    private String numeroCertificado;
-    private String precio;
-    private String laboratorio;
-    private String forma;
-    private String paisIndustria;
-    private String condicionExpendio;
-    private String condicionTrazabilidad;
-    private String presentacion;
-    private String gtin;
-    private String troquel;
+    private String nombreComercial = "-";
+    private String nombreGenerico= "-";
+    private String numeroCertificado= "-";
+    private String precio= "-";
+    private String laboratorio= "-";
+    private String forma= "-";
+    private String paisIndustria= "-";
+    private String condicionExpendio= "-";
+    private String condicionTrazabilidad= "-";
+    private String presentacion= "-";
+    private String gtin= "-";
+    private String troquel= "-";
+
+    public String getCuit() {
+        return cuit;
+    }
+
+    public void setCuit(String cuit) {
+        this.cuit = cuit;
+    }
+
+    private String cuit= "-";
 
 
 
@@ -124,28 +134,50 @@ public class MedicamentoBO implements Serializable {
 
     public List<FormulaMedicamento> getFormula() {
         List<FormulaMedicamento> formulaLista = new Vector<>();
-        String genericoTemporal = this.getNombreGenerico();
-        String formulaTemporal = "";
-        genericoTemporal += "+";
-        while(genericoTemporal.contains("+")){
 
-            formulaTemporal = genericoTemporal.substring(0,genericoTemporal.indexOf("+"));
+        String[] formulas = this.getNombreGenerico().split("\\+");
+        for(String formulaTemporal : formulas){
+
             FormulaMedicamento formulaMedicamento = this.parsearFormula(formulaTemporal.trim());
             formulaLista.add(formulaMedicamento);
-            genericoTemporal = genericoTemporal.substring(genericoTemporal.indexOf("+")+1);
+
         }
         return formulaLista;
     }
 
     private FormulaMedicamento parsearFormula(String formulaTemporal) {
+
         FormulaMedicamento formulaMedicamento = new FormulaMedicamento();
 
-        formulaMedicamento.setIfa(formulaTemporal.substring(0,formulaTemporal.indexOf(" ")));
+        int i = 0;
 
-        formulaTemporal = formulaTemporal.substring(formulaTemporal.indexOf(" ")+1);
+        boolean continuar = true;
+        //Primero busco la droga.
+        String droga = new String();
+        while (continuar){
+            char caracter = formulaTemporal.charAt(i);
+            if(!Character.isDigit(caracter) && (caracter != ',')){
+                droga += caracter;
+                i++;
+            }
+            else continuar = false;
+        }
+        formulaMedicamento.setIfa(droga);
 
-        formulaMedicamento.setCantidad("22");
-        formulaMedicamento.setUnidad("ML");
+        //Ahora busca la cantidad.
+        continuar = true;
+        String cantidad = new String();
+        while (continuar){
+            char caracter = formulaTemporal.charAt(i);
+            if(Character.isDigit(caracter) || (caracter == ',')){
+                cantidad += caracter;
+                i++;
+            }
+            else continuar = false;
+        }
+        formulaMedicamento.setCantidad(cantidad);
+
+        formulaMedicamento.setUnidad(formulaTemporal.substring(i,formulaTemporal.length()));
 
         return formulaMedicamento;
     }
