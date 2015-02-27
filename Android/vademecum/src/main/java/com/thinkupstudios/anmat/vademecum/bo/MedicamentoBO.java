@@ -23,25 +23,25 @@ public class MedicamentoBO implements Serializable {
     private String presentacion= "-";
     private String gtin= "-";
     private String troquel= "-";
+    private String cuit= "-";
 
     public String getCuit() {
         return cuit;
     }
 
     public void setCuit(String cuit) {
+        if(!cuit.isEmpty())
         this.cuit = cuit;
     }
-
-    private String cuit= "-";
-
-
 
     public String getNombreComercial() {
         return nombreComercial;
     }
 
     public void setNombreComercial(String nombreComercial) {
-        this.nombreComercial = nombreComercial;
+        if(!nombreComercial.isEmpty())
+
+            this.nombreComercial = nombreComercial;
     }
 
     public String getNombreGenerico() {
@@ -49,6 +49,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setNombreGenerico(String nombreGenerico) {
+        if(!nombreGenerico.isEmpty())
         this.nombreGenerico = nombreGenerico;
     }
 
@@ -57,6 +58,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setNumeroCertificado(String numeroCertificado) {
+        if(!numeroCertificado.isEmpty())
         this.numeroCertificado = numeroCertificado;
     }
 
@@ -65,6 +67,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setPrecio(String precio) {
+        if(!precio.isEmpty())
         this.precio = precio;
     }
 
@@ -73,6 +76,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setLaboratorio(String laboratorio) {
+        if(!laboratorio.isEmpty())
         this.laboratorio = laboratorio;
     }
 
@@ -81,6 +85,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setForma(String forma) {
+        if(!forma.isEmpty())
         this.forma = forma;
     }
 
@@ -88,7 +93,8 @@ public class MedicamentoBO implements Serializable {
         return paisIndustria;
     }
 
-    public void setPaisIndustria(String paisIndustria) {
+    public void setPaisIndustria(String paisIndustria){
+        if(!paisIndustria.isEmpty())
         this.paisIndustria = paisIndustria;
     }
 
@@ -97,6 +103,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setCondicionExpendio(String condicionExpendio) {
+        if(!condicionExpendio.isEmpty())
         this.condicionExpendio = condicionExpendio;
     }
 
@@ -105,6 +112,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setCondicionTrazabilidad(String condicionTrazabilidad) {
+        if(!condicionTrazabilidad.isEmpty())
         this.condicionTrazabilidad = condicionTrazabilidad;
     }
 
@@ -113,6 +121,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setPresentacion(String presentacion) {
+        if(!presentacion.isEmpty())
         this.presentacion = presentacion;
     }
 
@@ -121,6 +130,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setGtin(String gtin) {
+        if(!gtin.isEmpty())
         this.gtin = gtin;
     }
 
@@ -129,6 +139,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setTroquel(String troquel) {
+        if(!troquel.isEmpty())
         this.troquel = troquel;
     }
 

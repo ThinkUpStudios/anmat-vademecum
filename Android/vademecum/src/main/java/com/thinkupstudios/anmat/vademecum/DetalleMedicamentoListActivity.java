@@ -55,11 +55,13 @@ public class DetalleMedicamentoListActivity extends Activity
                             .findFragmentById(R.id.detallemedicamento_list));
 
                     fragment.setActivateOnItemClick(true);
+            /*
             Bundle arguments = new Bundle();
 
             arguments.putSerializable(FormularioBusqueda.FORMULARIO_MANUAL,
                     this.getIntent().getExtras().getSerializable(FormularioBusqueda.FORMULARIO_MANUAL));
             fragment.setArguments(arguments);
+            */
 
         }
     }
