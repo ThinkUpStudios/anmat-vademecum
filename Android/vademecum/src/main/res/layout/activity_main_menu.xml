@@ -22,7 +22,6 @@
 
         android:gravity="center"
         android:background="@drawable/button_txt_search"
-        android:drawableLeft="@drawable/formulaicon"
         android:text="Medicamentos" />
 
 
