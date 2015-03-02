@@ -73,12 +73,13 @@ public class ResultadoAdapter extends BaseAdapter{
 
         if(position % 2 == 1){
             convertView.setBackgroundResource(R.drawable.list_item_background);
-            color = convertView.getResources().getColor(R.color.anmat_azul);
+
 
         }else{
             convertView.setBackgroundResource(R.drawable.list_item_background2);
-            color = Color.WHITE;
+
         }
+            color = convertView.getResources().getColor(R.color.anmat_azul);
             holder = new ViewHolder();
             holder.nombreComercial = (TextView) convertView.findViewById(R.id.txt_nombre_comercial);
             holder.nombreComercial.setTextColor(color);

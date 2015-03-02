@@ -51,7 +51,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         if(getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
             this.medicamento = (MedicamentoBO) getArguments().getSerializable(MedicamentoBO.MEDICAMENTOBO);
         }

@@ -8,6 +8,7 @@
         <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
         <item name="android:actionMenuTextColor">@color/material_blue_grey_800</item>
         <item name="android:textColorPrimary">@color/anmat_azul</item>
+        <item name="android:typeface">serif</item>
     </style>
 
     <!-- ActionBar styles -->

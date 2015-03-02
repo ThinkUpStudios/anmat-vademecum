@@ -38,7 +38,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
      * activated item position. Only used on tablets.
      */
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
-    private View selectedView;
+
     /**
      *
      *
@@ -51,7 +51,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private MedicamentosProvider provider;
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(MedicamentoBO id) {
+        public void onItemSelected(MedicamentoBO id, View item) {
         }
     };
     /**
@@ -123,21 +123,11 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(getListView(), view, position, id);
 
-        this.selectedView = view;
-
-        selectedView.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.DARKEN);
 
         MedicamentoBO bo = resultados.get(position);
-        mCallbacks.onItemSelected(bo);
+        mCallbacks.onItemSelected(bo, view);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(this.selectedView!= null){
-            this.selectedView.getBackground().clearColorFilter();
-        }
-    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -181,6 +171,6 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(MedicamentoBO medicamento);
+        public void onItemSelected(MedicamentoBO medicamento, View item);
     }
 }
