@@ -8,7 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.thinkupstudios.anmat.vademecum.MainMenuActivity">
 
-
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fondo" />
 
     <Button
         android:id="@+id/btn_busqueda"
@@ -16,13 +21,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="50dp"
         android:padding="20dp"
         android:textColor="#1B5687"
-
+        android:alpha="0.5"
         android:gravity="center"
         android:background="@drawable/button_txt_search"
+        android:drawableLeft="@drawable/busqueda_medicamentos"
         android:text="Medicamentos" />
+
+    <Button
+        android:id="@+id/btn_informacion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_busqueda"
+        android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+        android:padding="20dp"
+        android:textColor="#1B5687"
+        android:alpha="0.5"
+        android:gravity="center"
+        android:background="@drawable/button_txt_search"
+        android:drawableLeft="@drawable/info"
+        android:text="Información"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 

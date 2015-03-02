@@ -13,7 +13,8 @@ import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 
 public class MainMenuActivity extends Activity implements View.OnClickListener {
-private Button btnBuscar;
+    private Button btnBuscar;
+    private Button btnInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,11 @@ private Button btnBuscar;
         this.btnBuscar =(Button) findViewById(R.id.btn_busqueda);
         this.btnBuscar.setOnTouchListener(new DarkenerButtonTouchListener());
         this.btnBuscar.setOnClickListener(this);
+
+
+        this.btnInfo =(Button) findViewById(R.id.btn_informacion);
+        this.btnInfo.setOnTouchListener(new DarkenerButtonTouchListener());
+        this.btnInfo.setOnClickListener(this);
 
     }
 
@@ -48,10 +54,12 @@ private Button btnBuscar;
     public void onClick(View v) {
         Button b = (Button) v;
 
-
         switch (b.getId()) {
             case R.id.btn_busqueda:
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                break;
+            case R.id.btn_informacion:
+                startActivity(new Intent(this, InformacionActivity.class));
                 break;
          }
 

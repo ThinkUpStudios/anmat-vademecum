@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/btn_form_busqueda_buscar"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 
         android:layout_gravity="center"
@@ -60,6 +60,15 @@
         android:paddingLeft="76dp"
         android:paddingRight="76dp"
         android:background="@drawable/button_txt_search"
-        android:text="Buscar" />
+        android:drawableLeft="@drawable/busqueda_medicamentos"
+        android:text="Buscar Medicamentos"
+
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+
+        />
 
 </LinearLayout>

@@ -63,6 +63,9 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
+        if(!"-".equals(precio)){
+            return ("$ " +precio);
+        }
         return precio;
     }
 

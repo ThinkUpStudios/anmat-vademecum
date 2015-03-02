@@ -376,7 +376,7 @@
         android:textColor="@color/anmat_azul"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_txt_related"
-
+        android:drawableLeft="@drawable/recomendados"
         android:layout_margin="0dp"
         android:text="@string/recomendados" />
 </RelativeLayout>

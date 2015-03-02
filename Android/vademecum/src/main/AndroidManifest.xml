@@ -32,6 +32,10 @@
             android:name=".BusquedaMedicamentoActivity"
             android:label="@string/title_activity_busqueda_medicamento"
             android:parentActivityName=".MainMenuActivity" />
+        <activity
+            android:name=".InformacionActivity"
+            android:label="@string/title_activity_info"
+            android:parentActivityName=".MainMenuActivity" />
  
     </application>
 
