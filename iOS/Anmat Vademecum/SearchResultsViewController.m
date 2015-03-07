@@ -41,7 +41,7 @@
     UITableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:@"MedicineCell"
                              forIndexPath:indexPath];
-    
+
     Medicine *medicine = [self.medicines objectAtIndex:indexPath.row];
     
     UILabel * lblGenericName = (UILabel *)[cell.contentView viewWithTag:1];
@@ -57,6 +57,12 @@
     [lblCertificate setText:medicine.certificate];
     [lblForm setText:medicine.form];
     [lblPrice setText:medicine.price];
+    
+    if(indexPath.item % 2 == 1) {
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    } else {
+        [cell setBackgroundColor:[UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1]];
+    }
     
     return cell;
 }
