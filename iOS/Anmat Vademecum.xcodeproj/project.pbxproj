@@ -13,6 +13,7 @@
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
+		1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */; };
 		147E2AB61A97F25F00C9B2EC /* details-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB51A97F25F00C9B2EC /* details-icon.png */; };
 		147E2AB81A97F26B00C9B2EC /* formula-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB71A97F26B00C9B2EC /* formula-icon.png */; };
 		147E2ABA1A97F27200C9B2EC /* related-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB91A97F27200C9B2EC /* related-icon.png */; };
@@ -50,6 +51,8 @@
 		1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
 		1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		1451E5E61AAB7BBA00F9FEC7 /* FormulaComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaComponent.h; sourceTree = "<group>"; };
+		1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaComponent.m; sourceTree = "<group>"; };
 		147E2AB51A97F25F00C9B2EC /* details-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "details-icon.png"; sourceTree = "<group>"; };
 		147E2AB71A97F26B00C9B2EC /* formula-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "formula-icon.png"; sourceTree = "<group>"; };
 		147E2AB91A97F27200C9B2EC /* related-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "related-icon.png"; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */,
 				1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */,
 				1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */,
+				1451E5E61AAB7BBA00F9FEC7 /* FormulaComponent.h */,
+				1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
+				1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
