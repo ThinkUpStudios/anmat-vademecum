@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtComercialName;
 @property (weak, nonatomic) IBOutlet UITextField *txtLaboratory;
 @property UIPickerView *pkvLaboratories;
+@property (weak, nonatomic) IBOutlet UIButton *btnSearch;
 
 @end
 
@@ -26,6 +27,9 @@ NSArray *laboratories;
     
     self.txtComercialName.delegate = self;
     self.txtLaboratory.delegate = self;
+    
+    [[self.btnSearch layer] setBorderWidth:1.0f];
+    [[self.btnSearch layer] setBorderColor:[UIColor colorWithRed:17/255.0 green:55/255.0 blue:86/255.0 alpha:255].CGColor];
 
     laboratories = @[@"Bagho", @"Boehringer", @"Roche", @"Bayer", @"Pfizer", @"Novartis", @"Panalab", @"Gador", @"Ivax", @"Eurolab"];
 }
@@ -72,7 +76,7 @@ NSArray *laboratories;
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.txtLaboratory.text = laboratories[row];
     [self.txtLaboratory resignFirstResponder];
-
+    
 }
 
 @end
