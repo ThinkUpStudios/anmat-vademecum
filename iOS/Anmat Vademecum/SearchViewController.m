@@ -120,6 +120,11 @@ NSString *searchMode;
     self.tblResults.hidden = YES;
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    return [identifier isEqualToString:@"ShowResults"] &&
+    (self.txtGenericName.text.length > 0 || self.txtComercialName.text.length > 0 || self.txtLaboratory.text.length > 0);
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowResults"]) {
         SearchResultsViewController *results = segue.destinationViewController;
