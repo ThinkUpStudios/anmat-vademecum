@@ -29,7 +29,22 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if(self.formulaComponents.count > 0) {
+        return 1;
+    } else {
+        UILabel *lblMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        lblMessage.text = @"Sin Componentes";
+        lblMessage.textColor = [UIColor grayColor];
+        lblMessage.numberOfLines = 0;
+        lblMessage.textAlignment = NSTextAlignmentCenter;
+        [lblMessage sizeToFit];
+        
+        self.tableView.backgroundView = lblMessage;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
