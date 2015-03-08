@@ -20,7 +20,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper.png" translatesAutoresizingMaskIntoConstraints="NO" id="g3A-JE-zmq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-WJ-bie">
+                            <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-WJ-bie" customClass="UISelectableButton">
                                 <rect key="frame" x="16" y="96" width="568" height="95"/>
                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -35,7 +35,7 @@
                                     <segue destination="Zlx-am-yMZ" kind="show" id="2iX-lJ-I7h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.89999999999999991" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-ya-27e">
+                            <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-ya-27e" customClass="UISelectableButton">
                                 <rect key="frame" x="16" y="199" width="568" height="95"/>
                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
