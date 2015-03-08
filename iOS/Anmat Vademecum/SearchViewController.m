@@ -8,9 +8,9 @@
 
 #import "SearchViewController.h"
 #import "MainSearchSectionViewController.h"
-#import "Medicine.h"
 #import "SearchResultsViewController.h"
-#import "MedicineService.h";
+#import "MedicineService.h"
+#import "Medicine.h"
 
 @interface SearchViewController()
 

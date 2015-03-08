@@ -8,11 +8,12 @@
 
 #import "MenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UISelectableButton.h"
 
 @interface MenuViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *btnMeds;
-@property (weak, nonatomic) IBOutlet UIButton *btnInfo;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
 
 @end
 

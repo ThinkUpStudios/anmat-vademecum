@@ -14,14 +14,12 @@
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */; };
-		147E2AB61A97F25F00C9B2EC /* details-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB51A97F25F00C9B2EC /* details-icon.png */; };
-		147E2AB81A97F26B00C9B2EC /* formula-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB71A97F26B00C9B2EC /* formula-icon.png */; };
-		147E2ABA1A97F27200C9B2EC /* related-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 147E2AB91A97F27200C9B2EC /* related-icon.png */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AABA541A97D4C300126B22 /* logo-anmat-chico.png */; };
 		14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C31AACABF100CA80FC /* MedicineService.m */; };
+		14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C81AACF33C00CA80FC /* UISelectableButton.m */; };
 		14E29FE21A975D83005292FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE11A975D83005292FE /* main.m */; };
 		14E29FE51A975D83005292FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE41A975D83005292FE /* AppDelegate.m */; };
 		14E29FEB1A975D83005292FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FE91A975D83005292FE /* Main.storyboard */; };
@@ -54,9 +52,6 @@
 		1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		1451E5E61AAB7BBA00F9FEC7 /* FormulaComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaComponent.h; sourceTree = "<group>"; };
 		1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaComponent.m; sourceTree = "<group>"; };
-		147E2AB51A97F25F00C9B2EC /* details-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "details-icon.png"; sourceTree = "<group>"; };
-		147E2AB71A97F26B00C9B2EC /* formula-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "formula-icon.png"; sourceTree = "<group>"; };
-		147E2AB91A97F27200C9B2EC /* related-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "related-icon.png"; sourceTree = "<group>"; };
 		147E2ABB1A97F6EE00C9B2EC /* MainDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDetailsViewController.h; sourceTree = "<group>"; };
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
@@ -66,6 +61,8 @@
 		14AABA541A97D4C300126B22 /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
 		14BC10C21AACABF100CA80FC /* MedicineService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineService.h; sourceTree = "<group>"; };
 		14BC10C31AACABF100CA80FC /* MedicineService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineService.m; sourceTree = "<group>"; };
+		14BC10C71AACF33C00CA80FC /* UISelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISelectableButton.h; sourceTree = "<group>"; };
+		14BC10C81AACF33C00CA80FC /* UISelectableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISelectableButton.m; sourceTree = "<group>"; };
 		14E29FDC1A975D83005292FE /* Anmat Vademecum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anmat Vademecum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E29FE01A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FE11A975D83005292FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,9 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
-				147E2AB91A97F27200C9B2EC /* related-icon.png */,
-				147E2AB71A97F26B00C9B2EC /* formula-icon.png */,
-				147E2AB51A97F25F00C9B2EC /* details-icon.png */,
 				14AABA541A97D4C300126B22 /* logo-anmat-chico.png */,
 				14E29FE31A975D83005292FE /* AppDelegate.h */,
 				14E29FE41A975D83005292FE /* AppDelegate.m */,
@@ -149,6 +143,8 @@
 				1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */,
 				14BC10C21AACABF100CA80FC /* MedicineService.h */,
 				14BC10C31AACABF100CA80FC /* MedicineService.m */,
+				14BC10C71AACF33C00CA80FC /* UISelectableButton.h */,
+				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -264,9 +260,6 @@
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
-				147E2ABA1A97F27200C9B2EC /* related-icon.png in Resources */,
-				147E2AB81A97F26B00C9B2EC /* formula-icon.png in Resources */,
-				147E2AB61A97F25F00C9B2EC /* details-icon.png in Resources */,
 				14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +288,7 @@
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
+				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
 				1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */,
 			);
