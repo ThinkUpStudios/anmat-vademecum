@@ -53,6 +53,7 @@ MedicineService *medicineService;
     MainDetailsViewController *mainDetails = (MainDetailsViewController *)[self.viewControllers firstObject];
     
     searchResults.medicines = [medicineService getSimilarMedicines:mainDetails.medicine];
+    searchResults.title = @"Mismo Principio Activo";
     
     [self.navigationController pushViewController:searchResults animated:YES];
 }
