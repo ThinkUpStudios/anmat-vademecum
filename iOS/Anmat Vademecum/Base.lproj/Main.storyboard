@@ -103,7 +103,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gng-Cq-qVi"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="PnB-nd-sM5">
                                 <rect key="frame" x="0.0" y="239" width="600" height="361"/>
@@ -130,14 +130,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SaW-Im-kTG"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                             </searchBar>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Laboratorio" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-ll-48x">
                                 <rect key="frame" x="7" y="176" width="585" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0bd-7c-Q5t"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,7 +162,7 @@
                     <navigationItem key="navigationItem" title="Buscar" id="0Nx-wV-V1q">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="10o-PR-New">
                             <connections>
-                                <segue destination="xEB-Ul-rPE" kind="show" id="qIb-fy-2sm"/>
+                                <segue destination="xEB-Ul-rPE" kind="show" identifier="ShowResults" id="qIb-fy-2sm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
