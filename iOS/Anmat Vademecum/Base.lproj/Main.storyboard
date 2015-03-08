@@ -46,6 +46,9 @@
                                     <color key="titleColor" red="0.16018405969999999" green="0.19151614580000001" blue="0.60181897100000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="J3I-4s-JDD" kind="show" id="Hf8-oD-oov"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,6 +88,133 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1179" y="-1671"/>
+        </scene>
+        <!--Información-->
+        <scene sceneID="86y-Jy-cuc">
+            <objects>
+                <viewController title="Información" id="J3I-4s-JDD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z7M-E4-kOA"/>
+                        <viewControllerLayoutGuide type="bottom" id="wxj-3F-nOs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwh-cX-7zj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.15000000000000002" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-anmat-chico.png" translatesAutoresizingMaskIntoConstraints="NO" id="zpx-Sz-2Xn">
+                                <rect key="frame" x="174" y="213" width="252" height="174"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
+                                <rect key="frame" x="16" y="263" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HVA-Jb-w2c"/>
+                                    <constraint firstAttribute="width" constant="446" id="bCe-MM-M8F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HVA-Jb-w2c"/>
+                                        <exclude reference="bCe-MM-M8F"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNl-Kt-RFT" userLabel="Intro">
+                                <rect key="frame" x="16" y="72" width="568" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="FK6-Nk-Ec2"/>
+                                </constraints>
+                                <string key="text">ANMAT Vademecum se creó para proveer información sobre medicamentos, sus principios activos, nombres comerciales, laboratorios y precios oficiales, entre otros.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FK6-Nk-Ec2"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Esta aplicación fue desarrollada a partir de la información brindada por el Ministerio de Salud de la Nación - ANMAT." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoO-H7-SEv" userLabel="Desarrollo">
+                                <rect key="frame" x="16" y="136" width="568" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="VyH-ts-ebs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VyH-ts-ebs"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Los datos se encuentran actualizados al 10 de Febrero de 2015" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cci-se-hVi">
+                                <rect key="frame" x="16" y="196" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Fqs-Ia-HC2"/>
+                                    <constraint firstAttribute="width" constant="568" id="Rby-1N-Tqg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fqs-Ia-HC2"/>
+                                        <exclude reference="Rby-1N-Tqg"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2015 Ministerio de Salud de la Nación - ANMAT. Todos los derechos reservados" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-Dd-j1P">
+                                <rect key="frame" x="16" y="234" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="568" id="08f-nx-iZC"/>
+                                    <constraint firstAttribute="height" constant="21" id="PZD-0w-OS9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="08f-nx-iZC"/>
+                                        <exclude reference="PZD-0w-OS9"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cci-se-hVi" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="229-go-dWP"/>
+                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="149" id="3in-mv-Jrh"/>
+                            <constraint firstItem="mS3-5G-BzP" firstAttribute="top" secondItem="rDx-Dd-j1P" secondAttribute="bottom" constant="8" id="3lF-kV-6SC"/>
+                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="9aF-wQ-aLU"/>
+                            <constraint firstItem="KoO-H7-SEv" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="72" id="Ayg-8z-jAC"/>
+                            <constraint firstItem="wxj-3F-nOs" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="213" id="Cw0-Kq-5Ro"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="17" id="DJB-N5-Ge8"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="155" id="DKR-Ah-XZB"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="FAs-WT-Fc4"/>
+                            <constraint firstItem="KoO-H7-SEv" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="JWz-PT-0dC"/>
+                            <constraint firstItem="Cci-se-hVi" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="LG3-nl-nMb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zpx-Sz-2Xn" secondAttribute="trailing" constant="158" id="LjJ-HW-bmn"/>
+                            <constraint firstItem="mS3-5G-BzP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="gRv-c3-Vb8"/>
+                            <constraint firstItem="Cci-se-hVi" firstAttribute="top" secondItem="KoO-H7-SEv" secondAttribute="bottom" constant="8" id="hLU-a6-mqo"/>
+                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" constant="158" id="lHC-ny-RvL"/>
+                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="s7Y-jA-xUV"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="sCi-eA-Ej7"/>
+                            <constraint firstItem="mS3-5G-BzP" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="xbK-NW-pHC"/>
+                            <constraint firstItem="KoO-H7-SEv" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="yr2-fq-TCH"/>
+                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="8" id="zOv-3t-i7y"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DKR-Ah-XZB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgY-4q-6KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179" y="-922"/>
         </scene>
         <!--Search-->
         <scene sceneID="YdK-iQ-LR4">
@@ -180,7 +310,7 @@
         <!--SearchResults-->
         <scene sceneID="F9X-Yo-5iu">
             <objects>
-                <tableViewController title="SearchResults" id="xEB-Ul-rPE" customClass="SearchResultsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SearchResultsViewController" title="SearchResults" id="xEB-Ul-rPE" customClass="SearchResultsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="22" sectionFooterHeight="22" id="3lh-3h-ZPP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +420,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Component" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSY-fR-CTv">
                                             <rect key="frame" x="16" y="8" width="584" height="32"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -299,7 +429,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="32" id="0Yd-Zu-wle"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -320,7 +450,7 @@
                             <outlet property="delegate" destination="qm2-bR-xgh" id="1uv-Og-t9N"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Fórmula" image="formula-icon.png" id="muu-rj-sBO"/>
+                    <tabBarItem key="tabBarItem" title="Fórmula" image="Formula" id="muu-rj-sBO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6O-Va-tU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -661,7 +791,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Informacion" image="details-icon.png" id="7av-Jl-Qfp"/>
+                    <tabBarItem key="tabBarItem" title="Informacion" image="Details" id="7av-Jl-Qfp"/>
                     <connections>
                         <outlet property="cntDetails" destination="RTj-br-mY3" id="zZa-r8-6Q7"/>
                         <outlet property="lblCertificate" destination="WIt-qP-2JD" id="oMb-Ou-HQr"/>
@@ -721,8 +851,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="details-icon.png" width="50" height="50"/>
-        <image name="formula-icon.png" width="50" height="50"/>
+        <image name="Details" width="25" height="25"/>
+        <image name="Formula" width="25" height="25"/>
+        <image name="logo-anmat-chico.png" width="220" height="60"/>
         <image name="wallpaper.png" width="1280" height="1280"/>
     </resources>
 </document>
