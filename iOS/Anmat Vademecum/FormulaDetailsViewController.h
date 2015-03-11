@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Medicine.h"
 
 @interface FormulaDetailsViewController : UITableViewController
+
+@property (nonatomic , strong) Medicine* medicine;
 
 @end
