@@ -305,22 +305,42 @@
     
     Medicine *medicine = [[Medicine alloc] init];
     
-    medicine.id = id;
-    medicine.certificate = certificate;
-    medicine.cuit = cuit;
-    medicine.laboratory = laboratory;
-    medicine.gtin = gtin;
-    medicine.troquel = troquel;
-    medicine.comercialName = comercialName;
-    medicine.form = form;
-    medicine.genericName = genericName;
-    medicine.country = country;
-    medicine.requestCondition = requestCondition;
-    medicine.trazability = trazability;
-    medicine.presentation = presentation;
+    medicine.id = [self getFormattedValue:id];
+    medicine.certificate = [self getFormattedValue:certificate];
+    medicine.cuit = [self getFormattedValue:cuit];
+    medicine.laboratory = [self getFormattedValue:laboratory];
+    medicine.gtin = [self getFormattedValue:gtin];
+    medicine.troquel = [self getFormattedValue:troquel];
+    medicine.comercialName = [self getFormattedValue:comercialName];
+    medicine.form = [self getFormattedValue:form];
+    medicine.genericName = [self getFormattedValue:genericName];
+    medicine.country = [self getFormattedValue:country];
+    medicine.requestCondition = [self getFormattedValue:requestCondition];
+    medicine.trazability = [self getFormattedValue:trazability];
+    medicine.presentation = [self getFormattedValue:presentation];
+    
+    price = [self getFormattedValue:price];
+    
+    if(![price hasPrefix:@"$"]) {
+        NSMutableString *prefixedPrice = [[NSMutableString alloc] init];
+        
+        [prefixedPrice appendString:@"$"];
+        [prefixedPrice appendString:price];
+        
+        price = prefixedPrice;
+    }
+    
     medicine.price = price;
     
     return medicine;
+}
+
+-(NSString *) getFormattedValue:(NSString *)value {
+    if(value == nil || value.length == 0) {
+        return @"-";
+    } else {
+        return value;
+    }
 }
 
 -(NSString *) getVariableNumber:(int)addedConditions {
