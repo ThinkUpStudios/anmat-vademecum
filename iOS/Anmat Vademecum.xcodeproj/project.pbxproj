@@ -11,7 +11,7 @@
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
 		14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14343C411AB7276A00238B73 /* libsqlite3.dylib */; };
-		14343C481AB73CB300238B73 /* anmat in Resources */ = {isa = PBXBuildFile; fileRef = 14343C471AB73CB300238B73 /* anmat */; };
+		14343C4A1AB762FD00238B73 /* anmat in Resources */ = {isa = PBXBuildFile; fileRef = 14343C491AB762FD00238B73 /* anmat */; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
@@ -49,7 +49,7 @@
 		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		14343C411AB7276A00238B73 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		14343C471AB73CB300238B73 /* anmat */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat; sourceTree = "<group>"; };
+		14343C491AB762FD00238B73 /* anmat */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat; sourceTree = "<group>"; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
 		1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
-				14343C471AB73CB300238B73 /* anmat */,
+				14343C491AB762FD00238B73 /* anmat */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
@@ -268,7 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14343C481AB73CB300238B73 /* anmat in Resources */,
+				14343C4A1AB762FD00238B73 /* anmat in Resources */,
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
