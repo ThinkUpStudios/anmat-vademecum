@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="96q-cL-gzf">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -21,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-WJ-bie" customClass="UISelectableButton">
-                                <rect key="frame" x="16" y="96" width="568" height="95"/>
+                                <rect key="frame" x="16" y="101" width="568" height="95"/>
                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="4hi-bv-E0l"/>
@@ -35,21 +36,6 @@
                                     <segue destination="Zlx-am-yMZ" kind="show" id="2iX-lJ-I7h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axn-ya-27e" customClass="UISelectableButton">
-                                <rect key="frame" x="16" y="199" width="568" height="95"/>
-                                <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="bgO-PG-Adz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Información">
-                                    <color key="titleColor" red="0.16018405969999999" green="0.19151614580000001" blue="0.60181897100000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="J3I-4s-JDD" kind="show" id="Hf8-oD-oov"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -57,17 +43,13 @@
                             <constraint firstItem="g3A-JE-zmq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="6GQ-Vs-ZfD"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="7r2-Cx-zKc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="424" id="GGq-KA-ra5"/>
-                            <constraint firstItem="Axn-ya-27e" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="8" symbolic="YES" id="MSz-5s-x5l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g3A-JE-zmq" secondAttribute="trailing" constant="-16" id="Ml7-2p-jPe"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Nat-al-Jcd"/>
-                            <constraint firstItem="Axn-ya-27e" firstAttribute="leading" secondItem="r6G-WJ-bie" secondAttribute="leading" id="WS9-XY-VZ6"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YVC-G4-RDX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="g3A-JE-zmq" secondAttribute="bottom" id="bxC-HM-Wer"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="d2i-4h-48n"/>
                             <constraint firstItem="g3A-JE-zmq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="egv-KF-v15"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Axn-ya-27e" secondAttribute="bottom" constant="306" id="fnX-ts-si2"/>
-                            <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="jbH-J9-cex"/>
-                            <constraint firstItem="Axn-ya-27e" firstAttribute="trailing" secondItem="r6G-WJ-bie" secondAttribute="trailing" id="snm-9c-EVI"/>
+                            <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="jbH-J9-cex"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -75,13 +57,24 @@
                                 <exclude reference="Nat-al-Jcd"/>
                                 <exclude reference="2AL-pN-xqt"/>
                                 <exclude reference="GGq-KA-ra5"/>
-                                <exclude reference="fnX-ts-si2"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Menu" id="uVo-jn-eDv"/>
+                    <navigationItem key="navigationItem" title="Menu" id="uVo-jn-eDv">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="FKs-6k-P5q">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Vhc-mm-WuL">
+                                <rect key="frame" x="451" y="7" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J3I-4s-JDD" kind="show" id="jyK-Tu-CPo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="btnInfo" destination="Axn-ya-27e" id="gJD-F2-gtf"/>
                         <outlet property="btnMeds" destination="r6G-WJ-bie" id="Vh9-zD-k05"/>
                     </connections>
                 </viewController>
@@ -327,7 +320,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="w3Q-VO-0lS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <color key="textColor" red="0.16018405969999999" green="0.19151614580000001" blue="0.60181897100000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.16078431372549021" green="0.19215686274509805" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laboratorio" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4c-Sg-Io9">
