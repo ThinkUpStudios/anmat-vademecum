@@ -359,6 +359,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JWS-Et-dGW" kind="show" identifier="ShowActiveComponent" id="EUU-uT-83W"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -384,6 +387,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a88-H0-VaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1972" y="-1562"/>
+        </scene>
+        <!--Active Component Detail-->
+        <scene sceneID="gyY-zp-KDq">
+            <objects>
+                <viewController title="Active Component Detail" id="JWS-Et-dGW" customClass="ActiveComponentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qbj-Mk-GvK"/>
+                        <viewControllerLayoutGuide type="bottom" id="LPN-Ne-vS3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NlZ-yq-60F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principio Activo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ey-Uk-UhI">
+                                <rect key="frame" x="16" y="72" width="568" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="NhR-NY-vrE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWL-3w-gwA">
+                                <rect key="frame" x="16" y="116" width="568" height="34"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4ey-Uk-UhI" firstAttribute="top" secondItem="Qbj-Mk-GvK" secondAttribute="bottom" constant="8" id="8vL-9a-rEG"/>
+                            <constraint firstAttribute="trailing" secondItem="4ey-Uk-UhI" secondAttribute="trailing" constant="16" id="FQr-h9-e3Z"/>
+                            <constraint firstItem="VWL-3w-gwA" firstAttribute="leading" secondItem="NlZ-yq-60F" secondAttribute="leading" constant="16" id="P32-tQ-mAy"/>
+                            <constraint firstItem="4ey-Uk-UhI" firstAttribute="leading" secondItem="NlZ-yq-60F" secondAttribute="leading" constant="16" id="Rvd-08-c13"/>
+                            <constraint firstAttribute="centerX" secondItem="VWL-3w-gwA" secondAttribute="centerX" id="Vux-QQ-HUj"/>
+                            <constraint firstItem="VWL-3w-gwA" firstAttribute="top" secondItem="4ey-Uk-UhI" secondAttribute="bottom" constant="8" id="eMc-8d-DyS"/>
+                            <constraint firstAttribute="trailing" secondItem="VWL-3w-gwA" secondAttribute="trailing" constant="16" id="u1Z-0M-JEX"/>
+                            <constraint firstItem="VWL-3w-gwA" firstAttribute="top" secondItem="4ey-Uk-UhI" secondAttribute="bottom" constant="8" id="zXr-Ad-ac7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detalle Principio Activo" id="DeL-ZG-Uay"/>
+                    <connections>
+                        <outlet property="txtActiveComponent" destination="4ey-Uk-UhI" id="jqz-nZ-RLg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWr-6y-kL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528" y="-745"/>
         </scene>
         <!--SearchResults-->
         <scene sceneID="F9X-Yo-5iu">
@@ -547,7 +600,7 @@
         <scene sceneID="OnJ-sG-uSD">
             <objects>
                 <tableViewController title="FormulaDetails" id="qm2-bR-xgh" customClass="FormulaDetailsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ef1-H4-s40">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ef1-H4-s40">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -582,6 +635,9 @@
                                         <constraint firstItem="vSY-fR-CTv" firstAttribute="leading" secondItem="njq-sQ-OQN" secondAttribute="leadingMargin" constant="8" id="sr4-Dj-qef"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JWS-Et-dGW" kind="show" identifier="ShowActiveComponent" id="ljG-ca-fGh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -995,4 +1051,7 @@
         <image name="logo-anmat-chico.png" width="220" height="60"/>
         <image name="wallpaper.png" width="1280" height="1280"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EUU-uT-83W"/>
+    </inferredMetricsTieBreakers>
 </document>

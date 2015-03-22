@@ -129,25 +129,11 @@ NSString *searchMode;
     }
 }
 
--(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
-    for (NSString *value in values) {
-        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
-            [searchResults addObject:value];
-        }
-    }
-}
-
 -(void) search:(UISearchBar *)searchBar text:(NSString *)text {
     [searchResults removeAllObjects];
     
     if(text.length == 0) {
         self.tblResults.hidden = YES;
-        
-        return;
-    }
-    
-    if(text.length < 3) {
-        [self.tblResults reloadData];
         
         return;
     }
@@ -165,6 +151,14 @@ NSString *searchMode;
     
     [self.tblResults reloadData];
     self.tblResults.hidden = NO;
+}
+
+-(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
+    for (NSString *value in values) {
+        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
+            [searchResults addObject:value];
+        }
+    }
 }
 
 @end

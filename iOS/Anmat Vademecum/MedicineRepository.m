@@ -83,7 +83,6 @@
         [query appendString:[self getVariableNumber:addedConditions]];
         [query appendString:@" COLLATE NOCASE"];
         addedConditions = addedConditions + 1;
-
     }
     
     [query appendString:@" ORDER BY precio DESC"];

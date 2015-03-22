@@ -8,6 +8,7 @@
 
 #import "ActiveComponentsViewController.h"
 #import "MedicineService.h"
+#import "ActiveComponentViewController.h"
 
 @interface ActiveComponentsViewController ()
 
@@ -101,24 +102,13 @@ NSMutableArray *searchResults;
     self.tblResults.hidden = YES;
 }
 
-
-/*-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    return [identifier isEqualToString:@"ShowResults"] && self.txtActiveComponent.text.length > 0;
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"ShowResults"]) {
-        SearchResultsViewController *results = segue.destinationViewController;
+    if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
+        ActiveComponentViewController *activeComponent = segue.destinationViewController;
+        NSIndexPath *selectedIndex = [self.tblResults indexPathForCell:sender];
+        NSString *selectedComponent = [searchResults objectAtIndex:selectedIndex.item];
         
-        results.medicines = [medicineService getMedicines:self.txtGenericName.text comercialName:self.txtComercialName.text laboratory:self.txtLaboratory.text];
-    }
-}*/
-
--(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
-    for (NSString *value in values) {
-        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
-            [searchResults addObject:value];
-        }
+        activeComponent.componentName = selectedComponent;
     }
 }
 
@@ -134,6 +124,14 @@ NSMutableArray *searchResults;
     [self loadSuggested:text values:testComponents];
     [self.tblResults reloadData];
     self.tblResults.hidden = NO;
+}
+
+-(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
+    for (NSString *value in values) {
+        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
+            [searchResults addObject:value];
+        }
+    }
 }
 
 - (void)loadTestData {
