@@ -67,7 +67,13 @@
     [lblLaboratory setText:medicine.laboratory];
     [lblCertificate setText:medicine.certificate];
     [lblForm setText:medicine.form];
-    [lblPrice setText:medicine.price];
+    
+    NSMutableString *price = [[NSMutableString alloc] init];
+    
+    [price appendString:@"$"];
+    [price appendString:[NSString stringWithFormat:@"%.2f", medicine.price]];
+    
+    [lblPrice setText:price];
     
     if(indexPath.item % 2 == 1) {
         [cell setBackgroundColor:[UIColor whiteColor]];

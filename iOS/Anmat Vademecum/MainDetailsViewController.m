@@ -93,7 +93,13 @@
     self.lblTrazability.text = self.medicine.trazability;
     self.lblPresentation.text = self.medicine.presentation;
     self.lblForm.text = self.medicine.form;
-    self.lblPrice.text = self.medicine.price;
+    
+    NSMutableString *price = [[NSMutableString alloc] init];
+    
+    [price appendString:@"$"];
+    [price appendString:[NSString stringWithFormat:@"%.2f", self.medicine.price]];
+    
+    self.lblPrice.text = price;
     self.lblCountry.text = self.medicine.country;
     self.lblGtin.text = self.medicine.gtin;
 }
