@@ -12,10 +12,7 @@
 
 @interface MedicineRepository()
 
-@property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSString *databaseFilename;
-
--(void)copyDatabaseIntoDocumentsDirectory;
 
 @end
 
@@ -23,12 +20,9 @@
 
 - (id)init {
     if ((self = [super init])) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        
-        self.documentsDirectory = [paths objectAtIndex:0];
-        self.databaseFilename = @"anmat";
+        self.databaseFilename = @"anmat.sqlite";
 
-        [self copyDatabaseIntoDocumentsDirectory];
+        [self verifyDataBase];
     }
     
     return self;
@@ -37,7 +31,7 @@
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT * FROM medicines";
+    NSString *query = @"SELECT * FROM medicines ORDER BY precio DESC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -63,7 +57,7 @@
     [query appendString:@"SELECT * FROM medicines WHERE "];
     
     if(genericName != nil && genericName.length > 0) {
-        [query appendString:@"generico LIKE ?"];
+        [query appendString:@"generico LIKE ? COLLATE NOCASE"];
         [query appendString:[self getVariableNumber:addedConditions]];
         addedConditions = addedConditions + 1;
     }
@@ -73,7 +67,7 @@
             [query appendString:@" AND "];
         }
         
-        [query appendString:@"comercial LIKE ?"];
+        [query appendString:@"comercial LIKE ? COLLATE NOCASE"];
         [query appendString:[self getVariableNumber:addedConditions]];
         addedConditions = addedConditions + 1;
     }
@@ -83,13 +77,13 @@
             [query appendString:@" AND "];
         }
         
-        [query appendString:@"laboratorio LIKE ?"];
+        [query appendString:@"laboratorio LIKE ? COLLATE NOCASE"];
         [query appendString:[self getVariableNumber:addedConditions]];
         addedConditions = addedConditions + 1;
 
     }
     
-    [query appendString:@" COLLATE NOCASE"];
+    [query appendString:@" ORDER BY precio DESC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
@@ -129,6 +123,8 @@
         }
         
         sqlite3_finalize(statement);
+    }else {
+        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
     }
     
     sqlite3_close(database);
@@ -139,7 +135,7 @@
 -(NSArray *) getAll:(NSString *)genericName {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT * FROM medicines WHERE generico LIKE ?001 COLLATE NOCASE";
+    NSString *query = @"SELECT * FROM medicines WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY precio DESC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -182,8 +178,6 @@
         }
         
         sqlite3_finalize(statement);
-    } else {
-        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
     }
     
     sqlite3_close(database);
@@ -211,8 +205,6 @@
         }
         
         sqlite3_finalize(statement);
-    } else {
-        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
     }
     
     sqlite3_close(database);
@@ -240,8 +232,6 @@
         }
         
         sqlite3_finalize(statement);
-    } else {
-        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
     }
     
     sqlite3_close(database);
@@ -249,11 +239,21 @@
     return result;
 }
 
--(void)copyDatabaseIntoDocumentsDirectory{
-    NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
+-(void)verifyDataBase {
+    BOOL needsCopy = YES;
+    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
+    NSString *destinationPath = [self getDBPath];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
+    if([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+        NSDate *sourceCreationDate = [self getCreationDate:sourcePath];
+        NSDate *destinationCreationDate = [self getCreationDate:destinationPath];
+        
+        if([sourceCreationDate compare:destinationCreationDate] == NSOrderedSame) {
+            needsCopy = NO;
+        }
+    }
+    
+    if (needsCopy) {
         NSError *error;
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
         
@@ -263,9 +263,22 @@
     }
 }
 
+- (NSString *) getDBPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+    NSString *documentsDir = [paths objectAtIndex:0];
+    
+    return [documentsDir stringByAppendingPathComponent:self.databaseFilename];
+}
+
+-(NSDate *) getCreationDate:(NSString *) path {
+    NSDictionary* fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+    
+    return [fileAttributes objectForKey:NSFileCreationDate];
+}
+
 -(sqlite3 *) getDatabase {
     sqlite3 *database;
-    NSString *databasePath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
+    NSString *databasePath = [self getDBPath];
     
     sqlite3_open([databasePath UTF8String], &database);
     
@@ -286,22 +299,21 @@
     char *requestConditionChars = (char *) sqlite3_column_text(statement, 10);
     char *trazabilityChars = (char *) sqlite3_column_text(statement, 11);
     char *presentationChars = (char *) sqlite3_column_text(statement, 12);
-    char *priceChars = (char *) sqlite3_column_text(statement, 13);
+    double price = sqlite3_column_double (statement, 13);
     
-    NSString *id = [[NSString alloc] initWithUTF8String:idChars];
-    NSString *certificate = [[NSString alloc] initWithUTF8String:certificateChars];
-    NSString *cuit = [[NSString alloc] initWithUTF8String:cuitChars];
-    NSString *laboratory = [[NSString alloc] initWithUTF8String:laboratoryChars];
-    NSString *gtin = [[NSString alloc] initWithUTF8String:gtinChars];
-    NSString *troquel = [[NSString alloc] initWithUTF8String:troquelChars];
-    NSString *comercialName = [[NSString alloc] initWithUTF8String:comercialNameChars];
-    NSString *form = [[NSString alloc] initWithUTF8String:formChars];
-    NSString *genericName = [[NSString alloc] initWithUTF8String:genericNameChars];
-    NSString *country = [[NSString alloc] initWithUTF8String:countryChars];
-    NSString *requestCondition = [[NSString alloc] initWithUTF8String:requestConditionChars];
-    NSString *trazability = [[NSString alloc] initWithUTF8String:trazabilityChars];
-    NSString *presentation = [[NSString alloc] initWithUTF8String:presentationChars];
-    NSString *price = [[NSString alloc] initWithUTF8String:priceChars];
+    NSString *id = [NSString stringWithCString:idChars encoding:NSISOLatin1StringEncoding];
+    NSString *certificate =  [NSString stringWithCString:certificateChars encoding:NSISOLatin1StringEncoding];
+    NSString *cuit = [NSString stringWithCString:cuitChars encoding:NSISOLatin1StringEncoding];
+    NSString *laboratory =  [NSString stringWithCString:laboratoryChars encoding:NSISOLatin1StringEncoding];
+    NSString *gtin =  [NSString stringWithCString:gtinChars encoding:NSISOLatin1StringEncoding];
+    NSString *troquel = [NSString stringWithCString:troquelChars encoding:NSISOLatin1StringEncoding];
+    NSString *comercialName = [NSString stringWithCString:comercialNameChars encoding:NSISOLatin1StringEncoding];
+    NSString *form = [NSString stringWithCString:formChars encoding:NSISOLatin1StringEncoding];
+    NSString *genericName = [NSString stringWithCString:genericNameChars encoding:NSISOLatin1StringEncoding];
+    NSString *country = [NSString stringWithCString:countryChars encoding:NSISOLatin1StringEncoding];
+    NSString *requestCondition = [NSString stringWithCString:requestConditionChars encoding:NSISOLatin1StringEncoding];
+    NSString *trazability = [NSString stringWithCString:trazabilityChars encoding:NSISOLatin1StringEncoding];
+    NSString *presentation = [NSString stringWithCString:presentationChars encoding:NSISOLatin1StringEncoding];
     
     Medicine *medicine = [[Medicine alloc] init];
     
@@ -318,18 +330,6 @@
     medicine.requestCondition = [self getFormattedValue:requestCondition];
     medicine.trazability = [self getFormattedValue:trazability];
     medicine.presentation = [self getFormattedValue:presentation];
-    
-    price = [self getFormattedValue:price];
-    
-    if(![price hasPrefix:@"$"]) {
-        NSMutableString *prefixedPrice = [[NSMutableString alloc] init];
-        
-        [prefixedPrice appendString:@"$"];
-        [prefixedPrice appendString:price];
-        
-        price = prefixedPrice;
-    }
-    
     medicine.price = price;
     
     return medicine;
