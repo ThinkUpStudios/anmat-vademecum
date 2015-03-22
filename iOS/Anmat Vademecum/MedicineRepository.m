@@ -57,8 +57,9 @@
     [query appendString:@"SELECT * FROM medicines WHERE "];
     
     if(genericName != nil && genericName.length > 0) {
-        [query appendString:@"generico LIKE ? COLLATE NOCASE"];
+        [query appendString:@"generico LIKE ?"];
         [query appendString:[self getVariableNumber:addedConditions]];
+        [query appendString:@" COLLATE NOCASE"];
         addedConditions = addedConditions + 1;
     }
     
@@ -67,8 +68,9 @@
             [query appendString:@" AND "];
         }
         
-        [query appendString:@"comercial LIKE ? COLLATE NOCASE"];
+        [query appendString:@"comercial LIKE ?"];
         [query appendString:[self getVariableNumber:addedConditions]];
+        [query appendString:@" COLLATE NOCASE"];
         addedConditions = addedConditions + 1;
     }
     
@@ -77,8 +79,9 @@
             [query appendString:@" AND "];
         }
         
-        [query appendString:@"laboratorio LIKE ? COLLATE NOCASE"];
+        [query appendString:@"laboratorio LIKE ?"];
         [query appendString:[self getVariableNumber:addedConditions]];
+        [query appendString:@" COLLATE NOCASE"];
         addedConditions = addedConditions + 1;
 
     }

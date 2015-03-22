@@ -13,7 +13,7 @@
 @interface MenuViewController ()
 
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
-@property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnComponents;
 
 @end
 
@@ -22,15 +22,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[self.btnMeds layer] setBorderWidth:1.0f];
-    [[self.btnMeds layer] setBorderColor:[UIColor colorWithRed:17/255.0 green:55/255.0 blue:86/255.0 alpha:255].CGColor];
-    
-    [[self.btnInfo layer] setBorderWidth:1.0f];
-    [[self.btnInfo layer] setBorderColor:[UIColor colorWithRed:17/255.0 green:55/255.0 blue:86/255.0 alpha:255].CGColor];
+    [self setBorder:self.btnMeds];
+    [self setBorder:self.btnComponents];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void) setBorder: (UISelectableButton *) button {
+    [[button layer] setBorderWidth:1.0f];
+    [[button layer] setBorderColor:[UIColor colorWithRed:17/255.0 green:55/255.0 blue:86/255.0 alpha:255].CGColor];
 }
 
 @end
