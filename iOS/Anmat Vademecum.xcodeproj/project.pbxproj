@@ -19,6 +19,7 @@
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
 		149856611ABF1DF1001B6B5A /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 149856601ABF1DF1001B6B5A /* anmat.sqlite */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
+		149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AABA541A97D4C300126B22 /* logo-anmat-chico.png */; };
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
@@ -64,6 +65,8 @@
 		149856601ABF1DF1001B6B5A /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
+		149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentViewController.h; sourceTree = "<group>"; };
+		149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentViewController.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
 		14AABA441A97C1BC00126B22 /* Medicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicine.m; sourceTree = "<group>"; };
 		14AABA541A97D4C300126B22 /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */,
 				149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */,
 				149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */,
+				149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */,
+				149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
+				149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,

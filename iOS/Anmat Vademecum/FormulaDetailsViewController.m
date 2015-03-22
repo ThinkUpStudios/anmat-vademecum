@@ -8,6 +8,7 @@
 
 #import "FormulaDetailsViewController.h"
 #import "FormulaComponent.h"
+#import "ActiveComponentViewController.h"
 
 @interface FormulaDetailsViewController ()
 
@@ -64,6 +65,20 @@
     [lblQuantity setText:component.quantity];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"ShowActiveComponent" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
+        ActiveComponentViewController *activeComponent = segue.destinationViewController;
+        NSIndexPath *selectedIndex = [self.tableView indexPathForCell:sender];
+        FormulaComponent *selectedComponent = [self.formulaComponents objectAtIndex:selectedIndex.item];
+        
+        activeComponent.componentName = selectedComponent.name;
+    }
 }
 
 - (void)loadFormulaComponents {
