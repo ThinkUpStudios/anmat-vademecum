@@ -26,7 +26,7 @@ MedicineService *medicineService;
     self.navigationItem.title = @"Detalle";
     
     UIBarButtonItem *btnRelated = [[UIBarButtonItem alloc] init];
-    UIImage *imgRelated = [UIImage imageNamed:@"Recommended"];
+    UIImage *imgRelated = [UIImage imageNamed:@"Recommended3"];
     
     [btnRelated setImage:imgRelated];
     [btnRelated setTarget:self];
