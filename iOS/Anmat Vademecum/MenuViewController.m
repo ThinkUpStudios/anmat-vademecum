@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnComponents;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
 
 @end
 
@@ -24,6 +25,7 @@
     
     [self setBorder:self.btnMeds];
     [self setBorder:self.btnComponents];
+    [self setBorder:self.btnInfo];
 }
 
 - (void)didReceiveMemoryWarning {
