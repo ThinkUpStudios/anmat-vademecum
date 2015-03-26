@@ -127,9 +127,11 @@ NSString *searchMode;
 
 -(void)searchResults:(id)sender {
     if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         
-        [alert show];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
     } else {
         [self performSegueWithIdentifier:@"ShowResults" sender:self];
     }

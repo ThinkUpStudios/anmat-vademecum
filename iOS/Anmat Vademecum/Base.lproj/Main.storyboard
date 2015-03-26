@@ -126,10 +126,26 @@
                                             <segue destination="J3I-4s-JDD" kind="show" id="tUJ-Tr-82x"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-xj-g4V">
+                                        <rect key="frame" x="60" y="5" width="30" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Mpo-IL-0Fg"/>
+                                            <constraint firstAttribute="width" constant="30" id="peG-OS-U5p"/>
+                                        </constraints>
+                                        <state key="normal" image="Contact">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnContact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XC2-fD-5PC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="EMS-xj-g4V" firstAttribute="top" secondItem="t4t-Z0-ME5" secondAttribute="top" constant="5" id="HWK-As-foP"/>
                                     <constraint firstItem="pTi-Ej-yYq" firstAttribute="top" secondItem="t4t-Z0-ME5" secondAttribute="top" constant="5" id="Ipo-di-tBc"/>
+                                    <constraint firstItem="pTi-Ej-yYq" firstAttribute="leading" secondItem="EMS-xj-g4V" secondAttribute="trailing" constant="19" id="MoF-M3-u7I"/>
                                     <constraint firstAttribute="trailing" secondItem="pTi-Ej-yYq" secondAttribute="trailing" id="SbG-iD-ib5"/>
+                                    <constraint firstAttribute="bottom" secondItem="EMS-xj-g4V" secondAttribute="bottom" constant="4" id="ed7-RJ-7xk"/>
                                 </constraints>
                             </view>
                         </barButtonItem>
@@ -1163,6 +1179,7 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Contact" width="24" height="24"/>
         <image name="Details2" width="26" height="26"/>
         <image name="Formula2" width="26" height="26"/>
         <image name="Help2" width="26" height="26"/>
