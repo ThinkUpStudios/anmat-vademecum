@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *txtComercialName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtLaboratory;
 @property (weak, nonatomic) IBOutlet UITableView *tblResults;
+- (IBAction)searchResults:(id)sender;
 
 @end
 
@@ -116,16 +117,21 @@ NSString *searchMode;
     self.tblResults.hidden = YES;
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    return [identifier isEqualToString:@"ShowResults"] &&
-    (self.txtGenericName.text.length > 0 || self.txtComercialName.text.length > 0 || self.txtLaboratory.text.length > 0);
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowResults"]) {
         SearchResultsViewController *results = segue.destinationViewController;
         
         results.medicines = [medicineService getMedicines:self.txtGenericName.text comercialName:self.txtComercialName.text laboratory:self.txtLaboratory.text];
+    }
+}
+
+-(void)searchResults:(id)sender {
+    if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    } else {
+        [self performSegueWithIdentifier:@"ShowResults" sender:self];
     }
 }
 
