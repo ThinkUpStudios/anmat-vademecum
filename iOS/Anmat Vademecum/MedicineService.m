@@ -24,8 +24,21 @@ MedicineRepository *repository;
     return [repository getAll:genericName comercialName:comercialName laboratory:laboratory];
 }
 
+-(NSArray *)getMedicines:(NSString *)activeComponent {
+    NSArray *medicines = [repository getAll];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    for (Medicine *medicine in medicines) {
+        if([medicine.genericName containsString:activeComponent]) {
+            [result addObject:medicine];
+        }
+    }
+    
+    return result;
+}
+
 - (NSArray *) getSimilarMedicines: (Medicine *)reference {
-    NSArray *medicines = [repository getAll:reference.genericName];
+    NSArray *medicines = [repository getAll:reference.genericName comercialName:@"" laboratory:@""];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -60,8 +73,6 @@ MedicineRepository *repository;
     [medicine.comercialName isEqualToString:reference.comercialName] &&
     [medicine.laboratory isEqualToString:reference.laboratory] &&
     [medicine.form isEqualToString:reference.form] &&
-    [medicine.requestCondition isEqualToString:reference.requestCondition] &&
-    [medicine.troquel isEqualToString:reference.troquel] &&
     [medicine.certificate isEqualToString:reference.certificate] &&
     [medicine.presentation isEqualToString:reference.presentation];
 }

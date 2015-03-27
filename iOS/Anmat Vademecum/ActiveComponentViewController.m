@@ -7,6 +7,8 @@
 //
 
 #import "ActiveComponentViewController.h"
+#import "SearchResultsViewController.h"
+#import "MedicineService.h"
 
 @interface ActiveComponentViewController ()
 
@@ -16,14 +18,26 @@
 
 @implementation ActiveComponentViewController
 
+MedicineService *medicineService;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.txtActiveComponent.text = self.componentName;
+    
+    medicineService = [[MedicineService alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"ShowMedicinesWithSameComponent"]) {
+        SearchResultsViewController *results = segue.destinationViewController;
+        
+        results.medicines = [medicineService getMedicines:self.txtActiveComponent.text];
+    }
 }
 
 @end
