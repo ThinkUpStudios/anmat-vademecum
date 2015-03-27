@@ -10,14 +10,22 @@
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
+		14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14343C411AB7276A00238B73 /* libsqlite3.dylib */; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
+		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
+		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
+		149115211AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */; };
+		149856611ABF1DF1001B6B5A /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 149856601ABF1DF1001B6B5A /* anmat.sqlite */; };
+		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
+		149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AABA541A97D4C300126B22 /* logo-anmat-chico.png */; };
+		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
 		14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C31AACABF100CA80FC /* MedicineService.m */; };
 		14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C81AACF33C00CA80FC /* UISelectableButton.m */; };
 		14E29FE21A975D83005292FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE11A975D83005292FE /* main.m */; };
@@ -45,6 +53,7 @@
 		141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchSectionViewController.m; sourceTree = "<group>"; };
 		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		14343C411AB7276A00238B73 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
 		1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
@@ -56,9 +65,19 @@
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
 		147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTabViewController.m; sourceTree = "<group>"; };
+		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
+		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
+		1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "logo-patria-toolbar.jpg"; sourceTree = "<group>"; };
+		149856601ABF1DF1001B6B5A /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
+		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
+		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
+		149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentViewController.h; sourceTree = "<group>"; };
+		149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentViewController.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
 		14AABA441A97C1BC00126B22 /* Medicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicine.m; sourceTree = "<group>"; };
 		14AABA541A97D4C300126B22 /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
+		14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineRepository.h; sourceTree = "<group>"; };
+		14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineRepository.m; sourceTree = "<group>"; };
 		14BC10C21AACABF100CA80FC /* MedicineService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineService.h; sourceTree = "<group>"; };
 		14BC10C31AACABF100CA80FC /* MedicineService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineService.m; sourceTree = "<group>"; };
 		14BC10C71AACF33C00CA80FC /* UISelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISelectableButton.h; sourceTree = "<group>"; };
@@ -81,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +117,8 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
+				149856601ABF1DF1001B6B5A /* anmat.sqlite */,
+				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
 				14E29FDD1A975D83005292FE /* Products */,
@@ -115,6 +137,9 @@
 		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
 			isa = PBXGroup;
 			children = (
+				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
+				1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */,
+				1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */,
 				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
 				14AABA541A97D4C300126B22 /* logo-anmat-chico.png */,
 				14E29FE31A975D83005292FE /* AppDelegate.h */,
@@ -145,6 +170,12 @@
 				14BC10C31AACABF100CA80FC /* MedicineService.m */,
 				14BC10C71AACF33C00CA80FC /* UISelectableButton.h */,
 				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
+				14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */,
+				14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */,
+				149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */,
+				149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */,
+				149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */,
+				149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -257,10 +288,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
+				149856611ABF1DF1001B6B5A /* anmat.sqlite in Resources */,
+				149115211AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg in Resources */,
+				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
 				14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */,
+				149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */,
+				149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */,
 				147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */,
 				14E29FE51A975D83005292FE /* AppDelegate.m in Sources */,
 				141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */,
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
+				149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
@@ -415,9 +453,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -426,9 +467,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

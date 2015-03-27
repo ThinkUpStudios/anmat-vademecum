@@ -57,17 +57,26 @@
     
     UILabel * lblGenericName = (UILabel *)[cell.contentView viewWithTag:1];
     UILabel * lblComercialName = (UILabel *)[cell.contentView viewWithTag:2];
-    UILabel * lblLaboratory = (UILabel *)[cell.contentView viewWithTag:3];
+    UILabel * lblForm = (UILabel *)[cell.contentView viewWithTag:3];
     UILabel * lblCertificate = (UILabel *)[cell.contentView viewWithTag:4];
-    UILabel * lblForm = (UILabel *)[cell.contentView viewWithTag:5];
-    UILabel * lblPrice = (UILabel *)[cell.contentView viewWithTag:6];
+    UILabel * lblPresentation = (UILabel *)[cell.contentView viewWithTag:5];
+    UILabel * lblLaboratory = (UILabel *)[cell.contentView viewWithTag:6];
+    UILabel * lblPrice = (UILabel *)[cell.contentView viewWithTag:7];
     
     [lblGenericName setText:medicine.genericName];
     [lblComercialName setText:medicine.comercialName];
-    [lblLaboratory setText:medicine.laboratory];
-    [lblCertificate setText:medicine.certificate];
     [lblForm setText:medicine.form];
-    [lblPrice setText:medicine.price];
+    [lblCertificate setText:medicine.certificate];
+    [lblPresentation setText:medicine.presentation];
+    [lblLaboratory setText:medicine.laboratory];
+    
+    NSNumberFormatter *priceFormatter = [[NSNumberFormatter alloc] init];
+    
+    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    NSString *price = [priceFormatter stringFromNumber:[NSNumber numberWithDouble:medicine.price]];
+    
+    [lblPrice setText:price];
     
     if(indexPath.item % 2 == 1) {
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -79,7 +88,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 135;
+    return 160;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

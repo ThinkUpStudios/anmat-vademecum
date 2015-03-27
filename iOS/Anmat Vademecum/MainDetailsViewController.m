@@ -93,7 +93,14 @@
     self.lblTrazability.text = self.medicine.trazability;
     self.lblPresentation.text = self.medicine.presentation;
     self.lblForm.text = self.medicine.form;
-    self.lblPrice.text = self.medicine.price;
+    
+    NSNumberFormatter *priceFormatter = [[NSNumberFormatter alloc] init];
+    
+    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    NSString *price = [priceFormatter stringFromNumber:[NSNumber numberWithDouble:self.medicine.price]];
+    
+    self.lblPrice.text = price;
     self.lblCountry.text = self.medicine.country;
     self.lblGtin.text = self.medicine.gtin;
 }

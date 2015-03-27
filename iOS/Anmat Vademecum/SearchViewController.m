@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *txtComercialName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtLaboratory;
 @property (weak, nonatomic) IBOutlet UITableView *tblResults;
+- (IBAction)searchResults:(id)sender;
 
 @end
 
@@ -25,9 +26,6 @@
 
 MedicineService *medicineService;
 NSMutableArray *searchResults;
-NSArray *genericNames;
-NSArray *comercialNames;
-NSArray *laboratories;
 NSString *searchMode;
 
 -(void) viewDidLoad {
@@ -42,7 +40,6 @@ NSString *searchMode;
     
     medicineService = [[MedicineService alloc] init];
     searchResults = [[NSMutableArray alloc] init];
-    [self loadSearchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,11 +117,6 @@ NSString *searchMode;
     self.tblResults.hidden = YES;
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    return [identifier isEqualToString:@"ShowResults"] &&
-    (self.txtGenericName.text.length > 0 || self.txtComercialName.text.length > 0 || self.txtLaboratory.text.length > 0);
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowResults"]) {
         SearchResultsViewController *results = segue.destinationViewController;
@@ -133,17 +125,15 @@ NSString *searchMode;
     }
 }
 
--(void)loadSearchData {
-    genericNames = @[@"+ FACTOR ANTIHEMOFILICO HUMANO 250 UI / FRASCO AMPOLLA", @"BENZOCAINA 10 MG + EXTRACTO SECO DE HEDERA HELIX 65 MG", @"ITRACONAZOL 200 MG / CAP", @"FOSFATO MONOSODICO MONOHIDRATO ,22 G / 100 ML + DEXTROSA MONOHIDRATADA 3,19 G / 100 ML + ADENINA ,027 G / 100 ML + ACIDO CITRICO ANHIDRO ,3 G / 100 ML + CITRATO DE SODIO DIHIDRATO 2,63 G / 100 ML", @"RISPERIDONA 1 MG", @"KLEBSIELLA PNEUMONIAE 1 MILLONES / ML + ESCHERICHIA COLI ,5 MILLONES / ML + ESTREPTOCOCOS 11 MILLONES / ML + BAC.PROTEUS VULGARIS ,5 MILLONES / ML + PSEUDOMONAS AERUGINOSA 1 MILLONES / ML + MICROCOCCUS FLAVUS 4 MILLONES / ML + MICROCOCCUS CANDIDUS 3 MILLONES / ML + MICROCOCCUS CONGLOMERATUS 3 MILLONES / ML + MICROCOCCUS VARIANS 4 MILLONES / ML + STAPHYLOCOCCUS PYOGENES 12 MILLONES / ML + STAPHYLOCOCCUS EPIDERMIS 3 MILLONES / ML + SARCINA LUTEA 1 MILLONES / ML + AEROBACTER AEROGENES ,5 MILLONES / ML + PSEUDOMONAS FLUORESCENS ,5 MILLONES / ML + CORYNEBACTERIUM PSEUDODIPHTER ,5 MILLONES / ML + CORYNEBACTERIUM XEROSE ,5 MILLONES / ML + ASPERGILLUS ,5 MILLONES / ML + PENICILLIUM ,5 MILLONES / ML + EPIDERMOPHYTUS 1,25 MILLONES / ML + TRICHOPHYTUS 1,25 MILLONES / ML + MONILIA 1,25 MILLONES / ML", @"ERITROPOYETINA HUMANA RECOMBINANTE 2000 UI / 2 ML +"];
-    comercialNames = @[@"KOATE DVI", @"CEDRIC POCKET", @"ITRAC 200", @"BOLSAS PARA SANGRE CFDA-1", @"RESTELEA", @"SUMMAVAC P", @"LOHP 500", @"JEVITY PLUS", @"ASPIRINA FABRA 500", @"HYPERCRIT"];
-    laboratories = @[@"TUTEUR S A C I F I A", @"LABORATORIO ELEA SACIFYA", @"LABORATORIO PABLO CASSARA S R L", @"P.L. RIVERO Y COMPAÑIA SOCIEDAD ANONIMA", @"HLB PHARMA GROUP S.A.", @"ABBOTT LABORATORIES ARGENTINA S.A.", @"LABORATORIOS FABRA S.A.", @"BIOSIDUS SOCIEDAD ANONIMA"];
-}
-
--(void) loadRecommended:(NSString *)searchText values:(NSArray *)values {
-    for (NSString *value in values) {
-        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
-            [searchResults addObject:value];
-        }
+-(void)searchResults:(id)sender {
+    if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"ShowResults" sender:self];
     }
 }
 
@@ -156,25 +146,27 @@ NSString *searchMode;
         return;
     }
     
-    if(text.length < 3) {
-        [self.tblResults reloadData];
-        
-        return;
-    }
-    
     if([searchBar isEqual:self.txtGenericName]) {
         searchMode = @"generic";
-        [self loadRecommended:text values:genericNames];
+        [self loadSuggested:text values:[medicineService getGenericNames:text ]];
     } else if([searchBar isEqual:self.txtComercialName]) {
         searchMode = @"comercial";
-        [self loadRecommended:text values:comercialNames];
+        [self loadSuggested:text values:[medicineService getComercialNames:text ]];
     } else {
         searchMode = @"laboratory";
-        [self loadRecommended:text values:laboratories];
+        [self loadSuggested:text values:[medicineService getLaboratories:text ]];
     }
     
     [self.tblResults reloadData];
     self.tblResults.hidden = NO;
+}
+
+-(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
+    for (NSString *value in values) {
+        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
+            [searchResults addObject:value];
+        }
+    }
 }
 
 @end
