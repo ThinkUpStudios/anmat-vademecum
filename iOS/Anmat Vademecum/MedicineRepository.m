@@ -134,32 +134,6 @@
     return result;
 }
 
--(NSArray *) getAll:(NSString *)genericName {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT * FROM medicines WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY precio DESC";
-    sqlite3_stmt *statement;
-    
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
-        == SQLITE_OK) {
-        NSString *genericNameSearch = [NSString stringWithFormat:@"%%%@%%", genericName];
-        
-        sqlite3_bind_text(statement, 1, [genericNameSearch UTF8String], -1, SQLITE_STATIC);
-        
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            Medicine *medicine = [self getMedicine:statement];
-            
-            [result addObject:medicine];
-        }
-        
-        sqlite3_finalize(statement);
-    }
-    
-    sqlite3_close(database);
-    
-    return result;
-}
-
 - (NSArray *) getGenericNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];

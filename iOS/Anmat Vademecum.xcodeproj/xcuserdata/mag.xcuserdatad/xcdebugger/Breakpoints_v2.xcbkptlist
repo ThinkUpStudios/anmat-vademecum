@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Anmat Vademecum/FormulaDetailsViewController.m"
-            timestampString = "448745067.326662"
+            timestampString = "449118646.546788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-loadFormulaComponents"
             landmarkType = "5">
          </BreakpointContent>

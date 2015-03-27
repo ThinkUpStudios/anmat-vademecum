@@ -13,6 +13,8 @@
 
 - (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory;
 
+- (NSArray *) getMedicines: (NSString *)activeComponent;
+
 - (NSArray *) getSimilarMedicines: (Medicine *)reference;
 
 - (NSArray *) getGenericNames: (NSString *)searchText;
