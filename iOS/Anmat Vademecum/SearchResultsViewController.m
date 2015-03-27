@@ -70,10 +70,11 @@
     [lblPresentation setText:medicine.presentation];
     [lblLaboratory setText:medicine.laboratory];
     
-    NSMutableString *price = [[NSMutableString alloc] init];
+    NSNumberFormatter *priceFormatter = [[NSNumberFormatter alloc] init];
     
-    [price appendString:@"$"];
-    [price appendString:[NSString stringWithFormat:@"%.2f", medicine.price]];
+    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    NSString *price = [priceFormatter stringFromNumber:[NSNumber numberWithDouble:medicine.price]];
     
     [lblPrice setText:price];
     
