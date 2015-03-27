@@ -277,19 +277,19 @@
     char *presentationChars = (char *) sqlite3_column_text(statement, 12);
     double price = sqlite3_column_double (statement, 13);
     
-    NSString *id = [NSString stringWithCString:idChars encoding:NSISOLatin1StringEncoding];
-    NSString *certificate =  [NSString stringWithCString:certificateChars encoding:NSISOLatin1StringEncoding];
-    NSString *cuit = [NSString stringWithCString:cuitChars encoding:NSISOLatin1StringEncoding];
-    NSString *laboratory =  [NSString stringWithCString:laboratoryChars encoding:NSISOLatin1StringEncoding];
-    NSString *gtin =  [NSString stringWithCString:gtinChars encoding:NSISOLatin1StringEncoding];
-    NSString *troquel = [NSString stringWithCString:troquelChars encoding:NSISOLatin1StringEncoding];
-    NSString *comercialName = [NSString stringWithCString:comercialNameChars encoding:NSISOLatin1StringEncoding];
-    NSString *form = [NSString stringWithCString:formChars encoding:NSISOLatin1StringEncoding];
-    NSString *genericName = [NSString stringWithCString:genericNameChars encoding:NSISOLatin1StringEncoding];
-    NSString *country = [NSString stringWithCString:countryChars encoding:NSISOLatin1StringEncoding];
-    NSString *requestCondition = [NSString stringWithCString:requestConditionChars encoding:NSISOLatin1StringEncoding];
-    NSString *trazability = [NSString stringWithCString:trazabilityChars encoding:NSISOLatin1StringEncoding];
-    NSString *presentation = [NSString stringWithCString:presentationChars encoding:NSISOLatin1StringEncoding];
+    NSString *id = [NSString stringWithUTF8String:idChars];
+    NSString *certificate =  [NSString stringWithUTF8String:certificateChars];
+    NSString *cuit = [NSString stringWithUTF8String:cuitChars];
+    NSString *laboratory =  [NSString stringWithUTF8String:laboratoryChars];
+    NSString *gtin =  [NSString stringWithUTF8String:gtinChars];
+    NSString *troquel = [NSString stringWithUTF8String:troquelChars];
+    NSString *comercialName = [NSString stringWithUTF8String:comercialNameChars];
+    NSString *form = [NSString stringWithUTF8String:formChars];
+    NSString *genericName = [NSString stringWithUTF8String:genericNameChars];
+    NSString *country = [NSString stringWithUTF8String:countryChars];
+    NSString *requestCondition = [NSString stringWithUTF8String:requestConditionChars];
+    NSString *trazability = [NSString stringWithUTF8String:trazabilityChars];
+    NSString *presentation = [NSString stringWithUTF8String:presentationChars];
     
     Medicine *medicine = [[Medicine alloc] init];
     
