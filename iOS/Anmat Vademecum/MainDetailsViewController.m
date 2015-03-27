@@ -94,10 +94,11 @@
     self.lblPresentation.text = self.medicine.presentation;
     self.lblForm.text = self.medicine.form;
     
-    NSMutableString *price = [[NSMutableString alloc] init];
+    NSNumberFormatter *priceFormatter = [[NSNumberFormatter alloc] init];
     
-    [price appendString:@"$"];
-    [price appendString:[NSString stringWithFormat:@"%.2f", self.medicine.price]];
+    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    
+    NSString *price = [priceFormatter stringFromNumber:[NSNumber numberWithDouble:self.medicine.price]];
     
     self.lblPrice.text = price;
     self.lblCountry.text = self.medicine.country;
