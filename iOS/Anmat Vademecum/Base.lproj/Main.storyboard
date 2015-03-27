@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="96q-cL-gzf">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -66,11 +65,56 @@
                                     <segue destination="tI1-S7-4hw" kind="show" id="ok1-np-3ep"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-7G-js0">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="426-8c-J45">
+                                        <view key="customView" contentMode="scaleToFill" id="Y6W-Z2-qJu">
+                                            <rect key="frame" x="16" y="5.5" width="100" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-ministerio-toolbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="lp2-tu-BKy">
+                                                    <rect key="frame" x="0.0" y="0.5" width="100" height="33"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ehl-sN-dVs"/>
+                                    <barButtonItem style="plain" id="QIZ-nb-Vej">
+                                        <view key="customView" contentMode="scaleToFill" id="244-Vl-8Hd">
+                                            <rect key="frame" x="30" y="5.5" width="130" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-anmat-toolbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ufq-EE-7cZ">
+                                                    <rect key="frame" x="0.0" y="0.5" width="130" height="33"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fdQ-ki-jui"/>
+                                    <barButtonItem style="plain" id="1N5-T6-zb9">
+                                        <view key="customView" contentMode="scaleToFill" id="tSM-iL-XBa">
+                                            <rect key="frame" x="264" y="5.5" width="100" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-patria-toolbar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-Fh-cDf">
+                                                    <rect key="frame" x="0.0" y="0.5" width="100" height="33"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="409" id="2AL-pN-xqt"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="7r2-Cx-zKc"/>
+                            <constraint firstAttribute="trailing" secondItem="dhb-7G-js0" secondAttribute="trailing" id="935-WG-wBa"/>
                             <constraint firstItem="kLy-Tg-Ygp" firstAttribute="top" secondItem="N9C-Qb-7TV" secondAttribute="bottom" constant="8" id="DGd-Mv-L1Z"/>
                             <constraint firstItem="g3A-JE-zmq" firstAttribute="top" secondItem="N9C-Qb-7TV" secondAttribute="bottom" constant="-283" id="EKw-dK-ya2"/>
                             <constraint firstItem="kLy-Tg-Ygp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="GES-iI-Kk6"/>
@@ -80,6 +124,7 @@
                             <constraint firstAttribute="trailing" secondItem="kLy-Tg-Ygp" secondAttribute="trailing" constant="16" id="T1P-g4-Ud8"/>
                             <constraint firstItem="kLy-Tg-Ygp" firstAttribute="top" secondItem="N9C-Qb-7TV" secondAttribute="bottom" constant="8" id="UoR-pj-QMO"/>
                             <constraint firstItem="N9C-Qb-7TV" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="8" id="WL8-z6-H4I"/>
+                            <constraint firstAttribute="bottom" secondItem="dhb-7G-js0" secondAttribute="bottom" id="XEo-lj-Ul5"/>
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="XS6-cb-HXX"/>
                             <constraint firstItem="g3A-JE-zmq" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="-180" id="faW-Mb-btr"/>
                             <constraint firstAttribute="trailing" secondItem="r6G-WJ-bie" secondAttribute="trailing" constant="16" id="ggR-eL-gze"/>
@@ -87,6 +132,7 @@
                             <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="jbH-J9-cex"/>
                             <constraint firstAttribute="trailing" secondItem="N9C-Qb-7TV" secondAttribute="trailing" constant="16" id="kHg-v7-GgW"/>
                             <constraint firstAttribute="centerX" secondItem="N9C-Qb-7TV" secondAttribute="centerX" id="kiy-r6-wgR"/>
+                            <constraint firstItem="dhb-7G-js0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lAg-KR-WSD"/>
                             <constraint firstAttribute="centerX" secondItem="kLy-Tg-Ygp" secondAttribute="centerX" id="lm3-R4-IdY"/>
                             <constraint firstAttribute="centerX" secondItem="r6G-WJ-bie" secondAttribute="centerX" id="rhQ-VL-0mD"/>
                             <constraint firstItem="N9C-Qb-7TV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="z17-KS-aYt"/>
@@ -1184,6 +1230,9 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
         <image name="Formula2" width="26" height="26"/>
         <image name="Help2" width="26" height="26"/>
         <image name="logo-anmat-chico.png" width="220" height="60"/>
+        <image name="logo-anmat-toolbar.png" width="100" height="44"/>
+        <image name="logo-ministerio-toolbar.png" width="130" height="40"/>
+        <image name="logo-patria-toolbar.jpg" width="100" height="42"/>
         <image name="wallpaper.png" width="1280" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
