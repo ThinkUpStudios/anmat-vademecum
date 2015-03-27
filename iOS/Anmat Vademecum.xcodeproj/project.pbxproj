@@ -17,6 +17,9 @@
 		1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
+		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
+		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
+		149115211AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */; };
 		149856611ABF1DF1001B6B5A /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 149856601ABF1DF1001B6B5A /* anmat.sqlite */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
 		149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */; };
@@ -62,6 +65,9 @@
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
 		147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTabViewController.m; sourceTree = "<group>"; };
+		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
+		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
+		1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "logo-patria-toolbar.jpg"; sourceTree = "<group>"; };
 		149856601ABF1DF1001B6B5A /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
@@ -131,6 +137,9 @@
 		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
 			isa = PBXGroup;
 			children = (
+				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
+				1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */,
+				1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */,
 				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
 				14AABA541A97D4C300126B22 /* logo-anmat-chico.png */,
 				14E29FE31A975D83005292FE /* AppDelegate.h */,
@@ -280,10 +289,13 @@
 			files = (
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
 				149856611ABF1DF1001B6B5A /* anmat.sqlite in Resources */,
+				149115211AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg in Resources */,
+				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
 				14AABA551A97D4C300126B22 /* logo-anmat-chico.png in Resources */,
+				149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
