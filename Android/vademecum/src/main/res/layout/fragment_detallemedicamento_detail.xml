@@ -7,13 +7,14 @@
 
     <TabHost
         android:id="@android:id/tabhost"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="40dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,12 +24,15 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp" />
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                 />
 
             <ScrollView
                 android:id="@+id/scrollDetalle"
@@ -49,11 +53,9 @@
                         android:id="@+id/detalle"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1"
-
-
-                        android:orientation="vertical">
-
+                        android:layout_weight="0.50"
+                        android:orientation="vertical"
+                        android:drawableLeft="@drawable/recomendados">
                         <TextView
                             android:id="@+id/lbl_num_certificado"
                             android:layout_width="wrap_content"
@@ -314,8 +316,8 @@
                         android:id="@+id/formula"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_weight="0.50">
 
 
                         <TableLayout
@@ -379,7 +381,7 @@
         android:textColor="@color/anmat_azul"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_txt_related"
-
+        android:drawableLeft="@drawable/recomendados"
         android:layout_margin="0dp"
         android:text="@string/recomendados" />
 </RelativeLayout>

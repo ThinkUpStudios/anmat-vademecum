@@ -10,4 +10,6 @@
 
 @interface SearchResultsViewController : UITableViewController
 
+@property (nonatomic , strong) NSArray *medicines;
+
 @end

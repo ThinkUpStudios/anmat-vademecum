@@ -51,7 +51,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         if(getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
             this.medicamento = (MedicamentoBO) getArguments().getSerializable(MedicamentoBO.MEDICAMENTOBO);
         }
@@ -64,18 +64,23 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_detallemedicamento_detail, container, false);
 
         this.setValores(rootView, this.medicamento, container);
+        Resources res = getResources();
 
         TabHost tabs=(TabHost)rootView.findViewById(android.R.id.tabhost);
         tabs.setup();
 
         TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
         spec.setContent(R.id.detalle);
-        spec.setIndicator("Detalle");
+        //spec.setIndicator("Detalle");
+        spec.setIndicator("", res.getDrawable(R.drawable.detalle));
         tabs.addTab(spec);
+        tabs.setHorizontalScrollBarEnabled(true);
 
-        spec=tabs.newTabSpec("mitab2");
+        spec=tabs.newTabSpec("");
         spec.setContent(R.id.formula);
-        spec.setIndicator("Formula");
+        //spec.setIndicator("Formula");
+        spec.setIndicator("", res.getDrawable(R.drawable.formula));
+
         tabs.addTab(spec);
 
         tabs.setCurrentTab(0);

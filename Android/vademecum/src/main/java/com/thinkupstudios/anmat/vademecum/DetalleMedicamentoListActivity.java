@@ -2,12 +2,14 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,6 +42,7 @@ public class DetalleMedicamentoListActivity extends Activity
      */
     private boolean mTwoPane;
 
+private View selectedView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +58,6 @@ public class DetalleMedicamentoListActivity extends Activity
                             .findFragmentById(R.id.detallemedicamento_list));
 
                     fragment.setActivateOnItemClick(true);
-            Bundle arguments = new Bundle();
-
-            arguments.putSerializable(FormularioBusqueda.FORMULARIO_MANUAL,
-                    this.getIntent().getExtras().getSerializable(FormularioBusqueda.FORMULARIO_MANUAL));
-            fragment.setArguments(arguments);
 
         }
     }
@@ -74,7 +72,14 @@ public class DetalleMedicamentoListActivity extends Activity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(MedicamentoBO m) {
+    public void onItemSelected(MedicamentoBO m, View item) {
+        if(this.selectedView!= null){
+            this.selectedView.getBackground().clearColorFilter();
+        }
+        this.selectedView = item;
+
+        selectedView.getBackground().setColorFilter(0x77000000, PorterDuff.Mode.DARKEN);
+
 
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
@@ -84,6 +89,7 @@ public class DetalleMedicamentoListActivity extends Activity
             arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO, m);
             DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
             fragment.setArguments(arguments);
+
             getFragmentManager().beginTransaction()
                     .replace(R.id.detallemedicamento_detail_container, fragment)
                     .commit();
@@ -96,6 +102,7 @@ public class DetalleMedicamentoListActivity extends Activity
             startActivity(detailIntent);
             overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
         }
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

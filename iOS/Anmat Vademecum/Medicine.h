@@ -10,7 +10,7 @@
 
 @interface Medicine : NSObject
 
-@property int id;
+@property NSString *id;
 @property NSString *certificate;
 @property NSString *cuit;
 @property NSString *laboratory;

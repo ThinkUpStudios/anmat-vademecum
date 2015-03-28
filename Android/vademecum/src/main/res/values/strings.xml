@@ -7,7 +7,8 @@
     <string name="title_activity_main_menu">Anmat Vademecum</string>
     <string name="opciones">Opciones</string>
     <string name="buscar_medicamento">Buscar Medicamento</string>
-    <string name="title_activity_busqueda_medicamento">Busqueda de Medicamentos</string>
+    <string name="title_activity_busqueda_medicamento">Búsqueda de Medicamentos</string>
+    <string name="title_activity_info">Info.</string>
 
     <string name="title_activity_detalle_medicamento_swipe_view">Detalle Medicamento Swipe View</string>
     <string name="title_section1">Section 1</string>
@@ -26,7 +27,7 @@
     <string name="GTIN">GTIN:</string>
     <string name="troquel">Troquel:</string>
     <string name="sin_campo_busqueda">Ingrese un campo de busqueda</string>
-    <string name="recomendados">Recomendados</string>
+    <string name="recomendados">Medicamentos con el mismo principio activo</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
