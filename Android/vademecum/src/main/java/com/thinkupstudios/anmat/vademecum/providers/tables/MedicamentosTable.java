@@ -5,18 +5,25 @@ package com.thinkupstudios.anmat.vademecum.providers.tables;
  */
 public class MedicamentosTable {
 
-    public static String TABLE_NAME = "Medicamentos";
-    public static String[] COLUMNS = {"CERTIFICADO",
-                                        "CUIT",
-                                        "Laboratorio",
-                                        "GTIN",
-                                        "TROQUEL",
-                                        "nombre",
-                                        "FORMAFARMACEUTICA",
-                                        "nombreGenerico",
-                                        "PAISINDUSTRIA",
-                                        "CondiciondeExpendio",
-                                        "CONDICIONTRAZABILIDAD",
-                                        "PRESENTACION",
-                                        "PRECIO"};
+    public static final String[] COLUMN_GENERICO = {"generico"};
+    public static final String[] COLUMN_COMERCIAL = {"comercial"};
+    public static final String[] COLUMN_LABORATORIO = {"laboratorio"};
+
+    public static String TABLE_NAME = "medicines";
+    public static String[] COLUMNS =   {"id",
+                                        "certificado",
+                                        "cuit",
+                                        "laboratorio",
+                                        "gtin",
+                                        "troquel",
+                                        "comercial",
+                                        "forma",
+                                        "generico",
+                                        "pais",
+                                        "expendio",
+                                        "trazabilidad",
+                                        "presentacion",
+                                        "precio"};
+
+
 }

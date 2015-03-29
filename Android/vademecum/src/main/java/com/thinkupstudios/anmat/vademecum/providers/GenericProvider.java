@@ -6,6 +6,7 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 /**
@@ -25,10 +26,10 @@ public class GenericProvider {
         }
     }
 
-    public List<String> getAllCollumnName(String tabla, String[] columnas){
+    public List<String> getDistinctColumns(String tabla, String[] columnas){
 
         List<String> resultado = new Vector<>();
-        Cursor c = helper.getReadableDatabase().query(tabla, columnas, null, null, null, null, null);
+        Cursor c = helper.getReadableDatabase().query(true, tabla, columnas, null, null, null, null, columnas[0], null);
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
@@ -40,8 +41,11 @@ public class GenericProvider {
 
     }
 
-    protected Cursor getAllByWhere(String tabla, String where){
+    protected Cursor getAllByWhere(String tabla, String where, String orderBy){
         String query = "select * from "+tabla+" "+where;
+        if(orderBy != null){
+            query += " " + orderBy;
+        }
         Cursor c = helper.getReadableDatabase().rawQuery(query, null);
 
         return c;

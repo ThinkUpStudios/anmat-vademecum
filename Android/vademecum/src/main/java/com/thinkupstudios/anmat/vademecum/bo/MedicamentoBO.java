@@ -14,7 +14,7 @@ public class MedicamentoBO implements Serializable {
     private String nombreComercial = "-";
     private String nombreGenerico= "-";
     private String numeroCertificado= "-";
-    private String precio= "-";
+    private Double precio;
     private String laboratorio= "-";
     private String forma= "-";
     private String paisIndustria= "-";
@@ -63,14 +63,14 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
-        if(!"-".equals(precio)){
-            return ("$ " +precio);
+        if(this.precio == null){
+            return ("$ - ");
         }
-        return precio;
+        else return ("$ " +precio);
     }
 
-    public void setPrecio(String precio) {
-        if(!precio.isEmpty())
+    public void setPrecio(Double precio) {
+        if(precio != null)
         this.precio = precio;
     }
 
