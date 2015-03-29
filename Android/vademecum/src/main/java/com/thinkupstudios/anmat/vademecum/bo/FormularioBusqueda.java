@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class FormularioBusqueda implements Serializable {
     public static String FORMULARIO_MANUAL = "Formulario_Busqueda";
+    public static String PRINCIPIO_ACTIVO = "Principio_Activo";
     private String laboratorio = new String();
     private String nombreGenerico = new String();
     private String nombreComercial = new String();

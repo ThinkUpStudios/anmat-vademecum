@@ -42,6 +42,13 @@
     <string name="content_background">background</string>
     <string name="title_activity_buscar_principio_activo">Principio Activo</string>
     <string name="lbl_nombre_generico">Nombre Genérico</string>
-
+    <string name="title_activity_detalle_principio_activo">Detalle Principio Activo</string>
+    <string name="lbl_accion_terapeutica">Acción Terapéutica</string>
+    <string name="lbl_">Principio Activo</string>
+    <string name="lbl_indicaciones">Indicaciones</string>
+    <string name="lbl_posologia">Posología</string>
+    <string name="lbl_duracion">Duración</string>
+    <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones</string>
+    <string name="lbl_observaciones">Observaciones</string>
 
 </resources>

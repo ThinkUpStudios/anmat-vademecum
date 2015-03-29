@@ -44,6 +44,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.thinkupstudios.anmat.vademecum.MainMenuActivity" />
         </activity>
+        <activity
+            android:name=".DetallePrincipioActivoActivity"
+            android:label="@string/title_activity_detalle_principio_activo"
+            android:parentActivityName=".BuscarPrincipioActivoActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.thinkupstudios.anmat.vademecum.BuscarPrincipioActivoActivity" />
+        </activity>
     </application>
 
 </manifest>
