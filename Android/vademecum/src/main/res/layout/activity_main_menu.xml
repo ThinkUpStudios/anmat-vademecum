@@ -9,7 +9,8 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center_vertical"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondo_cuadrado" />
+        android:src="@drawable/fondo_cuadrado"
+        android:contentDescription="@string/content_background" />
 
     <Button
         android:id="@+id/btn_busqueda"

@@ -39,6 +39,8 @@
     <string name="lbl_principio_activo">Principio Activo</string>
     <string name="lbl_informacion">Información</string>
     <string name="lbl_medicamentos">Medicamentos</string>
+    <string name="content_background">background</string>
+    <string name="title_activity_buscar_principio_activo">BuscarPrincipioActivoActivity</string>
 
 
 </resources>
