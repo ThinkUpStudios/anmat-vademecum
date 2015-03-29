@@ -9,7 +9,8 @@
         android:layout_height="fill_parent"
         android:layout_gravity="center_vertical"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondo_cuadrado" />
+        android:src="@drawable/fondo_cuadrado"
+        android:contentDescription="@string/content_background" />
 
     <Button
         android:id="@+id/btn_busqueda"
@@ -21,32 +22,31 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:padding="20dp"
-        android:textColor="#1B5687"
+        android:textColor="@color/anmat_azul"
         android:alpha="0.8"
         android:gravity="center"
         android:background="@drawable/button_txt_search"
-        android:text="Medicamentos" />
+        android:text="@string/lbl_medicamentos" />
+
 
     <Button
-        android:id="@+id/btn_informacion"
+        android:id="@+id/btn_principio_activo"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_busqueda"
         android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:padding="20dp"
-        android:textColor="#1B5687"
+        android:textColor="@color/anmat_azul"
         android:alpha="0.8"
         android:gravity="center"
         android:background="@drawable/button_txt_search"
 
-        android:text="Información"
+        android:text="@string/lbl_principio_activo"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/btn_busqueda" />
 
 
 </RelativeLayout>

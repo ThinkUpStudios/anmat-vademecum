@@ -1,0 +1,26 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:padding="10dp"
+    android:rowOrderPreserved="true">
+
+
+    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
+        android:id="@+id/txt_principio_activo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/lbl_principio_activo"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        android:layout_margin="10dp">
+        <requestFocus />
+
+    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+
+</LinearLayout>

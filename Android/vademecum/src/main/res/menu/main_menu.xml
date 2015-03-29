@@ -8,5 +8,11 @@
         android:orderInCategory="101"
         android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         android:title="@string/buscar_medicamento"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/mnu_informacion"
+        android:orderInCategory="102"
+        android:icon="@drawable/info"
+        android:title="@string/lbl_informacion"
+        app:showAsAction="never" />
 </menu>
