@@ -36,8 +36,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-
+    <string name="lbl_principio_activo">Principio Activo</string>
+    <string name="lbl_informacion">Información</string>
+    <string name="lbl_medicamentos">Medicamentos</string>
 
 
 </resources>
