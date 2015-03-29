@@ -89,6 +89,10 @@ public class ResultadoAdapter extends BaseAdapter{
             holder.precio.setTextColor(color);
             holder.forma=(TextView)convertView.findViewById(R.id.txt_forma);
             holder.forma.setTextColor(color);
+            holder.laboratorio=(TextView)convertView.findViewById(R.id.txt_laboratorio);
+            holder.laboratorio.setTextColor(color);
+            holder.presentacion=(TextView)convertView.findViewById(R.id.txt_presentacion);
+            holder.presentacion.setTextColor(color);
             holder.numeroCertificado=(TextView)convertView.findViewById(R.id.txt_numero_certificado);
             holder.numeroCertificado.setTextColor(color);
 
@@ -99,6 +103,8 @@ public class ResultadoAdapter extends BaseAdapter{
             holder.nombreGenerico.setText("Sin Resultados");
             holder.nombreComercial.setText(" ");
             holder.numeroCertificado.setText(" ");
+            holder.laboratorio.setText(" ");
+            holder.presentacion.setText(" ");
             holder.forma.setText(" ");
             holder.precio.setText(" ");
         } else {
@@ -108,9 +114,11 @@ public class ResultadoAdapter extends BaseAdapter{
 
             /************  Set Model values in Holder elements ***********/
 
-            holder.nombreGenerico.setText( tempValues.getNombreGenerico() );
-            holder.nombreComercial.setText( tempValues.getNombreComercial() + " - " + tempValues.getLaboratorio() );
+            holder.nombreGenerico.setText( tempValues.getNombreGenerico());
+            holder.nombreComercial.setText( tempValues.getNombreComercial());
             holder.numeroCertificado.setText(tempValues.getNumeroCertificado());
+            holder.presentacion.setText(tempValues.getPresentacion());
+            holder.laboratorio.setText(tempValues.getLaboratorio());
             holder.forma.setText(tempValues.getForma());
             holder.precio.setText(tempValues.getPrecio());
             /******** Set Item Click Listner for LayoutInflater for each row *******/
@@ -125,6 +133,8 @@ public class ResultadoAdapter extends BaseAdapter{
 
         public TextView nombreGenerico;
         public TextView nombreComercial;
+        public TextView laboratorio;
+        public TextView presentacion;
         public TextView precio;
         public TextView forma;
         public TextView numeroCertificado;

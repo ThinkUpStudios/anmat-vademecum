@@ -61,6 +61,9 @@ public class DetalleMedicamentoDetailActivity extends Activity {
             case R.id.mnu_buscar:
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
+            case R.id.mnu_informacion:
+                startActivity(new Intent(this, InformacionActivity.class));
+                return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;

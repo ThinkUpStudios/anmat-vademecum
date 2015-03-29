@@ -14,7 +14,7 @@ import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 public class MainMenuActivity extends Activity implements View.OnClickListener {
     private Button btnBuscar;
-    private Button btnInfo;
+
     private Button btnPrincipioActivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,9 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
         this.btnBuscar.setOnTouchListener(new DarkenerButtonTouchListener());
         this.btnBuscar.setOnClickListener(this);
 
-
-        this.btnInfo =(Button) findViewById(R.id.btn_informacion);
-        this.btnInfo.setOnTouchListener(new DarkenerButtonTouchListener());
-        this.btnInfo.setOnClickListener(this);
-
         this.btnPrincipioActivo = (Button) findViewById(R.id.btn_principio_activo);
-        this.btnInfo.setOnTouchListener(new DarkenerButtonTouchListener());
-        this.btnInfo.setOnClickListener(this);
+        this.btnPrincipioActivo.setOnTouchListener(new DarkenerButtonTouchListener());
+        this.btnPrincipioActivo.setOnClickListener(this);
 
     }
 
@@ -48,10 +43,10 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.btn_busqueda:
+            case R.id.mnu_buscar:
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
-            case R.id.btn_informacion:
+            case R.id.mnu_informacion:
                 startActivity(new Intent(this, InformacionActivity.class));
                 return true;
 
@@ -68,9 +63,6 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
         switch (b.getId()) {
             case R.id.btn_busqueda:
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
-                break;
-            case R.id.btn_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
                 break;
             case R.id.btn_principio_activo:
                 startActivity(new Intent(this, BuscarPrincipioActivoActivity.class));
