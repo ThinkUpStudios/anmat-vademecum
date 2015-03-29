@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Anmat Vademecum</string>
+    <string name="app_name">VNM</string>
     <string name="title_detallemedicamento_detail">Detalle</string>
     <string name="title_detalles_medicamento">Detalles Medicamento</string>
-    <string name="title_activity_main_menu">Anmat Vademecum</string>
+    <string name="title_activity_main_menu">VNM</string>
     <string name="opciones">Opciones</string>
     <string name="buscar_medicamento">Buscar Medicamento</string>
     <string name="title_activity_busqueda_medicamento">Búsqueda de Medicamentos</string>

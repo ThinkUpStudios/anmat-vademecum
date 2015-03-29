@@ -10,7 +10,7 @@
     android:rowOrderPreserved="true">
 
 
-    <AutoCompleteTextView
+    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
         android:id="@+id/txt_nombre_generico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,9 +22,9 @@
         android:layout_margin="10dp">
         <requestFocus />
 
-        </AutoCompleteTextView>
+    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
 
-    <AutoCompleteTextView
+    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
         android:id="@+id/txt_nombre_comercial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,11 +33,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:imeOptions="actionDone"
-        android:hint="Nombre Comercial"
->
+        android:hint="Nombre Comercial">
 
-    </AutoCompleteTextView>
-    <AutoCompleteTextView
+    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
         android:id="@+id/txt_laboratorio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +46,7 @@
         android:layout_margin="10dp"
         android:imeOptions="actionDone"
         android:hint="Laboratorio">
-    </AutoCompleteTextView>
+    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
 
     <Button
         android:id="@+id/btn_form_busqueda_buscar"
@@ -60,7 +59,7 @@
         android:paddingLeft="76dp"
         android:paddingRight="76dp"
         android:background="@drawable/button_txt_search"
-        android:drawableLeft="@drawable/busqueda_medicamentos"
+
         android:text="Buscar Medicamentos"
 
 

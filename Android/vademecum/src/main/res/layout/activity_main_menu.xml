@@ -25,7 +25,6 @@
         android:alpha="0.8"
         android:gravity="center"
         android:background="@drawable/button_txt_search"
-        android:drawableLeft="@drawable/busqueda_medicamentos"
         android:text="Medicamentos" />
 
     <Button
@@ -41,7 +40,7 @@
         android:alpha="0.8"
         android:gravity="center"
         android:background="@drawable/button_txt_search"
-        android:drawableLeft="@drawable/info"
+
         android:text="Información"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
