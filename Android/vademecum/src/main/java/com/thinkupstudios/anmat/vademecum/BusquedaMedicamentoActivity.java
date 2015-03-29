@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
@@ -33,18 +34,12 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     private ClearableAutoCompliteEditText laboratorio;
     private ClearableAutoCompliteEditText nombreGenerico;
     private Button buscarBtn;
-    private GenericProvider laboratoriosProvider;
-    private GenericProvider genericosProvider;
-    private GenericProvider comercialesProvider;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda_medicamento);
-        laboratoriosProvider = new GenericProvider(new DatabaseHelper(this));
-        genericosProvider = new GenericProvider(new DatabaseHelper(this));
-        comercialesProvider = new GenericProvider(new DatabaseHelper(this));
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
         buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
@@ -123,8 +118,11 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
     }
 
     private void configEditTextGenericos(){
+
+        MiAplicacion app = (MiAplicacion) this.getApplicationContext();
+
         this.nombreGenerico = (ClearableAutoCompliteEditText) findViewById(R.id.txt_nombre_generico);
-        List<String> genericos = this.genericosProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO);
+        List<String> genericos = app.getNombresGenericos();
         ArrayAdapter adapterGen = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,genericos);
         adapterGen.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -134,8 +132,10 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
     private void configEditTextComerciales(){
 
+        MiAplicacion app = (MiAplicacion) this.getApplicationContext();
+
         this.nombreComercial = (ClearableAutoCompliteEditText) findViewById(R.id.txt_nombre_comercial);
-        List<String> comerciales = this.comercialesProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL);
+        List<String> comerciales = app.getNombresComerciales();
         ArrayAdapter adapterCom = new ArrayAdapter
                 (this,android.R.layout.simple_list_item_1,comerciales);
         adapterCom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -144,9 +144,12 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
 
     private void configEditTextLabs(){
 
+        MiAplicacion app = (MiAplicacion) this.getApplicationContext();
+
         this.laboratorio = (ClearableAutoCompliteEditText) findViewById(R.id.txt_laboratorio);
+        List<String> laboratorios = app.getLaboratorios();
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, laboratoriosProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO));
+                android.R.layout.simple_list_item_1, laboratorios);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         laboratorio.setAdapter(dataAdapter);
 
