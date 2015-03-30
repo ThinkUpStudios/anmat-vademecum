@@ -7,13 +7,8 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ListView;
 
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
-import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
-
-import java.util.List;
-import java.util.Vector;
 
 
 /**
@@ -62,7 +57,7 @@ public class DetalleMedicamentoDetailActivity extends Activity {
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
             case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
+                startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

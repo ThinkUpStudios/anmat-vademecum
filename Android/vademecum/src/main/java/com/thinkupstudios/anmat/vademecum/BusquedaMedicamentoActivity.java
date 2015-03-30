@@ -20,9 +20,6 @@ import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
-import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
-import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
-import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 
 import java.util.List;
 
@@ -99,7 +96,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
             case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
+                startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

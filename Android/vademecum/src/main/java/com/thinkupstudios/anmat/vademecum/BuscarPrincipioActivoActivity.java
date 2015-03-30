@@ -52,7 +52,7 @@ private ClearableAutoCompliteEditText principioActivo;
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
             case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
+                startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

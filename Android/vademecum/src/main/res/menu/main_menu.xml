@@ -13,6 +13,6 @@
         android:id="@+id/mnu_informacion"
         android:orderInCategory="102"
         android:icon="@drawable/info"
-        android:title="@string/lbl_informacion"
+        android:title="@string/lbl_acerca_de"
         app:showAsAction="never" />
 </menu>
