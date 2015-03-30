@@ -9,12 +9,12 @@ import android.view.MenuItem;
 /**
  * Created by dcamarro on 02/03/2015.
  */
-public class InformacionActivity extends Activity {
+public class AcercaDeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_acerca_de);
 
     }
     @Override
@@ -25,7 +25,7 @@ public class InformacionActivity extends Activity {
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
                 return true;
             case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
+                startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

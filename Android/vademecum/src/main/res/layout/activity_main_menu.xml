@@ -46,13 +46,32 @@
                 android:alpha="0.8"
                 android:gravity="center"
                 android:background="@drawable/button_txt_search"
-                android:text="Medicamentos" />
+                android:text="@string/lbl_medicamentos" />
 
-            <Button
+                <Button
+                    android:id="@+id/btn_principio_activo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_busqueda"
+                    android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="20dp"
+                    android:textColor="#1B5687"
+                    android:alpha="0.8"
+                    android:gravity="center"
+                    android:background="@drawable/button_txt_search"
+
+                    android:text="@string/lbl_principio_activo"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
                 android:id="@+id/btn_informacion"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btn_busqueda"
+                android:layout_below="@id/btn_principio_activo"
                 android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -62,10 +81,12 @@
                 android:gravity="center"
                 android:background="@drawable/button_txt_search"
 
-                android:text="Información"
+                android:text="@string/lbl_informacion"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
+
+
 
 
             </RelativeLayout>

@@ -3,17 +3,13 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 
 
@@ -110,6 +106,9 @@ private View selectedView;
         switch (id) {
             case R.id.mnu_buscar:
                 startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                return true;
+            case R.id.mnu_informacion:
+                startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

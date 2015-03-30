@@ -9,6 +9,7 @@
     <string name="buscar_medicamento">Buscar Medicamento</string>
     <string name="title_activity_busqueda_medicamento">Búsqueda de Medicamentos</string>
     <string name="title_activity_info">Info.</string>
+    <string name="title_activity_ecerca_de">Acerca de Genéricos.</string>
 
     <string name="title_activity_detalle_medicamento_swipe_view">Detalle Medicamento Swipe View</string>
     <string name="title_section1">Section 1</string>
@@ -36,8 +37,20 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-
-
+    <string name="lbl_principio_activo">Principio Activo</string>
+    <string name="lbl_informacion">Información</string>
+    <string name="lbl_acerca_de">Acerca de VNM</string>
+    <string name="lbl_medicamentos">Medicamentos</string>
+    <string name="content_background">background</string>
+    <string name="title_activity_buscar_principio_activo">Principio Activo</string>
+    <string name="lbl_nombre_generico">Nombre Genérico</string>
+    <string name="title_activity_detalle_principio_activo">Detalle Principio Activo</string>
+    <string name="lbl_accion_terapeutica">Acción Terapéutica</string>
+    <string name="lbl_">Principio Activo</string>
+    <string name="lbl_indicaciones">Indicaciones</string>
+    <string name="lbl_posologia">Posología</string>
+    <string name="lbl_duracion">Duración</string>
+    <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones</string>
+    <string name="lbl_observaciones">Observaciones</string>
 
 </resources>
