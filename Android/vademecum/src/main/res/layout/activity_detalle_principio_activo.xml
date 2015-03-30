@@ -11,7 +11,7 @@
 <ScrollView
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
     <view
@@ -71,6 +71,6 @@
         android:id="@+id/col_observaciones"
         app:header="@string/lbl_observaciones"
         app:content="Esto es contenido de prueba"/>
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
 </RelativeLayout>
