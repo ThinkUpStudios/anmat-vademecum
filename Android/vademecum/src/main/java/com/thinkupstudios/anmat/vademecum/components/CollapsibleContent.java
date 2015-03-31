@@ -2,11 +2,14 @@ package com.thinkupstudios.anmat.vademecum.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.R;
@@ -18,8 +21,8 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
     private String header = "Default Header";
     private String content ="Default contentent";
     private boolean isCollapsed = true;
-    private int openImageId = R.drawable.abc_ic_go_search_api_mtrl_alpha;
-    private int closeImageId = R.drawable.abc_ic_go_search_api_mtrl_alpha;
+    private int openImageId = android.R.drawable.arrow_up_float;
+    private int closeImageId = android.R.drawable.arrow_down_float;
     private ViewHolder viewHolder;
 
     public CollapsibleContent(Context context) {
@@ -57,10 +60,10 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
                             this.header = a.getString(attr);
                             break;
                         case R.styleable.CollapsibleContent_open_icon:
-                            this.openImageId = a.getResourceId(attr, R.drawable.abc_ic_go_search_api_mtrl_alpha);
+                            this.openImageId = a.getResourceId(attr, this.openImageId);
                             break;
                         case R.styleable.CollapsibleContent_close_icon:
-                            this.closeImageId = a.getResourceId(attr, R.drawable.abc_ic_go_search_api_mtrl_alpha);
+                            this.closeImageId = a.getResourceId(attr,this.closeImageId);
                             break;
                     }
                 }
@@ -78,11 +81,22 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
         viewHolder.content.setText(this.content);
         viewHolder.content.setOnClickListener(this);
         viewHolder.statIcon = (ImageView) findViewById(R.id.stat_icon);
-        LinearLayout lyHeader = (LinearLayout)findViewById(R.id.ly_header);
+        this.viewHolder.statIcon.setImageDrawable(getResources().getDrawable(this.closeImageId));
+        RelativeLayout lyHeader = (RelativeLayout)findViewById(R.id.ly_header);
         lyHeader.setOnClickListener(this);
+        updateState();
 
     }
 
+    private void updateState() {
+        if(!isCollapsed){
+            expand();
+            this.viewHolder.statIcon.setImageDrawable(getResources().getDrawable(this.openImageId));
+        }else{
+            collapse();
+            this.viewHolder.statIcon.setImageDrawable(getResources().getDrawable(this.closeImageId));
+        }
+    }
 
 
     public String getHeader() {
@@ -110,22 +124,29 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if(this.viewHolder.content.isShown()){
+        toggleCollapsed();
+
+    }
+
+    private void toggleCollapsed() {
+        if(!isCollapsed){
             collapse();
+
         }else{
             expand();
         }
-
     }
 
     public void expand() {
         this.viewHolder.content.setVisibility(View.VISIBLE);
         this.viewHolder.statIcon.setImageDrawable(getResources().getDrawable(this.openImageId));
+        this.isCollapsed = false;
     }
 
     public void collapse() {
         this.viewHolder.content.setVisibility(View.GONE);
         this.viewHolder.statIcon.setImageDrawable(getResources().getDrawable(this.closeImageId));
+        this.isCollapsed = true;
     }
 
 
@@ -136,6 +157,28 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
         private TextView titulo;
         private TextView content;
         private ImageView statIcon;
+
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        //begin boilerplate code that allows parent classes to save state
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("instanceState", super.onSaveInstanceState());
+        bundle.putBoolean("isCollapsed", this.isCollapsed);
+
+        return bundle;
+    }
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            this.isCollapsed = bundle.getBoolean("isCollapsed");
+            state = bundle.getParcelable("instanceState");
+        }
+        super.onRestoreInstanceState(state);
+        updateState();
 
     }
 }
