@@ -48,6 +48,7 @@ public class DetallePrincipioActivoActivity extends Activity {
             this.duracion.setContent(principioActivo.getDuracion());
             this.contraindicaciones.setContent(principioActivo.getContraindicaciones());
             this.observacion.setContent(principioActivo.getObservaciones());
+            this.setTitle(this.principioActivo.getNombre());
         }
     }
 
