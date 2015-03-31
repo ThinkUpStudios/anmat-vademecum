@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-android:id="@+id/list_item_layout"
+    android:id="@+id/list_item_layout"
     android:padding="16dp"
     android:background="@color/anmat_azul"
     >
@@ -24,16 +24,16 @@ android:id="@+id/list_item_layout"
         android:singleLine="true" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:maxLines="1"
-            android:text="Actron"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_below="@+id/txt_nombre_generico"
-            android:id="@+id/txt_nombre_comercial" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:maxLines="1"
+        android:text="Actron"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/txt_nombre_generico"
+        android:id="@+id/txt_nombre_comercial" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,28 +43,34 @@ android:id="@+id/list_item_layout"
         android:text="Grajeas"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/txt_nombre_comercial"
-        android:id="@+id/txt_presentacion" />
+        android:id="@+id/txt_presentacion"
+        android:ellipsize="end"
+        android:maxWidth="@dimen/maximo_linea_con_precio"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:maxLines="1"
-        android:text="Bayer"
+        android:maxWidth="@dimen/maximo_linea_con_precio"
+        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssssss"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/txt_presentacion"
-        android:id="@+id/txt_laboratorio" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1098192783871623981"
-            android:textColor="#FFFFFF"
-            android:maxLines="1"
-            android:layout_below="@+id/txt_nombre_comercial"
-            android:layout_alignParentRight="true"
-            android:gravity="end"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/txt_numero_certificado" />
+        android:id="@+id/txt_laboratorio"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1098192783871623981"
+        android:textColor="#FFFFFF"
+        android:maxLines="1"
+        android:layout_below="@+id/txt_nombre_comercial"
+        android:layout_alignParentRight="true"
+        android:gravity="end"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/txt_numero_certificado"
+        android:layout_alignRight="@+id/presentacionValor"/>
 
 
     <TextView
