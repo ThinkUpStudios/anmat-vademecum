@@ -31,7 +31,7 @@ import java.util.List;
  * in two-pane mode (on tablets) or a {@link DetalleMedicamentoDetailActivity}
  * on handsets.
  */
-public class DetalleMedicamentoDetailFragment extends Fragment {
+public class DetalleMedicamentoDetailFragment extends Fragment implements View.OnClickListener {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -143,10 +143,21 @@ public class DetalleMedicamentoDetailFragment extends Fragment {
             ((TextView) formulaRow.findViewById(R.id.ifa)).setText(formula.getIfa());
             ((TextView) formulaRow.findViewById(R.id.cant)).setText(formula.getCantidad());
             ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setText(formula.getUnidad());
+            formulaRow.setOnClickListener(this);
             tablaFormula.addView(formulaRow);
         }
 
 
     }
 
+    @Override
+    public void onClick(View v) {
+        String principioActivo = ((TextView)v.findViewById(R.id.ifa)).getText().toString();
+        Intent i = new Intent(this.getActivity(),
+                DetallePrincipioActivoActivity.class);
+        i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO, principioActivo);
+        startActivity(i);
+        this.getActivity()
+                .overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+    }
 }

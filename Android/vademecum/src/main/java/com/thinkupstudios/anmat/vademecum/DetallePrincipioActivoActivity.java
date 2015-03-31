@@ -6,10 +6,13 @@ import android.support.v4.app.NavUtils;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.PrincipioActivo;
 import com.thinkupstudios.anmat.vademecum.components.CollapsibleContent;
+import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import com.thinkupstudios.anmat.vademecum.providers.PrincipioActivoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
@@ -24,6 +27,7 @@ public class DetallePrincipioActivoActivity extends Activity {
     private CollapsibleContent duracion;
     private CollapsibleContent contraindicaciones;
     private CollapsibleContent observacion;
+    private Button recomendados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,22 @@ public class DetallePrincipioActivoActivity extends Activity {
             this.duracion.setContent(principioActivo.getDuracion());
             this.contraindicaciones.setContent(principioActivo.getContraindicaciones());
             this.observacion.setContent(principioActivo.getObservaciones());
+            this.setTitle(this.principioActivo.getNombre());
+            this.recomendados = (Button) findViewById(R.id.btn_recomentados);
+            recomendados.setOnTouchListener(new DarkenerButtonTouchListener());
+            recomendados.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent i = new Intent(DetallePrincipioActivoActivity.this,
+                            DetalleMedicamentoListActivity.class);
+                    i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getNombre());
+                    FormularioBusqueda f = new FormularioBusqueda();
+                    f.setNombreGenerico(principioActivo.getNombre());
+                    i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,f);
+                    startActivity(i);
+                    DetallePrincipioActivoActivity.this
+                            .overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+                }
+            });
         }
     }
 
