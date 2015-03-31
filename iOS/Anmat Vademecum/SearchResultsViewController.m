@@ -69,14 +69,7 @@
     [lblCertificate setText:medicine.certificate];
     [lblPresentation setText:medicine.presentation];
     [lblLaboratory setText:medicine.laboratory];
-    
-    NSNumberFormatter *priceFormatter = [[NSNumberFormatter alloc] init];
-    
-    [priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    
-    NSString *price = [priceFormatter stringFromNumber:[NSNumber numberWithDouble:medicine.price]];
-    
-    [lblPrice setText:price];
+    [lblPrice setText:medicine.price];
     
     if(indexPath.item % 2 == 1) {
         [cell setBackgroundColor:[UIColor whiteColor]];
