@@ -8,7 +8,8 @@
     tools:context="com.thinkupstudios.anmat.vademecum.DetallePrincipioActivoActivity">
 <ScrollView
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="40dp">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -71,4 +72,17 @@
         app:content="Esto es contenido de prueba"/>
     </RelativeLayout>
 </ScrollView>
+    <Button
+
+        android:id="@+id/btn_recomentados"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/anmat_azul"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_txt_related"
+        android:drawableLeft="@drawable/recomendados"
+        android:layout_margin="0dp"
+        android:text="@string/recomendados" />
 </RelativeLayout>
