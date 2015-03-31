@@ -25,3 +25,4 @@ proguard/
 # Log Files
 *.log
 /Android/.idea/libraries
+.idea
