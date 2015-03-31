@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_cuadrado">
+
 
     <ScrollView
         android:id="@+id/scrollMenu"
@@ -14,48 +16,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre genérico es la denominación de un principio activo, monodroga  o de una asociación
-
-de principios activos a dosis fijas adoptada por la autoridad sanitaria (ANMAT)  o, en su
-
-defecto, la denominación común internacional recomendada por la Organización Mundial de
-
-la Salud.
-
-Segùn la ley 25.649 es obligatorio que toda receta médica exprese el nombre genérico del
-
-medicamento o denominación común internacional, seguida de forma farmacéutica y dosis/
-
-unidad, con detalle del grado de concentración.
-
-De esta forma, el farmacéutico debe ofrecer todas las opciones disponibles.
-
-La receta puede indicar, además del nombre genérico, el nombre o marca comercial. En ese
-
-caso, si el consumidor lo solicita, el farmacéutico debe sustituir la misma por una especialidad
-
-medicinal de menor precio que contenga los mismos principios activos, concentración, forma
-
-farmacéutica y similar cantidad de unidades.
-
-La libertad de prescripción y de dispensa está garantizada por la elección del principio activo y
-
-no sobre especialidades de referencia o de marca.
-
-El uso de nombre genérico es obligatorio en:
-
-a) todo envase, rótulo, prospecto o cualquier documento utilizado por la industria
-
-farmacéutica para información médica o promoción de las especialidades medicinales;
-
- b) todos los textos normativos, inclusive registros y autorizaciones relativas a la elaboración,
-
-fraccionamiento, comercialización, exportación e importación de medicamentos;
-
-c) toda publicidad o propaganda dirigida al público en general."
-
-        android:id="@+id/textView"
-        android:paddingTop="10dp"/>
+        android:id="@+id/txt_informacion"
+        android:padding="20dp"/>
 
     </ScrollView>
 </LinearLayout>
