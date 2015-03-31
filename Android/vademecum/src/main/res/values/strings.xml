@@ -52,5 +52,6 @@
     <string name="lbl_duracion">Duración</string>
     <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones</string>
     <string name="lbl_observaciones">Observaciones</string>
+    <string name="collapsible_header_dummy">Contraindicaciones, reacciones, advertencias</string>
 
 </resources>
