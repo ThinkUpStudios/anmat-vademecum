@@ -42,6 +42,7 @@ public class DetalleMedicamentoDetailActivity extends Activity {
                     .add(R.id.detallemedicamento_detail_container, fragment)
                     .commit();
         }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
