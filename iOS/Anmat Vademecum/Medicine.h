@@ -23,6 +23,6 @@
 @property NSString *requestCondition;
 @property NSString *trazability;
 @property NSString *presentation;
-@property double price;
+@property NSString *price;
 
 @end

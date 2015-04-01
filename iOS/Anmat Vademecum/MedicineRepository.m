@@ -31,7 +31,7 @@
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT * FROM medicines ORDER BY precio DESC";
+    NSString *query = @"SELECT * FROM medicamentos ORDER BY precio DESC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -54,7 +54,7 @@
     int addedConditions = 0;
     NSMutableString *query = [[NSMutableString alloc] init];
     
-    [query appendString:@"SELECT * FROM medicines WHERE "];
+    [query appendString:@"SELECT * FROM medicamentos WHERE "];
     
     if(genericName != nil && genericName.length > 0) {
         [query appendString:@"generico LIKE ?"];
@@ -137,7 +137,7 @@
 - (NSArray *) getGenericNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT generico FROM medicines WHERE generico LIKE ?001 COLLATE NOCASE";
+    NSString *query = @"SELECT DISTINCT generico FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -164,7 +164,7 @@
 - (NSArray *) getComercialNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT comercial FROM medicines WHERE comercial LIKE ?001 COLLATE NOCASE";
+    NSString *query = @"SELECT DISTINCT comercial FROM medicamentos WHERE comercial LIKE ?001 COLLATE NOCASE";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -191,7 +191,7 @@
 - (NSArray *) getLaboratories:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT laboratorio FROM medicines WHERE laboratorio LIKE ?001 COLLATE NOCASE";
+    NSString *query = @"SELECT DISTINCT laboratorio FROM medicamentos WHERE laboratorio LIKE ?001 COLLATE NOCASE";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -219,6 +219,8 @@
     BOOL needsCopy = YES;
     NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
     NSString *destinationPath = [self getDBPath];
+    
+    //[[NSFileManager defaultManager] removeItemAtPath:destinationPath error:nil];
     
     if([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
         NSDate *sourceCreationDate = [self getCreationDate:sourcePath];
@@ -275,21 +277,22 @@
     char *requestConditionChars = (char *) sqlite3_column_text(statement, 10);
     char *trazabilityChars = (char *) sqlite3_column_text(statement, 11);
     char *presentationChars = (char *) sqlite3_column_text(statement, 12);
-    double price = sqlite3_column_double (statement, 13);
+    char *priceChars = (char *) sqlite3_column_text(statement, 13);
     
-    NSString *id = [NSString stringWithUTF8String:idChars];
-    NSString *certificate =  [NSString stringWithUTF8String:certificateChars];
-    NSString *cuit = [NSString stringWithUTF8String:cuitChars];
-    NSString *laboratory =  [NSString stringWithUTF8String:laboratoryChars];
-    NSString *gtin =  [NSString stringWithUTF8String:gtinChars];
-    NSString *troquel = [NSString stringWithUTF8String:troquelChars];
-    NSString *comercialName = [NSString stringWithUTF8String:comercialNameChars];
-    NSString *form = [NSString stringWithUTF8String:formChars];
-    NSString *genericName = [NSString stringWithUTF8String:genericNameChars];
-    NSString *country = [NSString stringWithUTF8String:countryChars];
-    NSString *requestCondition = [NSString stringWithUTF8String:requestConditionChars];
-    NSString *trazability = [NSString stringWithUTF8String:trazabilityChars];
-    NSString *presentation = [NSString stringWithUTF8String:presentationChars];
+    NSString *id = [self getUTF8:idChars];
+    NSString *certificate =  [self getUTF8:certificateChars];
+    NSString *cuit = [self getUTF8:cuitChars];
+    NSString *laboratory =  [self getUTF8:laboratoryChars];
+    NSString *gtin =  [self getUTF8:gtinChars];
+    NSString *troquel = [self getUTF8:troquelChars];
+    NSString *comercialName = [self getUTF8:comercialNameChars];
+    NSString *form = [self getUTF8:formChars];
+    NSString *genericName = [self getUTF8:genericNameChars];
+    NSString *country = [self getUTF8:countryChars];
+    NSString *requestCondition = [self getUTF8:requestConditionChars];
+    NSString *trazability = [self getUTF8:trazabilityChars];
+    NSString *presentation = [self getUTF8:presentationChars];
+    NSString *price = [self getUTF8:priceChars];
     
     Medicine *medicine = [[Medicine alloc] init];
     
@@ -306,9 +309,17 @@
     medicine.requestCondition = [self getFormattedValue:requestCondition];
     medicine.trazability = [self getFormattedValue:trazability];
     medicine.presentation = [self getFormattedValue:presentation];
-    medicine.price = price;
+    medicine.price = [self getFormattedPrice:price];;
     
     return medicine;
+}
+
+-(NSString *) getUTF8:(char *)value {
+    if(value == nil) {
+        return @"";
+    }
+    
+    return [NSString stringWithUTF8String:value];
 }
 
 -(NSString *) getFormattedValue:(NSString *)value {
@@ -316,6 +327,19 @@
         return @"-";
     } else {
         return value;
+    }
+}
+
+-(NSString *) getFormattedPrice:(NSString *)value {
+    if(value == nil || value.length == 0) {
+        return @"$-";
+    } else {
+        double price = [value doubleValue];
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        
+        [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
+        return [formatter stringFromNumber:[NSNumber numberWithDouble:price]];
     }
 }
 
