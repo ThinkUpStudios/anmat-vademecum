@@ -16,9 +16,9 @@
 
 @end
 
-@implementation ActiveComponentViewController
-
-MedicineService *medicineService;
+@implementation ActiveComponentViewController {
+    MedicineService *medicineService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

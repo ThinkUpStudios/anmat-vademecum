@@ -9,6 +9,7 @@
 #import "ActiveComponentsViewController.h"
 #import "MedicineService.h"
 #import "ActiveComponentViewController.h"
+#import "ActiveComponentService.h"
 
 @interface ActiveComponentsViewController ()
 
@@ -17,10 +18,10 @@
 
 @end
 
-@implementation ActiveComponentsViewController
-
-NSArray *testComponents;
-NSMutableArray *searchResults;
+@implementation ActiveComponentsViewController {
+    ActiveComponentService *componentsService;
+    NSMutableArray *searchResults;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,10 +31,8 @@ NSMutableArray *searchResults;
     self.tblResults.dataSource = self;
     self.tblResults.hidden = YES;
     
-    testComponents = [[NSArray alloc] init];
+    componentsService = [[ActiveComponentService alloc] init];
     searchResults = [[NSMutableArray alloc] init];
-    
-    [self loadTestData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,23 +120,15 @@ NSMutableArray *searchResults;
         return;
     }
     
-    [self loadSuggested:text values:testComponents];
+    [self loadSuggested:[componentsService getAll:text ]];
     [self.tblResults reloadData];
     self.tblResults.hidden = NO;
 }
 
--(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
+-(void) loadSuggested:(NSArray *)values {
     for (NSString *value in values) {
-        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
-            [searchResults addObject:value];
-        }
+        [searchResults addObject:value];
     }
-}
-
-- (void)loadTestData {
-    NSString *components = @"CARBONATO DE CALCIO + FOSFATO DE MAGNESIO % + CARBOXIMETILCISTEINA + SULFATO FERROSO + CLORURO DE MAGNESIO + DEXTROSA + CIANOCOBALAMINA + ACIDO FOLICO + VITAMINA K1 + IODURO DE POTASIO + CLORURO DE POTASIO + CITRATO DE POTASIO + RETINOL + BETACAROTENO + RIBOFLAVINA + NIACINAMIDA + BIOTINA + PANTOTENATO DE CALCIO + ACIDO ASCORBICO + VITAMINA D3 + TOCOFEROL + L-CARNITINA + FOSFATO TRICALCICO + SULFATO DE MANGANESO + CARBOXIMETILCELULOSA SODICA + SULFATO DE COBRE + ZINC SULFATO + CLORURO DE CROMO + AGUA + ACIDO CITRICO + LECITINA + MOLIBDATO DE SODIO + CASEINATO DE CALCIO + TAURINA + CLORURO DE COLINA + CASEINATO DE SODIO + ACEITE DE MAIZ + ACEITE DE CANOLA + AISLADO DE PROTEINA DE SOJA + TIAMINA CLORHIDRATO + PIRIDOXINA CLORHIDRATO + FOSFATO DIBASICO DE POTASIO + SELENATO DE SODIO + DEXTRINAS Y MALTOSA + ACEITE DE COCO + HIDROXIDO DE POTASIO + CITRATO DE SODIO + DL ALFATOCOFEROL ACETATO + ACEITE DE GIRASOL + FRUCTOOLIGASACARIDO + MALTODEXTRINA DE18 + FIBRA DE SOJA FIBRIM 300";
-    
-    testComponents = [components componentsSeparatedByString:@"+"];
 }
 
 @end
