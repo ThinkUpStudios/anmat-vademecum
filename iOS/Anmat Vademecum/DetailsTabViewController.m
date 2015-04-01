@@ -16,9 +16,9 @@
 
 @end
 
-@implementation DetailsTabViewController
-
-MedicineService *medicineService;
+@implementation DetailsTabViewController {
+    MedicineService *medicineService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

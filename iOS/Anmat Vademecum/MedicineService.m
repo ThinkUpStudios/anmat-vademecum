@@ -10,9 +10,9 @@
 #import "Medicine.h"
 #import "MedicineRepository.h"
 
-@implementation MedicineService
-
-MedicineRepository *repository;
+@implementation MedicineService {
+    MedicineRepository *repository;
+}
 
 - (id) init {
     repository = [[MedicineRepository alloc] init];

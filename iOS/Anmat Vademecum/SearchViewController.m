@@ -22,11 +22,11 @@
 
 @end
 
-@implementation SearchViewController
-
-MedicineService *medicineService;
-NSMutableArray *searchResults;
-NSString *searchMode;
+@implementation SearchViewController {
+    MedicineService *medicineService;
+    NSMutableArray *searchResults;
+    NSString *searchMode;
+}
 
 -(void) viewDidLoad {
     [super viewDidLoad];
@@ -148,24 +148,22 @@ NSString *searchMode;
     
     if([searchBar isEqual:self.txtGenericName]) {
         searchMode = @"generic";
-        [self loadSuggested:text values:[medicineService getGenericNames:text ]];
+        [self loadSuggested:[medicineService getGenericNames:text ]];
     } else if([searchBar isEqual:self.txtComercialName]) {
         searchMode = @"comercial";
-        [self loadSuggested:text values:[medicineService getComercialNames:text ]];
+        [self loadSuggested:[medicineService getComercialNames:text ]];
     } else {
         searchMode = @"laboratory";
-        [self loadSuggested:text values:[medicineService getLaboratories:text ]];
+        [self loadSuggested:[medicineService getLaboratories:text ]];
     }
     
     [self.tblResults reloadData];
     self.tblResults.hidden = NO;
 }
 
--(void) loadSuggested:(NSString *)searchText values:(NSArray *)values {
+-(void) loadSuggested:(NSArray *)values {
     for (NSString *value in values) {
-        if([[value lowercaseString] containsString:[searchText lowercaseString]]) {
-            [searchResults addObject:value];
-        }
+        [searchResults addObject:value];
     }
 }
 

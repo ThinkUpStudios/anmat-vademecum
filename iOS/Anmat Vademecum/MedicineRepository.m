@@ -7,30 +7,14 @@
 //
 
 #import "MedicineRepository.h"
-#import "sqlite3.h"
 #import "Medicine.h"
-
-@interface MedicineRepository()
-
-@property (nonatomic, strong) NSString *databaseFilename;
-
-@end
+#import "DataBaseProvider.h"
 
 @implementation MedicineRepository
 
-- (id)init {
-    if ((self = [super init])) {
-        self.databaseFilename = @"anmat.sqlite";
-
-        [self verifyDataBase];
-    }
-    
-    return self;
-}
-
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
     NSString *query = @"SELECT * FROM medicamentos ORDER BY precio DESC";
     sqlite3_stmt *statement;
     
@@ -88,7 +72,7 @@
     [query appendString:@" ORDER BY precio DESC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -136,8 +120,8 @@
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT generico FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE";
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
+    NSString *query = @"SELECT DISTINCT generico FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY generico ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -163,8 +147,8 @@
 
 - (NSArray *) getComercialNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT comercial FROM medicamentos WHERE comercial LIKE ?001 COLLATE NOCASE";
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
+    NSString *query = @"SELECT DISTINCT comercial FROM medicamentos WHERE comercial LIKE ?001 COLLATE NOCASE ORDER BY comercial ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -190,8 +174,8 @@
 
 - (NSArray *) getLaboratories:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [self getDatabase];
-    NSString *query = @"SELECT DISTINCT laboratorio FROM medicamentos WHERE laboratorio LIKE ?001 COLLATE NOCASE";
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
+    NSString *query = @"SELECT DISTINCT laboratorio FROM medicamentos WHERE laboratorio LIKE ?001 COLLATE NOCASE ORDER BY laboratorio ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -213,54 +197,6 @@
     sqlite3_close(database);
     
     return result;
-}
-
--(void)verifyDataBase {
-    BOOL needsCopy = YES;
-    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
-    NSString *destinationPath = [self getDBPath];
-    
-    //[[NSFileManager defaultManager] removeItemAtPath:destinationPath error:nil];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
-        NSDate *sourceCreationDate = [self getCreationDate:sourcePath];
-        NSDate *destinationCreationDate = [self getCreationDate:destinationPath];
-        
-        if([sourceCreationDate compare:destinationCreationDate] == NSOrderedSame) {
-            needsCopy = NO;
-        }
-    }
-    
-    if (needsCopy) {
-        NSError *error;
-        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
-        
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }
-}
-
-- (NSString *) getDBPath {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-    NSString *documentsDir = [paths objectAtIndex:0];
-    
-    return [documentsDir stringByAppendingPathComponent:self.databaseFilename];
-}
-
--(NSDate *) getCreationDate:(NSString *) path {
-    NSDictionary* fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
-    
-    return [fileAttributes objectForKey:NSFileCreationDate];
-}
-
--(sqlite3 *) getDatabase {
-    sqlite3 *database;
-    NSString *databasePath = [self getDBPath];
-    
-    sqlite3_open([databasePath UTF8String], &database);
-    
-    return database;
 }
 
 -(Medicine *) getMedicine:(sqlite3_stmt *) statement {
@@ -309,7 +245,7 @@
     medicine.requestCondition = [self getFormattedValue:requestCondition];
     medicine.trazability = [self getFormattedValue:trazability];
     medicine.presentation = [self getFormattedValue:presentation];
-    medicine.price = [self getFormattedPrice:price];;
+    medicine.price = [self getFormattedPrice:price];
     
     return medicine;
 }

@@ -28,6 +28,10 @@
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
 		14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C31AACABF100CA80FC /* MedicineService.m */; };
 		14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C81AACF33C00CA80FC /* UISelectableButton.m */; };
+		14DDAC411ACB588B003A1A52 /* ActiveComponentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAC401ACB588B003A1A52 /* ActiveComponentRepository.m */; };
+		14DDAC441ACB590E003A1A52 /* ActiveComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAC431ACB590E003A1A52 /* ActiveComponent.m */; };
+		14DDAC471ACB59F4003A1A52 /* DataBaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */; };
+		14DDAC4A1ACB6365003A1A52 /* ActiveComponentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAC491ACB6365003A1A52 /* ActiveComponentService.m */; };
 		14E29FE21A975D83005292FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE11A975D83005292FE /* main.m */; };
 		14E29FE51A975D83005292FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FE41A975D83005292FE /* AppDelegate.m */; };
 		14E29FEB1A975D83005292FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FE91A975D83005292FE /* Main.storyboard */; };
@@ -82,6 +86,14 @@
 		14BC10C31AACABF100CA80FC /* MedicineService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineService.m; sourceTree = "<group>"; };
 		14BC10C71AACF33C00CA80FC /* UISelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISelectableButton.h; sourceTree = "<group>"; };
 		14BC10C81AACF33C00CA80FC /* UISelectableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISelectableButton.m; sourceTree = "<group>"; };
+		14DDAC3F1ACB588B003A1A52 /* ActiveComponentRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentRepository.h; sourceTree = "<group>"; };
+		14DDAC401ACB588B003A1A52 /* ActiveComponentRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentRepository.m; sourceTree = "<group>"; };
+		14DDAC421ACB590E003A1A52 /* ActiveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponent.h; sourceTree = "<group>"; };
+		14DDAC431ACB590E003A1A52 /* ActiveComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponent.m; sourceTree = "<group>"; };
+		14DDAC451ACB59F4003A1A52 /* DataBaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseProvider.h; sourceTree = "<group>"; };
+		14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseProvider.m; sourceTree = "<group>"; };
+		14DDAC481ACB6365003A1A52 /* ActiveComponentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentService.h; sourceTree = "<group>"; };
+		14DDAC491ACB6365003A1A52 /* ActiveComponentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentService.m; sourceTree = "<group>"; };
 		14E29FDC1A975D83005292FE /* Anmat Vademecum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anmat Vademecum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E29FE01A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FE11A975D83005292FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +126,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14DDAC4B1ACB6C82003A1A52 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */,
+				149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */,
+				149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */,
+				149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */,
+				147E2ABB1A97F6EE00C9B2EC /* MainDetailsViewController.h */,
+				147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */,
+				147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */,
+				147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */,
+				1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */,
+				1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */,
+				1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */,
+				1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */,
+				141BC4E31A97652D00B78F0B /* SearchViewController.h */,
+				141BC4E41A97652D00B78F0B /* SearchViewController.m */,
+				141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */,
+				141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */,
+				141BC4E91A97672900B78F0B /* SearchResultsViewController.h */,
+				141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		14DDAC4C1ACB6C9F003A1A52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14DDAC421ACB590E003A1A52 /* ActiveComponent.h */,
+				14DDAC431ACB590E003A1A52 /* ActiveComponent.m */,
+				14AABA431A97C1BC00126B22 /* Medicine.h */,
+				14AABA441A97C1BC00126B22 /* Medicine.m */,
+				1451E5E61AAB7BBA00F9FEC7 /* FormulaComponent.h */,
+				1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		14DDAC4D1ACB6CD2003A1A52 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */,
+				14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */,
+				14DDAC3F1ACB588B003A1A52 /* ActiveComponentRepository.h */,
+				14DDAC401ACB588B003A1A52 /* ActiveComponentRepository.m */,
+				14DDAC451ACB59F4003A1A52 /* DataBaseProvider.h */,
+				14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		14DDAC4E1ACB6CFB003A1A52 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				14DDAC481ACB6365003A1A52 /* ActiveComponentService.h */,
+				14DDAC491ACB6365003A1A52 /* ActiveComponentService.m */,
+				14BC10C21AACABF100CA80FC /* MedicineService.h */,
+				14BC10C31AACABF100CA80FC /* MedicineService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		14DDAC4F1ACB6D0D003A1A52 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
+				1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */,
+				1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */,
+				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
+				14AABA541A97D4C300126B22 /* logo-anmat-chico.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
@@ -137,45 +223,19 @@
 		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
 			isa = PBXGroup;
 			children = (
-				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
-				1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */,
-				1491151E1AC4E07B00A4F1D7 /* logo-patria-toolbar.jpg */,
-				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
-				14AABA541A97D4C300126B22 /* logo-anmat-chico.png */,
+				14DDAC4F1ACB6D0D003A1A52 /* Images */,
+				14DDAC4E1ACB6CFB003A1A52 /* Services */,
+				14DDAC4D1ACB6CD2003A1A52 /* Repository */,
+				14DDAC4C1ACB6C9F003A1A52 /* Model */,
+				14DDAC4B1ACB6C82003A1A52 /* ViewControllers */,
 				14E29FE31A975D83005292FE /* AppDelegate.h */,
 				14E29FE41A975D83005292FE /* AppDelegate.m */,
 				14E29FE91A975D83005292FE /* Main.storyboard */,
 				14E29FEC1A975D83005292FE /* Images.xcassets */,
 				14E29FEE1A975D83005292FE /* LaunchScreen.xib */,
 				14E29FDF1A975D83005292FE /* Supporting Files */,
-				141BC4E31A97652D00B78F0B /* SearchViewController.h */,
-				141BC4E41A97652D00B78F0B /* SearchViewController.m */,
-				141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */,
-				141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */,
-				141BC4E91A97672900B78F0B /* SearchResultsViewController.h */,
-				141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */,
-				14AABA431A97C1BC00126B22 /* Medicine.h */,
-				14AABA441A97C1BC00126B22 /* Medicine.m */,
-				147E2ABB1A97F6EE00C9B2EC /* MainDetailsViewController.h */,
-				147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */,
-				147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */,
-				147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */,
-				1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */,
-				1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */,
-				1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */,
-				1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */,
-				1451E5E61AAB7BBA00F9FEC7 /* FormulaComponent.h */,
-				1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */,
-				14BC10C21AACABF100CA80FC /* MedicineService.h */,
-				14BC10C31AACABF100CA80FC /* MedicineService.m */,
 				14BC10C71AACF33C00CA80FC /* UISelectableButton.h */,
 				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
-				14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */,
-				14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */,
-				149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */,
-				149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */,
-				149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */,
-				149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -314,10 +374,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */,
+				14DDAC441ACB590E003A1A52 /* ActiveComponent.m in Sources */,
 				149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */,
 				147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */,
 				14E29FE51A975D83005292FE /* AppDelegate.m in Sources */,
+				14DDAC471ACB59F4003A1A52 /* DataBaseProvider.m in Sources */,
 				141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */,
+				14DDAC4A1ACB6365003A1A52 /* ActiveComponentService.m in Sources */,
+				14DDAC411ACB588B003A1A52 /* ActiveComponentRepository.m in Sources */,
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
