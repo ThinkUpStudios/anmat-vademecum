@@ -48,6 +48,9 @@ private ClearableAutoCompliteEditText principioActivo;
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
+            case R.id.mnu_buscar:
+                startActivity(new Intent(this, BusquedaMedicamentoActivity.class));
+                return true;
             case R.id.mnu_informacion:
                 startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;

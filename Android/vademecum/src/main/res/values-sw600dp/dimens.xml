@@ -8,5 +8,4 @@
     <dimen name="espacio_hasta_recomendados">48dp</dimen>
     <dimen name="tamnio_minimo_imagen">46dp</dimen>
     <dimen name="maximo_linea_con_icono">450dp</dimen>
-    <dimen name="maximo_linea_con_precio">400dp</dimen>
 </resources>
