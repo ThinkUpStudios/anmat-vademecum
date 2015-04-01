@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_cuadrado">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ANMAT Vademecum se creó para proveer información sobre medicamentos: sus principios activos, nombres comerciales, laboratorios y precios oficiales, entre otros. Esta app fue desarrollada a partir de información brindada por el Ministerio de Salud de la Nación – ANMAT."
-        android:id="@+id/textView"
-        android:paddingTop="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Los datos están actualizados al 10 de febrero del 2015."
-        android:id="@+id/textFecha"
-        android:paddingTop="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Copyright: Ministerio de Salud de la Nación – ANMAT."
-        android:id="@+id/textCopyright"
-        android:paddingTop="10dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Versión: 1.0."
-        android:id="@+id/textVersion"
-        android:paddingTop="10dp"/>
-
+        android:id="@+id/txt_acerca_de"
+        android:padding="20dp"/>
 
 </LinearLayout>
