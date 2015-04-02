@@ -1,16 +1,13 @@
 package com.thinkupstudios.anmat.vademecum;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
  * Created by dcamarro on 02/03/2015.
  */
-public class AcercaDeActivity extends Activity {
+public class AcercaDeActivity extends MenuActivity {
 
     private TextView viewAcercaDe;
 
@@ -41,16 +38,5 @@ public class AcercaDeActivity extends Activity {
                         "</p>")
         );
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }

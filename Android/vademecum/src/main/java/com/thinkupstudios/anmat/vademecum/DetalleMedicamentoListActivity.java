@@ -32,7 +32,7 @@ import static android.R.anim.fade_out;
  * {@link DetalleMedicamentoListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DetalleMedicamentoListActivity extends Activity
+public class DetalleMedicamentoListActivity extends MenuActivity
         implements DetalleMedicamentoListFragment.Callbacks {
 
     /**
@@ -59,12 +59,6 @@ private View selectedView;
                     fragment.setActivateOnItemClick(true);
 
         }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
     }
     /**
      * Callback method from {@link DetalleMedicamentoListFragment.Callbacks}
@@ -102,16 +96,5 @@ private View selectedView;
             overridePendingTransition(fade_in, fade_out);
         }
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
  }

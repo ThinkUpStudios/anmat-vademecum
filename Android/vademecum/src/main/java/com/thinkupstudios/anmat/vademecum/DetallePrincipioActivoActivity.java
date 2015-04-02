@@ -20,7 +20,7 @@ import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
 
 
-public class DetallePrincipioActivoActivity extends Activity {
+public class DetallePrincipioActivoActivity extends MenuActivity {
     private PrincipioActivo principioActivo;
     private PrincipioActivoProvider provider;
     private CollapsibleContent accionTerapeutica;
@@ -75,23 +75,4 @@ public class DetallePrincipioActivoActivity extends Activity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }

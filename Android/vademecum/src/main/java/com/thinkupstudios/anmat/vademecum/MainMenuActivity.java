@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 
-public class MainMenuActivity extends Activity implements View.OnClickListener {
+public class MainMenuActivity extends MenuActivity implements View.OnClickListener {
     private Button btnBuscar;
     private Button btnInformacion;
     private Button btnPrincipioActivo;
@@ -35,27 +35,6 @@ public class MainMenuActivity extends Activity implements View.OnClickListener {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onClick(View v) {

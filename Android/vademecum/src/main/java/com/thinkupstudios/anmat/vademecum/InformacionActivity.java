@@ -11,7 +11,7 @@ import android.widget.TextView;
 /**
  * Created by dcamarro on 02/03/2015.
  */
-public class InformacionActivity extends Activity {
+public class InformacionActivity extends MenuActivity {
 
     private TextView viewInfo;
 
@@ -51,16 +51,5 @@ public class InformacionActivity extends Activity {
                 );
 
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
-                return true;
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }

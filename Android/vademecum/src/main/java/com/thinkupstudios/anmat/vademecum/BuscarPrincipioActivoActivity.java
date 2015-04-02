@@ -20,7 +20,7 @@ import java.util.List;
 import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
 
-public class BuscarPrincipioActivoActivity extends Activity implements AdapterView.OnItemClickListener {
+public class BuscarPrincipioActivoActivity extends MenuActivity implements AdapterView.OnItemClickListener {
 private ClearableAutoCompliteEditText principioActivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,24 +40,9 @@ private ClearableAutoCompliteEditText principioActivo;
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
+
 
 
 

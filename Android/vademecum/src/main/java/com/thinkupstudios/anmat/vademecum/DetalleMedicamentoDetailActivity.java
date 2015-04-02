@@ -20,7 +20,7 @@ import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link DetalleMedicamentoDetailFragment}.
  */
-public class DetalleMedicamentoDetailActivity extends Activity {
+public class DetalleMedicamentoDetailActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,23 +44,6 @@ public class DetalleMedicamentoDetailActivity extends Activity {
                     .commit();
         }
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
 

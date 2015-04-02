@@ -2,9 +2,20 @@
     <item
         android:id="@+id/mnu_contactenos"
         android:orderInCategory="101"
-        android:icon="@android:drawable/stat_sys_headset"
+        android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/lbl_denuncias"
-        android:showAsAction="ifRoom" />
+        android:showAsAction="ifRoom" >
+        <menu>
+            <item android:id="@+id/mn_llamada"
+                android:icon="@android:drawable/ic_menu_call"
+                android:title="@string/tel_anmat"
+                 />
+            <item android:id="@+id/mn_email"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="@string/email_responde"
+                 />
+        </menu>
+        </item>
     <item
         android:id="@+id/mnu_informacion"
         android:orderInCategory="102"
