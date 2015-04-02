@@ -6,13 +6,9 @@ import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
-import android.widget.TextView;
-
-import com.thinkupstudios.anmat.vademecum.R;
 
 /**
  * Componente de tipo Autocomplete con funcionalidad de limpiar texto.

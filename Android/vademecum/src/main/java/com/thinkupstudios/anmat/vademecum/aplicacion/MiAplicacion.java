@@ -8,7 +8,6 @@ import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * Created by dcamarro on 27/02/2015.

@@ -2,20 +2,13 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.app.ListFragment;
-import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
-import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
 import com.thinkupstudios.anmat.vademecum.providers.MedicamentosProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
