@@ -3,7 +3,7 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
+
 import android.text.Html;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 /**
  * Created by dcamarro on 02/03/2015.
  */
-public class InformacionActivity extends Activity {
+public class InformacionActivity extends MenuActivity {
 
     private TextView viewInfo;
 
@@ -51,18 +51,5 @@ public class InformacionActivity extends Activity {
                 );
 
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, InformacionActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
 }

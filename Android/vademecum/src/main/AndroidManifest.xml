@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thinkupstudios.anmat.vademecum" >
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
         android:name=".aplicacion.MiAplicacion"
         android:allowBackup="true"
@@ -11,13 +13,13 @@
         <activity
             android:name=".DetalleMedicamentoListActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainMenuActivity" />
+            android:parentActivityName=".MainMenuActivity"
+            />
         <activity
             android:name=".DetalleMedicamentoDetailActivity"
-            android:label="@string/title_detallemedicamento_detail" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.thinkupstudios.anmat.vademecum.MainMenuActivity" />
+            android:label="@string/title_detallemedicamento_detail"
+            android:parentActivityName=".MainMenuActivity" >
+          
         </activity>
         <activity
             android:name=".MainMenuActivity"
@@ -44,17 +46,13 @@
             android:name=".BuscarPrincipioActivoActivity"
             android:label="@string/title_activity_buscar_principio_activo"
             android:parentActivityName=".MainMenuActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.thinkupstudios.anmat.vademecum.MainMenuActivity" />
+
         </activity>
         <activity
             android:name=".DetallePrincipioActivoActivity"
             android:label="@string/title_activity_detalle_principio_activo"
-            android:parentActivityName=".BuscarPrincipioActivoActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.thinkupstudios.anmat.vademecum.BuscarPrincipioActivoActivity" />
+            android:parentActivityName=".MainMenuActivity" >
+
         </activity>
     </application>
 

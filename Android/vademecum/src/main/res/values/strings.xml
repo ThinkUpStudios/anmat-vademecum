@@ -45,12 +45,16 @@
     <string name="title_activity_buscar_principio_activo">Principio Activo</string>
     <string name="lbl_nombre_generico">Nombre Genérico</string>
     <string name="title_activity_detalle_principio_activo">Detalle Principio Activo</string>
-    <string name="lbl_accion_terapeutica">Acción Terapéutica</string>
+    <string name="lbl_accion_terapeutica">Acción Terapéutica:</string>
     <string name="lbl_">Principio Activo</string>
-    <string name="lbl_indicaciones">Indicaciones</string>
-    <string name="lbl_posologia">Posología</string>
-    <string name="lbl_duracion">Duración</string>
-    <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones</string>
-    <string name="lbl_observaciones">Observaciones</string>
+    <string name="lbl_indicaciones">Indicaciones:</string>
+    <string name="lbl_posologia">Posología:</string>
+    <string name="lbl_duracion">Duración:</string>
+    <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones:</string>
+    <string name="lbl_observaciones">Observaciones:</string>
+    <string name="lbl_denuncias">Denuncias</string>
+    <string name="email_responde">responde@anmat.gov.ar</string>
+    <string name="tel_anmat">0800-333-1234</string>
+    <string name="tel_anmat_number">08003331234</string>
 
 </resources>

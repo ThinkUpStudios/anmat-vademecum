@@ -2,7 +2,7 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +17,10 @@ import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditTe
 
 import java.util.List;
 
-public class BuscarPrincipioActivoActivity extends Activity implements AdapterView.OnItemClickListener {
+import static android.R.anim.fade_in;
+import static android.R.anim.fade_out;
+
+public class BuscarPrincipioActivoActivity extends MenuActivity implements AdapterView.OnItemClickListener {
 private ClearableAutoCompliteEditText principioActivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,27 +40,9 @@ private ClearableAutoCompliteEditText principioActivo;
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
+
 
 
 
@@ -73,7 +58,7 @@ private ClearableAutoCompliteEditText principioActivo;
             }else{
                 i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO,principio);
                 startActivity(i);
-                overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+                overridePendingTransition(fade_in, fade_out);
 
             }
         }

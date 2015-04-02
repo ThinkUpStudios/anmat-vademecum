@@ -1,9 +1,9 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +20,7 @@ import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link DetalleMedicamentoDetailFragment}.
  */
-public class DetalleMedicamentoDetailActivity extends Activity {
+public class DetalleMedicamentoDetailActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,8 @@ public class DetalleMedicamentoDetailActivity extends Activity {
         setContentView(R.layout.activity_detalle_medicamento);
 
         // Show the Up button in the action bar.
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getActionBar();
+        if(actionBar!=null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
@@ -43,26 +44,6 @@ public class DetalleMedicamentoDetailActivity extends Activity {
                     .commit();
         }
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
 

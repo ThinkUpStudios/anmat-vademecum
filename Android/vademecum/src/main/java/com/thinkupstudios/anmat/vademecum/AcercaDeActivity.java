@@ -1,17 +1,13 @@
 package com.thinkupstudios.anmat.vademecum;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.text.Html;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
  * Created by dcamarro on 02/03/2015.
  */
-public class AcercaDeActivity extends Activity {
+public class AcercaDeActivity extends MenuActivity {
 
     private TextView viewAcercaDe;
 
@@ -31,7 +27,7 @@ public class AcercaDeActivity extends Activity {
                         "Esta app fue desarrollada a partir de información brindada por el Ministerio de Salud de la Nación – ANMAT.\n" +
                         "</p>\n" +
                         "<p>\n" +
-                        "Los datos están actualizados al 2 de abril del 2015.\n" +
+                        "Los datos están actualizados al 3 de abril del 2015.\n" +
                         "<p>\n" +
                         "<i>Copyright: Ministerio de Salud de la Nación – ANMAT.</i>\n" +
                         "</p>\n" +
@@ -42,19 +38,5 @@ public class AcercaDeActivity extends Activity {
                         "</p>")
         );
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }

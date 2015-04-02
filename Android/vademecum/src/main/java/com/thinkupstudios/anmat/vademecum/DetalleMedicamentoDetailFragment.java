@@ -25,6 +25,9 @@ import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import java.text.Normalizer;
 import java.util.List;
 
+import static android.R.anim.fade_in;
+import static android.R.anim.fade_out;
+
 /**
  * A fragment representing a single DetalleMedicamento detail screen.
  * This fragment is either contained in a {@link DetalleMedicamentoListActivity}
@@ -103,8 +106,8 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
                 f.setNombreGenerico(medicamento.getNombreGenerico());
                 i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,f);
                 startActivity(i);
-                DetalleMedicamentoDetailFragment.this.getActivity()
-                        .overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+                DetalleMedicamentoDetailFragment.this.getActivity().
+                overridePendingTransition(fade_in, fade_out);
             }
         });
 
@@ -158,6 +161,6 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO, principioActivo);
         startActivity(i);
         this.getActivity()
-                .overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+                .overridePendingTransition(fade_in, fade_out);
     }
 }

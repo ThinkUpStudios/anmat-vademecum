@@ -89,7 +89,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        getListView().setSelector(R.drawable.abc_ab_share_pack_holo_dark);
+        //getListView().setSelector(android.R.drawable.share_pack_holo_dark);
 
 
         if (savedInstanceState != null
