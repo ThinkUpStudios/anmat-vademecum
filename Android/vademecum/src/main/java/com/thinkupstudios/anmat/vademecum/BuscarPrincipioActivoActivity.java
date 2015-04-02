@@ -2,7 +2,7 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.NavUtils;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +16,9 @@ import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 
 import java.util.List;
+
+import static android.R.anim.fade_in;
+import static android.R.anim.fade_out;
 
 public class BuscarPrincipioActivoActivity extends Activity implements AdapterView.OnItemClickListener {
 private ClearableAutoCompliteEditText principioActivo;
@@ -51,9 +54,6 @@ private ClearableAutoCompliteEditText principioActivo;
             case R.id.mnu_informacion:
                 startActivity(new Intent(this, AcercaDeActivity.class));
                 return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -73,7 +73,7 @@ private ClearableAutoCompliteEditText principioActivo;
             }else{
                 i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO,principio);
                 startActivity(i);
-                overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+                overridePendingTransition(fade_in, fade_out);
 
             }
         }

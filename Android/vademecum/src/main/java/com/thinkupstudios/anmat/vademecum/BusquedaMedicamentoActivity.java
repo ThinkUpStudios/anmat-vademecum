@@ -3,7 +3,7 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
+
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,6 +22,9 @@ import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditTe
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 import java.util.List;
+
+import static android.R.anim.fade_in;
+import static android.R.anim.fade_out;
 
 
 public class BusquedaMedicamentoActivity extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -73,7 +76,7 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         }else{
             i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
             startActivity(i);
-            overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+            overridePendingTransition(fade_in, fade_out);
 
         }
 
@@ -94,9 +97,6 @@ public class BusquedaMedicamentoActivity extends Activity implements View.OnClic
         switch (id) {
             case R.id.mnu_informacion:
                 startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

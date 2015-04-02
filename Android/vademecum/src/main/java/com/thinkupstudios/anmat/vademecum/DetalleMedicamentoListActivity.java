@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+
+import static android.R.anim.fade_in;
+import static android.R.anim.fade_out;
 
 
 /**
@@ -96,7 +99,7 @@ private View selectedView;
             Intent detailIntent = new Intent(this, DetalleMedicamentoDetailActivity.class);
             detailIntent.putExtra(MedicamentoBO.MEDICAMENTOBO, m);
             startActivity(detailIntent);
-            overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
+            overridePendingTransition(fade_in, fade_out);
         }
 
     }
@@ -106,9 +109,6 @@ private View selectedView;
         switch (id) {
             case R.id.mnu_informacion:
                 startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

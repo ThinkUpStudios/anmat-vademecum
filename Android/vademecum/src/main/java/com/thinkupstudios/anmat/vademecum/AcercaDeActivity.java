@@ -3,7 +3,6 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.text.Html;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -49,9 +48,6 @@ public class AcercaDeActivity extends Activity {
         switch (id) {
             case R.id.mnu_informacion:
                 startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
