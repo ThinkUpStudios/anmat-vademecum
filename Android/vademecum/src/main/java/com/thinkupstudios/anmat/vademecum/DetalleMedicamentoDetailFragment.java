@@ -124,7 +124,14 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         ((TextView) rootView.findViewById(R.id.pais_industriaValor)).setText(m.getPaisIndustria());
         ((TextView) rootView.findViewById(R.id.nroCertificadoValor)).setText(m.getNumeroCertificado());
         ((TextView) rootView.findViewById(R.id.presentacionValor)).setText(m.getPresentacion());
-        ((TextView) rootView.findViewById(R.id.precioValor)).setText(m.getPrecio());
+        if(m.isEsUsoHospitalario()){
+            ((TextView) rootView.findViewById(R.id.lbl_precio)).setText(m.getUsoHospitalarioLabel());
+            ((TextView) rootView.findViewById(R.id.precioValor)).setText(" ");
+        }else{
+            ((TextView) rootView.findViewById(R.id.lbl_precio)).setText(getResources().getString(R.string.precio));
+            ((TextView) rootView.findViewById(R.id.precioValor)).setText(m.getPrecio());
+        }
+
         ((TextView) rootView.findViewById(R.id.troquelValor)).setText(m.getTroquel());
         this.cargarSolapaFormula(m.getFormula(), container, rootView);
     }

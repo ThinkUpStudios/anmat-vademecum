@@ -57,5 +57,6 @@
     <string name="tel_anmat">0800-333-1234</string>
     <string name="tel_anmat_number">08003331234</string>
     <string name="choose_account">Elija una cuenta de correo:</string>
+    <string name="uso_hospitalario">Producto de Uso Hospitalario</string>
 
 </resources>
