@@ -11,27 +11,30 @@ import java.util.Vector;
 public class MedicamentoBO implements Serializable {
 
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
+    public static String UH = "U.H.";
+    public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario";
     private String nombreComercial = "-";
-    private String nombreGenerico= "-";
-    private String numeroCertificado= "-";
+    private String nombreGenerico = "-";
+    private String numeroCertificado = "-";
     private String precio;
-    private String laboratorio= "-";
-    private String forma= "-";
-    private String paisIndustria= "-";
-    private String condicionExpendio= "-";
-    private String condicionTrazabilidad= "-";
-    private String presentacion= "-";
-    private String gtin= "-";
-    private String troquel= "-";
-    private String cuit= "-";
+    private String laboratorio = "-";
+    private String forma = "-";
+    private String paisIndustria = "-";
+    private String condicionExpendio = "-";
+    private String condicionTrazabilidad = "-";
+    private String presentacion = "-";
+    private String gtin = "-";
+    private String troquel = "-";
+    private String cuit = "-";
+    private boolean esUsoHospitalario = false;
 
     public String getCuit() {
         return cuit;
     }
 
     public void setCuit(String cuit) {
-        if(!cuit.isEmpty())
-        this.cuit = cuit;
+        if (!cuit.isEmpty())
+            this.cuit = cuit;
     }
 
     public String getNombreComercial() {
@@ -39,7 +42,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setNombreComercial(String nombreComercial) {
-        if(!nombreComercial.isEmpty())
+        if (!nombreComercial.isEmpty())
 
             this.nombreComercial = nombreComercial;
     }
@@ -49,8 +52,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setNombreGenerico(String nombreGenerico) {
-        if(!nombreGenerico.isEmpty())
-        this.nombreGenerico = nombreGenerico;
+        if (!nombreGenerico.isEmpty())
+            this.nombreGenerico = nombreGenerico;
     }
 
     public String getNumeroCertificado() {
@@ -58,15 +61,21 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setNumeroCertificado(String numeroCertificado) {
-        if(!numeroCertificado.isEmpty())
-        this.numeroCertificado = numeroCertificado;
+        if (!numeroCertificado.isEmpty())
+            this.numeroCertificado = numeroCertificado;
     }
 
     public String getPrecio() {
-        if(this.precio == null){
-            return ("$ - ");
+        if (this.precio == null) {
+            if (this.isEsUsoHospitalario()) {
+                return ("U.H.");
+            } else {
+                return ("$ - ");
+            }
+        } else {
+
+            return ("$ " + precio);
         }
-        else return ("$ " +precio);
     }
 
     public void setPrecio(String precio) {
@@ -78,8 +87,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setLaboratorio(String laboratorio) {
-        if(!laboratorio.isEmpty())
-        this.laboratorio = laboratorio;
+        if (!laboratorio.isEmpty())
+            this.laboratorio = laboratorio;
     }
 
     public String getForma() {
@@ -87,17 +96,17 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setForma(String forma) {
-        if(!forma.isEmpty())
-        this.forma = forma;
+        if (!forma.isEmpty())
+            this.forma = forma;
     }
 
     public String getPaisIndustria() {
         return paisIndustria;
     }
 
-    public void setPaisIndustria(String paisIndustria){
-        if(!paisIndustria.isEmpty())
-        this.paisIndustria = paisIndustria;
+    public void setPaisIndustria(String paisIndustria) {
+        if (!paisIndustria.isEmpty())
+            this.paisIndustria = paisIndustria;
     }
 
     public String getCondicionExpendio() {
@@ -105,8 +114,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setCondicionExpendio(String condicionExpendio) {
-        if(!condicionExpendio.isEmpty())
-        this.condicionExpendio = condicionExpendio;
+        if (!condicionExpendio.isEmpty())
+            this.condicionExpendio = condicionExpendio;
     }
 
     public String getCondicionTrazabilidad() {
@@ -114,8 +123,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setCondicionTrazabilidad(String condicionTrazabilidad) {
-        if(!condicionTrazabilidad.isEmpty())
-        this.condicionTrazabilidad = condicionTrazabilidad;
+        if (!condicionTrazabilidad.isEmpty())
+            this.condicionTrazabilidad = condicionTrazabilidad;
     }
 
     public String getPresentacion() {
@@ -123,8 +132,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setPresentacion(String presentacion) {
-        if(!presentacion.isEmpty())
-        this.presentacion = presentacion;
+        if (!presentacion.isEmpty())
+            this.presentacion = presentacion;
     }
 
     public String getGtin() {
@@ -132,8 +141,8 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setGtin(String gtin) {
-        if(!gtin.isEmpty())
-        this.gtin = gtin;
+        if (!gtin.isEmpty())
+            this.gtin = gtin;
     }
 
     public String getTroquel() {
@@ -141,19 +150,19 @@ public class MedicamentoBO implements Serializable {
     }
 
     public void setTroquel(String troquel) {
-        if(!troquel.isEmpty())
-        this.troquel = troquel;
+        if (!troquel.isEmpty())
+            this.troquel = troquel;
     }
 
     public List<FormulaMedicamento> getFormula() {
         List<FormulaMedicamento> formulaLista = new Vector<>();
 
         String[] formulas = this.getNombreGenerico().split("\\+");
-        for(String formulaTemporal : formulas){
+        for (String formulaTemporal : formulas) {
 
             FormulaMedicamento formulaMedicamento = this.parsearFormula(formulaTemporal.trim());
-            if(!formulaMedicamento.getIfa().isEmpty())
-            formulaLista.add(formulaMedicamento);
+            if (!formulaMedicamento.getIfa().isEmpty())
+                formulaLista.add(formulaMedicamento);
 
         }
         return formulaLista;
@@ -169,31 +178,46 @@ public class MedicamentoBO implements Serializable {
         //Primero busco la droga.
         String droga = new String();
 
-            while (continuar && i <formulaTemporal.length()) {
-                char caracter = formulaTemporal.charAt(i);
-                if (!Character.isDigit(caracter) && (caracter != ',')) {
-                    droga += caracter;
-                    i++;
+        while (continuar && i < formulaTemporal.length()) {
+            char caracter = formulaTemporal.charAt(i);
+            if (!Character.isDigit(caracter) && (caracter != ',')) {
+                droga += caracter;
+                i++;
 
-                } else continuar = false;
-            }
+            } else continuar = false;
+        }
         formulaMedicamento.setIfa(droga);
 
         //Ahora busca la cantidad.
         continuar = true;
         String cantidad = new String();
-        while (continuar && i < formulaTemporal.length()){
+        while (continuar && i < formulaTemporal.length()) {
             char caracter = formulaTemporal.charAt(i);
-            if(Character.isDigit(caracter) || (caracter == ',')){
+            if (Character.isDigit(caracter) || (caracter == ',')) {
                 cantidad += caracter;
                 i++;
-            }
-            else continuar = false;
+            } else continuar = false;
         }
         formulaMedicamento.setCantidad(cantidad);
 
-        formulaMedicamento.setUnidad(formulaTemporal.substring(i,formulaTemporal.length()));
+        formulaMedicamento.setUnidad(formulaTemporal.substring(i, formulaTemporal.length()));
 
         return formulaMedicamento;
+    }
+
+    public void setEsUsoHospitalario(boolean esUsoHospitalario) {
+        this.esUsoHospitalario = esUsoHospitalario;
+    }
+
+    public boolean isEsUsoHospitalario() {
+        return esUsoHospitalario && this.precio== null;
+    }
+
+    public String getUsoHospitalarioLabel(){
+        if(this.getPrecio().equals(UH)){
+            return USO_HOSPITALARIO;
+        }else{
+            return " ";
+        }
     }
 }

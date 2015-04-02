@@ -63,6 +63,7 @@ public class MedicamentosProvider extends GenericProvider {
         medicamento.setCondicionExpendio(cursor.getString(cursor.getColumnIndex(MedicamentosTable.COLUMNS[10])));
         medicamento.setCondicionTrazabilidad(cursor.getString(cursor.getColumnIndex(MedicamentosTable.COLUMNS[11])));
         medicamento.setPresentacion(cursor.getString(cursor.getColumnIndex(MedicamentosTable.COLUMNS[12])));
+        medicamento.setEsUsoHospitalario(true);
         String precio = cursor.getString(cursor.getColumnIndex(MedicamentosTable.COLUMNS[13]));
         medicamento.setPrecio(precio);
 
