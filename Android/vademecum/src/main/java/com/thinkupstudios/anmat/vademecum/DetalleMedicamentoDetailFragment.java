@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,16 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
-import com.thinkupstudios.anmat.vademecum.dummy.DummyContent;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
-import java.text.Normalizer;
 import java.util.List;
 
 import static android.R.anim.fade_in;

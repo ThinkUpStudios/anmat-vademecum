@@ -1,18 +1,15 @@
 package com.thinkupstudios.anmat.vademecum.providers.helper;
 
-        import java.io.FileOutputStream;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.OutputStream;
-        import java.sql.SQLException;
-        import java.util.List;
-        import java.util.Vector;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 
-        import android.content.Context;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.database.sqlite.SQLiteException;
-        import android.database.sqlite.SQLiteOpenHelper;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.SQLException;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
