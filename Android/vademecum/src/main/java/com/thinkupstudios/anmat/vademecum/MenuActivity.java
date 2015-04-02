@@ -38,6 +38,15 @@ public abstract class  MenuActivity extends Activity {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel: " + getResources().getString(R.string.tel_anmat_number)));
                 startActivity(callIntent);
+
+            case R.id.mn_email:
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde)});
+                email.putExtra(Intent.EXTRA_SUBJECT, " ");
+                email.putExtra(Intent.EXTRA_TEXT, " ");
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Elija una cuenta de correo:"));
+
             default:
                 return super.onOptionsItemSelected(item);
         }
