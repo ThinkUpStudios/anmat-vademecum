@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
@@ -50,8 +50,8 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        if(getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
+
+        if (getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
             this.medicamento = (MedicamentoBO) getArguments().getSerializable(MedicamentoBO.MEDICAMENTOBO);
         }
 
@@ -65,17 +65,17 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         this.setValores(rootView, this.medicamento, container);
         Resources res = getResources();
 
-        TabHost tabs=(TabHost)rootView.findViewById(android.R.id.tabhost);
+        TabHost tabs = (TabHost) rootView.findViewById(android.R.id.tabhost);
         tabs.setup();
 
-        TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
+        TabHost.TabSpec spec = tabs.newTabSpec("mitab1");
         spec.setContent(R.id.detalle);
         //spec.setIndicator("Detalle");
         spec.setIndicator("", res.getDrawable(R.drawable.detalle));
         tabs.addTab(spec);
         tabs.setHorizontalScrollBarEnabled(true);
 
-        spec=tabs.newTabSpec("");
+        spec = tabs.newTabSpec("");
         spec.setContent(R.id.formula);
         //spec.setIndicator("Formula");
         spec.setIndicator("", res.getDrawable(R.drawable.formula));
@@ -100,10 +100,10 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
                 i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
                 FormularioBusqueda f = new FormularioBusqueda();
                 f.setNombreGenerico(medicamento.getNombreGenerico());
-                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,f);
+                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
                 startActivity(i);
                 DetalleMedicamentoDetailFragment.this.getActivity().
-                overridePendingTransition(fade_in, fade_out);
+                        overridePendingTransition(fade_in, fade_out);
             }
         });
 
@@ -111,21 +111,21 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
     }
 
 
-    public void setValores(View rootView, MedicamentoBO m, ViewGroup container){
+    public void setValores(View rootView, MedicamentoBO m, ViewGroup container) {
 
 
-        ((TextView)rootView.findViewById(R.id.condicion_de_expendioValor)).setText(m.getCondicionExpendio());
-        ((TextView)rootView.findViewById(R.id.condicion_de_trazabilidadValor)).setText(m.getCondicionTrazabilidad());
-        ((TextView)rootView.findViewById(R.id.forma_farmaceuticaValor)).setText(m.getForma());
-        ((TextView)rootView.findViewById(R.id.gtinValor)).setText(m.getGtin());
-        ((TextView)rootView.findViewById(R.id.laboratorioValor)).setText(m.getLaboratorio());
-        ((TextView)rootView.findViewById(R.id.nombre_comercialValor)).setText(m.getNombreComercial());
-        ((TextView)rootView.findViewById(R.id.nombre_generico_Valor)).setText(m.getNombreGenerico());
-        ((TextView)rootView.findViewById(R.id.pais_industriaValor)).setText(m.getPaisIndustria());
-        ((TextView)rootView.findViewById(R.id.nroCertificadoValor)).setText(m.getNumeroCertificado());
-        ((TextView)rootView.findViewById(R.id.presentacionValor)).setText(m.getPresentacion());
-        ((TextView)rootView.findViewById(R.id.precioValor)).setText(m.getPrecio());
-        ((TextView)rootView.findViewById(R.id.troquelValor)).setText(m.getTroquel());
+        ((TextView) rootView.findViewById(R.id.condicion_de_expendioValor)).setText(m.getCondicionExpendio());
+        ((TextView) rootView.findViewById(R.id.condicion_de_trazabilidadValor)).setText(m.getCondicionTrazabilidad());
+        ((TextView) rootView.findViewById(R.id.forma_farmaceuticaValor)).setText(m.getForma());
+        ((TextView) rootView.findViewById(R.id.gtinValor)).setText(m.getGtin());
+        ((TextView) rootView.findViewById(R.id.laboratorioValor)).setText(m.getLaboratorio());
+        ((TextView) rootView.findViewById(R.id.nombre_comercialValor)).setText(m.getNombreComercial());
+        ((TextView) rootView.findViewById(R.id.nombre_generico_Valor)).setText(m.getNombreGenerico());
+        ((TextView) rootView.findViewById(R.id.pais_industriaValor)).setText(m.getPaisIndustria());
+        ((TextView) rootView.findViewById(R.id.nroCertificadoValor)).setText(m.getNumeroCertificado());
+        ((TextView) rootView.findViewById(R.id.presentacionValor)).setText(m.getPresentacion());
+        ((TextView) rootView.findViewById(R.id.precioValor)).setText(m.getPrecio());
+        ((TextView) rootView.findViewById(R.id.troquelValor)).setText(m.getTroquel());
         this.cargarSolapaFormula(m.getFormula(), container, rootView);
     }
 
@@ -133,25 +133,45 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         LayoutInflater mInflater = (LayoutInflater) this.getActivity()
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
-        TableLayout tablaFormula = (TableLayout) rootView.findViewById(R.id.tableFormula);
+        LinearLayout tablaFormula = (LinearLayout) rootView.findViewById(R.id.formula_content);
 
         View formulaRow = mInflater.inflate(R.layout.formula, container, false);
-
-        for(FormulaMedicamento formula : formulaLista){
+        int position = 0;
+        for (FormulaMedicamento formula : formulaLista) {
+            position++;
             formulaRow = mInflater.inflate(R.layout.formula, container, false);
             ((TextView) formulaRow.findViewById(R.id.ifa)).setText(formula.getIfa());
             ((TextView) formulaRow.findViewById(R.id.cant)).setText(formula.getCantidad());
             ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setText(formula.getUnidad());
             formulaRow.setOnClickListener(this);
+            format(position, formulaRow);
             tablaFormula.addView(formulaRow);
+
         }
 
 
     }
 
+    private void format(int position, View formulaRow) {
+        int color = 0;
+        if (position % 2 == 1) {
+            formulaRow.setBackgroundResource(R.drawable.list_item_background);
+
+
+        } else {
+            formulaRow.setBackgroundResource(R.drawable.list_item_background2);
+
+        }
+        color = formulaRow.getResources().getColor(R.color.anmat_azul);
+
+        ((TextView) formulaRow.findViewById(R.id.ifa)).setTextColor(color);
+        ((TextView) formulaRow.findViewById(R.id.cant)).setTextColor(color);
+        ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setTextColor(color);
+    }
+
     @Override
     public void onClick(View v) {
-        String principioActivo = ((TextView)v.findViewById(R.id.ifa)).getText().toString();
+        String principioActivo = ((TextView) v.findViewById(R.id.ifa)).getText().toString();
         Intent i = new Intent(this.getActivity(),
                 DetallePrincipioActivoActivity.class);
         i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO, principioActivo);
