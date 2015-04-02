@@ -31,7 +31,11 @@ public class AcercaDeActivity extends Activity {
                         "Esta app fue desarrollada a partir de información brindada por el Ministerio de Salud de la Nación – ANMAT.\n" +
                         "</p>\n" +
                         "<p>\n" +
+<<<<<<< HEAD
+                        "Los datos están actualizados al 15 de febrero del 2015.\n" +
+=======
                         "Los datos están actualizados al 10 de febrero del 2015.\n\n Holis" +
+>>>>>>> 6917bbb7b4532d2b8be1466e940329535f124029
                         "<p>\n" +
                         "<i>Copyright: Ministerio de Salud de la Nación – ANMAT.</i>\n" +
                         "</p>\n" +
