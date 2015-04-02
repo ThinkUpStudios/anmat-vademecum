@@ -152,6 +152,7 @@ public class MedicamentoBO implements Serializable {
         for(String formulaTemporal : formulas){
 
             FormulaMedicamento formulaMedicamento = this.parsearFormula(formulaTemporal.trim());
+            if(!formulaMedicamento.getIfa().isEmpty())
             formulaLista.add(formulaMedicamento);
 
         }
