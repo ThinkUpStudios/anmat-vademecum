@@ -45,7 +45,7 @@ public abstract class  MenuActivity extends Activity {
                 email.putExtra(Intent.EXTRA_SUBJECT, " ");
                 email.putExtra(Intent.EXTRA_TEXT, " ");
                 email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Elija una cuenta de correo:"));
+                startActivity(Intent.createChooser(email, getString(R.string.choose_account)));
 
             default:
                 return super.onOptionsItemSelected(item);
