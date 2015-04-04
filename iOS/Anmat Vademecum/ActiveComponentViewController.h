@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ActiveComponent.h"
 
 @interface ActiveComponentViewController : UIViewController
 
-@property (nonatomic, strong) NSString* componentName;
+@property (nonatomic, strong) ActiveComponent *component;
 
 @end

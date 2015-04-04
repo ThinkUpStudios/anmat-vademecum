@@ -63,7 +63,7 @@
 }
 
 - (ActiveComponent *) getByName: (NSString *)name {
-    ActiveComponent *result = [[ActiveComponent alloc] init];
+    ActiveComponent *result = nil;
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
     NSString *query = [NSString stringWithFormat: @"SELECT * FROM principiosactivos WHERE principio=\"%@\" LIMIT 1", name];
     sqlite3_stmt *statement;
@@ -103,7 +103,7 @@
     
     ActiveComponent *component = [[ActiveComponent alloc] init];
     
-    component.component = [self getFormattedValue:componentName];
+    component.name = [self getFormattedValue:componentName];
     component.action = [self getFormattedValue:action];
     component.indication = [self getFormattedValue:indication];
     component.presentation = [self getFormattedValue:presentation];

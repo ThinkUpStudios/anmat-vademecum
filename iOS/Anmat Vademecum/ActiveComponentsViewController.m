@@ -105,9 +105,10 @@
     if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
         ActiveComponentViewController *activeComponent = segue.destinationViewController;
         NSIndexPath *selectedIndex = [self.tblResults indexPathForCell:sender];
-        NSString *selectedComponent = [searchResults objectAtIndex:selectedIndex.item];
+        NSString *selectedComponentName = [searchResults objectAtIndex:selectedIndex.item];
+        ActiveComponent *component = [componentsService getByName:selectedComponentName];
         
-        activeComponent.componentName = selectedComponent;
+        activeComponent.component = component;
     }
 }
 

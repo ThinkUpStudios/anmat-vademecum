@@ -32,55 +32,11 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    [self setLayoutConstraints];
     [self loadMedicine];
 }
 
 - (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [scrollView setContentOffset: CGPointMake(0, scrollView.contentOffset.y)];
-}
-
-- (void) setLayoutConstraints {
-    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:self.cntDetails
-                                                                     attribute:NSLayoutAttributeTop
-                                                                     relatedBy:0
-                                                                        toItem:self.view
-                                                                     attribute:NSLayoutAttributeTopMargin
-                                                                    multiplier:1.0
-                                                                      constant:0];
-    [self.view addConstraint:topConstraint];
-    
-    /*NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.cntDetails
-     attribute:NSLayoutAttributeLeading
-     relatedBy:0
-     toItem:self.view
-     attribute:NSLayoutAttributeLeft
-     multiplier:1.0
-     constant:0];
-     [self.view addConstraint:leftConstraint];
-     
-     NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.cntDetails
-     attribute:NSLayoutAttributeTrailing
-     relatedBy:0
-     toItem:self.view
-     attribute:NSLayoutAttributeRight
-     multiplier:1.0
-     constant:0];
-     [self.view addConstraint:rightConstraint];*/
-    
-    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:self.cntDetails
-                                                                        attribute:NSLayoutAttributeBottom
-                                                                        relatedBy:0
-                                                                           toItem:self.view
-                                                                        attribute:NSLayoutAttributeBottomMargin
-                                                                       multiplier:1.0
-                                                                         constant:0];
-    [self.view addConstraint:bottomConstraint];
 }
 
 -(void) loadMedicine {
