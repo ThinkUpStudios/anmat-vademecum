@@ -12,7 +12,16 @@
 
 @interface ActiveComponentViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *txtActiveComponent;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *lblActiveComponent;
+@property (weak, nonatomic) IBOutlet UILabel *lblAction;
+@property (weak, nonatomic) IBOutlet UILabel *lblIndication;
+@property (weak, nonatomic) IBOutlet UILabel *lblPresentation;
+@property (weak, nonatomic) IBOutlet UILabel *lblPosology;
+@property (weak, nonatomic) IBOutlet UILabel *lblDuration;
+@property (weak, nonatomic) IBOutlet UILabel *lblContraindication;
+@property (weak, nonatomic) IBOutlet UILabel *lblObservation;
 
 @end
 
@@ -23,7 +32,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.txtActiveComponent.text = self.componentName;
+    self.lblActiveComponent.text = self.component.name;
+    self.lblAction.text = self.component.action;
+    self.lblIndication.text = self.component.indication;
+    self.lblPresentation.text = self.component.presentation;
+    self.lblPosology.text = self.component.posology;
+    self.lblDuration.text = self.component.duration;
+    self.lblContraindication.text = self.component.contraindication;
+    self.lblObservation.text = self.component.observation;
     
     medicineService = [[MedicineService alloc] init];
 }
@@ -36,7 +52,7 @@
     if([[segue identifier] isEqualToString:@"ShowMedicinesWithSameComponent"]) {
         SearchResultsViewController *results = segue.destinationViewController;
         
-        results.medicines = [medicineService getMedicines:self.txtActiveComponent.text];
+        results.medicines = [medicineService getMedicines:self.lblActiveComponent.text];
     }
 }
 

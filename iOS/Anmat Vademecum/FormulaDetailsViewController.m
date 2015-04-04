@@ -9,6 +9,7 @@
 #import "FormulaDetailsViewController.h"
 #import "FormulaComponent.h"
 #import "ActiveComponentViewController.h"
+#import "ActiveComponentService.h"
 
 @interface FormulaDetailsViewController ()
 
@@ -16,11 +17,14 @@
 
 @end
 
-@implementation FormulaDetailsViewController
+@implementation FormulaDetailsViewController {
+    ActiveComponentService *componentsService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    componentsService = [[ActiveComponentService alloc] init];
     self.formulaComponents = [[NSMutableArray alloc] init];
     [self loadFormulaComponents];
 }
@@ -77,9 +81,10 @@
     if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
         ActiveComponentViewController *activeComponent = segue.destinationViewController;
         NSIndexPath *selectedIndex = [self.tableView indexPathForCell:sender];
-        FormulaComponent *selectedComponent = [self.formulaComponents objectAtIndex:selectedIndex.item];
+        FormulaComponent *selectedFormulaComponent = [self.formulaComponents objectAtIndex:selectedIndex.item];
+        ActiveComponent *component = [componentsService getByName:selectedFormulaComponent.name];
         
-        activeComponent.componentName = selectedComponent.name;
+        activeComponent.component = component;
     }
 }
 

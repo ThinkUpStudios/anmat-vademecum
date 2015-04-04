@@ -10,7 +10,7 @@
 
 @interface ActiveComponent : NSObject
 
-@property NSString *component;
+@property NSString *name;
 @property NSString *action;
 @property NSString *indication;
 @property NSString *presentation;

@@ -25,7 +25,32 @@
 }
 
 - (ActiveComponent *) getByName: (NSString *)name {
-    return [repository getByName:name];
+    ActiveComponent *component = [repository getByName:name];
+    
+    if(component == nil) {
+        component = [[ActiveComponent alloc] init];
+        component.name = name;
+    }
+    
+    component.action = [self sanitize:component.action];
+    component.indication = [self sanitize:component.indication];
+    component.presentation = [self sanitize:component.presentation];
+    component.posology = [self sanitize:component.posology];
+    component.duration = [self sanitize:component.duration];
+    component.contraindication = [self sanitize:component.contraindication];
+    component.observation = [self sanitize:component.observation];
+    
+    return component;
+}
+
+- (NSString *) sanitize:(NSString *)value {
+    NSString *result = value;
+    
+    if(result == nil || result.length == 0) {
+        result = @"-";
+    }
+    
+    return result;
 }
 
 @end
