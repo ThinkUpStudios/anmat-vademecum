@@ -67,6 +67,7 @@
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-7G-js0">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem style="plain" id="426-8c-J45">
                                         <view key="customView" contentMode="scaleToFill" id="Y6W-Z2-qJu">
@@ -99,7 +100,7 @@
                                             <rect key="frame" x="264" y="5.5" width="100" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-patria-toolbar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-Fh-cDf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-patria-toolbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-Fh-cDf">
                                                     <rect key="frame" x="0.0" y="0.5" width="100" height="33"/>
                                                 </imageView>
                                             </subviews>
@@ -107,6 +108,7 @@
                                         </view>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
@@ -1440,8 +1442,8 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
         <image name="SameComponent" width="24" height="24"/>
         <image name="logo-anmat-chico.png" width="220" height="60"/>
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
-        <image name="logo-ministerio-toolbar.png" width="130" height="40"/>
-        <image name="logo-patria-toolbar.jpg" width="100" height="42"/>
+        <image name="logo-ministerio-toolbar.png" width="100" height="44"/>
+        <image name="logo-patria-toolbar.png" width="100" height="44"/>
         <image name="wallpaper.png" width="1280" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
