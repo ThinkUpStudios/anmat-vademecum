@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -19,8 +19,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-anmat-chico.png" translatesAutoresizingMaskIntoConstraints="NO" id="gIe-uR-s5u">
-                    <rect key="frame" x="155" y="198" width="171" height="84"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-vnm.png" translatesAutoresizingMaskIntoConstraints="NO" id="gIe-uR-s5u">
+                    <rect key="frame" x="89" y="133" width="303" height="214"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="84" id="Nzl-nH-aB8"/>
                         <constraint firstAttribute="width" constant="171" id="fSn-ay-UEB"/>
@@ -41,6 +41,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo-anmat-chico.png" width="220" height="60"/>
+        <image name="logo-vnm.png" width="343" height="369"/>
     </resources>
 </document>
