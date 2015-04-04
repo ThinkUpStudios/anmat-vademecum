@@ -101,7 +101,38 @@
             
             sqlite3_bind_text(statement, addedConditions, [laboratorySearch UTF8String], -1, SQLITE_STATIC);
         }
+        
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            Medicine *medicine = [self getMedicine:statement];
+            
+            [result addObject:medicine];
+        }
+        
+        sqlite3_finalize(statement);
+    }else {
+        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
+    }
+    
+    sqlite3_close(database);
+    
+    return result;
+}
 
+- (NSArray *)getAll:(NSString *)componentName {
+    NSMutableString *query = [[NSMutableString alloc] init];
+    
+    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY precio DESC"];
+    
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
+        == SQLITE_OK) {
+        NSString *componentNameSearch = [NSString stringWithFormat:@"%%%@%%", componentName];
+        
+        sqlite3_bind_text(statement, 1, [componentNameSearch UTF8String], -1, SQLITE_STATIC);
+        
         while (sqlite3_step(statement) == SQLITE_ROW) {
             Medicine *medicine = [self getMedicine:statement];
             

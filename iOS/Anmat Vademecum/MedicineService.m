@@ -25,11 +25,48 @@
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
-    NSArray *medicines = [repository getAll];
+    NSArray *medicines = [repository getAll:activeComponent];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
-        if([medicine.genericName containsString:activeComponent]) {
+        BOOL include = NO;
+        NSArray *formulaDetails = [medicine.genericName componentsSeparatedByString:@"+"];
+        
+        for (NSString *formulaDetail in formulaDetails) {
+            if(formulaDetail == nil || formulaDetail.length == 0) {
+                continue;
+            }
+            
+            NSUInteger byteLength = [formulaDetail lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            char buffer[byteLength + 1];
+            const char *utf8_buffer = [formulaDetail cStringUsingEncoding:NSUTF8StringEncoding];
+            
+            strncpy(buffer, utf8_buffer, byteLength);
+            
+            int separationIndex = -1;
+            
+            for(int i = 0; i < byteLength; i++) {
+                if([[NSCharacterSet decimalDigitCharacterSet] characterIsMember: buffer[i]]) {
+                    separationIndex = i;
+                    break;
+                }
+            }
+            
+            NSString *componentName = @"";
+            
+            if(separationIndex != -1) {
+                componentName = [formulaDetail substringToIndex:separationIndex];
+            } else {
+                componentName = formulaDetail;
+            }
+            
+            if([[self trimLastSpace:componentName] isEqualToString:[self trimLastSpace:activeComponent]]) {
+                include = YES;
+                break;
+            }
+        }
+        
+        if(include) {
             [result addObject:medicine];
         }
     }
@@ -75,6 +112,14 @@
     [medicine.form isEqualToString:reference.form] &&
     [medicine.certificate isEqualToString:reference.certificate] &&
     [medicine.presentation isEqualToString:reference.presentation];
+}
+
+- (NSString*) trimLastSpace:(NSString*)text{
+    int i = (int)text.length - 1;
+    
+    for (; i >= 0 && [text characterAtIndex:i] == ' '; i--);
+    
+    return [text substringToIndex:i + 1];
 }
 
 @end
