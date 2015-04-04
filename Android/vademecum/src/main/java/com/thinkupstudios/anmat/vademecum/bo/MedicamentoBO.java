@@ -205,8 +205,11 @@ public class MedicamentoBO implements Serializable {
         return formulaMedicamento;
     }
 
-    public void setEsUsoHospitalario(boolean esUsoHospitalario) {
-        this.esUsoHospitalario = esUsoHospitalario;
+    public void setEsUsoHospitalario(Integer esUsoHospitalario) {
+        if(esUsoHospitalario != null){
+            this.esUsoHospitalario = esUsoHospitalario == 0 ? false : true;
+        }
+        else this.esUsoHospitalario = false;
     }
 
     public boolean isEsUsoHospitalario() {

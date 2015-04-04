@@ -23,7 +23,8 @@ public class MedicamentosTable {
                                         "expendio",
                                         "trazabilidad",
                                         "presentacion",
-                                        "precio"};
+                                        "precio",
+                                        "es_hospitalario"};
 
 
 }
