@@ -1,12 +1,22 @@
 package com.thinkupstudios.anmat.vademecum.providers;
 
+import android.database.Cursor;
+
+import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.bo.PrincipioActivo;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
+import com.thinkupstudios.anmat.vademecum.providers.tables.PrincipiosActivosTable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by FaQ on 29/03/2015.
  */
 public class PrincipioActivoProvider extends GenericProvider{
+
     public PrincipioActivoProvider(DatabaseHelper db) {
         super(db);
     }
@@ -47,5 +57,38 @@ public class PrincipioActivoProvider extends GenericProvider{
         p.setDuracion("Según la eficacia y la tolerancia del abacavir. ");
         return p;
     }
+
+    public PrincipioActivo findPrincipioActivo(String nombre) {
+
+        String where = " where principio = '"+ nombre + "' ";
+
+        Cursor cursor = this.getAllByWhere(PrincipiosActivosTable.TABLE_NAME, where, null);
+
+        cursor.moveToFirst();
+
+        PrincipioActivo principioActivo = null;
+
+        if (!cursor.isAfterLast()) {
+            principioActivo = cursorToPrincipioActivo(cursor);
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return principioActivo;
+    }
+
+    private PrincipioActivo cursorToPrincipioActivo(Cursor cursor) {
+        PrincipioActivo principioActivo = new PrincipioActivo();
+        principioActivo.setNombre(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[0])));
+        principioActivo.setAccionTerapeutica(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[1])));
+        principioActivo.setIndicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[2])));
+        principioActivo.setPresentacion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[3])));
+        principioActivo.setPosologia(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[4])));
+        principioActivo.setDuracion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[5])));
+        principioActivo.setContraindicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[6])));
+        principioActivo.setObservaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[7])));
+
+        return principioActivo;
+    }
+
 
 }
