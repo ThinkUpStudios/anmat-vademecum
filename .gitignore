@@ -30,3 +30,6 @@ proguard/
 *.log
 /Android/.idea/libraries
 .idea
+
+# XCode User State
+*.xcuserstate
