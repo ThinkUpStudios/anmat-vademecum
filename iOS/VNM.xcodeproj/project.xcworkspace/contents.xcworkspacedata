@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Anmat Vademecum.xcodeproj">
+      location = "self:VNM.xcodeproj">
    </FileRef>
 </Workspace>

@@ -17,6 +17,7 @@
 		1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* FormulaComponent.m */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
+		1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */; };
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
 		148987B01AD097340054FE02 /* logo-vnm.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AF1AD097340054FE02 /* logo-vnm.png */; };
 		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
@@ -70,6 +71,7 @@
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
 		147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTabViewController.m; sourceTree = "<group>"; };
+		1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
 		148987AD1AD096330054FE02 /* logo-patria-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-patria-toolbar.png"; sourceTree = "<group>"; };
 		148987AF1AD097340054FE02 /* logo-vnm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-vnm.png"; sourceTree = "<group>"; };
 		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseProvider.m; sourceTree = "<group>"; };
 		14DDAC481ACB6365003A1A52 /* ActiveComponentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentService.h; sourceTree = "<group>"; };
 		14DDAC491ACB6365003A1A52 /* ActiveComponentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentService.m; sourceTree = "<group>"; };
-		14E29FDC1A975D83005292FE /* Anmat Vademecum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anmat Vademecum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E29FDC1A975D83005292FE /* VNM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E29FE01A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FE11A975D83005292FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14E29FE31A975D83005292FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 		14E29FEA1A975D83005292FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14E29FEC1A975D83005292FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14E29FEF1A975D83005292FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anmat VademecumTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E29FF51A975D83005292FE /* VNMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VNMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E29FFA1A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Anmat_VademecumTests.m; sourceTree = "<group>"; };
 		14F97A381AD2183300C08620 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		14DDAC4F1ACB6D0D003A1A52 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */,
 				148987AF1AD097340054FE02 /* logo-vnm.png */,
 				148987AD1AD096330054FE02 /* logo-patria-toolbar.png */,
 				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
@@ -219,8 +222,8 @@
 		14E29FDD1A975D83005292FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14E29FDC1A975D83005292FE /* Anmat Vademecum.app */,
-				14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */,
+				14E29FDC1A975D83005292FE /* VNM.app */,
+				14E29FF51A975D83005292FE /* VNMTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,9 +277,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14E29FDB1A975D83005292FE /* Anmat Vademecum */ = {
+		14E29FDB1A975D83005292FE /* VNM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat Vademecum" */;
+			buildConfigurationList = 14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "VNM" */;
 			buildPhases = (
 				14E29FD81A975D83005292FE /* Sources */,
 				14E29FD91A975D83005292FE /* Frameworks */,
@@ -286,14 +289,14 @@
 			);
 			dependencies = (
 			);
-			name = "Anmat Vademecum";
+			name = VNM;
 			productName = "Anmat Vademecum";
-			productReference = 14E29FDC1A975D83005292FE /* Anmat Vademecum.app */;
+			productReference = 14E29FDC1A975D83005292FE /* VNM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		14E29FF41A975D83005292FE /* Anmat VademecumTests */ = {
+		14E29FF41A975D83005292FE /* VNMTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat VademecumTests" */;
+			buildConfigurationList = 14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "VNMTests" */;
 			buildPhases = (
 				14E29FF11A975D83005292FE /* Sources */,
 				14E29FF21A975D83005292FE /* Frameworks */,
@@ -304,9 +307,9 @@
 			dependencies = (
 				14E29FF71A975D83005292FE /* PBXTargetDependency */,
 			);
-			name = "Anmat VademecumTests";
+			name = VNMTests;
 			productName = "Anmat VademecumTests";
-			productReference = 14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */;
+			productReference = 14E29FF51A975D83005292FE /* VNMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -328,7 +331,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14E29FD71A975D83005292FE /* Build configuration list for PBXProject "Anmat Vademecum" */;
+			buildConfigurationList = 14E29FD71A975D83005292FE /* Build configuration list for PBXProject "VNM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -341,8 +344,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14E29FDB1A975D83005292FE /* Anmat Vademecum */,
-				14E29FF41A975D83005292FE /* Anmat VademecumTests */,
+				14E29FDB1A975D83005292FE /* VNM */,
+				14E29FF41A975D83005292FE /* VNMTests */,
 			);
 		};
 /* End PBXProject section */
@@ -355,6 +358,7 @@
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
 				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
+				1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
 				148987B01AD097340054FE02 /* logo-vnm.png in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
@@ -415,7 +419,7 @@
 /* Begin PBXTargetDependency section */
 		14E29FF71A975D83005292FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14E29FDB1A975D83005292FE /* Anmat Vademecum */;
+			target = 14E29FDB1A975D83005292FE /* VNM */;
 			targetProxy = 14E29FF61A975D83005292FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -527,7 +531,7 @@
 				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = VNM;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -541,7 +545,7 @@
 				INFOPLIST_FILE = "Anmat Vademecum/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = VNM;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -560,8 +564,8 @@
 				);
 				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anmat Vademecum.app/Anmat Vademecum";
+				PRODUCT_NAME = VNMTests;
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -575,15 +579,15 @@
 				);
 				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anmat Vademecum.app/Anmat Vademecum";
+				PRODUCT_NAME = VNMTests;
+				TEST_HOST = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14E29FD71A975D83005292FE /* Build configuration list for PBXProject "Anmat Vademecum" */ = {
+		14E29FD71A975D83005292FE /* Build configuration list for PBXProject "VNM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14E29FFD1A975D83005292FE /* Debug */,
@@ -592,7 +596,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat Vademecum" */ = {
+		14E29FFF1A975D83005292FE /* Build configuration list for PBXNativeTarget "VNM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14E2A0001A975D83005292FE /* Debug */,
@@ -601,7 +605,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "Anmat VademecumTests" */ = {
+		14E2A0021A975D83005292FE /* Build configuration list for PBXNativeTarget "VNMTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14E2A0031A975D83005292FE /* Debug */,
