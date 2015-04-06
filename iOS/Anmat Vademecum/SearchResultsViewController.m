@@ -72,7 +72,7 @@
     
     if(medicine.hospitalUsage == 1 &&
        (medicine.price == nil || medicine.price.length == 0 || [medicine.price isEqualToString:@"$-"])) {
-        [lblPrice setText:@"P.U.H"];
+        [lblPrice setText:@"U.H"];
     } else {
         [lblPrice setText:medicine.price];
     }
