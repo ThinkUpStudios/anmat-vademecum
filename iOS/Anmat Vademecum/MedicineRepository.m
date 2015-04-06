@@ -15,7 +15,7 @@
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT * FROM medicamentos ORDER BY precio DESC";
+    NSString *query = @"SELECT * FROM medicamentos ORDER BY hospitalario ASC, precio DESC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -69,7 +69,7 @@
         addedConditions = addedConditions + 1;
     }
     
-    [query appendString:@" ORDER BY precio DESC"];
+    [query appendString:@" ORDER BY hospitalario ASC, precio DESC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -121,7 +121,7 @@
 - (NSArray *)getAll:(NSString *)componentName {
     NSMutableString *query = [[NSMutableString alloc] init];
     
-    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY precio DESC"];
+    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY hospitalario ASC, precio DESC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -245,6 +245,7 @@
     char *trazabilityChars = (char *) sqlite3_column_text(statement, 11);
     char *presentationChars = (char *) sqlite3_column_text(statement, 12);
     char *priceChars = (char *) sqlite3_column_text(statement, 13);
+    int hopsitalUsage = sqlite3_column_int(statement, 14);
     
     NSString *id = [self getUTF8:idChars];
     NSString *certificate =  [self getUTF8:certificateChars];
@@ -277,6 +278,7 @@
     medicine.trazability = [self getFormattedValue:trazability];
     medicine.presentation = [self getFormattedValue:presentation];
     medicine.price = [self getFormattedPrice:price];
+    medicine.hospitalUsage = (NSInteger)hopsitalUsage;
     
     return medicine;
 }

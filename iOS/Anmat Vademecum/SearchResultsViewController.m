@@ -69,7 +69,13 @@
     [lblCertificate setText:medicine.certificate];
     [lblPresentation setText:medicine.presentation];
     [lblLaboratory setText:medicine.laboratory];
-    [lblPrice setText:medicine.price];
+    
+    if(medicine.hospitalUsage == 1 &&
+       (medicine.price == nil || medicine.price.length == 0 || [medicine.price isEqualToString:@"$-"])) {
+        [lblPrice setText:@"P.U.H"];
+    } else {
+        [lblPrice setText:medicine.price];
+    }
     
     if(indexPath.item % 2 == 1) {
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -81,7 +87,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
+    return 164;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
