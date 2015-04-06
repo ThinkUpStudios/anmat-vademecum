@@ -42,7 +42,7 @@
 -(void) loadMedicine {
     self.lblCertificate.text = self.medicine.certificate;
     self.lblTroquel.text = self.medicine.troquel;
-    self.lblLaboratory.text = self.medicin∫e.laboratory;
+    self.lblLaboratory.text = self.medicine.laboratory;
     self.lblComercialName.text = self.medicine.comercialName;
     self.lblGenericName.text = self.medicine.genericName;
     self.lblRequestCondition.text = self.medicine.requestCondition;

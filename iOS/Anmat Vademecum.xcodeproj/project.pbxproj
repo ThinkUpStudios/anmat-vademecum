@@ -38,6 +38,7 @@
 		14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FEE1A975D83005292FE /* LaunchScreen.xib */; };
 		14E29FFC1A975D83005292FE /* Anmat_VademecumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */; };
 		14F97A391AD2183300C08620 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14F97A381AD2183300C08620 /* anmat.sqlite */; };
+		14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F97A3B1AD229C300C08620 /* ContactAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		14E29FFA1A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Anmat_VademecumTests.m; sourceTree = "<group>"; };
 		14F97A381AD2183300C08620 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
+		14F97A3A1AD229C300C08620 /* ContactAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAlertController.h; sourceTree = "<group>"; };
+		14F97A3B1AD229C300C08620 /* ContactAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */,
 				141BC4E91A97672900B78F0B /* SearchResultsViewController.h */,
 				141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */,
+				14F97A3A1AD229C300C08620 /* ContactAlertController.h */,
+				14F97A3B1AD229C300C08620 /* ContactAlertController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
+				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
 				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
 				1451E5E81AAB7BBA00F9FEC7 /* FormulaComponent.m in Sources */,
