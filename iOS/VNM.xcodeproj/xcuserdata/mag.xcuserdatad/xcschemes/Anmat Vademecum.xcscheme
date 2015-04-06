@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "14E29FDB1A975D83005292FE"
-               BuildableName = "Anmat Vademecum.app"
-               BlueprintName = "Anmat Vademecum"
-               ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+               BuildableName = "VNM.app"
+               BlueprintName = "VNM"
+               ReferencedContainer = "container:VNM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "14E29FF41A975D83005292FE"
-               BuildableName = "Anmat VademecumTests.xctest"
-               BlueprintName = "Anmat VademecumTests"
-               ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+               BuildableName = "VNMTests.xctest"
+               BlueprintName = "VNMTests"
+               ReferencedContainer = "container:VNM.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "14E29FF41A975D83005292FE"
-               BuildableName = "Anmat VademecumTests.xctest"
-               BlueprintName = "Anmat VademecumTests"
-               ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+               BuildableName = "VNMTests.xctest"
+               BlueprintName = "VNMTests"
+               ReferencedContainer = "container:VNM.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14E29FDB1A975D83005292FE"
-            BuildableName = "Anmat Vademecum.app"
-            BlueprintName = "Anmat Vademecum"
-            ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+            BuildableName = "VNM.app"
+            BlueprintName = "VNM"
+            ReferencedContainer = "container:VNM.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,13 +72,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14E29FDB1A975D83005292FE"
-            BuildableName = "Anmat Vademecum.app"
-            BlueprintName = "Anmat Vademecum"
-            ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+            BuildableName = "VNM.app"
+            BlueprintName = "VNM"
+            ReferencedContainer = "container:VNM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,13 +91,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14E29FDB1A975D83005292FE"
-            BuildableName = "Anmat Vademecum.app"
-            BlueprintName = "Anmat Vademecum"
-            ReferencedContainer = "container:Anmat Vademecum.xcodeproj">
+            BuildableName = "VNM.app"
+            BlueprintName = "VNM"
+            ReferencedContainer = "container:VNM.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
