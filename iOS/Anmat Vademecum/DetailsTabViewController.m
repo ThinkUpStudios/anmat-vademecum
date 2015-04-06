@@ -11,6 +11,7 @@
 #import "MainDetailsViewController.h"
 #import "MedicineService.h"
 #import "Medicine.h"
+#import "ContactAlertController.h"
 
 @interface DetailsTabViewController ()
 
@@ -32,7 +33,14 @@
     [btnRelated setTarget:self];
     [btnRelated setAction:@selector(showRelated:)];
     
-    self.navigationItem.rightBarButtonItem = btnRelated;
+    UIBarButtonItem *btnContact = [[UIBarButtonItem alloc] init];
+    UIImage *imgContact = [UIImage imageNamed:@"Contact"];
+    
+    [btnContact setImage:imgContact];
+    [btnContact setTarget:self];
+    [btnContact setAction:@selector(showContactInfo:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnRelated, btnContact, nil];
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -56,6 +64,13 @@
     searchResults.title = @"Mismo Principio Activo";
     
     [self.navigationController pushViewController:searchResults animated:YES];
+}
+
+-(void) showContactInfo:(id) sender {
+    ContactAlertController *contactSheet = [ContactAlertController alertControllerWithTitle:@"ANMAT Responde" message:@"Datos de contacto" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [self
+     presentViewController:contactSheet animated:YES completion:nil];
 }
 
 @end
