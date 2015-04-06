@@ -24,5 +24,6 @@
 @property NSString *trazability;
 @property NSString *presentation;
 @property NSString *price;
+@property NSInteger hospitalUsage;
 
 @end

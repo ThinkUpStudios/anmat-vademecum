@@ -10,7 +10,6 @@
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
-		142448F61AC8609000837932 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 142448F51AC8609000837932 /* anmat.sqlite */; };
 		14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14343C411AB7276A00238B73 /* libsqlite3.dylib */; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
@@ -38,6 +37,7 @@
 		14E29FED1A975D83005292FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FEC1A975D83005292FE /* Images.xcassets */; };
 		14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E29FEE1A975D83005292FE /* LaunchScreen.xib */; };
 		14E29FFC1A975D83005292FE /* Anmat_VademecumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */; };
+		14F97A391AD2183300C08620 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14F97A381AD2183300C08620 /* anmat.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,6 @@
 		141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchSectionViewController.m; sourceTree = "<group>"; };
 		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
-		142448F51AC8609000837932 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		14343C411AB7276A00238B73 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		14E29FF51A975D83005292FE /* Anmat VademecumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anmat VademecumTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E29FFA1A975D83005292FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E29FFB1A975D83005292FE /* Anmat_VademecumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Anmat_VademecumTests.m; sourceTree = "<group>"; };
+		14F97A381AD2183300C08620 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
-				142448F51AC8609000837932 /* anmat.sqlite */,
+				14F97A381AD2183300C08620 /* anmat.sqlite */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
@@ -354,7 +354,7 @@
 				148987B01AD097340054FE02 /* logo-vnm.png in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
 				148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */,
-				142448F61AC8609000837932 /* anmat.sqlite in Resources */,
+				14F97A391AD2183300C08620 /* anmat.sqlite in Resources */,
 				149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

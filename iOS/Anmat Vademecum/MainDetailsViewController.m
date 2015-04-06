@@ -42,16 +42,22 @@
 -(void) loadMedicine {
     self.lblCertificate.text = self.medicine.certificate;
     self.lblTroquel.text = self.medicine.troquel;
-    self.lblLaboratory.text = self.medicine.laboratory;
+    self.lblLaboratory.text = self.medicin∫e.laboratory;
     self.lblComercialName.text = self.medicine.comercialName;
     self.lblGenericName.text = self.medicine.genericName;
     self.lblRequestCondition.text = self.medicine.requestCondition;
     self.lblTrazability.text = self.medicine.trazability;
     self.lblPresentation.text = self.medicine.presentation;
     self.lblForm.text = self.medicine.form;
-    self.lblPrice.text = self.medicine.price;
     self.lblCountry.text = self.medicine.country;
     self.lblGtin.text = self.medicine.gtin;
+    
+    if(self.medicine.hospitalUsage == 1 &&
+       (self.medicine.price == nil || self.medicine.price.length == 0 || [self.medicine.price isEqualToString:@"$-"])) {
+        self.lblPrice.text = @"Presentación de Uso Hospitalario";
+    } else {
+        self.lblPrice.text = self.medicine.price;
+    }
 }
 
 @end
