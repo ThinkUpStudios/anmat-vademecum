@@ -93,7 +93,7 @@
     NSArray *formulaDetails = [genericName componentsSeparatedByString:@"+"];
     
     for (NSString *formulaDetail in formulaDetails) {
-        if(formulaDetail == nil || formulaDetail.length == 0) {
+        if(formulaDetail == nil || formulaDetail.length == 0 || [formulaDetail isEqualToString:@"-"]) {
             continue;
         }
         
