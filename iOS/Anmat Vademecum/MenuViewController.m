@@ -13,6 +13,7 @@
 
 @interface MenuViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnBar;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnComponents;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
@@ -37,6 +38,9 @@
 - (IBAction)btnContact:(id)sender {
     ContactAlertController *contactSheet = [ContactAlertController alertControllerWithTitle:@"ANMAT Responde" message:@"Datos de contacto" preferredStyle:UIAlertControllerStyleActionSheet];
 
+    contactSheet.popoverPresentationController.barButtonItem = self.btnBar;
+    contactSheet.popoverPresentationController.sourceView = self.view;
+    
     [self
      presentViewController:contactSheet animated:YES completion:nil];
 }

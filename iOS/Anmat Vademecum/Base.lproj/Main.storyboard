@@ -197,6 +197,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnBar" destination="5Fs-az-Fbd" id="KzU-zh-b5N"/>
                         <outlet property="btnComponents" destination="N9C-Qb-7TV" id="xY2-ei-cpD"/>
                         <outlet property="btnInfo" destination="kLy-Tg-Ygp" id="KDv-MH-ZOh"/>
                         <outlet property="btnMeds" destination="r6G-WJ-bie" id="Vh9-zD-k05"/>
