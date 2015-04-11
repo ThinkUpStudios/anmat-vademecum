@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Think Up Studios. All rights reserved.
 //
 
-#import "FormulaComponent.h"
+#import "Component.h"
 
-@implementation FormulaComponent
+@implementation Component
 
 @end

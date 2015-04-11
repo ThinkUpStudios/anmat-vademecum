@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FormulaComponent : NSObject
+@interface Component : NSObject
 
-@property NSString *name;
-@property NSString *quantity;
+@property NSString *activeComponent;
+@property NSString *proportion;
 
 @end
