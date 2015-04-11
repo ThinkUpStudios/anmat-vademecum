@@ -17,6 +17,9 @@ import java.util.Vector;
  */
 public class MedicamentosProvider extends GenericProvider {
 
+    private static final String AND = "#";
+    private static final String OR = "?";
+
     public MedicamentosProvider(DatabaseHelper helper){
         super(helper);
     }
@@ -29,14 +32,9 @@ public class MedicamentosProvider extends GenericProvider {
             if(!form.getNombreComercial().isEmpty())
                 where += " and " + MedicamentosTable.COLUMNS[6] + " like '%"+form.getNombreComercial()+"%'";
             if(!form.getNombreGenerico().isEmpty()){
-                if(form.useLike()) {
-                    where += " and " + MedicamentosTable.COLUMNS[8] + " like '%" + form.getNombreGenerico() + "%'";
-                }
-                else{
-                    where += " and " + MedicamentosTable.COLUMNS[8] + " = '" + form.getNombreGenerico() + "'";
-                }
-            }
+                where += this.armarWhereANDyOR(form.getNombreGenerico(), form.useLike(), MedicamentosTable.COLUMNS[8]);
 
+            }
 
             if(!form.getLaboratorio().isEmpty())
                 where += " and " + MedicamentosTable.COLUMNS[3] + " like '%"+form.getLaboratorio()+"%'";
@@ -62,6 +60,58 @@ public class MedicamentosProvider extends GenericProvider {
         }
         List<MedicamentoBO> medicamentosOrdenados = this.ordenarMedicamentos(medicamentoBOs);
         return medicamentosOrdenados;
+    }
+
+    private String armarWhereANDyOR(String campo, Boolean useLike, String column) {
+        String where = "";
+        String[] filtros = campo.split("\\?");
+        if(filtros.length > 1){
+            int i = 0;
+            for(String dentroDelOR : filtros){
+                String whereAnd = this.armarWhereAnd(dentroDelOR, useLike, column);
+                if(i == 0)
+                    where += " and "+ whereAnd;
+                else where += whereAnd;
+                i++;
+                if(filtros.length != i){
+                    where += " or ";
+                }
+
+            }
+        }else{
+            where = " and "+ this.armarWhereAnd(campo, useLike, column);
+        }
+
+        return where;
+    }
+
+    private String armarWhereAnd(String campo, Boolean useLike, String column) {
+        String whereAnd = "";
+        String[] ands = campo.split("\\#");
+        String aux = " ";
+        if(ands.length > 1){
+            int i = 0;
+
+            for(String valor : ands ){
+                if(i != 0){
+                    aux += " and ";
+                }
+                if(useLike) {
+                    whereAnd += aux + column + " like '%" + valor + "%'";
+                }else{
+                    whereAnd += aux + column + " = '" + valor + "'";
+                }
+                i++;
+            }
+        }
+        else{
+            if(useLike) {
+                whereAnd += aux + MedicamentosTable.COLUMNS[8] + " like '%" + campo + "%'";
+            }else{
+                whereAnd += aux + MedicamentosTable.COLUMNS[8] + " = '" + campo + "'";
+            }
+        }
+        return whereAnd;
     }
 
     private List<MedicamentoBO> ordenarMedicamentos(List<MedicamentoBO> medicamentoBOs) {
