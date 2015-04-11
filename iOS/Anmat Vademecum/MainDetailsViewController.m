@@ -54,7 +54,7 @@
     
     if(self.medicine.hospitalUsage == 1 &&
        (self.medicine.price == nil || self.medicine.price.length == 0 || [self.medicine.price isEqualToString:@"$-"])) {
-        self.lblPrice.text = @"Presentación de Uso Hospitalario";
+        self.lblPrice.text = @"Presentación de Uso Hospitalario (U.H)";
     } else {
         self.lblPrice.text = self.medicine.price;
     }
