@@ -2,6 +2,7 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -67,6 +68,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent i = this.getActivity().getIntent();
         this.provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
         this.resultados = this.provider
                 .findMedicamentos((FormularioBusqueda)

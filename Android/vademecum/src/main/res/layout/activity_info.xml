@@ -19,5 +19,12 @@
         android:id="@+id/txt_informacion"
         android:padding="20dp"/>
 
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:id="@+id/webView" />
+
     </ScrollView>
+
+
 </LinearLayout>

@@ -68,6 +68,8 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
                         i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getNombre());
                         FormularioBusqueda f = new FormularioBusqueda();
                         f.setNombreGenerico(principioActivo.getNombre());
+                        f.setUseLike(true);
+                        f.setFiltrarPorFormula(true);
                         i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
                         startActivity(i);
                         DetallePrincipioActivoActivity.this.

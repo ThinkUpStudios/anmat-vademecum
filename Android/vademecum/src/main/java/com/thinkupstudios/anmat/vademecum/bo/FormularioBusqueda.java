@@ -11,6 +11,8 @@ public class FormularioBusqueda implements Serializable {
     private String laboratorio = new String();
     private String nombreGenerico = new String();
     private String nombreComercial = new String();
+    private Boolean useLike = true;
+    private Boolean filtrarPorFormula = false;
 
     public String getLaboratorio() {
         return laboratorio;
@@ -34,6 +36,22 @@ public class FormularioBusqueda implements Serializable {
 
     public void setNombreComercial(String nombreComercial) {
         this.nombreComercial = nombreComercial;
+    }
+
+    public Boolean useLike() {
+        return useLike;
+    }
+
+    public void setUseLike(Boolean useLike) {
+        this.useLike = useLike;
+    }
+
+    public void setFiltrarPorFormula(Boolean filtrarPorFormula) {
+        this.filtrarPorFormula = filtrarPorFormula;
+    }
+
+    public Boolean filtrarPorFormula(){
+        return this.filtrarPorFormula;
     }
 
     public boolean isEmprty(){

@@ -14,12 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.thinkupstudios.anmat.vademecum.bo.FormulaMedicamento;
+import com.thinkupstudios.anmat.vademecum.bo.Component;
+import com.thinkupstudios.anmat.vademecum.bo.Formula;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
-
-import java.util.List;
 
 import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
@@ -100,6 +99,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
                 i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
                 FormularioBusqueda f = new FormularioBusqueda();
                 f.setNombreGenerico(medicamento.getNombreGenerico());
+                f.setUseLike(false);
                 i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
                 startActivity(i);
                 DetalleMedicamentoDetailFragment.this.getActivity().
@@ -136,7 +136,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         this.cargarSolapaFormula(m.getFormula(), container, rootView);
     }
 
-    private void cargarSolapaFormula(List<FormulaMedicamento> formulaLista, ViewGroup container, View rootView) {
+    private void cargarSolapaFormula(Formula formula, ViewGroup container, View rootView) {
         LayoutInflater mInflater = (LayoutInflater) this.getActivity()
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
@@ -144,12 +144,11 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
         View formulaRow = mInflater.inflate(R.layout.formula, container, false);
         int position = 0;
-        for (FormulaMedicamento formula : formulaLista) {
+        for (Component component : formula.getComponents()) {
             position++;
             formulaRow = mInflater.inflate(R.layout.formula, container, false);
-            ((TextView) formulaRow.findViewById(R.id.ifa)).setText(formula.getIfa());
-            ((TextView) formulaRow.findViewById(R.id.cant)).setText(formula.getCantidad());
-            ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setText(formula.getUnidad());
+            ((TextView) formulaRow.findViewById(R.id.active_component)).setText(component.getActiveComponent());
+            ((TextView) formulaRow.findViewById(R.id.proportion)).setText(component.getProportion());
             formulaRow.setOnClickListener(this);
             format(position, formulaRow);
             tablaFormula.addView(formulaRow);
@@ -171,14 +170,14 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         }
         color = formulaRow.getResources().getColor(R.color.anmat_azul);
 
-        ((TextView) formulaRow.findViewById(R.id.ifa)).setTextColor(color);
-        ((TextView) formulaRow.findViewById(R.id.cant)).setTextColor(color);
-        ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setTextColor(color);
+        ((TextView) formulaRow.findViewById(R.id.active_component)).setTextColor(color);
+        ((TextView) formulaRow.findViewById(R.id.proportion)).setTextColor(color);
+
     }
 
     @Override
     public void onClick(View v) {
-        String principioActivo = ((TextView) v.findViewById(R.id.ifa)).getText().toString();
+        String principioActivo = ((TextView) v.findViewById(R.id.active_component)).getText().toString();
         Intent i = new Intent(this.getActivity(),
                 DetallePrincipioActivoActivity.class);
         i.putExtra(FormularioBusqueda.PRINCIPIO_ACTIVO, principioActivo);
