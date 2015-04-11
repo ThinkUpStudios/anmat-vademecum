@@ -9,7 +9,7 @@
 
     <TextView
         android:text="New Text"
-        android:id="@+id/ifa"
+        android:id="@+id/active_component"
         android:gravity="left"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -19,26 +19,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/cant"
-        android:layout_below="@id/ifa"
-       />
-    <TextView
-        android:text="New Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/unidadDeMedida"
+        android:id="@+id/proportion"
+        android:layout_below="@id/active_component"
         android:gravity="center"
-        android:layout_toRightOf="@id/cant"
-        android:layout_below="@id/ifa"
-        android:layout_marginLeft="10dp"/>
+
+       />
+
 
     <ImageView android:src="@android:drawable/ic_menu_zoom"
         android:id="@+id/btn_detalle"
         android:scaleType="center"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_alignBottom="@id/unidadDeMedida"
-        android:layout_alignTop="@id/ifa"
+        android:layout_alignBottom="@id/proportion"
+        android:layout_alignTop="@id/active_component"
         android:layout_alignParentRight="true"
         />
 
