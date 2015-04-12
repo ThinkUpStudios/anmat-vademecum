@@ -15,7 +15,7 @@
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT * FROM medicamentos ORDER BY hospitalario ASC, precio DESC";
+    NSString *query = @"SELECT * FROM medicamentos ORDER BY hospitalario ASC, precio ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -69,7 +69,7 @@
         addedConditions = addedConditions + 1;
     }
     
-    [query appendString:@" ORDER BY hospitalario ASC, precio DESC"];
+    [query appendString:@" ORDER BY hospitalario ASC, precio ASC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -118,10 +118,34 @@
     return result;
 }
 
-- (NSArray *)getAll:(NSString *)componentName {
+- (NSArray *)getByGenericName:(NSString *)genericName {
+    NSString *query = [NSString stringWithFormat: @"SELECT * FROM medicamentos WHERE generico=\"%@\" COLLATE NOCASE ORDER BY hospitalario ASC, precio ASC", genericName];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
+        == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            Medicine *medicine = [self getMedicine:statement];
+            
+            [result addObject:medicine];
+        }
+        
+        sqlite3_finalize(statement);
+    }else {
+        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
+    }
+    
+    sqlite3_close(database);
+    
+    return result;
+}
+
+- (NSArray *)getByActiveComponent:(NSString *)componentName {
     NSMutableString *query = [[NSMutableString alloc] init];
     
-    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY hospitalario ASC, precio DESC"];
+    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY hospitalario ASC, precio ASC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
