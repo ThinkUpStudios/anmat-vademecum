@@ -58,6 +58,7 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
         this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
         this.formualario.setNombreComercial(this.nombreComercial.getText().toString());
         this.formualario.setLaboratorio(this.laboratorio.getText().toString());
+        this.formualario.setUseLike(true);
         if(this.formualario.isEmprty()){
             Toast.makeText(this, R.string.sin_campo_busqueda,Toast.LENGTH_LONG).show();
         }else{

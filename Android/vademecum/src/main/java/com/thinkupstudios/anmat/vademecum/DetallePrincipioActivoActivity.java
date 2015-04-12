@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.os.PersistableBundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,6 +43,8 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
         super.onCreate(savedInstanceState);
 
 
+
+
         setContentView(R.layout.activity_detalle_principio_activo);
         this.accionTerapeutica = (CollapsibleContent)findViewById(R.id.col_accion_terapeutica);
         this.indicaciones = (CollapsibleContent)findViewById(R.id.col_indicaciones);
@@ -48,6 +54,7 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
         this.contraindicaciones = (CollapsibleContent)findViewById(R.id.col_contraindicaciones);
         this.observacion = (CollapsibleContent)findViewById(R.id.col_observaciones);
         this.txtNoResultados = (TextView) findViewById(R.id.txt_no_resultados);
+
 
 
         this.setTitle(getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO));
@@ -66,8 +73,20 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
                 this.contraindicaciones.setContent(principioActivo.getContraindicaciones());
                 this.observacion.setContent(principioActivo.getObservaciones());
 
-
-
+                recomendados.setOnTouchListener(new DarkenerButtonTouchListener());
+                recomendados.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent i = new Intent(DetallePrincipioActivoActivity.this,
+                                DetalleMedicamentoListActivity.class);
+                        i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getNombre());
+                        FormularioBusqueda f = new FormularioBusqueda();
+                        f.setNombreGenerico(principioActivo.getNombre());
+                        i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
+                        startActivity(i);
+                        DetallePrincipioActivoActivity.this.
+                                overridePendingTransition(fade_in, fade_out);
+                    }
+                });
             }
             else{
 
