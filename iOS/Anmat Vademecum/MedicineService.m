@@ -21,7 +21,9 @@
 }
 
 - (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory {
-    return [repository getAll:genericName comercialName:comercialName laboratory:laboratory];
+    NSArray *medicines = [repository getAll:genericName comercialName:comercialName laboratory:laboratory];
+    
+    return [self reOrder:medicines];
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
@@ -71,7 +73,7 @@
         }
     }
     
-    return result;
+    return [self reOrder:result];
 }
 
 - (NSArray *) getSimilarMedicines: (Medicine *)reference {
@@ -90,7 +92,7 @@
         }
     }
     
-    return result;
+    return [self reOrder:result];
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
@@ -103,6 +105,33 @@
 
 - (NSArray *) getLaboratories:(NSString *)searchText {
     return [repository getLaboratories:searchText];
+}
+
+- (NSArray *) reOrder: (NSArray *) medicines {
+    NSMutableArray *emptyPriceMedicines = [[NSMutableArray alloc] init];
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    for (Medicine *medicine in medicines) {
+        BOOL isEmpty = NO;
+        
+        if(medicine.price == nil || medicine.price.length == 0 || [medicine.price isEqualToString:@"$-"]) {
+            if(medicine.hospitalUsage == 1){
+                medicine.price = @"U.H";
+            } else {
+                isEmpty = YES;
+            }
+        }
+        
+        if(isEmpty) {
+            [emptyPriceMedicines addObject:medicine];
+        } else {
+            [result addObject:medicine];
+        }
+    }
+    
+    [result addObjectsFromArray:emptyPriceMedicines];
+    
+    return result;
 }
 
 - (BOOL) areEqual: (Medicine *)medicine reference: (Medicine *) reference {
