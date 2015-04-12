@@ -52,7 +52,12 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
-            this.medicamento = (MedicamentoBO) getArguments().getSerializable(MedicamentoBO.MEDICAMENTOBO);
+            this.medicamento = (MedicamentoBO) getArguments()
+                    .getSerializable(MedicamentoBO.MEDICAMENTOBO);
+            ((DetalleMedicamentoDetailActivity)this.getActivity())
+                    .setMedicamento(this.medicamento);
+
+
         }
 
     }
@@ -62,7 +67,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detallemedicamento_detail, container, false);
 
-        this.setValores(rootView, this.medicamento, container);
+
         Resources res = getResources();
 
         TabHost tabs = (TabHost) rootView.findViewById(android.R.id.tabhost);
@@ -71,19 +76,19 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         TabHost.TabSpec spec = tabs.newTabSpec("mitab1");
         spec.setContent(R.id.detalle);
         //spec.setIndicator("Detalle");
-        spec.setIndicator("", res.getDrawable(R.drawable.detalle));
+        spec.setIndicator("", res.getDrawable(R.drawable.details_blue_100));
         tabs.addTab(spec);
         tabs.setHorizontalScrollBarEnabled(true);
 
         spec = tabs.newTabSpec("");
         spec.setContent(R.id.formula);
         //spec.setIndicator("Formula");
-        spec.setIndicator("", res.getDrawable(R.drawable.formula));
+        spec.setIndicator("", res.getDrawable(R.drawable.formula_blue_100));
 
         tabs.addTab(spec);
 
         tabs.setCurrentTab(0);
-
+        this.setValores(rootView,this.medicamento,container);
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             public void onTabChanged(String tabId) {
                 Log.i("AndroidTabsDemo", "Pulsada pestaña: " + tabId);
@@ -91,23 +96,8 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         });
 
 
-        this.recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
-        recomendados.setOnTouchListener(new DarkenerButtonTouchListener());
-        recomendados.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(DetalleMedicamentoDetailFragment.this.getActivity(),
-                        DetalleMedicamentoListActivity.class);
-                i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
-                FormularioBusqueda f = new FormularioBusqueda();
-                f.setNombreGenerico(medicamento.getNombreGenerico());
-                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
-                startActivity(i);
-                DetalleMedicamentoDetailFragment.this.getActivity().
-                        overridePendingTransition(fade_in, fade_out);
-            }
-        });
 
-        return rootView;
+               return rootView;
     }
 
 
@@ -134,6 +124,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
         ((TextView) rootView.findViewById(R.id.troquelValor)).setText(m.getTroquel());
         this.cargarSolapaFormula(m.getFormula(), container, rootView);
+
     }
 
     private void cargarSolapaFormula(List<FormulaMedicamento> formulaLista, ViewGroup container, View rootView) {
@@ -161,16 +152,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
     private void format(int position, View formulaRow) {
         int color = 0;
-        if (position % 2 == 1) {
-            formulaRow.setBackgroundResource(R.drawable.list_item_background);
-
-
-        } else {
-            formulaRow.setBackgroundResource(R.drawable.list_item_background2);
-
-        }
         color = formulaRow.getResources().getColor(R.color.anmat_azul);
-
         ((TextView) formulaRow.findViewById(R.id.ifa)).setTextColor(color);
         ((TextView) formulaRow.findViewById(R.id.cant)).setTextColor(color);
         ((TextView) formulaRow.findViewById(R.id.unidadDeMedida)).setTextColor(color);

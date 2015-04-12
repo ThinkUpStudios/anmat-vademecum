@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mnu_contactenos"
+        android:orderInCategory="101"
+        android:icon="@drawable/headset_white_100"
+        android:title="@string/lbl_denuncias"
+        android:showAsAction="ifRoom" >
+        <menu>
+
+
+            <item android:id="@+id/mn_llamada"
+                android:title="@string/tel_anmat"
+                />
+            <item android:id="@+id/mn_email"
+
+                android:title="@string/email_responde"
+                />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mnu_mismo_comp"
+        android:orderInCategory="102"
+        android:icon="@drawable/ic_mismo_comp"
+        android:title="@string/recomendados"
+        android:showAsAction="ifRoom" >
+        </item>
+    <item
+        android:id="@+id/mnu_informacion"
+        android:orderInCategory="102"
+        android:icon="@drawable/ic_acerca_de"
+        android:title="@string/lbl_acerca_de"
+        android:showAsAction="ifRoom" />
+</menu>

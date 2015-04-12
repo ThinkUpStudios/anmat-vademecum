@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
+    android:layout_marginTop="20dp"
+    android:minHeight="30dp"
     android:id="@+id/list_item_layout"
     android:padding="16dp"
     android:background="@color/anmat_azul"
@@ -12,6 +13,8 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
         android:text="Ibuprofeno / CAP"
         android:textColor="#FFFFFF"
         android:lines="1"
@@ -83,6 +86,7 @@
         android:layout_alignLeft="@+id/txt_nombre_comercial"
         android:id="@+id/txt_forma"
         android:layout_below="@+id/txt_laboratorio"
+        android:layout_marginBottom="10dp"
         />
 
     <TextView
@@ -99,6 +103,7 @@
         android:textStyle="bold"
         android:gravity="bottom|end|right"
         android:id="@+id/txt_precio"
+
         />
 
 

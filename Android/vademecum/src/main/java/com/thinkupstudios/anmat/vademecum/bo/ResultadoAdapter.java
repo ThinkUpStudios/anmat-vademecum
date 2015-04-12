@@ -66,15 +66,11 @@ public class ResultadoAdapter extends BaseAdapter{
         }
             /****** View Holder Object to contain tabitem.xml file elements ******/
 
-        if(position % 2 == 1){
-            convertView.setBackgroundResource(R.drawable.list_item_background);
+
+        color = convertView.getResources().getColor(R.color.anmat_azul);
+        convertView.setBackgroundResource(R.drawable.divider);
 
 
-        }else{
-            convertView.setBackgroundResource(R.drawable.list_item_background2);
-
-        }
-            color = convertView.getResources().getColor(R.color.anmat_azul);
             holder = new ViewHolder();
             holder.nombreComercial = (TextView) convertView.findViewById(R.id.txt_nombre_comercial);
             holder.nombreComercial.setTextColor(color);

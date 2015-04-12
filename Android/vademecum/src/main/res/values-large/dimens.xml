@@ -5,8 +5,11 @@
     <dimen name="vertical_detalles">35dp</dimen>
     <dimen name="distancia_plano_valor">20dp</dimen>
     <dimen name="margen_entre_lineas_detalle">20dp</dimen>
-    <dimen name="espacio_hasta_recomendados">80dp</dimen>
+    <dimen name="espacio_hasta_recomendados">60dp</dimen>
     <dimen name="tamnio_minimo_imagen">72dp</dimen>
     <dimen name="maximo_linea_con_icono">450dp</dimen>
     <dimen name="maximo_linea_con_precio">400dp</dimen>
+    <dimen name="button_height">120dp</dimen>
+    <dimen name="size_text_collapsible">18dp</dimen>
+
 </resources>

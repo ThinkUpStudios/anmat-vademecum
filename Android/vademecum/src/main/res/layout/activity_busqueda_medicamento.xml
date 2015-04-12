@@ -2,12 +2,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
 
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:columnCount="2"
     android:orientation="vertical"
-    android:layout_marginTop="20dp"
-    android:padding="10dp"
-    android:rowOrderPreserved="true">
+
+    android:rowOrderPreserved="true"
+    android:padding="10dp">
 
 
     <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
@@ -32,6 +32,7 @@
         android:nextFocusForward="@+id/txt_laboratorio"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         android:imeOptions="actionDone"
         android:hint="Nombre Comercial">
 

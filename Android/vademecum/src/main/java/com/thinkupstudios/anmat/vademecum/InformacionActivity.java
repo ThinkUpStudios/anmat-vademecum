@@ -18,7 +18,7 @@ public class InformacionActivity extends MenuActivity {
 
         viewInfo = (TextView) findViewById(R.id.txt_informacion);
         viewInfo.setText(
-                Html.fromHtml("<h3> Información Generál </h3>\n" +
+                Html.fromHtml("<h3> Información General </h3>\n" +
                         "<b>Nombre genérico</b> es la denominación de un principio activo, monodroga  o de una asociación\n" +
                         "de principios activos a dosis fijas adoptada por la autoridad sanitaria (ANMAT)  o, en su\n" +
                         "defecto, la denominación común internacional recomendada por la Organización Mundial de\n" +

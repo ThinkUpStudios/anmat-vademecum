@@ -76,12 +76,15 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
         setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
 
 
+
+
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
         //getListView().setSelector(android.R.drawable.share_pack_holo_dark);
 
 
@@ -89,6 +92,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
 
      }
 
@@ -116,9 +120,10 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(getListView(), view, position, id);
 
-
-        MedicamentoBO bo = resultados.get(position);
-        mCallbacks.onItemSelected(bo, view);
+if(resultados.size() >0) {
+    MedicamentoBO bo = resultados.get(position);
+    mCallbacks.onItemSelected(bo, view);
+}
     }
 
 

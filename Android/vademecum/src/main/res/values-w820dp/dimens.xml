@@ -5,9 +5,10 @@
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="vertical_detalles">100dp</dimen>
     <dimen name="distancia_plano_valor">40dp</dimen>
-    <dimen name="margen_entre_lineas_detalle">40dp</dimen>
-    <dimen name="espacio_hasta_recomendados">80dp</dimen>
+    <dimen name="margen_entre_lineas_detalle">30dp</dimen>
+    <dimen name="espacio_hasta_recomendados">60dp</dimen>
     <dimen name="tamnio_minimo_imagen">96dp</dimen>
     <dimen name="maximo_linea_con_icono">600dp</dimen>
     <dimen name="maximo_linea_con_precio">500dp</dimen>
+
 </resources>

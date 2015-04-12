@@ -3,6 +3,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
+
     >
 
     <TabHost
@@ -12,7 +13,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="0dp"
-        android:layout_marginBottom="40dp"
         android:layout_marginTop="0dp"
         >
 
@@ -61,7 +61,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
-                            android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/nroCertificado"
                             android:textStyle="bold" />
 
@@ -316,7 +315,7 @@
 
                     <RelativeLayout
                         android:id="@+id/formula"
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:layout_weight="0.50">
@@ -324,8 +323,7 @@
 
                        <LinearLayout
                            android:id="@+id/formula_content"
-                           android:layout_width="match_parent"
-
+                           android:layout_width="fill_parent"
                            android:layout_height="match_parent"
                            android:orientation="vertical">
 
@@ -339,17 +337,5 @@
         </RelativeLayout>
 
     </TabHost>
-    <Button
 
-        android:id="@+id/btn_recomentados"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/anmat_azul"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_txt_related"
-        android:drawableLeft="@drawable/recomendados"
-        android:layout_margin="0dp"
-        android:text="@string/recomendados" />
 </RelativeLayout>
