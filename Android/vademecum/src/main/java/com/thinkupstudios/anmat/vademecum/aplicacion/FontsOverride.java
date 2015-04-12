@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 
 /**
  * Created by dcamarro on 27/02/2015.
+ * Clase para cambiar el Font por defecto
  */
 public class FontsOverride {
 
@@ -25,7 +26,7 @@ public class FontsOverride {
             defaultFontTypefaceField.setAccessible(true);
             defaultFontTypefaceField.set(null, customFontTypeface);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 }

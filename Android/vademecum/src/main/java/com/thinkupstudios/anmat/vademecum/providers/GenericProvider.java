@@ -10,6 +10,7 @@ import java.util.Vector;
 
 /**
  * Created by dcamarro on 24/02/2015.
+ * Provider general
  */
 public class GenericProvider {
 
@@ -28,14 +29,21 @@ public class GenericProvider {
     public List<String> getDistinctColumns(String tabla, String[] columnas){
 
         List<String> resultado = new Vector<>();
-        Cursor c = helper.getReadableDatabase().query(true, tabla, columnas, null, null, null, null, columnas[0], null);
-        // looping through all rows and adding to list
-        if (c.moveToFirst()) {
-            do {
-                resultado.add(c.getString(c.getColumnIndex(columnas[0])));
-            } while (c.moveToNext());
+        Cursor c = null;
+        try {
+            c = helper.getReadableDatabase().query(true, tabla, columnas, null, null, null, null, columnas[0], null);
+            // looping through all rows and adding to list
+            if (c.moveToFirst()) {
+                do {
+                    resultado.add(c.getString(c.getColumnIndex(columnas[0])));
+                } while (c.moveToNext());
+            }
+            helper.close();
+            c.close();
+        }finally {
+            helper.close();
+           if(c!= null) c.close();
         }
-        helper.close();
         return resultado;
 
     }
@@ -45,9 +53,8 @@ public class GenericProvider {
         if(orderBy != null){
             query += " " + orderBy;
         }
-        Cursor c = helper.getReadableDatabase().rawQuery(query, null);
 
-        return c;
+        return helper.getReadableDatabase().rawQuery(query, null);
     }
 
 }

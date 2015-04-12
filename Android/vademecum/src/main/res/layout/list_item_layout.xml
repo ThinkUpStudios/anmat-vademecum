@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
 
-        android:text="Ibuprofeno / CAP"
+        android:text="@string/dummy_generico"
         android:textColor="#FFFFFF"
         android:lines="1"
         android:maxLines="1"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:maxLines="1"
-        android:text="Actron"
+        android:text="@string/dummy_comercial"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/txt_nombre_generico"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:maxLines="1"
-        android:text="Grajeas"
+        android:text="@string/dummy_presentacion"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/txt_nombre_comercial"
         android:id="@+id/txt_presentacion"
@@ -56,7 +56,7 @@
         android:textColor="#FFFFFF"
         android:maxLines="1"
         android:maxWidth="@dimen/maximo_linea_con_precio"
-        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssssss"
+        android:text="@string/dummy_long_text"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/txt_presentacion"
         android:id="@+id/txt_laboratorio"
@@ -65,15 +65,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1098192783871623981"
+        android:text="@string/dummy_number"
         android:textColor="#FFFFFF"
         android:maxLines="1"
         android:layout_below="@+id/txt_nombre_comercial"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:gravity="end"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/txt_numero_certificado"
-        android:layout_alignRight="@+id/presentacionValor"/>
+        android:layout_alignEnd="@+id/txt_presentacion"
+        android:layout_alignRight="@+id/txt_presentacion"/>
 
 
     <TextView
@@ -82,8 +84,9 @@
         android:textColor="#FFFFFF"
         android:maxLines="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="forma"
+        android:text="@string/dummy_forma"
         android:layout_alignLeft="@+id/txt_nombre_comercial"
+        android:layout_alignStart="@+id/txt_nombre_comercial"
         android:id="@+id/txt_forma"
         android:layout_below="@+id/txt_laboratorio"
         android:layout_marginBottom="10dp"
@@ -92,16 +95,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$145"
+        android:text="@string/dummy_precio"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_toRightOf="@+id/txt_forma"
+        android:layout_toEndOf="@+id/txt_forma"
 
         android:layout_alignTop="@+id/txt_laboratorio"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignBottom="@id/txt_forma"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:gravity="bottom|end|right"
+        android:gravity="bottom|end"
         android:id="@+id/txt_precio"
 
         />

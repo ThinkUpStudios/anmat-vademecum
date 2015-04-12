@@ -1,8 +1,6 @@
 package com.thinkupstudios.anmat.vademecum.bo;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Vector;
 
 /**
  * Created by FaQ on 19/02/2015.
@@ -12,7 +10,8 @@ public class MedicamentoBO implements Serializable {
 
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
     public static String UH = "U.H.";
-    public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario (U.H.)";
+    public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario";
+    public static String SIN_PRECIO = "$ - ";
     private String nombreComercial = "-";
     private String nombreGenerico = "-";
     private String numeroCertificado = "-";
@@ -27,6 +26,7 @@ public class MedicamentoBO implements Serializable {
     private String troquel = "-";
     private String cuit = "-";
     private boolean esUsoHospitalario = false;
+    private Formula formula;
 
     public String getCuit() {
         return cuit;
@@ -68,9 +68,9 @@ public class MedicamentoBO implements Serializable {
     public String getPrecio() {
         if (this.precio == null) {
             if (this.isEsUsoHospitalario()) {
-                return (UH);
+                return (MedicamentoBO.UH);
             } else {
-                return ("$ - ");
+                return (MedicamentoBO.SIN_PRECIO);
             }
         } else {
 
@@ -154,55 +154,11 @@ public class MedicamentoBO implements Serializable {
             this.troquel = troquel;
     }
 
-    public List<FormulaMedicamento> getFormula() {
-        List<FormulaMedicamento> formulaLista = new Vector<>();
-
-        String[] formulas = this.getNombreGenerico().split("\\+");
-        for (String formulaTemporal : formulas) {
-
-            FormulaMedicamento formulaMedicamento = this.parsearFormula(formulaTemporal.trim());
-            if (!formulaMedicamento.getIfa().isEmpty())
-                formulaLista.add(formulaMedicamento);
-
-        }
-        return formulaLista;
-    }
-
-    private FormulaMedicamento parsearFormula(String formulaTemporal) {
-
-        FormulaMedicamento formulaMedicamento = new FormulaMedicamento();
-
-        int i = 0;
-
-        boolean continuar = true;
-        //Primero busco la droga.
-        String droga = new String();
-
-        while (continuar && i < formulaTemporal.length()) {
-            char caracter = formulaTemporal.charAt(i);
-            if (!Character.isDigit(caracter) && (caracter != ',')) {
-                droga += caracter;
-                i++;
-
-            } else continuar = false;
-        }
-        formulaMedicamento.setIfa(droga);
-
-        //Ahora busca la cantidad.
-        continuar = true;
-        String cantidad = new String();
-        while (continuar && i < formulaTemporal.length()) {
-            char caracter = formulaTemporal.charAt(i);
-            if (Character.isDigit(caracter) || (caracter == ',')) {
-                cantidad += caracter;
-                i++;
-            } else continuar = false;
-        }
-        formulaMedicamento.setCantidad(cantidad);
-
-        formulaMedicamento.setUnidad(formulaTemporal.substring(i, formulaTemporal.length()));
-
-        return formulaMedicamento;
+    public Formula getFormula(){
+       if(this.formula == null){
+           this.formula =  FormulaParser.parse(this.getNombreGenerico());
+       }
+       return this.formula;
     }
 
     public void setEsUsoHospitalario(Integer esUsoHospitalario) {

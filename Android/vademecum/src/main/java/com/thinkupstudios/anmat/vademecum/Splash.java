@@ -3,10 +3,11 @@ package com.thinkupstudios.anmat.vademecum;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+
 
 /**
  * Created by FaQ on 11/04/2015.
+ * Activity creada solo para splashScreen
  */
 public class Splash extends Activity {
     @Override

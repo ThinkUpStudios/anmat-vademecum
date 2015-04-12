@@ -38,10 +38,8 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
      * A dummy implementation of the {@link Callbacks} interface that does
      * nothing. Used only when this fragment is not attached to an activity.
      */
-    private ResultadoAdapter adapter;
-    private ListView listView;
     private List<MedicamentoBO> resultados = new Vector<>();
-    private MedicamentosProvider provider;
+
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(MedicamentoBO id, View item) {
@@ -66,9 +64,10 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        MedicamentosProvider provider;
         super.onCreate(savedInstanceState);
-        this.provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
-        this.resultados = this.provider
+        provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
+        this.resultados = provider
                 .findMedicamentos((FormularioBusqueda)
                                 this.getActivity().getIntent().getExtras()
                                         .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)

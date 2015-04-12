@@ -15,17 +15,19 @@ import java.util.List;
 
 /**
  * Created by FaQ on 19/02/2015.
+ * Adapter para Resultados de busquedas de medicamentos
+ *
  */
 public class ResultadoAdapter extends BaseAdapter{
 
     /*********** Declare Used Variables *********/
     private Context activity;
     private List<MedicamentoBO> data;
-    private static LayoutInflater inflater=null;
-    public Resources res;
-    private MedicamentoBO tempValues = null;
 
-    int i=0;
+    public Resources res;
+
+
+
 
     public ResultadoAdapter(Context activity, List<MedicamentoBO> data) {
         this.activity = activity;
@@ -52,19 +54,13 @@ public class ResultadoAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
-        int color = 0;
+        int color;
         if(convertView==null){
-
-            if (convertView == null) {
                 LayoutInflater mInflater = (LayoutInflater) this.activity
                         .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
                 convertView = mInflater.inflate(R.layout.list_item_layout, null);
-            }
-
-        }  else {
-            holder = (ViewHolder) convertView.getTag();
         }
-            /****** View Holder Object to contain tabitem.xml file elements ******/
+
 
 
         color = convertView.getResources().getColor(R.color.anmat_azul);
@@ -89,7 +85,7 @@ public class ResultadoAdapter extends BaseAdapter{
 
             /************  Set holder with LayoutInflater ************/
             convertView.setTag( holder );
-
+        MedicamentoBO tempValues;
         if(data.size()<=0){
             holder.nombreGenerico.setText("Sin Resultados");
             holder.nombreComercial.setText(" ");
@@ -100,8 +96,7 @@ public class ResultadoAdapter extends BaseAdapter{
             holder.precio.setText(" ");
         } else {
             /***** Get each Model object from Arraylist ********/
-            tempValues=null;
-            tempValues = ( MedicamentoBO ) data.get( position );
+            tempValues = data.get( position );
 
             /************  Set Model values in Holder elements ***********/
 

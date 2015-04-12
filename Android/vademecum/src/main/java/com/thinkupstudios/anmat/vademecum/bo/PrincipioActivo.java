@@ -2,6 +2,9 @@ package com.thinkupstudios.anmat.vademecum.bo;
 
 /**
  * Created by FaQ on 29/03/2015.
+ *
+ * Clase modelo de Principio Activo
+ *
  */
 public class PrincipioActivo {
     private String nombre;

@@ -14,8 +14,8 @@ import java.sql.SQLException;
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
 
-    private static String DB_NAME = "anmat.sqlite";
-    private static int DB_VERSION = 14;
+    private final static String DB_NAME = "anmat.sqlite";
+    private final static int DB_VERSION = 14;
 
 
     private SQLiteDatabase myDataBase;
@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
      *
-     * @param context
+     * @param context contexto
      */
     public DatabaseHelper(Context context) {
 
@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        return checkDB != null ? true : false;
+        return checkDB != null;
     }
 
     private String getPath() {

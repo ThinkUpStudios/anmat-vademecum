@@ -10,6 +10,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="50dp">
 
 
@@ -29,6 +31,7 @@
         >
 
         <ImageView
+            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/ministerio_salud"
@@ -36,12 +39,14 @@
             />
 
         <ImageView
+            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/logo_ammat"
             android:layout_weight="0.30"/>
 
         <ImageView
+            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:src="@drawable/tenemos_patria"

@@ -16,6 +16,7 @@ import com.thinkupstudios.anmat.vademecum.R;
 
 /**
  * Created by FaQ on 29/03/2015.
+ * Componente View Calapsable
  */
 public class CollapsibleContent extends LinearLayout implements View.OnClickListener{
     private String header = "Default Header";
@@ -30,50 +31,56 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
     }
 
     public CollapsibleContent(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs);
+        super(context,attrs,defStyleAttr);
+        init(context, attrs);
 
     }
 
     public CollapsibleContent(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-            this.viewHolder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            inflater.inflate(R.layout.collapsible_content,this,true);
+        init(context, attrs);
 
-            TypedArray a = context.getTheme().obtainStyledAttributes(
-                    attrs,
-                    R.styleable.CollapsibleContent,
-                    0, 0);
+    }
 
-            try
+    private void init(Context context, AttributeSet attrs) {
+        this.viewHolder = new ViewHolder();
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.collapsible_content,this,true);
 
-            {
-                for (int i = a.getIndexCount(); i >= 0; i--) {
-                    int attr = a.getIndex(i);
-                    switch (attr) {
-                        case R.styleable.CollapsibleContent_content:
-                            this.content = a.getString(attr);
-                            break;
-                        case R.styleable.CollapsibleContent_header:
-                            this.header = a.getString(attr);
-                            break;
-                        case R.styleable.CollapsibleContent_open_icon:
-                            this.openImageId = a.getResourceId(attr, this.openImageId);
-                            break;
-                        case R.styleable.CollapsibleContent_close_icon:
-                            this.closeImageId = a.getResourceId(attr,this.closeImageId);
-                            break;
-                    }
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.CollapsibleContent,
+                0, 0);
+
+        try
+
+        {
+            for (int i = a.getIndexCount(); i >= 0; i--) {
+                int attr = a.getIndex(i);
+                switch (attr) {
+                    case R.styleable.CollapsibleContent_content:
+                        this.content = a.getString(attr);
+                        break;
+                    case R.styleable.CollapsibleContent_header:
+                        this.header = a.getString(attr);
+                        break;
+                    case R.styleable.CollapsibleContent_open_icon:
+                        this.openImageId = a.getResourceId(attr, this.openImageId);
+                        break;
+                    case R.styleable.CollapsibleContent_close_icon:
+                        this.closeImageId = a.getResourceId(attr,this.closeImageId);
+                        break;
                 }
             }
+        }
 
-            finally
+        finally
 
-            {
-                a.recycle();
-            }
+        {
+            a.recycle();
+        }
         viewHolder.titulo = (TextView)findViewById(R.id.txt_header);
         viewHolder.titulo.setText(this.header);
         viewHolder.titulo.setOnClickListener(this);
@@ -85,7 +92,6 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
         RelativeLayout lyHeader = (RelativeLayout)findViewById(R.id.ly_header);
         lyHeader.setOnClickListener(this);
         updateState();
-
     }
 
     private void updateState() {
@@ -99,14 +105,14 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
     }
 
 
-    public String getHeader() {
+/*    public String getHeader() {
         return header;
     }
 
     public void setHeader(String header) {
         this.header = header;
         this.viewHolder.titulo.setText(this.header);
-    }
+    }*/
 
     public String getContent() {
         return content;
@@ -117,9 +123,9 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
         this.viewHolder.content.setText(this.content);
     }
 
-    public boolean isCollapsed() {
+   /* public boolean isCollapsed() {
         return this.viewHolder.content.isShown();
-    }
+    }*/
 
 
     @Override

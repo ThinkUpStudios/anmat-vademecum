@@ -10,8 +10,10 @@
         android:id="@android:id/tabhost"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         >
@@ -25,8 +27,10 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
@@ -39,13 +43,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@android:id/tabs"
-                android:layout_marginLeft="0dp">
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp">
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="36dp"
                     android:padding="@dimen/margen_entre_lineas_detalle">
 
@@ -53,14 +59,13 @@
                         android:id="@+id/detalle"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-                        android:layout_weight="0.50"
-                        android:orientation="vertical"
-                        android:drawableLeft="@drawable/recomendados">
+                        android:orientation="vertical">
                         <TextView
                             android:id="@+id/lbl_num_certificado"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/nroCertificado"
                             android:textStyle="bold" />
 
@@ -70,7 +75,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@+id/lbl_num_certificado"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_marginStart="10dp"
                             android:layout_toRightOf="@+id/lbl_num_certificado"
+                            android:layout_toEndOf="@+id/lbl_num_certificado"
                             android:shadowDy="10"
                             android:text="@string/nroCertificado"
                             android:textStyle="italic" />
@@ -91,6 +98,8 @@
                             android:layout_alignTop="@+id/lbl_laboratorio"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@+id/lbl_laboratorio"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@+id/lbl_laboratorio"
                             android:shadowDy="10"
                             android:text="@string/laboratorio"
                             android:textStyle="italic" />
@@ -102,7 +111,7 @@
                             android:layout_below="@+id/laboratorioValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/nombre_generico"
-                            android:textStyle="bold" />/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/nombre_generico_Valor"
@@ -110,7 +119,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@+id/lbl_nombre_generico"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_nombre_generico"
+                            android:layout_toEndOf="@id/lbl_nombre_generico"
                             android:shadowDy="10"
                             android:text="@string/nombre_generico"
                             android:textStyle="italic" />
@@ -122,7 +133,7 @@
                             android:layout_below="@id/nombre_generico_Valor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/nombre_comercial"
-                            android:textStyle="bold" />/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/nombre_comercialValor"
@@ -132,6 +143,8 @@
                             android:layout_alignTop="@+id/lbl_nombre_comercial"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@+id/lbl_nombre_comercial"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@+id/lbl_nombre_comercial"
                             android:shadowDy="10"
                             android:text="@string/nombre_generico"
                             android:textStyle="italic" />
@@ -152,6 +165,9 @@
                             android:layout_alignTop="@+id/lbl_troquel"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_troquel"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@id/lbl_troquel"
+
                             android:shadowDy="10"
                             android:text="@string/troquel"
                             android:textStyle="italic" />
@@ -173,7 +189,8 @@
                             android:layout_alignTop="@+id/lbl_pais_industria"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@+id/lbl_pais_industria"
-
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@+id/lbl_pais_industria"
                             android:shadowDy="10"
                             android:text="@string/nombre_generico"
                             android:textStyle="italic" />
@@ -185,8 +202,7 @@
                             android:layout_below="@+id/pais_industriaValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/forma_farmacéutica"
-                            android:textStyle="bold" />/>
-
+                            android:textStyle="bold" />
                         <TextView
                             android:id="@+id/forma_farmaceuticaValor"
                             android:layout_width="wrap_content"
@@ -195,6 +211,8 @@
                             android:layout_alignTop="@+id/lbl_forma"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@+id/lbl_forma"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@+id/lbl_forma"
                             android:shadowDy="10"
                             android:text="@string/forma_farmacéutica"
                             android:textStyle="italic" />
@@ -206,7 +224,7 @@
                             android:layout_below="@+id/forma_farmaceuticaValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/condicion_de_expendio"
-                            android:textStyle="bold" />/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/condicion_de_expendioValor"
@@ -216,7 +234,8 @@
                             android:layout_alignTop="@+id/lbl_condicion"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_condicion"
-
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@id/lbl_condicion"
                             android:shadowDy="10"
                             android:text="@string/condicion_de_expendio"
                             android:textStyle="italic" />
@@ -228,7 +247,7 @@
                             android:layout_below="@+id/condicion_de_expendioValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/condicion_de_trazabilidad"
-                            android:textStyle="bold" />/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/condicion_de_trazabilidadValor"
@@ -238,6 +257,8 @@
                             android:layout_alignTop="@+id/lbl_condicion_trazabilidad"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@id/lbl_condicion_trazabilidad"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@id/lbl_condicion_trazabilidad"
                             android:shadowDy="10"
                             android:text="@string/condicion_de_trazabilidad"
                             android:textStyle="italic" />
@@ -259,6 +280,8 @@
                             android:layout_alignTop="@+id/lbl_presentacion"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
                             android:layout_toRightOf="@+id/lbl_presentacion"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@+id/lbl_presentacion"
                             android:shadowDy="10"
                             android:text="@string/presentacion"
                             android:textStyle="italic" />
@@ -270,8 +293,7 @@
                             android:layout_below="@id/presentacionValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/precio"
-                            android:textStyle="bold" />/>
-
+                            android:textStyle="bold" />
                         <TextView
                             android:id="@+id/precioValor"
                             android:layout_width="wrap_content"
@@ -279,8 +301,9 @@
                             android:layout_alignBottom="@+id/lbl_precio"
                             android:layout_alignTop="@+id/lbl_precio"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
-
                             android:layout_toRightOf="@id/lbl_precio"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@id/lbl_precio"
 
                             android:shadowDy="10"
                             android:text="@string/precio"
@@ -293,7 +316,7 @@
                             android:layout_below="@id/precioValor"
                             android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
                             android:text="@string/GTIN"
-                            android:textStyle="bold" />/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/gtinValor"
@@ -302,8 +325,10 @@
 
                             android:layout_alignTop="@+id/lbl_GTIN"
                             android:layout_marginLeft="@dimen/distancia_plano_valor"
-
                             android:layout_toRightOf="@id/lbl_GTIN"
+                            android:layout_marginStart="@dimen/distancia_plano_valor"
+                            android:layout_toEndOf="@id/lbl_GTIN"
+
                             android:shadowDy="10"
                             android:text="@string/GTIN"
                             android:textStyle="italic" />
@@ -317,10 +342,7 @@
                         android:id="@+id/formula"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="0.50">
-
-
+                        android:orientation="vertical">
                        <LinearLayout
                            android:id="@+id/formula_content"
                            android:layout_width="fill_parent"
