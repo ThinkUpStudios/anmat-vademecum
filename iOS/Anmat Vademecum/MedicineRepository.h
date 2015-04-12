@@ -14,7 +14,9 @@
 
 - (NSArray *) getAll: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory;
 
-- (NSArray *)getAll:(NSString *)componentName;
+- (NSArray *)getByGenericName:(NSString *)genericName;
+
+- (NSArray *)getByActiveComponent:(NSString *)componentName;
 
 - (NSArray *) getGenericNames: (NSString *)searchText;
 

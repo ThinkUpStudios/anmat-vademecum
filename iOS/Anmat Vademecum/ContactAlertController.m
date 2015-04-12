@@ -23,7 +23,6 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"telprompt://" stringByAppendingString:phoneNumber]]];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
-    UIAlertAction *faxAction = [UIAlertAction actionWithTitle:@"Fax: (011) 4340-0800/5252-8200 int 1159" style:UIAlertActionStyleDefault handler:nil];
     
     NSString *mailAddress = @"responde@anmat.gov.ar";
     
@@ -36,7 +35,6 @@
     }];
     
     [self addAction:phoneAction];
-    [self addAction:faxAction];
     [self addAction:mailAction];
     [self addAction:cancelAction];
 }
