@@ -9,7 +9,7 @@
     <string name="buscar_medicamento">Buscar Medicamento</string>
     <string name="title_activity_busqueda_medicamento">Búsqueda de Medicamentos</string>
     <string name="title_activity_info">Info.</string>
-    <string name="title_activity_ecerca_de">Acerca de Genéricos.</string>
+    <string name="title_activity_ecerca_de">Acerca de VNM</string>
 
     <string name="title_activity_detalle_medicamento_swipe_view">Detalle Medicamento Swipe View</string>
     <string name="title_section1">Section 1</string>
@@ -52,9 +52,11 @@
     <string name="lbl_duracion">Duración:</string>
     <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones:</string>
     <string name="lbl_observaciones">Observaciones:</string>
-    <string name="lbl_denuncias">Denuncias</string>
-    <string name="email_responde">responde@anmat.gov.ar</string>
-    <string name="tel_anmat">0800-333-1234</string>
+    <string name="lbl_denuncias">ANMAT Responde</string>
+
+    <string name="email_responde">Email: responde@anmat.gov.ar</string>
+    <string name="tel_anmat">Tel: 0800-333-1234</string>
+    <string name="fax_anmat">Fax: (011) 4340-0800/5252-8200 int 1159</string>
     <string name="tel_anmat_number">08003331234</string>
     <string name="choose_account">Elija una cuenta de correo:</string>
     <string name="uso_hospitalario">Producto de Uso Hospitalario</string>

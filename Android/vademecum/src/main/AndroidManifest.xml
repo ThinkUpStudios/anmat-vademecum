@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".aplicacion.MiAplicacion"
         android:allowBackup="true"
@@ -13,22 +14,17 @@
         <activity
             android:name=".DetalleMedicamentoListActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainMenuActivity"
-            />
+            android:parentActivityName=".MainMenuActivity" />
         <activity
             android:name=".DetalleMedicamentoDetailActivity"
             android:label="@string/title_detallemedicamento_detail"
             android:parentActivityName=".MainMenuActivity" >
-          
         </activity>
         <activity
             android:name=".MainMenuActivity"
-            android:label="@string/title_activity_main_menu" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/title_activity_main_menu" >
+
         </activity>
         <activity
             android:name=".BusquedaMedicamentoActivity"
@@ -46,13 +42,24 @@
             android:name=".BuscarPrincipioActivoActivity"
             android:label="@string/title_activity_buscar_principio_activo"
             android:parentActivityName=".MainMenuActivity" >
-
         </activity>
         <activity
             android:name=".DetallePrincipioActivoActivity"
             android:label="@string/title_activity_detalle_principio_activo"
-            android:parentActivityName=".MainMenuActivity" >
+            android:parentActivityName=".MainMenuActivity">
 
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:noHistory="true"
+
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/splashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

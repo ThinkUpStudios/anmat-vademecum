@@ -2,14 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.thinkupstudios.anmat.vademecum.MainMenuActivity">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_vertical"
-        android:scaleType="centerCrop"
-        android:src="@drawable/fondo_cuadrado" />
 
     <ScrollView
         android:id="@+id/scrollMenu"
@@ -26,12 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="44dp"
+            android:layout_gravity="center"
             android:padding="@dimen/margen_entre_lineas_detalle">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center">
             <Button
                 android:id="@+id/btn_busqueda"
                 android:layout_width="fill_parent"
@@ -41,12 +38,12 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:padding="20dp"
                 android:textColor="#1B5687"
                 android:alpha="0.8"
                 android:gravity="center"
                 android:background="@drawable/button_txt_search"
-                android:text="@string/lbl_medicamentos" />
+                android:text="@string/lbl_medicamentos"
+                android:minHeight="@dimen/button_height" />
 
                 <Button
                     android:id="@+id/btn_principio_activo"
@@ -65,7 +62,8 @@
                     android:text="@string/lbl_principio_activo"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:minHeight="@dimen/button_height" />
 
                 <Button
                 android:id="@+id/btn_informacion"
@@ -84,7 +82,8 @@
                 android:text="@string/lbl_informacion"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                    android:minHeight="@dimen/button_height" />
 
 
 
@@ -98,6 +97,7 @@
         android:layout_height="44dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="#FFFFFFFF"
         android:orientation="horizontal"
         >
 

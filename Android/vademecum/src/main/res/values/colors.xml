@@ -3,6 +3,7 @@
     <color name="anmat_azul_grisado">#661B5687</color>
     <color name="anmat_gris">#CCCCCC</color>
     <color name="anmat_gris_grisado">#77000000</color>
-
+    <color name="anmat_background">#FFC6CDD4</color>
     <color name="black_overlay">#66000000</color>
+    <color name="actionbar_background">#2F5A7D</color>
 </resources>

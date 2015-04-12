@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="horizontal"
+    android:background="@drawable/divider"
+    >
+
+<RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:id="@+id/rowFormula"
-    android:padding="5dp"
-    android:background="#CCCCCC"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp"
+    android:layout_weight="3"
+
     >
 
     <TextView
@@ -38,3 +48,14 @@
 
 
 </RelativeLayout>
+    <ImageView android:src="@drawable/ic_info"
+    android:id="@+id/btn_detalle"
+    android:scaleType="center"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignBottom="@id/unidadDeMedida"
+    android:layout_alignTop="@id/ifa"
+    android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        />
+</LinearLayout>
