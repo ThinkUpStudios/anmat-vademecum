@@ -25,7 +25,7 @@
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
-    NSArray *medicines = [repository getAll:activeComponent];
+    NSArray *medicines = [repository getByActiveComponent:activeComponent];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -75,7 +75,7 @@
 }
 
 - (NSArray *) getSimilarMedicines: (Medicine *)reference {
-    NSArray *medicines = [repository getAll:reference.genericName comercialName:@"" laboratory:@""];
+    NSArray *medicines = [repository getByGenericName:reference.genericName];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
