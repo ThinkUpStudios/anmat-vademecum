@@ -13,7 +13,7 @@ public class FormularioBusqueda implements Serializable {
     private String nombreGenerico ="";
     private String nombreComercial ="";
     private Boolean useLike = true;
-    private Boolean filtrarPorFormula = false;
+    private Boolean filtrarPorFormula = true;
 
     public String getLaboratorio() {
         return laboratorio;
