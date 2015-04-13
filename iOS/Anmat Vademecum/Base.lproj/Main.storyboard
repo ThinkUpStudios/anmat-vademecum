@@ -163,7 +163,7 @@
                                             <constraint firstAttribute="width" constant="24" id="N4t-kc-32H"/>
                                             <constraint firstAttribute="height" constant="24" id="S2S-ei-qjt"/>
                                         </constraints>
-                                        <state key="normal" image="Help2">
+                                        <state key="normal" image="Help">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -423,7 +423,7 @@ Email: responde@anmat.gov.ar</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Nombre Genérico" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-7g-69l">
-                                <rect key="frame" x="16" y="72" width="568" height="44"/>
+                                <rect key="frame" x="16" y="72" width="535" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gng-Cq-qVi"/>
                                 </constraints>
@@ -463,10 +463,20 @@ Email: responde@anmat.gov.ar</string>
                                 </constraints>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6G-Ky-DWT">
+                                <rect key="frame" x="558" y="81" width="26" height="26"/>
+                                <state key="normal" image="Help-Blue">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showGenericNameHelp:" destination="Zlx-am-yMZ" eventType="touchUpInside" id="8ou-Zp-igP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="eSy-ll-48x" secondAttribute="trailing" constant="-8" id="2KY-GM-y7E"/>
+                            <constraint firstAttribute="trailing" secondItem="W6G-Ky-DWT" secondAttribute="trailing" constant="16" id="3cf-8t-VCe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eSy-ll-48x" secondAttribute="trailing" constant="-8" id="Bd1-lO-lPW"/>
                             <constraint firstItem="qY1-7g-69l" firstAttribute="top" secondItem="jNk-Ie-f8K" secondAttribute="bottom" constant="8" id="CTe-Ju-Rp7"/>
                             <constraint firstItem="ZOz-Ik-YjC" firstAttribute="top" secondItem="qY1-7g-69l" secondAttribute="bottom" constant="11" id="FCd-F6-3Ag"/>
@@ -479,8 +489,10 @@ Email: responde@anmat.gov.ar</string>
                             <constraint firstItem="qY1-7g-69l" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" id="dEb-vq-5Ie"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZOz-Ik-YjC" secondAttribute="trailing" constant="-8" id="hih-4z-dLT"/>
                             <constraint firstItem="ZOz-Ik-YjC" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" constant="-9" id="ipS-mw-XTl"/>
-                            <constraint firstItem="qY1-7g-69l" firstAttribute="trailing" secondItem="Vqc-9r-GZD" secondAttribute="trailingMargin" id="mT1-wp-rLk"/>
+                            <constraint firstItem="qY1-7g-69l" firstAttribute="trailing" secondItem="Vqc-9r-GZD" secondAttribute="trailingMargin" constant="-33" id="mT1-wp-rLk"/>
+                            <constraint firstItem="W6G-Ky-DWT" firstAttribute="top" secondItem="jNk-Ie-f8K" secondAttribute="bottom" constant="17" id="rtO-QE-KGD"/>
                             <constraint firstItem="PnB-nd-sM5" firstAttribute="top" secondItem="eSy-ll-48x" secondAttribute="bottom" constant="19" id="tdI-lg-rzM"/>
+                            <constraint firstItem="W6G-Ky-DWT" firstAttribute="leading" secondItem="qY1-7g-69l" secondAttribute="trailing" constant="7" id="wSS-o3-wtX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" id="0Nx-wV-V1q">
@@ -491,6 +503,7 @@ Email: responde@anmat.gov.ar</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnShowGenericNameHelp" destination="W6G-Ky-DWT" id="GXg-iO-2Og"/>
                         <outlet property="tblResults" destination="PnB-nd-sM5" id="Slu-M5-Igz"/>
                         <outlet property="txtComercialName" destination="ZOz-Ik-YjC" id="P79-md-EKX"/>
                         <outlet property="txtGenericName" destination="qY1-7g-69l" id="svK-2k-GZH"/>
@@ -1042,7 +1055,7 @@ Email: responde@anmat.gov.ar</string>
                             <outlet property="delegate" destination="qm2-bR-xgh" id="1uv-Og-t9N"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Fórmula" image="Formula2" id="muu-rj-sBO"/>
+                    <tabBarItem key="tabBarItem" title="Fórmula" image="Formula" id="muu-rj-sBO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6O-Va-tU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1388,7 +1401,7 @@ Email: responde@anmat.gov.ar</string>
                             <constraint firstItem="2EF-gq-tp9" firstAttribute="leading" secondItem="3q4-Bm-Yds" secondAttribute="leading" id="i8f-9h-R2A"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Informacion" image="Details2" id="7av-Jl-Qfp"/>
+                    <tabBarItem key="tabBarItem" title="Informacion" image="Details" id="7av-Jl-Qfp"/>
                     <connections>
                         <outlet property="cntDetails" destination="RTj-br-mY3" id="zZa-r8-6Q7"/>
                         <outlet property="lblCertificate" destination="WIt-qP-2JD" id="oMb-Ou-HQr"/>
@@ -1573,9 +1586,10 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
     </scenes>
     <resources>
         <image name="Contact" width="24" height="24"/>
-        <image name="Details2" width="26" height="26"/>
-        <image name="Formula2" width="26" height="26"/>
-        <image name="Help2" width="26" height="26"/>
+        <image name="Details" width="26" height="26"/>
+        <image name="Formula" width="26" height="26"/>
+        <image name="Help" width="26" height="26"/>
+        <image name="Help-Blue" width="26" height="26"/>
         <image name="SameComponent" width="24" height="24"/>
         <image name="logo-anmat-chico.png" width="220" height="60"/>
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
@@ -1583,7 +1597,7 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
         <image name="logo-patria-toolbar.png" width="100" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kMI-dh-ahF"/>
-        <segue reference="ljG-ca-fGh"/>
+        <segue reference="M0p-07-XWr"/>
+        <segue reference="EUU-uT-83W"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,10 +14,12 @@
 
 @interface SearchViewController()
 
+@property (weak, nonatomic) IBOutlet UIButton *btnShowGenericNameHelp;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtGenericName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtComercialName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtLaboratory;
 @property (weak, nonatomic) IBOutlet UITableView *tblResults;
+- (IBAction)showGenericNameHelp:(id)sender;
 - (IBAction)searchResults:(id)sender;
 
 @end
@@ -123,6 +125,29 @@
         
         results.medicines = [medicineService getMedicines:self.txtGenericName.text comercialName:self.txtComercialName.text laboratory:self.txtLaboratory.text];
     }
+}
+
+- (IBAction)showGenericNameHelp:(id)sender {
+    NSString *header=@"En la búsqueda de medicamentos por nombre genérico, puede buscar por más de un criterio aplicando las siguientes condiciones lógicas:";
+    NSString *and= @"#: Utilizando este caracter como separador entre cada criterio, la búsqueda equivale a un 'Y' lógico. Ejemplo: acido # ibu # cafeina equivale a acido Y ibu Y cafeina.";
+    NSString *or = @"?: Utilizando este caracter como separador entre cada criterio, la búsqueda equivale a un 'O' lógico. Ejemplo: ibu ? cafeina equivale a ibu O cafeina.";
+    
+    
+    NSString *helpMessage=[NSString stringWithFormat:@"%@\n\n%@\n%@", header, and, or];
+    
+    UIAlertController *helpSheet = [UIAlertController alertControllerWithTitle:@"Búsqueda por Nombre Genérico" message:helpMessage preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    helpSheet.popoverPresentationController.sourceView = self.btnShowGenericNameHelp;
+    helpSheet.popoverPresentationController.sourceRect = self.btnShowGenericNameHelp.bounds;
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [helpSheet addAction:okAction];
+    
+    [self
+     presentViewController:helpSheet animated:YES completion:nil];
 }
 
 -(void)searchResults:(id)sender {
