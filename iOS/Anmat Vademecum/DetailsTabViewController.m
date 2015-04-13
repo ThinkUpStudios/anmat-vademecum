@@ -27,7 +27,7 @@
     self.navigationItem.title = @"Detalle";
     
     UIBarButtonItem *btnRelated = [[UIBarButtonItem alloc] init];
-    UIImage *imgRelated = [UIImage imageNamed:@"Recommended3"];
+    UIImage *imgRelated = [UIImage imageNamed:@"Recommended"];
     
     [btnRelated setImage:imgRelated];
     [btnRelated setTarget:self];
@@ -68,6 +68,9 @@
 
 -(void) showContactInfo:(id) sender {
     ContactAlertController *contactSheet = [ContactAlertController alertControllerWithTitle:@"ANMAT Responde" message:@"Datos de contacto" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    contactSheet.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItems[1];
+    contactSheet.popoverPresentationController.sourceView = self.view;
     
     [self
      presentViewController:contactSheet animated:YES completion:nil];
