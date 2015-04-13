@@ -9,6 +9,7 @@
 #import "ActiveComponentRepository.h"
 #import "DataBaseProvider.h"
 #import "sqlite3.h"
+#import "String.h"
 
 @implementation ActiveComponentRepository
 
@@ -65,7 +66,7 @@
 - (ActiveComponent *) getByName: (NSString *)name {
     ActiveComponent *result = nil;
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = [NSString stringWithFormat: @"SELECT * FROM principiosactivos WHERE principio=\"%@\" LIMIT 1", name];
+    NSString *query = [NSString stringWithFormat: @"SELECT * FROM principiosactivos WHERE principio=\"%@\" LIMIT 1", [String trim:name]];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)

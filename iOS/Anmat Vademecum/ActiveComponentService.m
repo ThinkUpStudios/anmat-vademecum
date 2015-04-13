@@ -9,6 +9,7 @@
 #import "ActiveComponentService.h"
 #import "ActiveComponentRepository.h"
 #import "ActiveComponent.h"
+#import "String.h"
 
 @implementation ActiveComponentService {
     ActiveComponentRepository *repository;
@@ -25,11 +26,12 @@
 }
 
 - (ActiveComponent *) getByName: (NSString *)name {
-    ActiveComponent *component = [repository getByName:name];
+    NSString *trimmedName = [String trim:name];
+    ActiveComponent *component = [repository getByName:trimmedName];
     
     if(component == nil) {
         component = [[ActiveComponent alloc] init];
-        component.name = name;
+        component.name = trimmedName;
     }
     
     component.action = [self sanitize:component.action];

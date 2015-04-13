@@ -8,6 +8,7 @@
 
 #import "FormulaParser.h"
 #import "Component.h"
+#import "String.h"
 
 @implementation FormulaParser
 
@@ -16,7 +17,9 @@
     NSArray *parts = [genericName componentsSeparatedByString:@"+"];
     
     for (NSString *part in parts) {
-        if(part == nil || part.length == 0 || [part isEqualToString:@"-"]) {
+        NSString *trimmedPart = [String trim:part];
+        
+        if(trimmedPart == nil || trimmedPart.length == 0 || [trimmedPart isEqualToString:@"-"]) {
             continue;
         }
         

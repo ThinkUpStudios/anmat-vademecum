@@ -9,6 +9,7 @@
 #import "MedicineRepository.h"
 #import "Medicine.h"
 #import "DataBaseProvider.h"
+#import "String.h"
 
 @implementation MedicineRepository
 
@@ -35,38 +36,57 @@
 }
 
 -(NSArray *) getAll:(NSString *)genericName comercialName:(NSString *)comercialName laboratory:(NSString *)laboratory {
-    int addedConditions = 0;
+    BOOL conditionStarted = NO;
     NSMutableString *query = [[NSMutableString alloc] init];
     
     [query appendString:@"SELECT * FROM medicamentos WHERE "];
     
     if(genericName != nil && genericName.length > 0) {
-        [query appendString:@"generico LIKE ?"];
-        [query appendString:[self getVariableNumber:addedConditions]];
-        [query appendString:@" COLLATE NOCASE"];
-        addedConditions = addedConditions + 1;
+        BOOL containsOrExpression = [self containsOrExpression:genericName];
+        BOOL containsAndExpression = [self containsAndExpression:genericName];
+        
+        if(containsOrExpression || containsAndExpression) {
+            NSMutableString *logicExpression = [[NSMutableString alloc] init];
+            
+            [logicExpression appendString:@"("];
+            
+            if(containsOrExpression) {
+                NSString *orExpression = [self getOrExpression:genericName field:@"generico" logicConditionStarted:NO];
+                
+                [logicExpression appendString:orExpression];
+            } else {
+                NSString *andExpression = [self getAndExpression:genericName field:@"generico" logicConditionStarted:NO];
+                
+                [logicExpression appendString:andExpression];
+            }
+            
+            [logicExpression appendString:@")"];
+            [query appendString:logicExpression];
+        } else {
+            [query appendString:[self getLikeExpression:@"generico" value:genericName]];
+        }
+        
+        conditionStarted = YES;
     }
     
     if(comercialName != nil && comercialName.length > 0) {
-        if(addedConditions > 0) {
+        if(conditionStarted) {
             [query appendString:@" AND "];
+        } else {
+            conditionStarted = YES;
         }
         
-        [query appendString:@"comercial LIKE ?"];
-        [query appendString:[self getVariableNumber:addedConditions]];
-        [query appendString:@" COLLATE NOCASE"];
-        addedConditions = addedConditions + 1;
+        [query appendString:[self getLikeExpression:@"comercial" value:comercialName]];
     }
     
     if(laboratory != nil && laboratory.length > 0) {
-        if(addedConditions > 0) {
+        if(conditionStarted) {
             [query appendString:@" AND "];
+        } else {
+            conditionStarted = YES;
         }
         
-        [query appendString:@"laboratorio LIKE ?"];
-        [query appendString:[self getVariableNumber:addedConditions]];
-        [query appendString:@" COLLATE NOCASE"];
-        addedConditions = addedConditions + 1;
+        [query appendString:[self getLikeExpression:@"laboratorio" value:laboratory]];
     }
     
     [query appendString:@" ORDER BY hospitalario ASC, precio ASC"];
@@ -77,31 +97,6 @@
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
         == SQLITE_OK) {
-        if(genericName != nil && genericName.length > 0) {
-            NSString *genericNameSearch = [NSString stringWithFormat:@"%%%@%%", genericName];
-            
-            sqlite3_bind_text(statement, 1, [genericNameSearch UTF8String], -1, SQLITE_STATIC);
-        }
-        
-        if(comercialName != nil && comercialName.length > 0) {
-            NSString *comercialNameSearch = [NSString stringWithFormat:@"%%%@%%", comercialName];
-            int variableNumber = 0;
-            
-            if(genericName != nil && genericName.length > 0) {
-                variableNumber = 2;
-            } else {
-                variableNumber = 1;
-            }
-            
-            sqlite3_bind_text(statement, variableNumber, [comercialNameSearch UTF8String], -1, SQLITE_STATIC);
-        }
-        
-        if(laboratory != nil && laboratory.length > 0) {
-            NSString *laboratorySearch = [NSString stringWithFormat:@"%%%@%%", laboratory];
-            
-            sqlite3_bind_text(statement, addedConditions, [laboratorySearch UTF8String], -1, SQLITE_STATIC);
-        }
-        
         while (sqlite3_step(statement) == SQLITE_ROW) {
             Medicine *medicine = [self getMedicine:statement];
             
@@ -254,6 +249,72 @@
     return result;
 }
 
+- (BOOL) containsOrExpression: (NSString *) text {
+    return [text containsString:@"?"];
+}
+
+- (BOOL) containsAndExpression: (NSString *) text {
+    return [text containsString:@"#"];
+}
+
+- (NSString *) getOrExpression: (NSString *) value field: (NSString *) field logicConditionStarted: (BOOL) logicConditionStarted {
+    if(![self containsOrExpression:value]) {
+        return @"";
+    }
+    
+    BOOL orConditionStarted = logicConditionStarted;
+    NSMutableString *orExpression = [[NSMutableString alloc] init];
+    NSArray *orComponents = [value componentsSeparatedByString:@"?"];
+    
+    for (NSString *orComponent in orComponents) {
+        if([self containsAndExpression:orComponent]) {
+            NSString *andExpression = [self getAndExpression:orComponent field:field logicConditionStarted:orConditionStarted];
+            
+            [orExpression appendString:andExpression];
+            
+            if(!orConditionStarted) {
+                orConditionStarted = YES;
+            }
+        } else {
+            if(orConditionStarted) {
+                [orExpression appendString:@" OR "];
+            } else {
+                orConditionStarted = YES;
+            }
+            
+            [orExpression appendString:[self getLikeExpression:field value:orComponent]];
+        }
+    }
+    
+    return orExpression;
+}
+
+- (NSString *) getAndExpression: (NSString *) value field: (NSString *) field logicConditionStarted: (BOOL) logicConditionStarted {
+    if(![self containsAndExpression:value]) {
+        return @"";
+    }
+    
+    BOOL andConditionStarted = logicConditionStarted;
+    NSMutableString *andExpression = [[NSMutableString alloc] init];
+    NSArray *andComponents = [value componentsSeparatedByString:@"#"];
+    
+    for (NSString *andComponent in andComponents) {
+        if(andConditionStarted) {
+            [andExpression appendString:@" AND "];
+        } else {
+            andConditionStarted = YES;
+        }
+        
+        [andExpression appendString:[self getLikeExpression:field value:andComponent]];
+    }
+    
+    return andExpression;
+}
+
+- (NSString *) getLikeExpression:(NSString *) field value: (NSString *) value {
+    return [NSString stringWithFormat:@"%@ LIKE \"%%%@%%\" COLLATE NOCASE", field, [String trim:value]];
+}
+
 -(Medicine *) getMedicine:(sqlite3_stmt *) statement {
     char *idChars = (char *) sqlite3_column_text(statement, 0);
     char *certificateChars = (char *) sqlite3_column_text(statement, 1);
@@ -333,16 +394,6 @@
         [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         
         return [formatter stringFromNumber:[NSNumber numberWithDouble:price]];
-    }
-}
-
--(NSString *) getVariableNumber:(int)addedConditions {
-    if(addedConditions == 0) {
-        return @"001";
-    } else if (addedConditions == 1) {
-        return @"002";
-    } else {
-        return @"003";
     }
 }
 
