@@ -9,6 +9,7 @@
 #import "MedicineService.h"
 #import "Medicine.h"
 #import "MedicineRepository.h"
+#import "String.h"
 
 @implementation MedicineService {
     MedicineRepository *repository;
@@ -21,13 +22,13 @@
 }
 
 - (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory {
-    NSArray *medicines = [repository getAll:genericName comercialName:comercialName laboratory:laboratory];
+    NSArray *medicines = [repository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory]];
     
     return [self reOrder:medicines];
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
-    NSArray *medicines = [repository getByActiveComponent:activeComponent];
+    NSArray *medicines = [repository getByActiveComponent:[String trim:activeComponent]];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -35,13 +36,15 @@
         NSArray *formulaDetails = [medicine.genericName componentsSeparatedByString:@"+"];
         
         for (NSString *formulaDetail in formulaDetails) {
-            if(formulaDetail == nil || formulaDetail.length == 0) {
+            NSString *trimmedFormulaDetail = [String trim:formulaDetail];
+                       
+            if(trimmedFormulaDetail == nil || trimmedFormulaDetail.length == 0) {
                 continue;
             }
             
-            NSUInteger byteLength = [formulaDetail lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+            NSUInteger byteLength = [trimmedFormulaDetail lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
             char buffer[byteLength + 1];
-            const char *utf8_buffer = [formulaDetail cStringUsingEncoding:NSUTF8StringEncoding];
+            const char *utf8_buffer = [trimmedFormulaDetail cStringUsingEncoding:NSUTF8StringEncoding];
             
             strncpy(buffer, utf8_buffer, byteLength);
             
@@ -57,12 +60,12 @@
             NSString *componentName = @"";
             
             if(separationIndex != -1) {
-                componentName = [formulaDetail substringToIndex:separationIndex];
+                componentName = [trimmedFormulaDetail substringToIndex:separationIndex];
             } else {
-                componentName = formulaDetail;
+                componentName = trimmedFormulaDetail;
             }
             
-            if([[self trimLastSpace:componentName] isEqualToString:[self trimLastSpace:activeComponent]]) {
+            if([[String trim:componentName] isEqualToString:[String trim:activeComponent]]) {
                 include = YES;
                 break;
             }
@@ -96,15 +99,15 @@
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
-    return [repository getGenericNames:searchText];
+    return [repository getGenericNames:[String trim:searchText]];
 }
 
 - (NSArray *) getComercialNames:(NSString *)searchText {
-    return [repository getComercialNames:searchText];
+    return [repository getComercialNames:[String trim:searchText]];
 }
 
 - (NSArray *) getLaboratories:(NSString *)searchText {
-    return [repository getLaboratories:searchText];
+    return [repository getLaboratories:[String trim:searchText]];
 }
 
 - (NSArray *) reOrder: (NSArray *) medicines {
@@ -141,14 +144,6 @@
     [medicine.form isEqualToString:reference.form] &&
     [medicine.certificate isEqualToString:reference.certificate] &&
     [medicine.presentation isEqualToString:reference.presentation];
-}
-
-- (NSString*) trimLastSpace:(NSString*)text{
-    int i = (int)text.length - 1;
-    
-    for (; i >= 0 && [text characterAtIndex:i] == ' '; i--);
-    
-    return [text substringToIndex:i + 1];
 }
 
 @end
