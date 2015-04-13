@@ -26,7 +26,7 @@ private ClearableAutoCompliteEditText principioActivo;
 
         MiAplicacion app = (MiAplicacion) this.getApplicationContext();
         List<String> principiosActivos = app.getPrincipiosActivos();
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, principiosActivos);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.principioActivo.setAdapter(dataAdapter);

@@ -60,5 +60,18 @@
     <string name="tel_anmat_number">08003331234</string>
     <string name="choose_account">Elija una cuenta de correo:</string>
     <string name="uso_hospitalario">Producto de Uso Hospitalario</string>
+    <string name="logo_desc">Logo</string>
+    <string name="hint_nombre_generico">Nombre Genérico</string>
+    <string name="hint_nombre_comercial">Nombre Comercial</string>
+    <string name="hint_laboratorio">Laboratorio</string>
+    <string name="stat_icon">statIcon</string>
+    <string name="dummy_small_text">Small Text</string>
+    <string name="dummy_generico">Ibuprofeno / CAP</string>
+    <string name="dummy_comercial">Actron</string>
+    <string name="dummy_presentacion">Grajeas</string>
+    <string name="dummy_long_text">Esto es un texto muy largo para tratar de hacer que las cosas se solapen</string>
+    <string name="dummy_number">1098192783871623981</string>
+    <string name="dummy_forma">forma</string>
+    <string name="dummy_precio">$145</string>
 
 </resources>

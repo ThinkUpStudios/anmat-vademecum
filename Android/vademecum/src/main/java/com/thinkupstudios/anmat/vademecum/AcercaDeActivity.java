@@ -7,16 +7,17 @@ import android.widget.TextView;
 
 /**
  * Created by dcamarro on 02/03/2015.
+ * Pantalla de ACerca de
  */
 public class AcercaDeActivity extends MenuActivity {
 
-    private TextView viewAcercaDe;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acerca_de);
-
+        TextView viewAcercaDe;
         viewAcercaDe = (TextView) findViewById(R.id.txt_acerca_de);
         viewAcercaDe.setText(
                 Html.fromHtml("<h3> Acerca de Vademecum Nacional de Medicamentos </h3>\n" +

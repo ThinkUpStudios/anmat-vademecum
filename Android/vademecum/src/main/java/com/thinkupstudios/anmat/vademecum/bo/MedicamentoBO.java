@@ -1,8 +1,6 @@
 package com.thinkupstudios.anmat.vademecum.bo;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Vector;
 
 /**
  * Created by FaQ on 19/02/2015.

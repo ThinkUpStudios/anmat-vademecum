@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Created by dcamarro on 11/04/2015.
+ * Formula del medicamento
+ *
  */
 public class Formula implements Serializable{
 

@@ -2,6 +2,7 @@ package com.thinkupstudios.anmat.vademecum.bo;
 
 /**
  * Created by dcamarro on 11/04/2015.
+ * Parser de formula
  */
 public class FormulaParser {
     public static Formula parse(String genericName) {
@@ -10,7 +11,7 @@ public class FormulaParser {
 
         for (String part : parts)
         {
-            if(part.trim() == "") {
+            if(part.trim().equals("")) {
                 continue;
             }
 
@@ -23,7 +24,7 @@ public class FormulaParser {
     }
 
     private static Component getComponent(String part) {
-        String activeComponent = "";
+        String activeComponent;
         String proportion = "";
 
         int proportionStartIndex = -1;

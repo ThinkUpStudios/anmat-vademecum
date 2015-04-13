@@ -13,6 +13,8 @@ import android.view.MenuItem;
 
 /**
  * Created by fcostazini on 02/03/2015.
+ *
+ * Activity Generica que maneja el menu de llamadas y email, asi como el menu main_menu.xml
  */
 public abstract class  MenuActivity extends Activity {
     @Override

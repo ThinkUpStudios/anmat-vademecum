@@ -14,11 +14,10 @@ import java.util.Vector;
 
 /**
  * Created by FaQ on 19/02/2015.
+ * Provider de Medicamentos
  */
 public class MedicamentosProvider extends GenericProvider {
 
-    private static final String AND = "#";
-    private static final String OR = "?";
 
     public MedicamentosProvider(DatabaseHelper helper){
         super(helper);
@@ -29,7 +28,7 @@ public class MedicamentosProvider extends GenericProvider {
         if(form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty() || !form.getLaboratorio().isEmpty())){
             where += "where  1=1 ";
 
-            if(!form.getNombreComercial().isEmpty())
+            if(form.getNombreComercial()!= null && !form.getNombreComercial().isEmpty())
                 where += " and " + MedicamentosTable.COLUMNS[6] + " like '%"+form.getNombreComercial()+"%'";
             if(!form.getNombreGenerico().isEmpty()){
                 where += this.armarWhereANDyOR(form.getNombreGenerico(), form.useLike(), MedicamentosTable.COLUMNS[8]);
@@ -40,7 +39,7 @@ public class MedicamentosProvider extends GenericProvider {
                 where += " and " + MedicamentosTable.COLUMNS[3] + " like '%"+form.getLaboratorio()+"%'";
         }
 
-        List<MedicamentoBO> medicamentoBOs = new ArrayList<MedicamentoBO>();
+        List<MedicamentoBO> medicamentoBOs = new ArrayList<>();
 
         String orderBy = "order by "+ MedicamentosTable.COLUMNS[13] + " asc ";
 
@@ -55,11 +54,11 @@ public class MedicamentosProvider extends GenericProvider {
         // make sure to close the cursor
         cursor.close();
 
-        if(form.filtrarPorFormula()){
+        if(form != null && form.filtrarPorFormula()){
             medicamentoBOs = this.filtrarPorFormula(medicamentoBOs, form.getNombreGenerico());
         }
-        List<MedicamentoBO> medicamentosOrdenados = this.ordenarMedicamentos(medicamentoBOs);
-        return medicamentosOrdenados;
+
+        return this.ordenarMedicamentos(medicamentoBOs);
     }
 
     private String armarWhereANDyOR(String campo, Boolean useLike, String column) {
@@ -87,7 +86,7 @@ public class MedicamentosProvider extends GenericProvider {
 
     private String armarWhereAnd(String campo, Boolean useLike, String column) {
         String whereAnd = "";
-        String[] ands = campo.split("\\#");
+        String[] ands = campo.split("#");
         String aux = " ";
         if(ands.length > 1){
             int i = 0;

@@ -7,6 +7,7 @@ import android.widget.Button;
 
 /**
  * Created by FaQ on 25/02/2015.
+ * Action listener que permite dar efecto de grisado a un boton
  */
 public class DarkenerButtonTouchListener implements View.OnTouchListener{
     @Override

@@ -4,15 +4,16 @@ import java.io.Serializable;
 
 /**
  * Created by FaQ on 12/02/2015.
+ * Formulario de Busqueda
  */
 public class FormularioBusqueda implements Serializable {
     public static String FORMULARIO_MANUAL = "Formulario_Busqueda";
     public static String PRINCIPIO_ACTIVO = "Principio_Activo";
-    private String laboratorio = new String();
-    private String nombreGenerico = new String();
-    private String nombreComercial = new String();
+    private String laboratorio ="";
+    private String nombreGenerico ="";
+    private String nombreComercial ="";
     private Boolean useLike = true;
-    private Boolean filtrarPorFormula = false;
+    private Boolean filtrarPorFormula = true;
 
     public String getLaboratorio() {
         return laboratorio;
@@ -46,11 +47,11 @@ public class FormularioBusqueda implements Serializable {
         this.useLike = useLike;
     }
 
-    public void setFiltrarPorFormula(Boolean filtrarPorFormula) {
+    public void setFiltrarPorFormula(boolean filtrarPorFormula) {
         this.filtrarPorFormula = filtrarPorFormula;
     }
 
-    public Boolean filtrarPorFormula(){
+    public boolean filtrarPorFormula(){
         return this.filtrarPorFormula;
     }
 

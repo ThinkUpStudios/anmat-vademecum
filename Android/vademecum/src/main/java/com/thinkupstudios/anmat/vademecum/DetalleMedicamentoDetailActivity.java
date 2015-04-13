@@ -33,13 +33,13 @@ public class DetalleMedicamentoDetailActivity extends MenuActivity {
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getActionBar();
-        if(actionBar!=null) actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
-medicamento =
-        (MedicamentoBO) getIntent().getSerializableExtra(MedicamentoBO.MEDICAMENTOBO);
-            arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO,this.medicamento);
+            this.setMedicamento(
+                    (MedicamentoBO) getIntent().getSerializableExtra(MedicamentoBO.MEDICAMENTOBO));
+            arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO, this.getMedicamento());
 
             DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
             fragment.setArguments(arguments);
@@ -49,6 +49,7 @@ medicamento =
         }
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -58,17 +59,17 @@ medicamento =
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.mnu_recomendados){
+        if (item.getItemId() == R.id.mnu_recomendados) {
             Intent i = new Intent(this,
                     DetalleMedicamentoListActivity.class);
-            i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
+            i.putExtra("COMERCIAL_RECOMENDADO", this.getMedicamento().getNombreComercial());
             FormularioBusqueda f = new FormularioBusqueda();
-            f.setNombreGenerico(medicamento.getNombreGenerico());
+            f.setNombreGenerico(getMedicamento().getNombreGenerico());
             i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
             startActivity(i);
-                    overridePendingTransition(fade_in, fade_out);
+            this.overridePendingTransition(fade_in, fade_out);
             return true;
-        }else{
+        } else {
             return super.onOptionsItemSelected(item);
         }
 

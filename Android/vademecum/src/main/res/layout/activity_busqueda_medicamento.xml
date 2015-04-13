@@ -1,12 +1,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-
     android:layout_height="fill_parent"
-    android:columnCount="2"
     android:orientation="vertical"
-
-    android:rowOrderPreserved="true"
     android:padding="10dp">
 
 
@@ -15,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:hint="Nombre Genérico"
+        android:hint="@string/hint_nombre_generico"
         android:nextFocusForward="@+id/txt_nombre_comercial"
         android:singleLine="true"
         android:imeOptions="actionDone"
@@ -34,7 +30,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:imeOptions="actionDone"
-        android:hint="Nombre Comercial">
+        android:hint="@string/hint_nombre_comercial">
 
     </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
     <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
@@ -46,7 +42,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:imeOptions="actionDone"
-        android:hint="Laboratorio">
+        android:hint="@string/hint_laboratorio">
     </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
 
     <Button
@@ -61,11 +57,7 @@
         android:paddingRight="76dp"
         android:background="@drawable/button_txt_search"
 
-        android:text="Buscar Medicamentos"
-
-
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:text="@string/buscar_medicamento"
         android:layout_marginTop="10dp"
         android:padding="10dp"
 

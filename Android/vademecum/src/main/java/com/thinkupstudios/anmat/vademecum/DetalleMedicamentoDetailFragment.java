@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -18,7 +17,6 @@ import com.thinkupstudios.anmat.vademecum.bo.Component;
 import com.thinkupstudios.anmat.vademecum.bo.Formula;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
-import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 
 import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
@@ -30,14 +28,10 @@ import static android.R.anim.fade_out;
  * on handsets.
  */
 public class DetalleMedicamentoDetailFragment extends Fragment implements View.OnClickListener {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
+
 
     private MedicamentoBO medicamento;
-    private Button recomendados;
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -95,23 +89,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         });
 
 
-        this.recomendados = (Button) rootView.findViewById(R.id.btn_recomentados);
-        recomendados.setOnTouchListener(new DarkenerButtonTouchListener());
-        recomendados.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(DetalleMedicamentoDetailFragment.this.getActivity(),
-                        DetalleMedicamentoListActivity.class);
-                i.putExtra("COMERCIAL_RECOMENDADO", medicamento.getNombreComercial());
-                FormularioBusqueda f = new FormularioBusqueda();
-                f.setNombreGenerico(medicamento.getNombreGenerico());
-                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
-                startActivity(i);
-                DetalleMedicamentoDetailFragment.this.getActivity().
-                        overridePendingTransition(fade_in, fade_out);
-            }
-        });
-
-        return rootView;
+         return rootView;
     }
 
 
@@ -146,15 +124,14 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
         LinearLayout tablaFormula = (LinearLayout) rootView.findViewById(R.id.formula_content);
 
-        View formulaRow = mInflater.inflate(R.layout.formula, container, false);
-        int position = 0;
+        View formulaRow;
         for (Component component : formula.getComponents()) {
-            position++;
+
             formulaRow = mInflater.inflate(R.layout.formula, container, false);
             ((TextView) formulaRow.findViewById(R.id.active_component)).setText(component.getActiveComponent());
             ((TextView) formulaRow.findViewById(R.id.proportion)).setText(component.getProportion());
             formulaRow.setOnClickListener(this);
-            format(position, formulaRow);
+            format(formulaRow);
             tablaFormula.addView(formulaRow);
 
         }
@@ -162,9 +139,8 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
     }
 
-    private void format(int position, View formulaRow) {
-        int color = 0;
-        color = formulaRow.getResources().getColor(R.color.anmat_azul);
+    private void format(View formulaRow) {
+        int color = formulaRow.getResources().getColor(R.color.anmat_azul);
 
         ((TextView) formulaRow.findViewById(R.id.active_component)).setTextColor(color);
         ((TextView) formulaRow.findViewById(R.id.proportion)).setTextColor(color);

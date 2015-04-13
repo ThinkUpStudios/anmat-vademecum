@@ -2,13 +2,10 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
@@ -28,12 +25,13 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
     private ClearableAutoCompliteEditText nombreComercial;
     private ClearableAutoCompliteEditText laboratorio;
     private ClearableAutoCompliteEditText nombreGenerico;
-    private Button buscarBtn;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Button buscarBtn;
         setContentView(R.layout.activity_busqueda_medicamento);
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
@@ -52,8 +50,6 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
 
     @Override
     public void onClick(View v) {
-
-        Button b = (Button) v;
         Intent i = new Intent(this, DetalleMedicamentoListActivity.class);
         this.formualario.setNombreGenerico(this.nombreGenerico.getText().toString());
         this.formualario.setNombreComercial(this.nombreComercial.getText().toString());
@@ -81,16 +77,6 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
     }
 
 
-    class MyEditorActionListener implements TextView.OnEditorActionListener{
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if(actionId == EditorInfo.IME_ACTION_DONE){
-                buscarBtn.performClick();
-                return true;
-            }
-            return false;
-        }
-    }
 
     private void configEditTextGenericos(){
 
@@ -98,7 +84,7 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
 
         this.nombreGenerico = (ClearableAutoCompliteEditText) findViewById(R.id.txt_nombre_generico);
         List<String> genericos = app.getNombresGenericos();
-        ArrayAdapter adapterGen = new ArrayAdapter
+        ArrayAdapter<String> adapterGen = new ArrayAdapter<>
                 (this,android.R.layout.simple_list_item_1,genericos);
         adapterGen.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.nombreGenerico.setAdapter(adapterGen);
@@ -111,7 +97,7 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
 
         this.nombreComercial = (ClearableAutoCompliteEditText) findViewById(R.id.txt_nombre_comercial);
         List<String> comerciales = app.getNombresComerciales();
-        ArrayAdapter adapterCom = new ArrayAdapter
+        ArrayAdapter<String> adapterCom = new ArrayAdapter<>
                 (this,android.R.layout.simple_list_item_1,comerciales);
         adapterCom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.nombreComercial.setAdapter(adapterCom);
@@ -123,7 +109,7 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
 
         this.laboratorio = (ClearableAutoCompliteEditText) findViewById(R.id.txt_laboratorio);
         List<String> laboratorios = app.getLaboratorios();
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, laboratorios);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         laboratorio.setAdapter(dataAdapter);

@@ -2,60 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:orientation="horizontal"
     android:background="@drawable/divider"
-    >
+    android:orientation="horizontal"
+    android:padding="5dp">
 
-<RelativeLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/rowFormula"
-    android:layout_marginTop="5dp"
-    android:layout_marginBottom="10dp"
-    android:layout_weight="3"
-
-    >
-
-    <TextView
-        android:text="New Text"
-        android:id="@+id/active_component"
-        android:gravity="left"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rowFormula"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/proportion"
-        android:layout_below="@id/active_component"
-        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="3"
 
-       />
+        >
+
+        <TextView
+            android:id="@+id/active_component"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/dummy_small_text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/proportion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/active_component"
+            android:gravity="center"
+            android:text="@string/dummy_small_text"
+
+            />
 
 
-    <ImageView android:src="@android:drawable/ic_menu_zoom"
+    </RelativeLayout>
+
+    <ImageView
         android:id="@+id/btn_detalle"
-        android:scaleType="center"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:layout_alignBottom="@id/proportion"
-        android:layout_alignTop="@id/active_component"
-        android:layout_alignParentRight="true"
-        />
-
-
-</RelativeLayout>
-    <ImageView android:src="@drawable/ic_info"
-    android:id="@+id/btn_detalle"
-    android:scaleType="center"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignBottom="@id/unidadDeMedida"
-    android:layout_alignTop="@id/ifa"
-    android:layout_alignParentRight="true"
         android:layout_weight="1"
-        />
+        android:scaleType="center"
+        android:src="@drawable/ic_info" />
 </LinearLayout>

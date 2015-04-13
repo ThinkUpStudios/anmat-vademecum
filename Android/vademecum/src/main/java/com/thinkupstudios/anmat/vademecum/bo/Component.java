@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * Created by dcamarro on 11/04/2015.
+ *
+ * Componente de formula
  */
 public class Component implements Serializable {
     private String activeComponent;
@@ -40,9 +42,7 @@ public class Component implements Serializable {
 
         Component component = (Component) o;
 
-        if (!activeComponent.equals(component.activeComponent)) return false;
-
-        return true;
+        return activeComponent.equals(component.activeComponent);
     }
 
     @Override

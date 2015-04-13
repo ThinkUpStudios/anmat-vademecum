@@ -10,6 +10,6 @@
     <dimen name="maximo_linea_con_icono">400dp</dimen>
     <dimen name="maximo_linea_con_precio">500dp</dimen>
     <dimen name="button_height">30dp</dimen>
-    <dimen name="size_text_collapsible">12dp</dimen>
+    <dimen name="size_text_collapsible">12sp</dimen>
 
 </resources>
