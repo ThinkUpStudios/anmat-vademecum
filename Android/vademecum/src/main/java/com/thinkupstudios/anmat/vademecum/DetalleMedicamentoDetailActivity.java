@@ -65,6 +65,8 @@ public class DetalleMedicamentoDetailActivity extends MenuActivity {
             i.putExtra("COMERCIAL_RECOMENDADO", this.getMedicamento().getNombreComercial());
             FormularioBusqueda f = new FormularioBusqueda();
             f.setNombreGenerico(getMedicamento().getNombreGenerico());
+            f.setUseLike(false);
+            f.setFiltrarPorFormula(false);
             i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
             startActivity(i);
             this.overridePendingTransition(fade_in, fade_out);
