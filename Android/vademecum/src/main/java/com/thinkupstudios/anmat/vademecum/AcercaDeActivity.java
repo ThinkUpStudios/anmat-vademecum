@@ -32,7 +32,7 @@ public class AcercaDeActivity extends MenuActivity {
                         "Los datos están actualizados al 3 de abril del 2015.\n" +
                          "<p>\n" +
 
-                        "Cualquier irregularidad o falta, por favor comuniquese con ANMAT" +
+                        "Cualquier irregularidad o falta, por favor comuníquese con ANMAT" +
                         "</p>\n" +
 
                         "<p>\n" +
