@@ -33,3 +33,21 @@ proguard/
 
 # XCode User State
 *.xcuserstate
+/%merger
+/.gitattributes
+/Server/Anmat.Server.Core.Tests/obj/Debug/Anmat.Server.Core.Tests.csproj.FileListAbsolute.txt
+/Server/Anmat.Server.Core.Tests/obj/Debug/Anmat.Server.Core.Tests.csprojResolveAssemblyReference.cache
+/Server/Anmat.Server.Core.Tests/obj/Debug/Anmat.Server.Core.Tests.dll
+/Server/Anmat.Server.Core.Tests/obj/Debug/Anmat.Server.Core.Tests.pdb
+/Server/Anmat.Server.Core.Tests/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/Server/Anmat.Server.Core.Tests/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+/Server/Anmat.Server.Core.Tests/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+/Server/Anmat.Server.Core.Tests/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+/Server/Anmat.Server.Core/obj/Debug/Anmat.Server.Core.csproj.FileListAbsolute.txt
+/Server/Anmat.Server.Core/obj/Debug/Anmat.Server.Core.csprojResolveAssemblyReference.cache
+/Server/Anmat.Server.Core/obj/Debug/Anmat.Server.Core.dll
+/Server/Anmat.Server.Core/obj/Debug/Anmat.Server.Core.pdb
+/Server/Anmat.Server.Core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/Server/Anmat.Server.Core/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+/Server/Anmat.Server.Core/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+/Server/Anmat.Server.Core/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
