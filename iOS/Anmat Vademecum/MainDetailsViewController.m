@@ -52,8 +52,7 @@
     self.lblCountry.text = self.medicine.country;
     self.lblGtin.text = self.medicine.gtin;
     
-    if(self.medicine.hospitalUsage == 1 &&
-       (self.medicine.price == nil || self.medicine.price.length == 0 || [self.medicine.price isEqualToString:@"$-"])) {
+    if([self.medicine.price isEqualToString:@"U.H"]) {
         self.lblPrice.text = @"Presentación de Uso Hospitalario (U.H)";
     } else {
         self.lblPrice.text = self.medicine.price;
