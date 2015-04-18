@@ -1,0 +1,4 @@
+nombre;descripcion;valor;ok
+null;esto es un medicamento;10,5;true
+otro medicamento;null;0;false
+;%$;1E+33;true

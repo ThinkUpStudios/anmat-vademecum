@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Anmat.Server.Core
 {
-    class Document
+    public class Document
     {
+        public Document()
+        {
+            this.Rows = new List<Row>();
+        }
+        public IList<Row> Rows { get; private set; }
+
+        public void Add(Row row)
+        {
+            this.Rows.Add(row);
+        }
+        
 
     }
 }

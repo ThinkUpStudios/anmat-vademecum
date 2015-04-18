@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Anmat.Server.Core
 {
-    interface IDocumentGenerator
+    public interface IDocumentGenerator
     {
-        public string Name { get; }
+        string Name { get; }
 
-        public DocumentMetadata Metadata { get; }
+        DocumentMetadata Metadata { get; }
 
         Document Generate();
     }

@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cell.cs" />
     <Compile Include="CsvDocumentReader.cs" />
     <Compile Include="Data\DataEntity.cs" />
     <Compile Include="Data\DataException.cs" />
@@ -58,12 +59,15 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="DocumentColumnMetadata.cs" />
+    <Compile Include="DocumentFormatException.cs" />
     <Compile Include="DocumentMetadata.cs" />
+    <Compile Include="FieldFormatException.cs" />
     <Compile Include="IDocumentGenerator.cs" />
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="ISQLGenerator.cs" />
     <Compile Include="MedicamentosGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Row.cs" />
     <Compile Include="SQLiteGenerator.cs" />
   </ItemGroup>
   <ItemGroup>

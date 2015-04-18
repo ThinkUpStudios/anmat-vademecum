@@ -41,7 +41,7 @@ namespace Anmat.Server.Core
                 columns.Add(new DocumentColumnMetadata
                 {
                     ColumnNumber = 1,
-                    Name = "Certificado",
+                    Name = "nombre",
                     Type = typeof(string),
                     IsNullable = true
                 });

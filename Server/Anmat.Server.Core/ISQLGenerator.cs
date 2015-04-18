@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Anmat.Server.Core
 {
-    interface ISQLGenerator
+    public interface ISQLGenerator
     {
-        public string Script { get; }
+        string Script { get; }
 
         void Generate(params IDocumentGenerator[] documentGenerators);
     }
