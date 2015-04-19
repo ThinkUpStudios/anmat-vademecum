@@ -46,8 +46,6 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_hasHeaderAndNoHeaderIsExpected_then_Fails()
         {
-            
-
             var columns = GetTestMetadataColumns();
 
             var metadata = new DocumentMetadata
@@ -71,7 +69,6 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_fileWithDiferentColumnsThanMetadata_then_fail()
         {
-
             var columns = GetTestMetadataColumns();
 
             var metadata = new DocumentMetadata
@@ -93,7 +90,6 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_fileHasACoulmnWithInvalidFormat_then_fail()
         {
-            
             var columns = GetTestMetadataColumns();
 
             var metadata = new DocumentMetadata
@@ -139,28 +135,28 @@ namespace Anmat.Server.Core.Tests
             {
                 ColumnNumber = 0,
                 Name = "nombre",
-                Type = typeof(string),
+                Type = typeof(string).ToString(),
                 IsNullable = true
             });
             columns.Add(new DocumentColumnMetadata
             {
                 ColumnNumber = 1,
                 Name = "descripcion",
-                Type = typeof(string),
+                Type = typeof(string).ToString(),
                 IsNullable = true
             });
             columns.Add(new DocumentColumnMetadata
             {
                 ColumnNumber = 2,
                 Name = "valor",
-                Type = typeof(double),
+                Type = typeof(double).ToString(),
                 IsNullable = true
             });
             columns.Add(new DocumentColumnMetadata
             {
                 ColumnNumber = 3,
                 Name = "ok",
-                Type = typeof(bool),
+                Type = typeof(bool).ToString(),
                 IsNullable = true
             });
             return columns;

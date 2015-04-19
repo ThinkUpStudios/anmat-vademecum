@@ -9,9 +9,10 @@ namespace Anmat.Server.Core
     public class DocumentMetadata : DataEntity
     {
         public string DocumentName { get; set; }
+
         public bool HasHeader { get; set; }
 
-        public IEnumerable<DocumentColumnMetadata> Columns { get; set; }
+        public List<DocumentColumnMetadata> Columns { get; set; }
     }
 
 }

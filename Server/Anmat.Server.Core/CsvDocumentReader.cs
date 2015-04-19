@@ -57,7 +57,7 @@ namespace Anmat.Server.Core
                     }
                     
                     try { 
-                        TypeDescriptor.GetConverter(columnMetadata.Type).ConvertFromString(value);
+                        TypeDescriptor.GetConverter(Type.GetType(columnMetadata.Type)).ConvertFromString(value);
                     }
                     catch (Exception e)
                     {
@@ -65,7 +65,7 @@ namespace Anmat.Server.Core
                     }
                     
                     
-                    row.Add(value.ToLower() == "null" ? string.Empty : value, columnMetadata.Type);    
+                    row.Add(value.ToLower() == "null" ? string.Empty : value, Type.GetType(columnMetadata.Type));    
                 }
                                 
                 document.Add(row);

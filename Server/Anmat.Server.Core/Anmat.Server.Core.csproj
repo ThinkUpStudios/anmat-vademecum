@@ -66,6 +66,7 @@
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="ISQLGenerator.cs" />
     <Compile Include="MedicamentosGenerator.cs" />
+    <Compile Include="Data\MongoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="SQLiteGenerator.cs" />
