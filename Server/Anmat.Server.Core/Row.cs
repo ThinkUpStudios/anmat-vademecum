@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Anmat.Server.Core
 {
@@ -16,13 +14,18 @@ namespace Anmat.Server.Core
             this.cells = new List<Cell>();    
         }
 
-        public void Add(string value, Type type)
+		public void Add(string value, Type type)
         {
             this.cells.Add(new Cell
             {
                 Type = type,
                 Value = value
             });
+        }
+
+        public void Add<T>(string value)
+        {
+			this.Add (value, typeof (T));
         }
     }
 }

@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Anmat.Server.Core
 {
     public class Document
     {
+		private readonly IList<Row> rows;
+
         public Document()
         {
-            this.Rows = new List<Row>();
+            this.rows = new List<Row>();
         }
-        public IList<Row> Rows { get; private set; }
+
+        public IEnumerable<Row> Rows { get { return this.rows; } }
 
         public void Add(Row row)
         {
-            this.Rows.Add(row);
+            this.rows.Add(row);
         }
-        
-
     }
 }
