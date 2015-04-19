@@ -42,12 +42,7 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_hasHeaderAndNoHeaderIsExpected_then_Fails()
         {
-<<<<<<< HEAD
-            var columns = GetTestMetadataColumns();
-
-=======
 			var columns = TestMetadataGenerator.GetColumnsMetadata ();
->>>>>>> c174032e2b663116dd09983f125dbd01732493d0
             var metadata = new DocumentMetadata
             {
                 DocumentName = "Caso Feliz",
@@ -68,12 +63,7 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_fileWithDiferentColumnsThanMetadata_then_fail()
         {
-<<<<<<< HEAD
-            var columns = GetTestMetadataColumns();
-
-=======
 			var columns = TestMetadataGenerator.GetColumnsMetadata ();
->>>>>>> c174032e2b663116dd09983f125dbd01732493d0
             var metadata = new DocumentMetadata
             {
                 DocumentName = "Sad Case",
@@ -93,12 +83,7 @@ namespace Anmat.Server.Core.Tests
         [Fact]
         public void when_fileHasACoulmnWithInvalidFormat_then_fail()
         {
-<<<<<<< HEAD
-            var columns = GetTestMetadataColumns();
-
-=======
 			var columns = TestMetadataGenerator.GetColumnsMetadata ();
->>>>>>> c174032e2b663116dd09983f125dbd01732493d0
             var metadata = new DocumentMetadata
             {
                 DocumentName = "Sad Case",
@@ -124,47 +109,6 @@ namespace Anmat.Server.Core.Tests
             Assert.Equal(string.Empty, document.Rows.First().Cells.First().Value);
         }
 
-<<<<<<< HEAD
-
-
-        private static List<DocumentColumnMetadata> GetTestMetadataColumns()
-        {
-            var columns = new List<DocumentColumnMetadata>();
-
-            columns.Add(new DocumentColumnMetadata
-            {
-                ColumnNumber = 0,
-                Name = "nombre",
-                Type = typeof(string).ToString(),
-                IsNullable = true
-            });
-            columns.Add(new DocumentColumnMetadata
-            {
-                ColumnNumber = 1,
-                Name = "descripcion",
-                Type = typeof(string).ToString(),
-                IsNullable = true
-            });
-            columns.Add(new DocumentColumnMetadata
-            {
-                ColumnNumber = 2,
-                Name = "valor",
-                Type = typeof(double).ToString(),
-                IsNullable = true
-            });
-            columns.Add(new DocumentColumnMetadata
-            {
-                ColumnNumber = 3,
-                Name = "ok",
-                Type = typeof(bool).ToString(),
-                IsNullable = true
-            });
-            return columns;
-        }
-
-
-=======
->>>>>>> c174032e2b663116dd09983f125dbd01732493d0
         [Theory]
         [InlineData("invalid_format.txt", typeof(ArgumentException), "invalid file extension")]
         [InlineData("invalid_format.csv", typeof(FieldFormatException), "invalid format")]
@@ -176,7 +120,7 @@ namespace Anmat.Server.Core.Tests
             var metadata = new DocumentMetadata
             {
                 DocumentName = documentName ?? "New Document",
-                Columns = columns,
+                Columns = TestMetadataGenerator.GetColumnsMetadata(),
                 HasHeader = true
             };
 
