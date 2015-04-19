@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Anmat.Server.Core
 {
-    public interface IDocumentReader
+    public class Cell
     {
-        Document Read(string path, DocumentMetadata metadata);
+        public Type Type { get; set; }
+        public String Value { get; set; }
     }
 }
