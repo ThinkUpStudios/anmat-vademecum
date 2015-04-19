@@ -1,6 +1,8 @@
 ﻿using Moq;
 using System.Linq;
 using Xunit;
+using System.IO;
+using System.Data.SQLite;
 
 namespace Anmat.Server.Core.Tests
 {
@@ -18,5 +20,15 @@ namespace Anmat.Server.Core.Tests
 
             Assert.Equal(1, result.Count());
         }
+
+		[Fact]
+		public void misc()
+		{
+			var file = "test1.sqlite";
+
+			using (var stream = File.Create (file)) { };
+
+			SQLiteConnection.CreateFile (file);
+		}
     }
 }
