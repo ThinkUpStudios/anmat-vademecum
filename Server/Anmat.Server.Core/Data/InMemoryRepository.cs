@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Anmat.Server.Core
 {
@@ -14,32 +15,32 @@ namespace Anmat.Server.Core
             this.db = new List<T>();
         }
 
-        public IEnumerable<T> GetAll(Func<T, bool> predicate = null)
+        
+        public void Create(T dataEntity)
+        {
+            this.db.Add(dataEntity);
+        }
+
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null)
         {
             IEnumerable<T> result = this.db;
 
             if (predicate != null)
             {
-                result = result.Where(predicate);
+                result = result.Where(predicate.Compile());
             }
 
             return result;
         }
 
-        public T Get(Func<T, bool> predicate = null)
+        public T Get(Expression<Func<T, bool>> predicate = null)
         {
-
             return this.GetAll(predicate).FirstOrDefault();
         }
 
-        public bool Exist(Func<T, bool> predicate = null)
+        public bool Exist(System.Linq.Expressions.Expression<Func<T, bool>> predicate = null)
         {
             throw new NotImplementedException();
-        }
-
-        public void Create(T dataEntity)
-        {
-            this.db.Add(dataEntity);
         }
 
         public void Update(T dataEntity)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Anmat.Server.Core.Tests
 {
@@ -17,7 +18,7 @@ namespace Anmat.Server.Core.Tests
 			return metadata;
 		}
 
-		public static IEnumerable<DocumentColumnMetadata> GetColumnsMetadata()
+		public static List<DocumentColumnMetadata> GetColumnsMetadata()
 		{
 			var columns = new List<DocumentColumnMetadata>();
 
@@ -25,7 +26,7 @@ namespace Anmat.Server.Core.Tests
             {
                 ColumnNumber = 0,
                 Name = "nombre",
-                Type = typeof(string),
+                Type = typeof(string).ToString(),
                 IsNullable = true
             });
 
@@ -33,7 +34,7 @@ namespace Anmat.Server.Core.Tests
             {
                 ColumnNumber = 1,
                 Name = "descripcion",
-                Type = typeof(string),
+                Type = typeof(string).ToString(),
                 IsNullable = true
             });
 
@@ -41,7 +42,7 @@ namespace Anmat.Server.Core.Tests
             {
                 ColumnNumber = 2,
                 Name = "valor",
-                Type = typeof(double),
+                Type = typeof(double).ToString(),
                 IsNullable = true
             });
 
@@ -49,7 +50,7 @@ namespace Anmat.Server.Core.Tests
             {
                 ColumnNumber = 3,
                 Name = "ok",
-                Type = typeof(bool),
+                Type = typeof(bool).ToString(),
                 IsNullable = true
             });
 

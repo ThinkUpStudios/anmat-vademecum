@@ -75,7 +75,7 @@ namespace Anmat.Server.Core
 
 			foreach (var columnMetadaData in metadata.Columns)
 			{
-				 scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (columnMetadaData.Type)));
+				 scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (Type.GetType(columnMetadaData.Type))));
 
 				 if (i < metadata.Columns.Count ()) {
 					scriptBuilder.Append (", ");

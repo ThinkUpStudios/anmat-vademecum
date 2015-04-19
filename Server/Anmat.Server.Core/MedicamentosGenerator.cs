@@ -38,25 +38,23 @@ namespace Anmat.Server.Core
             {
                 var columns = new List<DocumentColumnMetadata>();
 
-                columns.Add(new DocumentColumnMetadata
+                columns.Add(new DocumentColumnMetadata()
                 {
                     ColumnNumber = 1,
                     Name = "nombre",
-                    Type = typeof(string),
+                    Type = typeof(string).ToString(),
                     IsNullable = true
                 });
-                columns.Add(new DocumentColumnMetadata
+                columns.Add(new DocumentColumnMetadata()
                 {
                     ColumnNumber = 2,
                     Name = "Nombre Generico",
-                    Type = typeof(string),
                     IsNullable = true
                 });
-                columns.Add(new DocumentColumnMetadata
+                columns.Add(new DocumentColumnMetadata()
                 {
                     ColumnNumber = 3,
                     Name = "Nombre Comercial",
-                    Type = typeof(string),
                     IsNullable = true
                 });
 

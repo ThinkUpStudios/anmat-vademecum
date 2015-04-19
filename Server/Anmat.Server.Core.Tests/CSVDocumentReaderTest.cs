@@ -120,7 +120,7 @@ namespace Anmat.Server.Core.Tests
             var metadata = new DocumentMetadata
             {
                 DocumentName = documentName ?? "New Document",
-                Columns = columns,
+                Columns = TestMetadataGenerator.GetColumnsMetadata(),
                 HasHeader = true
             };
 
