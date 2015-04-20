@@ -18,7 +18,8 @@ public class PrincipiosActivosTable {
                                         "posologia",
                                         "duracion",
                                         "contraindicaciones",
-                                        "observaciones"};
+                                        "observaciones",
+                                        "otros_nombres"};
 
 
 }

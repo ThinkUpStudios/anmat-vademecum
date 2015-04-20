@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
 
     private final static String DB_NAME = "anmat.sqlite";
-    private final static int DB_VERSION = 14;
+    private final static int DB_VERSION = 15;
 
 
     private SQLiteDatabase myDataBase;
