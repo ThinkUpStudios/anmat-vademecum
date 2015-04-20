@@ -40,7 +40,9 @@
     android:layout_toRightOf="@+id/stat_icon"
     android:contentDescription="@string/stat_icon"
     android:minWidth="@dimen/tamnio_minimo_imagen"
+    android:maxWidth="@dimen/tamnio_minimo_imagen"
     android:minHeight="@dimen/tamnio_minimo_imagen"
+    android:maxHeight="@dimen/tamnio_minimo_imagen"
     />
 </RelativeLayout>
 

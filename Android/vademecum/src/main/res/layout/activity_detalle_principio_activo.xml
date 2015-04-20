@@ -7,10 +7,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="0dp"
     tools:context="com.thinkupstudios.anmat.vademecum.DetallePrincipioActivoActivity">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_principio"
+        android:text="@string/dummy_long_text"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="10dp"/>
+
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:id="@+id/txt_no_resultados"
                 android:padding="5dp"
                 android:textStyle="bold"
@@ -19,6 +31,7 @@
                 android:id="@+id/col_accion_terapeutica"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/txt_principio"
                 class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
 
                 app:header="@string/lbl_accion_terapeutica"
