@@ -57,4 +57,11 @@ public class GenericProvider {
         return helper.getReadableDatabase().rawQuery(query, null);
     }
 
+    protected String matarCaracteresEspeciales(String s){
+        String sinCarEs = "REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(upper(";
+        sinCarEs += s;
+        sinCarEs += "),'Á','A'), 'É','E'),'Í','I'),'Ó','O'),'Ú','U'),'Ñ','N')";
+        return sinCarEs;
+    }
+
 }
