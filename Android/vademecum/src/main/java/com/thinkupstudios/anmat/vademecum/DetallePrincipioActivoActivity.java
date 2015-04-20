@@ -112,7 +112,11 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
                         DetalleMedicamentoListActivity.class);
                 i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getNombre());
                 FormularioBusqueda f = new FormularioBusqueda();
-                f.setNombreGenerico(principioActivo.getNombre());
+                String campoBusquedaCompleta = principioActivo.getNombre();
+                if(principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
+                    campoBusquedaCompleta += "?" + principioActivo.getOtrosNombres();
+                }
+                f.setNombreGenerico(campoBusquedaCompleta);
                 f.setFiltrarPorFormula(true);
                 f.setUseLike(true);
                 i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);

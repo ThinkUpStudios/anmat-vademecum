@@ -19,8 +19,8 @@ public class PrincipioActivoProvider extends GenericProvider {
 
     public PrincipioActivo findPrincipioActivo(String nombre) {
 
-        String where = " where "+ PrincipiosActivosTable.COLUMNS[0] + " = '" + nombre.trim() + "' ";
-        where += " or "+ PrincipiosActivosTable.COLUMNS[8] + " like '%" + nombre.trim() + "%' ";
+        String where = " where "+ this.matarCaracteresEspeciales(PrincipiosActivosTable.COLUMNS[0]) + " = " + this.matarCaracteresEspeciales("'"+nombre.trim() +"'") + " ";
+        where += " or "+ this.matarCaracteresEspeciales(PrincipiosActivosTable.COLUMNS[8]) + " like " + this.matarCaracteresEspeciales("'%"+ nombre.trim() + "%' ");
         Cursor cursor = this.getAllByWhere(PrincipiosActivosTable.TABLE_NAME, where, null);
 
         cursor.moveToFirst();
@@ -45,6 +45,7 @@ public class PrincipioActivoProvider extends GenericProvider {
         principioActivo.setDuracion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[5])));
         principioActivo.setContraindicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[6])));
         principioActivo.setObservaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[7])));
+        principioActivo.setOtrosNombres(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[8])));
 
         return principioActivo;
     }
