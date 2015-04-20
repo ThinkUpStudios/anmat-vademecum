@@ -1,11 +1,13 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
@@ -32,7 +34,17 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Button buscarBtn;
+
         setContentView(R.layout.activity_busqueda_medicamento);
+
+        ImageButton help = (ImageButton)findViewById(R.id.btn_input_help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new InputHelpDialog();
+                newFragment.show(BusquedaMedicamentoActivity.this.getFragmentManager(), "missiles");
+            }
+        });
         buscarBtn = (Button) findViewById(R.id.btn_form_busqueda_buscar);
         buscarBtn.setOnClickListener(this);
         buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());

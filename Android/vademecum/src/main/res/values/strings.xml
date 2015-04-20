@@ -73,5 +73,10 @@
     <string name="dummy_number">1098192783871623981</string>
     <string name="dummy_forma">forma</string>
     <string name="dummy_precio">$145</string>
+    <string name="help">help</string>
+    <string name="or_explanation">Utilizando este caracter como separador entre cada criterio, la búsqueda equivale a un \'O\' lógico. Ejemplo: ibu ? cafeina equivale a ibu O cafeina.</string>
+    <string name="and_explanation">Utilizando este caracter como separador entre cada criterio, la búsqueda equivale a un \'Y\' lógico. Ejemplo: acido # ibu # cafeina equivale a acido Y ibu Y cafeina.</string>
+    <string name="intro_help">En la búsqueda de medicamentos por nombre genérico, puede buscar por más de un criterio aplicando las siguientes condiciones lógicas:</string>
+    <string name="busqueda_nombre_generico_help">Búsqueda por Nombre Genérico</string>
 
 </resources>
