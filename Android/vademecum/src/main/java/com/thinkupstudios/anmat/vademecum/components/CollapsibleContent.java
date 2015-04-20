@@ -22,8 +22,8 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
     private String header = "Default Header";
     private String content ="Default contentent";
     private boolean isCollapsed = true;
-    private int openImageId = android.R.drawable.arrow_up_float;
-    private int closeImageId = android.R.drawable.arrow_down_float;
+    private int openImageId;
+    private int closeImageId;
     private ViewHolder viewHolder;
 
     public CollapsibleContent(Context context) {
@@ -34,6 +34,7 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
         super(context,attrs,defStyleAttr);
         init(context, attrs);
 
+
     }
 
     public CollapsibleContent(Context context, AttributeSet attrs) {
@@ -41,10 +42,13 @@ public class CollapsibleContent extends LinearLayout implements View.OnClickList
 
         init(context, attrs);
 
+        openImageId = R.drawable.ic_collapse;
     }
 
     private void init(Context context, AttributeSet attrs) {
         this.viewHolder = new ViewHolder();
+        openImageId = R.drawable.ic_collapse;
+        closeImageId= R.drawable.ic_expand;
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.collapsible_content,this,true);

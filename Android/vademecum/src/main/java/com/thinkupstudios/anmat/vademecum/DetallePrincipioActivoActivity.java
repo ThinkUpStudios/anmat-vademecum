@@ -37,8 +37,9 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
         CollapsibleContent contraindicaciones;
         CollapsibleContent observacion;
         TextView txtNoResultados;
-
+        TextView txtPrincipioActivo;
         setContentView(R.layout.activity_detalle_principio_activo);
+        txtPrincipioActivo = (TextView) findViewById(R.id.txt_principio);
         accionTerapeutica = (CollapsibleContent) findViewById(R.id.col_accion_terapeutica);
         indicaciones = (CollapsibleContent) findViewById(R.id.col_indicaciones);
         presentacion = (CollapsibleContent) findViewById(R.id.col_presentacion);
@@ -49,7 +50,7 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
         txtNoResultados = (TextView) findViewById(R.id.txt_no_resultados);
 
 
-        this.setTitle(getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO));
+
 
         provider = new PrincipioActivoProvider(new DatabaseHelper(this));
         if (getIntent().getExtras() != null && getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO) != null) {
@@ -57,6 +58,16 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
 
             if (principioActivo != null) {
                 txtNoResultados.setVisibility(View.INVISIBLE);
+
+                accionTerapeutica.setVisibility(View.VISIBLE);
+                indicaciones.setVisibility(View.VISIBLE);
+                presentacion.setVisibility(View.VISIBLE);
+                posologia.setVisibility(View.VISIBLE);
+                duracion.setVisibility(View.VISIBLE);
+                contraindicaciones.setVisibility(View.VISIBLE);
+                observacion.setVisibility(View.VISIBLE);
+                txtPrincipioActivo.setVisibility(View.VISIBLE);
+                txtPrincipioActivo.setText(principioActivo.getNombre());
                 accionTerapeutica.setContent(principioActivo.getAccionTerapeutica());
                 indicaciones.setContent(principioActivo.getIndicaciones());
                 presentacion.setContent(principioActivo.getPresentacion());
@@ -78,6 +89,7 @@ public class DetallePrincipioActivoActivity extends MenuActivity {
                 duracion.setVisibility(View.INVISIBLE);
                 contraindicaciones.setVisibility(View.INVISIBLE);
                 observacion.setVisibility(View.INVISIBLE);
+                txtPrincipioActivo.setVisibility(View.INVISIBLE);
 
             }
         }
