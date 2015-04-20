@@ -96,9 +96,9 @@ public class MedicamentosProvider extends GenericProvider {
                     aux += " and ";
                 }
                 if(useLike) {
-                    whereAnd += aux + column + " like '%" + valor + "%'";
+                    whereAnd += aux + column + " like '%" + valor.trim() + "%'";
                 }else{
-                    whereAnd += aux + column + " = '" + valor + "'";
+                    whereAnd += aux + column + " = '" + valor.trim() + "'";
                 }
                 i++;
             }

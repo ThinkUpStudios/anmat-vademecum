@@ -19,8 +19,8 @@ public class PrincipioActivoProvider extends GenericProvider {
 
     public PrincipioActivo findPrincipioActivo(String nombre) {
 
-        String where = " where principio = '" + nombre.trim() + "' ";
-
+        String where = " where "+ PrincipiosActivosTable.COLUMNS[0] + " = '" + nombre.trim() + "' ";
+        where += " or "+ PrincipiosActivosTable.COLUMNS[8] + " like '%" + nombre.trim() + "%' ";
         Cursor cursor = this.getAllByWhere(PrincipiosActivosTable.TABLE_NAME, where, null);
 
         cursor.moveToFirst();
