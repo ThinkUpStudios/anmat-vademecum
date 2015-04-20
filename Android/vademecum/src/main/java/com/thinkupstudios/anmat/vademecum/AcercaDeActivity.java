@@ -32,18 +32,11 @@ public class AcercaDeActivity extends MenuActivity {
                         "Los datos están actualizados al 3 de abril del 2015.\n" +
                          "<p>\n" +
 
-                        "Cualquier irregularidad o falta, por favor comuníquese con ANMAT" +
+                        "Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, " +
+                        "cosméticos, domisanitarios, reactivos de diagnóstico, faltantes, trámites " +
+                        "o legislación comunicate ANMAT Responde  al 0800-333-1234 o vía mail a responde@anmat.gov.ar" +
                         "</p>\n" +
 
-                        "<p>\n" +
-                        getResources().getString(R.string.tel_anmat) + "\n" +
-                        "</p>\n" +
-                        "<p>\n" +
-                        getResources().getString(R.string.fax_anmat) + "\n" +
-                        "</p>\n" +
-                        "<p>\n" +
-                        getResources().getString(R.string.email_responde) + "\n" +
-                        "</p>\n" +
                         "<i>Copyright: Ministerio de Salud de la Nación – ANMAT.</i>\n" +
                         "</p>\n" +
                         "<p >\n" +
