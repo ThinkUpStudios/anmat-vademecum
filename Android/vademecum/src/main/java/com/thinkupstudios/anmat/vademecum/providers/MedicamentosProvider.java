@@ -96,22 +96,25 @@ public class MedicamentosProvider extends GenericProvider {
                     aux += " and ";
                 }
                 if(useLike) {
-                    whereAnd += aux + column + " like '%" + valor.trim() + "%'";
+                    String like = "'%" + valor.trim() + "%'";
+                    whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + " ";
                 }else{
-                    whereAnd += aux + column + " = '" + valor.trim() + "'";
+                    whereAnd += aux + this.matarCaracteresEspeciales(column) + " = '" + this.matarCaracteresEspeciales(valor.trim()) + "'";
                 }
                 i++;
             }
         }
         else{
             if(useLike) {
-                whereAnd += aux + MedicamentosTable.COLUMNS[8] + " like '%" + campo + "%'";
+                String like = "'%" + campo.trim() + "%'";
+                whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + "";
             }else{
-                whereAnd += aux + MedicamentosTable.COLUMNS[8] + " = '" + campo + "'";
+                whereAnd += aux + this.matarCaracteresEspeciales(column) + " = '" + this.matarCaracteresEspeciales(campo.trim()) + "'";
             }
         }
         return whereAnd;
     }
+
 
     private List<MedicamentoBO> ordenarMedicamentos(List<MedicamentoBO> medicamentoBOs) {
         List<MedicamentoBO> medOrdenados = new Vector<>();
@@ -136,12 +139,18 @@ public class MedicamentosProvider extends GenericProvider {
 
     private List<MedicamentoBO> filtrarPorFormula(List<MedicamentoBO> medicamentoBOs, String principioActivo) {
         List<MedicamentoBO> resultadosFiltrados = new Vector<>();
-        Component c = new Component();
-        c.setActiveComponent(principioActivo);
-        for(MedicamentoBO medicamento : medicamentoBOs){
 
-            if(medicamento.getFormula().getComponents().contains(c))
-                resultadosFiltrados.add(medicamento);
+        String[] principiosActivos = principioActivo.split("\\?");
+
+        for(String pincipioAct : principiosActivos) {
+            Component c = new Component();
+            c.setActiveComponent(pincipioAct.trim());
+
+            for (MedicamentoBO medicamento : medicamentoBOs) {
+
+                if (medicamento.getFormula().getComponents().contains(c))
+                    resultadosFiltrados.add(medicamento);
+            }
         }
         return resultadosFiltrados;
     }

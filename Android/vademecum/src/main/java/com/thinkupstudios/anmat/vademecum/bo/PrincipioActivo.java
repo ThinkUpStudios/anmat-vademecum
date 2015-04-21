@@ -15,6 +15,7 @@ public class PrincipioActivo {
     private String duracion;
     private String contraindicaciones;
     private String observaciones;
+    private String otrosNombres;
 
     public String getNombre() {
         return nombre;
@@ -78,5 +79,13 @@ public class PrincipioActivo {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getOtrosNombres() {
+        return otrosNombres;
+    }
+
+    public void setOtrosNombres(String otrosNombres) {
+        this.otrosNombres = otrosNombres;
     }
 }

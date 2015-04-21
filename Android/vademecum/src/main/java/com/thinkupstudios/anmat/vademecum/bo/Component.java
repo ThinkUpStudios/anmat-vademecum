@@ -1,6 +1,7 @@
 package com.thinkupstudios.anmat.vademecum.bo;
 
 import java.io.Serializable;
+import java.text.Normalizer;
 
 /**
  * Created by dcamarro on 11/04/2015.
@@ -42,11 +43,21 @@ public class Component implements Serializable {
 
         Component component = (Component) o;
 
-        return activeComponent.equals(component.activeComponent);
+        return removerAcentos(activeComponent).trim().equals(removerAcentos(component.getActiveComponent()).trim());
     }
 
     @Override
     public int hashCode() {
         return activeComponent.hashCode();
+    }
+
+    private String removerAcentos(String s) {
+
+        String conAcentos = "áéíóú";
+        String sinAcentos = "aeiou";
+
+        for (int i = 0; i < conAcentos.length(); i++)
+            s = s.toLowerCase().replace(conAcentos.charAt(i), sinAcentos.charAt(i));
+        return s;
     }
 }
