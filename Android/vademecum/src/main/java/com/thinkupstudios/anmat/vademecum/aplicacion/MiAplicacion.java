@@ -33,15 +33,27 @@ public class MiAplicacion extends Application {
         return laboratorios;
     }
 
+    public void setNombresComerciales(List<String> nombresComerciales) {
+        this.nombresComerciales = nombresComerciales;
+    }
+
+    public void setNombresGenericos(List<String> nombresGenericos) {
+        this.nombresGenericos = nombresGenericos;
+    }
+
+    public void setLaboratorios(List<String> laboratorios) {
+        this.laboratorios = laboratorios;
+    }
+
+    public void setPrincipiosActivos(List<String> principiosActivos) {
+        this.principiosActivos = principiosActivos;
+    }
+
     @Override
     public void onCreate() {
-        GenericProvider genericProvider = new GenericProvider(new DatabaseHelper(this));
+
         FontsOverride.overrideFont(getApplicationContext(), "SERIF", "fonts/mi_fuente.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
-        this.nombresComerciales = genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL);
-        this.laboratorios = genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO);
-        this.nombresGenericos = genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO);
-        this.principiosActivos = genericProvider.getDistinctColumns(PrincipiosActivosTable.TABLE_NAME, PrincipiosActivosTable.COLUMN_NAME);
 
 
     }
