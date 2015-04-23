@@ -61,19 +61,17 @@
     <Reference Include="xunit">
       <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.extensions">
-      <HintPath>..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTests\MetadataRepositoryTest.cs" />
-    <Compile Include="DataTests\RepositoryTests.cs" />
+    <Compile Include="UpdateVersionRepositorySpec.cs" />
+    <Compile Include="MetadataRepositorySpec.cs" />
+    <Compile Include="RepositorySpec.cs" />
     <Compile Include="TestModels\Foo.cs" />
-    <Compile Include="CSVDocumentReaderTest.cs" />
+    <Compile Include="CsvDocumentReaderSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataTests\TestRepositoryTests.cs" />
+    <Compile Include="TestRepositorySpec.cs" />
     <Compile Include="TestModels\TestEntity.cs" />
-    <Compile Include="SQLiteGeneratorTest.cs" />
+    <Compile Include="SQLiteGeneratorSpec.cs" />
     <Compile Include="TestMetadataGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,20 +81,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="field_with_null.csv">
+    <None Include="Files\field_with_null.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="wrong_column_count.csv">
+    <None Include="Files\wrong_column_count.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="invalid_format .txt">
+    <Content Include="Files\invalid_file_extension .txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="valid_format.csv">
+    <None Include="Files\valid_format.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="invalid_format.csv">
+    <None Include="Files\invalid_format.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

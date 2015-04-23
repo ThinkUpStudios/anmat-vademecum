@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Anmat.Server.Core
+namespace Anmat.Server.Core.Data
 {
     public abstract class DataEntity<T>
     {

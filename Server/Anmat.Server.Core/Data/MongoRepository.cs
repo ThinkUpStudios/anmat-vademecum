@@ -1,65 +1,73 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Linq.Expressions;
+using Anmat.Server.Core.Properties;
 
-namespace Anmat.Server.Core
+namespace Anmat.Server.Core.Data
 {
     public class MongoRepository<T> : IRepository<T>
         where T : DataEntity
     {
-        private IMongoDatabase database;
+		private static readonly string collectionName = typeof(T).Name;
+
+		private string databaseName;
+        private MongoClient client;
         
-        private static readonly string collectionName = typeof(T).Name;
-
-        public MongoRepository(string dataBaseName)
+        public MongoRepository(AnmatConfiguration configuration, IInitializer<T> initializer = null)
         {
-            this.Initialize(dataBaseName);
+            this.InitializeClient(configuration);
+
+			if (initializer != null) {
+				initializer.Initialize (this, configuration.FullInitialize);
+			}
         }
-
-        private void Initialize(string dataBaseName)
-        {
-            try
-            {
-                var client = new MongoClient();
-
-                this.database = client.GetDatabase(dataBaseName);
-            }
-            catch (MongoException mongoEx)
-            {
-                var errorMessage = string.Concat("No se puede inicializar la base de datos: {0}", mongoEx.Message);
-
-                throw new DataException(errorMessage, mongoEx);
-            }
-        }
-
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null)
         {
-            return this.database.GetCollection<T>(collectionName).Find(predicate).ToListAsync().Result; 
+            var collection = this.GetDatabase().GetCollection<T>(collectionName);
+
+			if(predicate == null) {
+				return collection.Find(x => x.Id != Guid.Empty).ToListAsync().Result;
+			} else {
+				return collection.Find(predicate).ToListAsync().Result;
+			}
         }
 
         public T Get(Expression<Func<T, bool>> predicate = null)
         {
-            return  this.GetAll(predicate).FirstOrDefault();
+			var collection = this.GetDatabase().GetCollection<T>(collectionName);
+
+			if(predicate == null) {
+				return collection.Find(x => x.Id != Guid.Empty).FirstOrDefaultAsync().Result;
+			} else {
+				return collection.Find(predicate).FirstOrDefaultAsync().Result;
+			}
         }
 
         public bool Exist(Expression<Func<T, bool>> predicate = null)
         {
-            return this.Get(predicate) != null;
+            return this.Get(predicate) != default(T);
         }
 
         public void Create(T dataEntity)
         {
             try
             {
-                this.database.GetCollection<T>(collectionName).InsertOneAsync(dataEntity).Wait();
+                this.GetDatabase()
+					.GetCollection<T>(collectionName)
+					.InsertOneAsync(dataEntity)
+					.Wait();
             }
-            catch (MongoException e)
+            catch (AggregateException aggregateEx)
             {
-                throw new DataException("No se pudo crear la entidad.", e);
+				var flatten = aggregateEx.Flatten();
+
+				if (flatten.InnerException is MongoException) {
+					throw new DataException(string.Format(Resources.MongoRepository_CreateError, typeof(T).Name), aggregateEx.InnerException);
+				}
+
+				throw flatten.InnerException;
             }
         }
 
@@ -67,11 +75,20 @@ namespace Anmat.Server.Core
         {
             try
             {
-                this.database.GetCollection<T>(collectionName).ReplaceOneAsync(e => e.Id == dataEntity.Id, dataEntity).Wait();
+                this.GetDatabase()
+					.GetCollection<T>(collectionName)
+					.ReplaceOneAsync(e => e.Id == dataEntity.Id, dataEntity)
+					.Wait();
             }
-            catch (MongoException e)
+            catch (AggregateException aggregateEx)
             {
-                throw new DataException("No se pudo actualizar la entidad.", e);
+				var flatten = aggregateEx.Flatten();
+
+				if (flatten.InnerException is MongoException) {
+					throw new DataException(string.Format(Resources.MongoRepository_UpdateError, typeof(T).Name), aggregateEx.InnerException);
+				}
+
+				throw flatten.InnerException;
             }
         }
 
@@ -79,11 +96,20 @@ namespace Anmat.Server.Core
         {
             try
             {
-             this.database.GetCollection<T>(collectionName).DeleteOneAsync(x => x.Id == dataEntity.Id).Wait();
+				this.GetDatabase()
+					.GetCollection<T>(collectionName)
+					.DeleteOneAsync(x => x.Id == dataEntity.Id)
+					.Wait();
             }
-            catch (MongoException e)
+            catch (AggregateException aggregateEx)
             {
-                throw new DataException("No se pudo borrar de la entidad.", e);
+				var flatten = aggregateEx.Flatten();
+
+				if (flatten.InnerException is MongoException) {
+					throw new DataException(string.Format(Resources.MongoRepository_DeleteError, typeof(T).Name), aggregateEx.InnerException);
+				}
+
+				throw flatten.InnerException;
             }
         }
 
@@ -91,12 +117,40 @@ namespace Anmat.Server.Core
         {
             try
             {
-                this.database.GetCollection<T>(collectionName).DeleteManyAsync(e => e.Id != Guid.Empty);
+                this.GetDatabase()
+					.GetCollection<T>(collectionName)
+					.DeleteManyAsync(e => e.Id != Guid.Empty);
             }
-            catch (MongoException e)
+            catch (AggregateException aggregateEx)
             {
-                throw new DataException("No se pudo borrar de la entidad.", e);
+				var flatten = aggregateEx.Flatten();
+
+				if (flatten.InnerException is MongoException) {
+					throw new DataException(string.Format(Resources.MongoRepository_DeleteAllError, typeof(T).Name), aggregateEx.InnerException);
+				}
+
+				throw flatten.InnerException;
             }
         }
+
+		private void InitializeClient(AnmatConfiguration configuration)
+        {
+            try
+            {
+				this.databaseName = configuration.SourceDatabaseName;
+                this.client = new MongoClient();
+            }
+            catch (MongoException mongoEx)
+            {
+                var errorMessage = string.Format(Resources.MongoRepository_DatabaseCreationError, databaseName);
+
+                throw new DataException(errorMessage, mongoEx);
+            }
+        }
+
+		private IMongoDatabase GetDatabase()
+		{
+			return this.client.GetDatabase(this.databaseName);
+		}
     }
 }

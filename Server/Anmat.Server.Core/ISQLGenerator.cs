@@ -1,11 +1,17 @@
-﻿namespace Anmat.Server.Core
+﻿using System.Collections.Generic;
+
+namespace Anmat.Server.Core
 {
     public interface ISQLGenerator
     {
-		string DatabaseName { get; }
-	
+		string FileExtension { get; }
+
         string Script { get; }
 
-        void GenerateDatabase(params IDocumentGenerator[] documentGenerators);
+		/// <exception cref="SQLGenerationException">SQLGenerationException</exception>
+        string GenerateDatabase(IEnumerable<IDocumentGenerator> documentGenerators);
+
+		/// <exception cref="SQLGenerationException">SQLGenerationException</exception>
+        string GenerateDatabase(params IDocumentGenerator[] documentGenerators);
     }
 }
