@@ -18,12 +18,9 @@ public class GenericProvider {
 
     public GenericProvider(DatabaseHelper db) {
         this.helper = db;
-        try {
-            this.helper.createDataBase();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.helper.getReadableDatabase();
+
     }
 
     public List<String> getDistinctColumns(String tabla, String[] columnas){

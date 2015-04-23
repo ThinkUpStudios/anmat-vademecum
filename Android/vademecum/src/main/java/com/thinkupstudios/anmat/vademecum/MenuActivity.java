@@ -13,18 +13,19 @@ import android.view.MenuItem;
 
 /**
  * Created by fcostazini on 02/03/2015.
- *
+ * <p/>
  * Activity Generica que maneja el menu de llamadas y email, asi como el menu main_menu.xml
  */
-public abstract class  MenuActivity extends Activity {
+public abstract class MenuActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // add PhoneStateListener
+
         PhoneCallListener phoneListener = new PhoneCallListener();
         TelephonyManager telephonyManager = (TelephonyManager) this
                 .getSystemService(Context.TELEPHONY_SERVICE);
-        telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+        telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
 
     @Override
@@ -51,6 +52,7 @@ public abstract class  MenuActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -102,4 +104,9 @@ public abstract class  MenuActivity extends Activity {
             }
         }
     }
- }
+
+
+
+
+
+}
