@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\MongoDB.Bson.2.0.0\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -46,6 +47,7 @@
       <HintPath>..\packages\mongocsharpdriver.2.0.0\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.96.0\lib\net45\System.Data.SQLite.dll</HintPath>
@@ -57,32 +59,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
+    <Compile Include="DocumentGenerator.cs" />
+    <Compile Include="Context\IAnmatContext.cs" />
+    <Compile Include="Context\AnmatContext.cs" />
+    <Compile Include="Data\DocumentMetadataInitializer.cs" />
+    <Compile Include="Data\IInitializer.cs" />
+    <Compile Include="Data\UpdateVersion.cs" />
+    <Compile Include="Data\UpdateVersionInitializer.cs" />
+    <Compile Include="Exceptions\DocumentGenerationException.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Model\Cell.cs" />
     <Compile Include="CsvDocumentReader.cs" />
-    <Compile Include="DatabaseConfiguration.cs" />
+    <Compile Include="AnmatConfiguration.cs" />
     <Compile Include="Data\DataEntity.cs" />
     <Compile Include="Data\DataException.cs" />
-    <Compile Include="Data\InMemoryRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Document.cs" />
-    <Compile Include="DocumentColumnMetadata.cs" />
-    <Compile Include="DocumentFormatException.cs" />
-    <Compile Include="DocumentMetadata.cs" />
-    <Compile Include="FieldFormatException.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Data\DocumentColumnMetadata.cs" />
+    <Compile Include="Exceptions\DocumentFormatException.cs" />
+    <Compile Include="Data\DocumentMetadata.cs" />
+    <Compile Include="Exceptions\FieldFormatException.cs" />
     <Compile Include="IDocumentGenerator.cs" />
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="ISQLGenerator.cs" />
-    <Compile Include="MedicamentosGenerator.cs" />
     <Compile Include="Data\MongoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Row.cs" />
-    <Compile Include="SQLGenerationException.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Row.cs" />
+    <Compile Include="Exceptions\SQLGenerationException.cs" />
     <Compile Include="SQLiteGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets')" />

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
-namespace Anmat.Server.Core
+namespace Anmat.Server.Core.Data
 {
     public interface IRepository<T> where T : DataEntity
     {

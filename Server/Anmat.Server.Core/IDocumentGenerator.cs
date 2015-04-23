@@ -1,4 +1,6 @@
-﻿namespace Anmat.Server.Core
+﻿using Anmat.Server.Core.Data;
+
+namespace Anmat.Server.Core
 {
     public interface IDocumentGenerator
     {
@@ -6,6 +8,7 @@
 
         DocumentMetadata Metadata { get; }
 
+		/// <exception cref="DocumentGenerationException">DocumentGenerationException</exception>
         Document Generate();
     }
 }
