@@ -1,4 +1,6 @@
-﻿namespace Anmat.Server.Core.Tests
+﻿using Anmat.Server.Core.Data;
+
+namespace Anmat.Server.Core.Tests
 {
     public class Foo : DataEntity
     {

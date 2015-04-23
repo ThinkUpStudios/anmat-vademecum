@@ -1,79 +1,180 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Anmat.Server.Core.Data;
+using Anmat.Server.Core.Exceptions;
+using Anmat.Server.Core.Model;
+using Anmat.Server.Core.Properties;
+using Microsoft.VisualBasic.FileIO;
 
 namespace Anmat.Server.Core
 {
     public class CsvDocumentReader : IDocumentReader
     {
+		private static readonly string separator = ";";
+		private readonly AnmatConfiguration configuration;
+		private readonly IDictionary<Type, Func<string, DocumentColumnMetadata, string>> typeConverters;
+
+		public CsvDocumentReader (AnmatConfiguration configuration)
+		{
+			this.configuration = configuration;
+			this.typeConverters = new Dictionary<Type, Func<string, DocumentColumnMetadata, string>> ();
+
+			this.LoadTypeConverters ();
+		}
+
+		public string FileExtension { get { return ".csv"; } }
+
+		/// <exception cref="DocumentFormatException">DocumentFormatException</exception>
+		/// <exception cref="FieldFormatException">FieldFormatException</exception>
+		/// <exception cref="ArgumentException">ArgumentException</exception>
         public Document Read(string path, DocumentMetadata metadata)
         {
-            if (!File.Exists(path)) {
-                throw new ArgumentException(string.Format("El archivo {0} no existe",path));
-            }
+			this.ValidateDocumentFile (path);
 
-            if (Path.GetExtension(path) != ".csv")
-            {
-                throw new ArgumentException(string.Format("La extension {0} no soportada",Path.GetExtension(path)));
-            }
             var document = new Document();
-            var reader = new StreamReader(path);
-            var line = default(string);
-            var lineIndex = 0;
-            if (metadata.HasHeader) 
-            { 
-                reader.ReadLine();
-                lineIndex++;
-            }
-            
-            while ((line = reader.ReadLine()) != null)
-            {
-                
-                var lineParts = line.Split(';');
-                lineIndex++;
-                if (lineParts.Length != metadata.Columns.Count())
-                {
-                    throw new DocumentFormatException(string.Format("Se esperaban {0} columnas separadas por ';'. Se encontraron {1} en la linea {2}.", metadata.Columns.Count(),lineParts.Length, lineIndex));
-                }
-                var row = new Row();
-                for (var i = 0; i < lineParts.Length; i++ )
-                {
-                    var columnMetadata = metadata.Columns.FirstOrDefault(x => x.ColumnNumber == i);
 
-                    if (columnMetadata == null)
-                    {
-                        throw new FieldFormatException(string.Format("La columna {0} no esta definida en la metadata", i));
-                    }
+			using (var parser = new TextFieldParser (path, this.configuration.GetDefaultEncoding())) {
+				parser.TextFieldType = FieldType.Delimited;
+				parser.SetDelimiters(separator);
+				parser.HasFieldsEnclosedInQuotes = true;
 
-                    var value = lineParts[i];
+				while (!parser.EndOfData) 
+				{
+					if (parser.LineNumber == 1 && metadata.HasHeader) {
+						parser.ReadLine ();
+						continue;
+					}
 
-                    if(!columnMetadata.IsNullable && (string.IsNullOrWhiteSpace(value) || value.ToLower() == "null")) {
-                        throw new FieldFormatException(string.Format("El campo {0} tiene valor nulo.", columnMetadata.Name));
-                    }
-                    
-                    try { 
-                        TypeDescriptor.GetConverter(Type.GetType(columnMetadata.Type)).ConvertFromString(value);
-                    }
-                    catch (Exception e)
-                    {
-                        throw new FieldFormatException(string.Format("El campo {0} no tiene el formato esperado.", columnMetadata.Name), e);
-                    }
-                    
-                    
-                    row.Add(value.ToLower() == "null" ? string.Empty : value, Type.GetType(columnMetadata.Type));    
-                }
+					var fields = parser.ReadFields();
+					
+					this.ValidateDocumentColumns (metadata, fields, parser.LineNumber);
+
+					var row = this.GetRow (fields, metadata);
                                 
-                document.Add(row);
+					document.AddRow(row);
+				}
+			}
+
+			return document;
+        }
+
+		private void ValidateDocumentFile (string path)
+		{
+			if (!File.Exists(path)) {
+                throw new ArgumentException(string.Format(Resources.DocumentReader_FileNotExists, path));
             }
 
-            reader.Close();
+            if (Path.GetExtension(path) != this.FileExtension)
+            {
+                throw new DocumentFormatException(string.Format(Resources.DocumentReader_NotSupportedFileExtension, Path.GetExtension(path), this.FileExtension));
+            }
+		}
 
-            return document;
-        }
+		private void ValidateDocumentColumns(DocumentMetadata metadata, string[] fields, long line)
+		{
+			if (fields.Length != metadata.Columns.Count())
+            {
+                throw new DocumentFormatException(string.Format(Resources.CsvDocumentReader_ExpectedColumnsFailed, metadata.Columns.Count(), fields.Length, line));
+            }
+		}
+
+		private Row GetRow(string[] fields, DocumentMetadata metadata)
+		{
+			var row = new Row();
+
+            for (var i = 0; i < fields.Length; i++ )
+            {
+                var columnMetadata = metadata.Columns.FirstOrDefault(x => x.ColumnNumber == i);
+
+                if (columnMetadata == null)
+                {
+                    throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_ColumnNotDefined, i, metadata.DocumentName));
+                }
+
+                var value = this.Normalize(fields[i]);
+
+                if(!columnMetadata.IsNullable && string.IsNullOrEmpty(value)) {
+                    throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_NullValueOnFieldNotAllowed, columnMetadata.Name, metadata.DocumentName));
+                }
+
+				var formattedValue = this.FormatField (metadata, columnMetadata, value);
+                    
+                row.AddCell(formattedValue, columnMetadata.GetType());    
+            }
+
+			return row;
+		}
+
+		private string FormatField(DocumentMetadata metadata, DocumentColumnMetadata columnMetadata, string value)
+		{
+			if (columnMetadata.IsNullable && string.IsNullOrEmpty (value)) {
+				return value;
+			}
+
+			var converter = default (Func<string, DocumentColumnMetadata, string>);
+			var fieldType = columnMetadata.GetType ();
+
+			if (!this.typeConverters.Any (c => c.Key == fieldType)) {
+				fieldType = typeof (string);
+			}
+
+			if (!this.typeConverters.TryGetValue (fieldType, out converter)) {
+				throw new FieldFormatException (string.Format(Resources.CsvDocumentReader_CantConvertFieldValue, value, columnMetadata.Type));
+			}
+
+			return converter (value, columnMetadata);
+		}
+
+		private string Normalize(string value)
+		{
+			if (string.IsNullOrWhiteSpace (value) || value.ToLower () == "null") {
+				return string.Empty;
+			}
+
+			return value;
+		}
+
+		private void LoadTypeConverters ()
+		{
+			this.typeConverters.Add (typeof (string), (value, columnMetadata) => value);
+			this.typeConverters.Add (typeof (bool), (value, columnMetadata) => {
+				var converted = default (bool);
+
+				if (!bool.TryParse (value, out converted)) {
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(bool).Name));
+				}
+
+				return converted.ToString();
+			});
+			this.typeConverters.Add (typeof (int), (value, columnMetadata) => {
+				var converted = default (int);
+
+				if (!int.TryParse (value, out converted)) {
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(int).Name));
+				}
+
+				return converted.ToNumberString ();
+			});
+			this.typeConverters.Add (typeof (double), (value, columnMetadata) => {
+				var converted = default (double);
+
+				if (!double.TryParse (value, out converted)) {
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(double).Name));
+				}
+
+				return converted.ToNumberString ();
+			});
+			this.typeConverters.Add (typeof (DateTime), (value, columnMetadata) => {
+				var converted = default (DateTime);
+
+				if (!DateTime.TryParse (value, out converted)) {
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(DateTime).Name));
+				}
+
+				return converted.ToString ();
+			});
+		}
     }
 }
