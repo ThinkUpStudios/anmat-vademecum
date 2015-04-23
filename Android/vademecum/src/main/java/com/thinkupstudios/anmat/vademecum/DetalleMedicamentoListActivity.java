@@ -43,7 +43,7 @@ private View selectedView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detallemedicamento_list);
         if(getIntent().getExtras() != null && getIntent().getStringExtra("COMERCIAL_RECOMENDADO")!= null){
-            this.setTitle("Comercial: "+getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
+            this.setTitle(getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
         }
         if (findViewById(R.id.detallemedicamento_detail_container) != null) {
             mTwoPane = true;

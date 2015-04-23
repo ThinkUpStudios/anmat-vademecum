@@ -99,7 +99,8 @@ public class MedicamentosProvider extends GenericProvider {
                     String like = "'%" + valor.trim() + "%'";
                     whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + " ";
                 }else{
-                    whereAnd += aux + this.matarCaracteresEspeciales(column) + " = '" + this.matarCaracteresEspeciales(valor.trim()) + "'";
+                    String campoString = "'" + campo.trim() + "'";
+                    whereAnd += aux + this.matarCaracteresEspeciales(column) + " = " + this.matarCaracteresEspeciales(campoString) + " ";
                 }
                 i++;
             }
@@ -109,7 +110,8 @@ public class MedicamentosProvider extends GenericProvider {
                 String like = "'%" + campo.trim() + "%'";
                 whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + "";
             }else{
-                whereAnd += aux + this.matarCaracteresEspeciales(column) + " = '" + this.matarCaracteresEspeciales(campo.trim()) + "'";
+                String campoString = "'" + campo.trim() + "'";
+                whereAnd += aux + this.matarCaracteresEspeciales(column) + " = " + this.matarCaracteresEspeciales(campoString) + " ";
             }
         }
         return whereAnd;

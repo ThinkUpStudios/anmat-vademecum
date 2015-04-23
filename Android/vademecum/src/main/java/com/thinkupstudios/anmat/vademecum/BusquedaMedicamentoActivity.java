@@ -73,7 +73,6 @@ public class BusquedaMedicamentoActivity extends MenuActivity implements View.On
             i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL,this.formualario);
             startActivity(i);
             overridePendingTransition(fade_in, fade_out);
-
         }
 
     }
