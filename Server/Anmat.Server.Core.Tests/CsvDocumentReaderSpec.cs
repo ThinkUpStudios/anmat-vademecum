@@ -3,6 +3,7 @@ using System.Linq;
 using Anmat.Server.Core.Data;
 using Anmat.Server.Core.Exceptions;
 using Xunit;
+using System.Collections.Generic;
 
 namespace Anmat.Server.Core.Tests
 {
@@ -12,7 +13,8 @@ namespace Anmat.Server.Core.Tests
 
         public CsvDocumentReaderSpec()
         {
-            this.reader = new CsvDocumentReader(new AnmatConfiguration());
+            this.reader = new CsvDocumentReader(new AnmatConfiguration { DefaultTextEncoding = "ISO-8859-1" });
+
         }
 
         [Fact]
@@ -115,5 +117,67 @@ namespace Anmat.Server.Core.Tests
 		{
 			this.reader = null;
 		}
+
+        [Fact]
+        public void when_read_file_with_metadata_has_removableAccents_and_upperCase_then_gets_removableAccents_and_upperCase_value()
+        {
+            
+            var path = @"Files\valid_format_upper.csv";
+
+            var columns = new List<DocumentColumnMetadata>();
+
+            columns.Add(new DocumentColumnMetadata
+            {
+                ColumnNumber = 0,
+                Name = "nombre",
+                Type = typeof(string).ToString(),
+                IsNullable = true,
+                RemovableAccents = true,
+                UpperCase = true
+            });
+
+            columns.Add(new DocumentColumnMetadata
+            {
+                ColumnNumber = 1,
+                Name = "descripcion",
+                Type = typeof(string).ToString(),
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
+            });
+
+            columns.Add(new DocumentColumnMetadata
+            {
+                ColumnNumber = 2,
+                Name = "valor",
+                Type = typeof(double).ToString(),
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
+            });
+
+            columns.Add(new DocumentColumnMetadata
+            {
+                ColumnNumber = 3,
+                Name = "ok",
+                Type = typeof(bool).ToString(),
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
+            });
+
+
+            var metadata = new DocumentMetadata
+            {
+                DocumentName = "Sad Case",
+                Columns = columns,
+                HasHeader = true
+            };
+
+            var document = this.reader.Read(path, metadata);
+
+            Assert.Equal("MEDICAMENTOS", document.Rows.First().Cells.First().Value);
+            
+        }
 	}
 }

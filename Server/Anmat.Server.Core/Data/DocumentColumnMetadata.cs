@@ -12,6 +12,10 @@ namespace Anmat.Server.Core.Data
 
         public bool IsNullable { get; set; }
 
+        public bool RemovableAccents { get; set; }
+
+        public bool UpperCase { get; set; }
+
 		public void AddType(Type type)
 		{
 			this.Type = type.ToString ();
