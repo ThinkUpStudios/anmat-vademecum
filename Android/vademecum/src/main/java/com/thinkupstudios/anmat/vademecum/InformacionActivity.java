@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
 
+
 /**
  * Created by dcamarro on 02/03/2015.
  * Actividad que muestra la pantalla de Información
@@ -14,6 +15,7 @@ public class InformacionActivity extends MenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         TextView viewInfo;
         setContentView(R.layout.activity_info);
 

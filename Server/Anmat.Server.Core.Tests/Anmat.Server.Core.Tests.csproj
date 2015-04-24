@@ -84,6 +84,9 @@
     <None Include="Files\field_with_null.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\valid_format_upper.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Files\wrong_column_count.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
