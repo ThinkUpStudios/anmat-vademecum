@@ -5,6 +5,10 @@ import android.text.Html;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.thinkupstudios.anmat.vademecum.bo.VersionBo;
+import com.thinkupstudios.anmat.vademecum.providers.VersionProvider;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+
 /**
  * Created by dcamarro on 02/03/2015.
  * Pantalla de ACerca de
@@ -16,6 +20,12 @@ public class AcercaDeActivity extends MenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        VersionProvider vp = new VersionProvider(dbHelper);
+
+        VersionBo version = vp.getVersionBo();
+
         setContentView(R.layout.activity_acerca_de);
         TextView viewAcercaDe;
         viewAcercaDe = (TextView) findViewById(R.id.txt_acerca_de);
@@ -29,7 +39,7 @@ public class AcercaDeActivity extends MenuActivity {
                         "Esta app fue desarrollada a partir de información brindada por el Ministerio de Salud de la Nación – ANMAT.\n" +
                         "</p>\n" +
                         "<p>\n" +
-                        "Los datos están actualizados al 3 de abril del 2015.\n" +
+                        "Los datos están actualizados al "+ version.getUltimaActualizacion()+" .\n" +
                          "<p>\n" +
 
                         "Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, " +
