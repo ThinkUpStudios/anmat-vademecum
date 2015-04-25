@@ -79,9 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             checkDB = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 
         } catch (SQLiteException e) {
-
-            e.printStackTrace();
-
+            checkDB = null;
         }
 
         if (checkDB != null) {
