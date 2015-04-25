@@ -102,7 +102,7 @@ namespace Anmat.Server.Core
 
                 if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase && columnMetadata.RemovableAccents)
                 {
-                    value = QuitAccents(value);
+                    value = QuitAccents(value.ToLower());
                     value = value.ToUpper();                    
 
                 }
