@@ -40,49 +40,64 @@ namespace Anmat.Server.Core.Data
                 ColumnNumber = 0,
                 Name = "id",
                 Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true, 
+                RemovableAccents = false,
+                UpperCase = false
+
             });
             columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 1,
                 Name = "certificado",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
             columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 2,
                 Name = "cuit",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 3,
                 Name = "laboratorio",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = true,
+                UpperCase = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 4,
                 Name = "gtin",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 5,
                 Name = "troquel",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 6,
                 Name = "comercial",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = true,
+                UpperCase = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
@@ -96,49 +111,63 @@ namespace Anmat.Server.Core.Data
                 ColumnNumber = 8,
                 Name = "generico",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = true,
+                UpperCase = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 9,
                 Name = "pais",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 10,
                 Name = "expendio",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 11,
                 Name = "trazabilidad",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 12,
                 Name = "presentacion",
 				Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 13,
                 Name = "precio",
 				Type = typeof(double).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 14,
                 Name = "es_hospitalario",
 				Type = typeof(int).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 
             var metadata = new DocumentMetadata

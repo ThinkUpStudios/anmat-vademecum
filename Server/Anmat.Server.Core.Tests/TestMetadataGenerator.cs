@@ -27,7 +27,9 @@ namespace Anmat.Server.Core.Tests
                 ColumnNumber = 0,
                 Name = "nombre",
                 Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 
             columns.Add(new DocumentColumnMetadata
@@ -35,7 +37,9 @@ namespace Anmat.Server.Core.Tests
                 ColumnNumber = 1,
                 Name = "descripcion",
                 Type = typeof(string).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 
             columns.Add(new DocumentColumnMetadata
@@ -43,7 +47,9 @@ namespace Anmat.Server.Core.Tests
                 ColumnNumber = 2,
                 Name = "valor",
                 Type = typeof(double).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 
             columns.Add(new DocumentColumnMetadata
@@ -51,7 +57,9 @@ namespace Anmat.Server.Core.Tests
                 ColumnNumber = 3,
                 Name = "ok",
                 Type = typeof(bool).ToString(),
-                IsNullable = true
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
             });
 
             return columns;

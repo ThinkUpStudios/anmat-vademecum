@@ -2,6 +2,7 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
 import android.app.ListFragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -24,7 +25,7 @@ import java.util.Vector;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class DetalleMedicamentoListFragment extends ListFragment  {
+public class DetalleMedicamentoListFragment extends ListFragment {
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -33,8 +34,6 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     private static final String STATE_ACTIVATED_POSITION = "activated_position";
 
     /**
-     *
-     *
      * A dummy implementation of the {@link Callbacks} interface that does
      * nothing. Used only when this fragment is not attached to an activity.
      */
@@ -64,17 +63,8 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        MedicamentosProvider provider;
         super.onCreate(savedInstanceState);
-        provider = new MedicamentosProvider(new DatabaseHelper(this.getActivity()));
-        this.resultados = provider
-                .findMedicamentos((FormularioBusqueda)
-                                this.getActivity().getIntent().getExtras()
-                                        .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
-                );
-        setListAdapter(new ResultadoAdapter(getActivity(),this.resultados));
-
-
+        new BuscarResultadosTask().execute();
 
 
     }
@@ -93,7 +83,7 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
         }
 
 
-     }
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -119,10 +109,10 @@ public class DetalleMedicamentoListFragment extends ListFragment  {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(getListView(), view, position, id);
 
-if(resultados.size() >0) {
-    MedicamentoBO bo = resultados.get(position);
-    mCallbacks.onItemSelected(bo, view);
-}
+        if (resultados.size() > 0) {
+            MedicamentoBO bo = resultados.get(position);
+            mCallbacks.onItemSelected(bo, view);
+        }
     }
 
 
@@ -157,7 +147,27 @@ if(resultados.size() >0) {
         mActivatedPosition = position;
     }
 
+    public class BuscarResultadosTask extends AsyncTask<Integer, Integer, List<MedicamentoBO>> {
+        @Override
+        protected List<MedicamentoBO> doInBackground(Integer... params) {
+            MedicamentosProvider provider =
+                    new MedicamentosProvider(new DatabaseHelper(
+                            DetalleMedicamentoListFragment.this.getActivity()));
+            List<MedicamentoBO> resultados = provider
+                    .findMedicamentos((FormularioBusqueda)
+                                    DetalleMedicamentoListFragment.this.getActivity().getIntent().getExtras()
+                                            .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
+                    );
+            return resultados;
+        }
 
+
+        @Override
+        protected void onPostExecute(List<MedicamentoBO> resultados) {
+            super.onPostExecute(resultados);
+            actualizarResultados(resultados);
+        }
+    }
 
     /**
      * A callback interface that all activities containing this fragment must
@@ -169,5 +179,10 @@ if(resultados.size() >0) {
          * Callback for when an item has been selected.
          */
         public void onItemSelected(MedicamentoBO medicamento, View item);
+    }
+
+    public void actualizarResultados(List<MedicamentoBO> resultados){
+        this.resultados = resultados;
+        setListAdapter(new ResultadoAdapter(this.getActivity(),this.resultados));
     }
 }

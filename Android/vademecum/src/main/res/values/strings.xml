@@ -10,7 +10,6 @@
     <string name="title_activity_busqueda_medicamento">Búsqueda de Medicamentos</string>
     <string name="title_activity_info">Info.</string>
     <string name="title_activity_ecerca_de">Acerca de VNM</string>
-
     <string name="title_activity_detalle_medicamento_swipe_view">Detalle Medicamento Swipe View</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -29,12 +28,10 @@
     <string name="troquel">Troquel:</string>
     <string name="sin_campo_busqueda">Ingrese un campo de busqueda</string>
     <string name="recomendados">Medicamentos con el mismo principio activo</string>
-
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_splash_screen">Splash</string>
-
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="lbl_principio_activo">Principio Activo</string>
@@ -53,7 +50,6 @@
     <string name="lbl_contraindicaciones">Contraindicaciones, reacciones adversas, precauciones:</string>
     <string name="lbl_observaciones">Observaciones:</string>
     <string name="lbl_denuncias">ANMAT Responde</string>
-
     <string name="email_responde">Email: responde@anmat.gov.ar</string>
     <string name="tel_anmat">Tel: 0800-333-1234</string>
     <string name="fax_anmat">Fax: (011) 4340-0800/5252-8200 int 1159</string>
@@ -78,5 +74,6 @@
     <string name="and_explanation">Utilizando este caracter como separador entre cada criterio, la búsqueda equivale a un \'Y\' lógico. Ejemplo: acido # ibu # cafeina equivale a acido Y ibu Y cafeina.</string>
     <string name="intro_help">En la búsqueda de medicamentos por nombre genérico, puede buscar por más de un criterio aplicando las siguientes condiciones lógicas:</string>
     <string name="busqueda_nombre_generico_help">Búsqueda por Nombre Genérico</string>
+    <string name="title_activity_splash">Splash</string>
 
 </resources>

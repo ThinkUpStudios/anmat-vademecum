@@ -66,7 +66,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
-        if (this.precio == null) {
+        if (this.precio == null || this.precio.isEmpty()) {
             if (this.isEsUsoHospitalario()) {
                 return (MedicamentoBO.UH);
             } else {

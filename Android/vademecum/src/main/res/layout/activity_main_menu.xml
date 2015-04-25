@@ -5,75 +5,80 @@
 
     tools:context="com.thinkupstudios.anmat.vademecum.MainMenuActivity">
 
-            <RelativeLayout
-                android:id="@+id/menucontent"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:layout_centerInParent="true"
-                android:layout_marginBottom="44dp"
-                android:padding="@dimen/margen_entre_lineas_detalle">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/menucontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="44dp"
+            android:padding="@dimen/margen_entre_lineas_detalle">
+
             <Button
                 android:id="@+id/btn_busqueda"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="#1B5687"
-                android:alpha="0.8"
-                android:gravity="center"
-                android:background="@drawable/button_txt_search"
-                android:text="@string/lbl_medicamentos"
-                android:minHeight="@dimen/button_height" />
-
-                <Button
-                    android:id="@+id/btn_principio_activo"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/btn_busqueda"
-                    android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:padding="20dp"
-                    android:textColor="#1B5687"
-                    android:alpha="0.8"
-                    android:gravity="center"
-                    android:background="@drawable/button_txt_search"
-
-                    android:text="@string/lbl_principio_activo"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:minHeight="@dimen/button_height" />
-
-                <Button
-                android:id="@+id/btn_informacion"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/btn_principio_activo"
-                android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:padding="20dp"
-                android:textColor="#1B5687"
+                android:minHeight="@dimen/button_height"
                 android:alpha="0.8"
+                android:background="@drawable/button_txt_search"
                 android:gravity="center"
+                android:text="@string/lbl_medicamentos"
+                android:textColor="#1B5687" />
+
+            <Button
+                android:id="@+id/btn_principio_activo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/btn_busqueda"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                android:alpha="0.8"
                 android:background="@drawable/button_txt_search"
 
-                android:text="@string/lbl_informacion"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:minHeight="@dimen/button_height"
+                android:padding="20dp"
+                android:text="@string/lbl_principio_activo"
+                android:textColor="#1B5687" />
+
+            <Button
+                android:id="@+id/btn_informacion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                    android:minHeight="@dimen/button_height" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/btn_principio_activo"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
+                android:alpha="0.8"
+                android:background="@drawable/button_txt_search"
+
+                android:gravity="center"
+                android:minHeight="@dimen/button_height"
+                android:padding="20dp"
+                android:text="@string/lbl_informacion"
+                android:textColor="#1B5687" />
 
 
-
-
-            </RelativeLayout>
-
+        </RelativeLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -81,30 +86,28 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#FFFFFFFF"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageView
-            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:src="@drawable/ministerio_salud"
             android:layout_weight="0.30"
-            />
+            android:contentDescription="@string/logo_desc"
+            android:src="@drawable/ministerio_salud" />
 
         <ImageView
-            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:src="@drawable/logo_ammat"
-            android:layout_weight="0.30"/>
+            android:layout_weight="0.30"
+            android:contentDescription="@string/logo_desc"
+            android:src="@drawable/logo_ammat" />
 
         <ImageView
-            android:contentDescription="@string/logo_desc"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:src="@drawable/tenemos_patria"
-            android:layout_weight="0.30"/>
+            android:layout_weight="0.30"
+            android:contentDescription="@string/logo_desc"
+            android:src="@drawable/tenemos_patria" />
 
 
     </LinearLayout>

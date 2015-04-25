@@ -1,5 +1,7 @@
 package com.thinkupstudios.anmat.vademecum.providers.services.contract;
 
+import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
+
 import java.io.File;
 
 /**
@@ -11,14 +13,13 @@ public interface IRemoteDBService {
     /**
      * Verifica si la versión pasada como parametro es la mas reciente
      *
-     * @param version a verificar
      * @return true si la version es la mas reciente
      */
-    public boolean isUpToDate(Integer version);
+    public boolean isUpToDate();
 
     /**
-     * Obtiene el archivo de la base de datos mas reciente
+     * Actualiza la Base de datos
       * @return File de base de datos
      */
-    public File getNewDataBase();
+    public boolean updateDatabase() throws UpdateNotPosibleException;
 }

@@ -7,6 +7,7 @@ using Anmat.Server.Core.Exceptions;
 using Anmat.Server.Core.Model;
 using Anmat.Server.Core.Properties;
 using Microsoft.VisualBasic.FileIO;
+using System.Text.RegularExpressions;
 
 namespace Anmat.Server.Core
 {
@@ -99,13 +100,36 @@ namespace Anmat.Server.Core
                     throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_NullValueOnFieldNotAllowed, columnMetadata.Name, metadata.DocumentName));
                 }
 
+                if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase && columnMetadata.RemovableAccents)
+                {
+                    value = QuitAccents(value);
+                    value = value.ToUpper();                    
+
+                }
 				var formattedValue = this.FormatField (metadata, columnMetadata, value);
+
                     
                 row.AddCell(formattedValue, columnMetadata.GetType());    
             }
 
 			return row;
 		}
+
+        private string QuitAccents(string inputString)
+        {
+            Regex a = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
+            Regex e = new Regex("[é|è|ë|ê]", RegexOptions.Compiled);
+            Regex i = new Regex("[í|ì|ï|î]", RegexOptions.Compiled);
+            Regex o = new Regex("[ó|ò|ö|ô]", RegexOptions.Compiled);
+            Regex u = new Regex("[ú|ù|ü|û]", RegexOptions.Compiled);
+            
+            inputString = a.Replace(inputString, "a");
+            inputString = e.Replace(inputString, "e");
+            inputString = i.Replace(inputString, "i");
+            inputString = o.Replace(inputString, "o");
+            inputString = u.Replace(inputString, "u");            
+            return inputString;
+        }
 
 		private string FormatField(DocumentMetadata metadata, DocumentColumnMetadata columnMetadata, string value)
 		{

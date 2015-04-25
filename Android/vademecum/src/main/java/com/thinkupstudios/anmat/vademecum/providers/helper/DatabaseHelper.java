@@ -5,14 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.thinkupstudios.anmat.vademecum.providers.SQLiteDBService;
-import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBService;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -22,9 +17,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
 
     private final static String DB_NAME = "anmat.sqlite";
-    private final static int DB_VERSION = 15;
+    private final static int DB_VERSION = 103;
 
-    private IRemoteDBService dbService;
+
     private SQLiteDatabase myDataBase;
 
     private final Context myContext;
@@ -39,13 +34,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         super(context, DB_NAME, null, DB_VERSION);
         this.myContext = context;
-        this.dbService = new SQLiteDBService();
+
     }
 
     /**
      * Creates a empty database on the system and rewrites it with your own database.
      */
-    public void createDataBase() throws IOException {
+    private void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
 
@@ -75,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      *
      * @return true if it exists, false if it doesn't
      */
-    private boolean checkDataBase() {
+    public boolean checkDataBase() {
 
         SQLiteDatabase checkDB = null;
 
@@ -85,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch (SQLiteException e) {
 
-            //database does't exist yet.
+            e.printStackTrace();
 
         }
 
@@ -114,21 +109,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
         // Path to the just created empty db
-        String outFileName = getPath();
+        String outFileName;
+
+        if(android.os.Build.VERSION.SDK_INT >= 17) {
+            outFileName = myContext.getApplicationInfo().dataDir + "/databases/";
+        }
+        else {
+            outFileName = "/data/data/" + myContext.getPackageName() + "/databases/";
+        }
+
 
         //Open the empty db as the output stream
-        OutputStream myOutput = new FileOutputStream(outFileName);
+        // create a File object for the parent directory
+
+        File wallpaperDirectory = new File(outFileName);
+        // have the object build the directory structure, if needed.
+        wallpaperDirectory.mkdirs();
+        // create a File object for the output file
+        File outputFile = new File(wallpaperDirectory, DB_NAME);
+        // now attach the OutputStream to the file object, instead of a String representation
+        FileOutputStream fos = new FileOutputStream(outputFile);
+
+        //OutputStream myOutput = new FileOutputStream(outFileName+DB_NAME);
 
         //transfer bytes from the inputfile to the outputfile
         byte[] buffer = new byte[1024];
         int length;
         while ((length = myInput.read(buffer)) > 0) {
-            myOutput.write(buffer, 0, length);
+            fos.write(buffer, 0, length);
         }
 
         //Close the streams
-        myOutput.flush();
-        myOutput.close();
+        fos.flush();
+        fos.close();
         myInput.close();
 
     }
@@ -138,6 +151,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Open the database
         String myPath = getPath();
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+
 
     }
 
@@ -158,45 +172,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        myContext.deleteDatabase(DB_NAME);
 
-            File actual = new File(getPath());
-            actual.renameTo(new File(getPath() + "_temp"));
-        try {
-            InputStream myInput = new FileInputStream(db.getPath());
-            // Path to the just created empty db
-            String outFileName = getPath();
-
-            //Open the empty db as the output stream
-            OutputStream myOutput = new FileOutputStream(outFileName);
-
-            //transfer bytes from the inputfile to the outputfile
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = myInput.read(buffer)) > 0) {
-                myOutput.write(buffer, 0, length);
-            }
-
-            //Close the streams
-            myOutput.flush();
-            myOutput.close();
-            myInput.close();
-            this.getReadableDatabase().getVersion();
-        } catch (Exception e) {
-            actual.renameTo(new File(getPath()));
-            throw new Error("Error upgrading database");
-
-        }
     }
 
-    public void upgrade(File update) throws IOException {
+    @Override
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(update, null);
+    }
 
-       File actualDB =  new File(myContext.getDatabasePath(DB_NAME).getPath());
+    public void upgrade(InputStream in) throws IOException {
+
+
+        File actualDB =  new File(myContext.getDatabasePath(DB_NAME).getPath());
         File backUp = this.bakupFile(actualDB);
 
-        InputStream in = new FileInputStream(update);
+
         OutputStream out = new FileOutputStream(actualDB,false);
         try {
             byte[] buf = new byte[1024];
@@ -204,16 +194,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while ((len = in.read(buf)) > 0) {
                 out.write(buf, 0, len);
             }
-            in.close();
-            out.close();
+
+            this.getReadableDatabase().getVersion();
         }catch (IOException e){
+
             in.close();
             out.close();
             backUp.renameTo( new File(myContext.getDatabasePath(DB_NAME).getPath()));
             throw new IOException();
         }
-            this.createDataBase();
-            backUp.delete();
+        finally {
+            in.close();
+            out.close();
+            out.flush();
+            this.close();
+        }
+        backUp.delete();
+
+
+
 
     }
 
@@ -232,5 +231,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         out.close();
         return backUpFile;
     }
+
+
+    public void createIfFirstRun() throws IOException {
+        if(!this.checkDataBase()){
+            this.copyDataBase();
+        }
+    }
+
 
 }

@@ -18,12 +18,9 @@ public class GenericProvider {
 
     public GenericProvider(DatabaseHelper db) {
         this.helper = db;
-        try {
-            this.helper.createDataBase();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.helper.getReadableDatabase();
+
     }
 
     public List<String> getDistinctColumns(String tabla, String[] columnas){
@@ -49,7 +46,9 @@ public class GenericProvider {
     }
 
     protected Cursor getAllByWhere(String tabla, String where, String orderBy){
-        String query = "select * from "+tabla+" "+where;
+        String query = "select * from "+tabla+" ";
+        if (where != null)
+            query += where;
         if(orderBy != null){
             query += " " + orderBy;
         }
