@@ -37,42 +37,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * Creates a empty database on the system and rewrites it with your own database.
-     */
-    private void createDataBase() throws IOException {
-
-        boolean dbExist = checkDataBase();
-
-        if (dbExist) {
-            this.getReadableDatabase();
-        } else {
-
-            //By calling this method and empty database will be created into the default system path
-            //of your application so we are gonna be able to overwrite that database with our database.
-            this.getReadableDatabase();
-            try {
-
-                copyDataBase();
-
-            } catch (IOException e) {
-
-                throw new Error("Error copying database");
-
-            }
-        }
-
-
-    }
-
-    /**
+     /**
      * Check if the database already exist to avoid re-copying the file each time you open the application.
      *
      * @return true if it exists, false if it doesn't
      */
     public boolean checkDataBase() {
 
-        SQLiteDatabase checkDB = null;
+        SQLiteDatabase checkDB;
 
         try {
             String path = getPath();
@@ -143,16 +115,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myInput.close();
 
     }
-
-    public void openDataBase() throws SQLException {
-
-        //Open the database
-        String myPath = getPath();
-        myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-
-
-    }
-
     @Override
     public synchronized void close() {
 
