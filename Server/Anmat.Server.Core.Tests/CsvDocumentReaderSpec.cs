@@ -176,7 +176,7 @@ namespace Anmat.Server.Core.Tests
 
             var document = this.reader.Read(path, metadata);
 
-            Assert.Equal("MEDICAMENTOS", document.Rows.First().Cells.First().Value);
+            Assert.Equal("PAPEPIPOPU PAPEPIPOPU", document.Rows.First().Cells.First().Value);
             
         }
 	}
