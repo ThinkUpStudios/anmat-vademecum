@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using Anmat.Server.Core.Data;
 using Anmat.Server.Core.Model;
+using Anmat.Server.Core.Services;
 using Moq;
 using Xunit;
 
@@ -13,6 +12,8 @@ namespace Anmat.Server.Core.Tests
 {
 	public class SQLiteGeneratorSpec
 	{
+		private static readonly int version = 2;
+
 		[Fact]
 		public void when_generating_database_from_test_document_generator_then_succeeds () 
 		{
@@ -21,17 +22,25 @@ namespace Anmat.Server.Core.Tests
 				TargetDatabaseName = this.GetDatabaseName("TestDb"),
 				ReplaceExistingTargetDatabase = true
 			};
-			var updateVersion = new UpdateVersion { Number = 1, Date = DateTime.UtcNow };
-			var versionRepository = new Mock<IRepository<UpdateVersion>> ();
+			var updateVersion = new UpdateVersion { Number = version, Date = DateTime.UtcNow };
+			var job = new DataGenerationJob
+			{
+				Version = updateVersion.Number,
+				Status = DataGenerationJobStatus.InProgress
+			};
+			
+			var jobService = new Mock<IDataGenerationJobService> ();
 
-			versionRepository
-				.Setup (r => r.GetAll (It.IsAny <Expression<Func<UpdateVersion, bool>>> ()))
-				.Returns (new List<UpdateVersion> { updateVersion });
-			versionRepository
-				.Setup (r => r.Get (It.IsAny <Expression<Func<UpdateVersion, bool>>> ()))
+			jobService
+				.Setup (s => s.GetLatestJob ())
+				.Returns (job);
+			var versionService = new Mock<IVersionService> ();
+
+			versionService
+				.Setup (r => r.IncrementVersion())
 				.Returns (updateVersion);
 
-			var sqlGenerator = new SQLiteGenerator (versionRepository.Object, configuration);
+			var sqlGenerator = new SQLiteGenerator (jobService.Object, versionService.Object, configuration);
 			var documentName = "FooDocument";
 			var document = this.GetDocument ();
 			var documentGenerator = new Mock<IDocumentGenerator> ();
@@ -72,13 +81,25 @@ namespace Anmat.Server.Core.Tests
 				TargetDatabaseName = this.GetDatabaseName("TestDb"),
 				ReplaceExistingTargetDatabase = false
 			};
-			var versionRepository = new Mock<IRepository<UpdateVersion>> ();
+			var updateVersion = new UpdateVersion { Number = 2, Date = DateTime.UtcNow };
+			var job = new DataGenerationJob
+			{
+				Version = updateVersion.Number,
+				Status = DataGenerationJobStatus.InProgress
+			};
+			
+			var jobService = new Mock<IDataGenerationJobService> ();
 
-			versionRepository
-				.Setup (r => r.GetAll (It.Is <Expression<Func<UpdateVersion, bool>>> (x => x == null)))
-				.Returns (new List<UpdateVersion> { new UpdateVersion { Number = 1, Date = DateTime.UtcNow } });
+			jobService
+				.Setup (s => s.GetLatestJob ())
+				.Returns (job);
+			var versionService = new Mock<IVersionService> ();
 
-			var sqlGenerator = new SQLiteGenerator (versionRepository.Object, configuration);
+			versionService
+				.Setup (r => r.IncrementVersion())
+				.Returns (updateVersion);
+
+			var sqlGenerator = new SQLiteGenerator (jobService.Object, versionService.Object, configuration);
 			var documentGenerator = new Mock<IDocumentGenerator> ();
 
 			var databaseFileName = this.GetDatabaseFileName (configuration, sqlGenerator);
@@ -91,7 +112,7 @@ namespace Anmat.Server.Core.Tests
 
 		private string GetDatabaseFileName(AnmatConfiguration configuration, ISQLGenerator sqlGenerator)
 		{
-			var databaseFileName = Path.Combine (configuration.GetVersionPath (version: 1), configuration.TargetDatabaseName + sqlGenerator.FileExtension);
+			var databaseFileName = Path.Combine (configuration.GetVersionPath (version: version), configuration.TargetDatabaseName + sqlGenerator.FileExtension);
 
 			if (!Directory.Exists (Path.GetDirectoryName(databaseFileName))) {
 				Directory.CreateDirectory (Path.GetDirectoryName(databaseFileName));

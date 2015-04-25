@@ -1,0 +1,81 @@
+﻿@using Anmat.Server.Core.Data
+ 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="float:left;">Actualizacion de Datos</h2>
+
+<div style="display:block;float:right;">
+    <a id="generateJob" href="javascript:" title="Comenzar procesamiento">
+        <img src="@Url.Content("~/Images/start-upload-job.png")" />
+    </a>
+</div>
+<div style="clear: both;"></div>
+<form action="~/DataUpload/SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+    <div class="fallback">
+        <input name="file" type="file" multiple />
+        <input type="submit" value="Upload" />
+    </div>
+</form>
+
+<style type="text/css">
+    .dz-max-files-reached {
+        /*background-color: red;*/
+    }
+</style>
+@section scripts{
+    <script type="text/javascript">
+        var filesAdded = 0;
+        var filesWithError = 0;
+
+        $(document).ready(function () {
+            $("#generateJob").click(function () {
+                if (filesAdded - filesWithError == 0) {
+                    $.notify("No hay archivos listos para procesar", { position: "top center" });
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("StartJob", "DataUpload")",
+                        data: "{}",
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.success) {
+                                window.location = '@Url.Action("Jobs", "DataUpload")';
+                            } else {
+                                $.notify(data.message, { position: "top center" });
+                            }
+                        }, error: function (data) {
+                            $.notify("Ocurrio un error no esperado al procesar los archivos", { position: "top center" });
+                        }
+                    });
+                }
+            });
+        });
+
+        Dropzone.options.dropzoneForm = {
+            maxFiles: 2,
+            acceptedFiles: ".csv",
+            dictDefaultMessage: "Arrastrar los archivos aqui",
+            dictFallbackMessage: "El navegador no soporta subir archivos con drag & drop",
+            dictFileTooBig: "El archivo es muy grande ({{filesize}}MB). Maximo permitido: {{maxFilesize}}MB.",
+            dictInvalidFileType: "No se permite subir archivos de ese tipo.",
+            dictResponseError: "El Server respondio con codigo {{statusCode}}.",
+            dictCancelUpload: "El proceso se ha cancelado",
+            dictCancelUploadConfirmation: "Esta seguro que desea cancelar el proceso?",
+            dictRemoveFile: "Remover archivo",
+            dictMaxFilesExceeded: "No se permite subir mas archivos.",
+            init: function () {
+                this.on("error", function (file, message) {
+                    $.notify(message, { position: "top center" });
+                    filesWithError++;
+                });
+                this.on("addedfile", function (file) {
+                    filesAdded++;
+                });
+            }
+        };
+    </script>
+}

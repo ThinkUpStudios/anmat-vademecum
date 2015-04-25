@@ -6,7 +6,24 @@ namespace Anmat.Server.Core
 {
 	public class AnmatConfiguration
 	{
+		public static string GetTempVersionPath(int version)
+		{
+			var versionValue = string.Format("v.{0}.0", version);
+			var tempPath = Path.Combine(Path.GetTempPath (), "Anmat");
+			var tempVersionPath = Path.Combine (tempPath, versionValue);
+
+			if (!Directory.Exists (tempVersionPath)) {
+				Directory.CreateDirectory (tempVersionPath);
+			}
+
+			return tempVersionPath;
+		}
+
+		public string AnmatDataServiceUrl { get; set; }
+
 		public string DocumentsPath { get; set; }
+
+		public string SourceDatabaseConnectionString { get; set; }
 
 		public string SourceDatabaseName { get; set; }
 
@@ -26,8 +43,13 @@ namespace Anmat.Server.Core
 		{
 			var versionValue = string.Format("v.{0}.0", version);
 			var expandedDocumentsPath = Environment.ExpandEnvironmentVariables (this.DocumentsPath);
+			var versionPath = Path.Combine (expandedDocumentsPath, versionValue);
 
-			return Path.Combine (expandedDocumentsPath, versionValue);
+			if (!Directory.Exists (versionPath)) {
+				Directory.CreateDirectory (versionPath);
+			}
+
+			return versionPath;
 		}
 
 		public Encoding GetDefaultEncoding()

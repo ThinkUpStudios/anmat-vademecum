@@ -7,19 +7,22 @@ using Anmat.Server.Core.Data;
 using Anmat.Server.Core.Model;
 using Anmat.Server.Core.Properties;
 using System.Collections.Generic;
+using Anmat.Server.Core.Services;
 
 namespace Anmat.Server.Core
 {
 	public class SQLiteGenerator : ISQLGenerator
     {
 		private readonly StringBuilder scriptBuilder;
-		private readonly IRepository<UpdateVersion> versionRepository;
+		private readonly IDataGenerationJobService jobService;
+		private readonly IVersionService versionService;
 		private readonly AnmatConfiguration configuration;
 
-		public SQLiteGenerator (IRepository<UpdateVersion> versionRepository, AnmatConfiguration configuration)
+		public SQLiteGenerator (IDataGenerationJobService jobService, IVersionService versionService, AnmatConfiguration configuration)
 		{
 			this.scriptBuilder = new StringBuilder ();
-			this.versionRepository = versionRepository;
+			this.jobService = jobService;
+			this.versionService = versionService;
 			this.configuration = configuration;
 		}
 
@@ -38,12 +41,17 @@ namespace Anmat.Server.Core
         {
 			this.scriptBuilder.Clear ();
 
-			var version = this.versionRepository.GetAll ().Max (v => v.Number);
-			var databaseFileName = Path.Combine (this.configuration.GetVersionPath (version), this.configuration.TargetDatabaseName + this.FileExtension);
+			var job = this.jobService.GetLatestJob ();
 
-			if (!Directory.Exists (Path.GetDirectoryName(databaseFileName))) {
-				Directory.CreateDirectory (Path.GetDirectoryName(databaseFileName));
+			if (job == null) {
+				throw new SQLGenerationException (Resources.LatestJob_Null);
 			}
+
+			if (job.Status != DataGenerationJobStatus.InProgress) {
+				throw new SQLGenerationException (string.Format(Resources.LatestJob_NotInProgress, job.Id, job.Version));
+			}
+
+			var databaseFileName = Path.Combine (this.configuration.GetVersionPath (job.Version), this.configuration.TargetDatabaseName + this.FileExtension);
 
 			if(!configuration.ReplaceExistingTargetDatabase && File.Exists(databaseFileName)) {
 				throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_DatabaseAlreadyExists, databaseFileName));
@@ -57,7 +65,10 @@ namespace Anmat.Server.Core
 				connection.Open ();
 
 				this.CreateDocumentTables (documentGenerators, connection);
-				this.CreateVersionTable (version, connection);
+
+				var newVersion = this.versionService.IncrementVersion ();
+
+				this.CreateVersionTable (newVersion, connection);
 
 				connection.Close ();
 			}
@@ -87,14 +98,12 @@ namespace Anmat.Server.Core
 			}
 		}
 
-		private void CreateVersionTable(int version, SQLiteConnection connection)
+		private void CreateVersionTable(UpdateVersion version, SQLiteConnection connection)
 		{
-			var updateVersion = this.versionRepository.Get (v => v.Number == version);
-			
 			var tableScript = "CREATE TABLE version (numero	INT NOT NULL, ultima_actualizacion TEXT NOT NULL)";
 			var tableCommand = new SQLiteCommand(tableScript, connection);
 
-			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", updateVersion.Number, updateVersion.Date.ToString ());
+			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", version.Number, version.Date.ToString ());
 			var insertCommand = new SQLiteCommand(insertScript, connection);
 
 			tableCommand.ExecuteNonQuery();

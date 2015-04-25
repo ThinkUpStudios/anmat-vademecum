@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataGenerationJob.cs" />
+    <Compile Include="Data\DataGenerationJobStatus.cs" />
     <Compile Include="DocumentGenerator.cs" />
     <Compile Include="Context\IAnmatContext.cs" />
     <Compile Include="Context\AnmatContext.cs" />
@@ -91,6 +93,10 @@
     </Compile>
     <Compile Include="Model\Row.cs" />
     <Compile Include="Exceptions\SQLGenerationException.cs" />
+    <Compile Include="Services\DataGenerationJobService.cs" />
+    <Compile Include="Services\IDataGenerationJobService.cs" />
+    <Compile Include="Services\IVersionService.cs" />
+    <Compile Include="Services\VersionService.cs" />
     <Compile Include="SQLiteGenerator.cs">
       <SubType>Code</SubType>
     </Compile>

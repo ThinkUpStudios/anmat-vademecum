@@ -138,7 +138,7 @@ namespace Anmat.Server.Core.Data
             try
             {
 				this.databaseName = configuration.SourceDatabaseName;
-                this.client = new MongoClient();
+                this.client = new MongoClient(configuration.SourceDatabaseConnectionString);
             }
             catch (MongoException mongoEx)
             {
