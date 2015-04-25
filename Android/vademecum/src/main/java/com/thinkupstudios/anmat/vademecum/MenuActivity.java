@@ -42,7 +42,7 @@ public abstract class MenuActivity extends Activity {
 
             case R.id.mn_email:
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde)});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde_value)});
                 email.putExtra(Intent.EXTRA_SUBJECT, " ");
                 email.putExtra(Intent.EXTRA_TEXT, " ");
                 email.setType("message/rfc822");
