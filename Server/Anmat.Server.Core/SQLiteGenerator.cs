@@ -59,18 +59,24 @@ namespace Anmat.Server.Core
 
 			SQLiteConnection.CreateFile (databaseFileName);
 
-			var connectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
+			var inMemoryConnectionString = string.Format ("Data Source=:memory:");
 
-			using (var connection = new SQLiteConnection (connectionString)) {
-				connection.Open ();
+			using (var inMemoryConnection = new SQLiteConnection (inMemoryConnectionString)) {
+				inMemoryConnection.Open ();
 
-				this.CreateDocumentTables (documentGenerators, connection);
+				this.CreateDocumentTables (documentGenerators, inMemoryConnection);
 
 				var newVersion = this.versionService.IncrementVersion ();
 
-				this.CreateVersionTable (newVersion, connection);
+				this.CreateVersionTable (newVersion, inMemoryConnection);
 
-				connection.Close ();
+				var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
+
+				using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
+					fileConnection.Open ();
+
+					inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
+				}
 			}
 
 			this.Script = scriptBuilder.ToString ();
