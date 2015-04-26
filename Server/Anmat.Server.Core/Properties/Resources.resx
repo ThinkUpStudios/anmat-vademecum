@@ -132,6 +132,9 @@
   <data name="CsvDocumentReader_NullValueOnFieldNotAllowed" xml:space="preserve">
     <value>El campo {0} del documento {1} tiene valor nulo y la metadata de la columna esta definida como no Nullable</value>
   </data>
+  <data name="DataGenerationJobService_JobCompleted" xml:space="preserve">
+    <value>El job {0} para la version {1} ha finalizado exitosamente</value>
+  </data>
   <data name="DocumentGenerator_NoMetadataFound" xml:space="preserve">
     <value>No se ha encontrado metadata definida para generar el documento {0}</value>
   </data>
@@ -140,6 +143,12 @@
   </data>
   <data name="DocumentReader_NotSupportedFileExtension" xml:space="preserve">
     <value>La extension de archivo {0} no esta soportada. Extension esperada: {1}</value>
+  </data>
+  <data name="LatestJob_NotInProgress" xml:space="preserve">
+    <value>El job con id {0} y version {1} no se encuentra en progreso, por lo tanto no puede realizarse ningun procesamiento de informacion</value>
+  </data>
+  <data name="LatestJob_Null" xml:space="preserve">
+    <value>No hay ningun job creado,  por lo tanto no puede realizarse ningun procesamiento de informacion</value>
   </data>
   <data name="MongoRepository_CreateError" xml:space="preserve">
     <value>Ocurrio un error al crear la entidad {0}</value>
