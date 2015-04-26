@@ -7,6 +7,7 @@ using Anmat.Server.Core.Context;
 using System.Linq;
 using Anmat.Server.Core.Data;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Anmat.Server.Web.Controllers
 {
@@ -43,15 +44,15 @@ namespace Anmat.Server.Web.Controllers
         public ActionResult StartJob()
         {
 			var version = this.GetNewVersion ();
-			
 			var tempPath = AnmatConfiguration.GetTempVersionPath (version);
 			var tempFiles = Directory.EnumerateFiles (tempPath);
+			var expectedFiles = new List<string> { 
+				context.Configuration.TargetMedicinesTableName, 
+				context.Configuration.TargetActiveComponentsTableName 
+			};
 
-			var invalidFiles = tempFiles.Select(f => Path.GetFileNameWithoutExtension(f)).Where (f => f != this.context.Configuration.TargetMedicinesTableName &&
-				f != this.context.Configuration.TargetActiveComponentsTableName);
-
-			if (invalidFiles.Any()) {
-				var message = string.Format ("Uno o mas archivos tienen nombre incorrecto.\nNombres incorrectos: {0}.\nNombres esperados: {1}", string.Join (", ", invalidFiles), string.Concat (this.context.Configuration.TargetMedicinesTableName, ", ", this.context.Configuration.TargetActiveComponentsTableName));
+			if (!tempFiles.Any (t => expectedFiles.Any (e => e == Path.GetFileNameWithoutExtension (t)))) {
+				var message = string.Format ("Debe haber al menos un archivo de los esperados:", string.Join (", ", expectedFiles));
 				
 				return Json(new { success = false, message = message });
 			}

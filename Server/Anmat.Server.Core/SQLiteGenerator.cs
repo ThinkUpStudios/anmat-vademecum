@@ -129,7 +129,7 @@ namespace Anmat.Server.Core
 
 			var i = 1;
 
-			foreach (var columnMetadaData in metadata.Columns)
+			foreach (var columnMetadaData in metadata.Columns.OrderBy(c => c.ColumnNumber))
 			{
 				 scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (columnMetadaData)));
 
@@ -153,7 +153,7 @@ namespace Anmat.Server.Core
 			scriptBuilder.Append (metadata.DocumentName);
 			scriptBuilder.Append ("(");
 
-			var columnNames = metadata.Columns.Select (c => c.Name);
+			var columnNames = metadata.Columns.OrderBy(c => c.ColumnNumber).Select (c => c.Name);
 			var columns = string.Join (", ", columnNames);
 
 			scriptBuilder.Append (columns);
