@@ -6,7 +6,7 @@ package com.thinkupstudios.anmat.vademecum.webservice.contract;
 public class AnmatData {
 
     public int contentSize;
-    public String Content;
+    public String content;
 
     public int getContentSize() {
         return contentSize;
@@ -16,11 +16,11 @@ public class AnmatData {
         this.contentSize = contentSize;
     }
 
-    public byte[] getContent() {
-        return Content;
+    public String getContent() {
+        return content;
     }
 
     public void setContent(byte[] content) {
-        Content = content;
+        content = content;
     }
 }
