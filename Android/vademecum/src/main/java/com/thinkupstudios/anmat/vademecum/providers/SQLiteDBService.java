@@ -1,13 +1,13 @@
 package com.thinkupstudios.anmat.vademecum.providers;
 
 import android.content.Context;
+import android.util.Base64;
 
 import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBService;
+import com.thinkupstudios.anmat.vademecum.webservice.http.HttpRequest;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -34,7 +34,8 @@ public class SQLiteDBService implements IRemoteDBService {
 
         //TODO: Llamar al ws.
         String url = String.format("http://mymovieapi.com/?title=%1$s&type=json&limit=10", versionLocal);
-        //HttpRequest.get("https://encrypted.google.com/").trustAllCerts().trustAllHosts().accept("application/json").body();
+
+        HttpRequest.get("https://encrypted.google.com/").trustAllCerts().trustAllHosts().accept("application/json").body();
         Integer versionServer = 10;
 
         return (versionLocal == versionServer);
@@ -46,6 +47,10 @@ public class SQLiteDBService implements IRemoteDBService {
 
         //SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbService.getNewDataBase(), null);
         String outFileName = "/data/data/com.thinkupstudios.annmat.vademecum/databases/prueba.sqlite";
+        //TODO: Llamar al ws.
+        String url = String.format("http://mymovieapi.com/?title=%1$s&type=json&limit=10");
+        String resultado = " ";
+
 
         try {
 

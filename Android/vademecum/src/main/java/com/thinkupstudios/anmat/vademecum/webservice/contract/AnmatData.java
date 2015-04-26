@@ -5,15 +5,15 @@ package com.thinkupstudios.anmat.vademecum.webservice.contract;
  */
 public class AnmatData {
 
-    public int ContentSize;
-    public byte[] Content;
+    public int contentSize;
+    public String Content;
 
     public int getContentSize() {
-        return ContentSize;
+        return contentSize;
     }
 
     public void setContentSize(int contentSize) {
-        ContentSize = contentSize;
+        this.contentSize = contentSize;
     }
 
     public byte[] getContent() {
