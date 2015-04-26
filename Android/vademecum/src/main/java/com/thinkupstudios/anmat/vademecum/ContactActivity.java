@@ -11,12 +11,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+
 /**
  * Created by fcostazini on 02/03/2015.
  * <p/>
  * Activity Generica que maneja el menu de llamadas y email, asi como el menu main_menu.xml
  */
-public abstract class MenuActivity extends Activity {
+public abstract class ContactActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +32,15 @@ public abstract class MenuActivity extends Activity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this));
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
             case R.id.mn_llamada:
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel: " + getResources().getString(R.string.tel_anmat_number)));
@@ -42,7 +48,7 @@ public abstract class MenuActivity extends Activity {
 
             case R.id.mn_email:
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde)});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde_value)});
                 email.putExtra(Intent.EXTRA_SUBJECT, " ");
                 email.putExtra(Intent.EXTRA_TEXT, " ");
                 email.setType("message/rfc822");
@@ -56,7 +62,7 @@ public abstract class MenuActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.contact_menu, menu);
         return true;
     }
 

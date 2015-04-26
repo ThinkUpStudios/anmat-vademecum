@@ -6,14 +6,4 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.thinkupstudios.anmat.vademecum.UpdateDBActivity">
 
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/txt_status"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp" />
 </RelativeLayout>

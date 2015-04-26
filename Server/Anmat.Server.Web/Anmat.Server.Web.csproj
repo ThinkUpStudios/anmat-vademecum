@@ -270,7 +270,7 @@
     <Content Include="Images\job-completed.png" />
     <Content Include="Images\job-error.png" />
     <Content Include="Images\job-pending.png" />
-    <Content Include="Images\job-processing.gif" />
+    <Content Include="Images\job-processing.png" />
     <Content Include="Images\start-upload-job.png" />
     <Content Include="Scripts\dropzone\css\stylus\basic.styl" />
     <Content Include="Scripts\dropzone\css\stylus\dropzone.styl" />
