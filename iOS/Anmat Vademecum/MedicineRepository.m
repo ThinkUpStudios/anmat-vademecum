@@ -16,7 +16,7 @@
 -(NSArray *) getAll {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT * FROM medicamentos ORDER BY hospitalario ASC, precio ASC";
+    NSString *query = @"SELECT * FROM medicamentos ORDER BY es_hospitalario ASC, precio ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -89,7 +89,7 @@
         [query appendString:[self getLikeExpression:@"laboratorio" value:laboratory]];
     }
     
-    [query appendString:@" ORDER BY hospitalario ASC, precio ASC"];
+    [query appendString:@" ORDER BY es_hospitalario ASC, precio ASC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -114,7 +114,7 @@
 }
 
 - (NSArray *)getByGenericName:(NSString *)genericName {
-    NSString *query = [NSString stringWithFormat: @"SELECT * FROM medicamentos WHERE generico=\"%@\" COLLATE NOCASE ORDER BY hospitalario ASC, precio ASC", genericName];
+    NSString *query = [NSString stringWithFormat: @"SELECT * FROM medicamentos WHERE generico=\"%@\" COLLATE NOCASE ORDER BY es_hospitalario ASC, precio ASC", genericName];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
     sqlite3_stmt *statement;
@@ -140,7 +140,7 @@
 - (NSArray *)getByActiveComponent:(NSString *)componentName {
     NSMutableString *query = [[NSMutableString alloc] init];
     
-    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY hospitalario ASC, precio ASC"];
+    [query appendString:@"SELECT * FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY es_hospitalario ASC, precio ASC"];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];

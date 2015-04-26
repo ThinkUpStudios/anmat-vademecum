@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14161CB21AEDA3EF00D63958 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14161CB11AEDA3EF00D63958 /* anmat.sqlite */; };
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
@@ -41,7 +42,6 @@
 		14E8430F1AD9797800FB8213 /* FormulaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8430E1AD9797800FB8213 /* FormulaParser.m */; };
 		14E843121AD979A500FB8213 /* Formula.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E843111AD979A500FB8213 /* Formula.m */; };
 		14E8431B1ADAE4C900FB8213 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8431A1ADAE4C900FB8213 /* String.m */; };
-		14F97A391AD2183300C08620 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14F97A381AD2183300C08620 /* anmat.sqlite */; };
 		14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F97A3B1AD229C300C08620 /* ContactAlertController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14161CB11AEDA3EF00D63958 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		141BC4E31A97652D00B78F0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		141BC4E41A97652D00B78F0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSearchSectionViewController.h; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		14E843111AD979A500FB8213 /* Formula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formula.m; sourceTree = "<group>"; };
 		14E843191ADAE4C900FB8213 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
 		14E8431A1ADAE4C900FB8213 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = String.m; sourceTree = "<group>"; };
-		14F97A381AD2183300C08620 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		14F97A3A1AD229C300C08620 /* ContactAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAlertController.h; sourceTree = "<group>"; };
 		14F97A3B1AD229C300C08620 /* ContactAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,7 +226,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
-				14F97A381AD2183300C08620 /* anmat.sqlite */,
+				14161CB11AEDA3EF00D63958 /* anmat.sqlite */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
@@ -371,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
+				14161CB21AEDA3EF00D63958 /* anmat.sqlite in Resources */,
 				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */,
@@ -378,7 +379,6 @@
 				148987B01AD097340054FE02 /* logo-vnm.png in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
 				148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */,
-				14F97A391AD2183300C08620 /* anmat.sqlite in Resources */,
 				149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

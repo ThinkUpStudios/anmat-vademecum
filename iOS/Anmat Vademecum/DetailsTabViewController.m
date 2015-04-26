@@ -26,13 +26,6 @@
     
     self.navigationItem.title = @"Detalle";
     
-    UIBarButtonItem *btnRelated = [[UIBarButtonItem alloc] init];
-    UIImage *imgRelated = [UIImage imageNamed:@"Recommended"];
-    
-    [btnRelated setImage:imgRelated];
-    [btnRelated setTarget:self];
-    [btnRelated setAction:@selector(showRelated:)];
-    
     UIBarButtonItem *btnContact = [[UIBarButtonItem alloc] init];
     UIImage *imgContact = [UIImage imageNamed:@"Contact"];
     
@@ -40,7 +33,14 @@
     [btnContact setTarget:self];
     [btnContact setAction:@selector(showContactInfo:)];
     
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnRelated, btnContact, nil];
+    UIBarButtonItem *btnRelated = [[UIBarButtonItem alloc] init];
+    UIImage *imgRelated = [UIImage imageNamed:@"Recommended"];
+    
+    [btnRelated setImage:imgRelated];
+    [btnRelated setTarget:self];
+    [btnRelated setAction:@selector(showRelated:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnContact, btnRelated, nil];
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;

@@ -16,7 +16,7 @@
 -(NSArray *) getAllNames {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT principio FROM principiosactivos ORDER BY principio ASC";
+    NSString *query = @"SELECT principio FROM principios_activos ORDER BY principio ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -39,7 +39,7 @@
 - (NSArray *) getAllNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT principio FROM principiosactivos WHERE principio LIKE ?001 COLLATE NOCASE ORDER BY principio ASC";
+    NSString *query = @"SELECT principio FROM principios_activos WHERE principio LIKE ?001 COLLATE NOCASE ORDER BY principio ASC";
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -66,7 +66,7 @@
 - (ActiveComponent *) getByName: (NSString *)name {
     ActiveComponent *result = nil;
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = [NSString stringWithFormat: @"SELECT * FROM principiosactivos WHERE principio=\"%@\" LIMIT 1", [String trim:name]];
+    NSString *query = [NSString stringWithFormat: @"SELECT * FROM principios_activos WHERE principio=\"%@\" LIMIT 1", [String trim:name]];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)

@@ -219,9 +219,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.15000000000000002" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-anmat-chico.png" translatesAutoresizingMaskIntoConstraints="NO" id="zpx-Sz-2Xn">
-                                <rect key="frame" x="174" y="213" width="252" height="174"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
                                 <rect key="frame" x="16" y="378" width="568" height="21"/>
                                 <constraints>
@@ -366,18 +363,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="229-go-dWP"/>
-                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="149" id="3in-mv-Jrh"/>
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="top" secondItem="rDx-Dd-j1P" secondAttribute="bottom" constant="8" id="3lF-kV-6SC"/>
                             <constraint firstItem="gNl-Kt-RFT" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="9aF-wQ-aLU"/>
                             <constraint firstItem="KoO-H7-SEv" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="72" id="Ayg-8z-jAC"/>
-                            <constraint firstItem="wxj-3F-nOs" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="169" id="Cw0-Kq-5Ro"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="161" id="DJB-N5-Ge8"/>
-                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="155" id="DKR-Ah-XZB"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="FAs-WT-Fc4"/>
                             <constraint firstItem="uc2-RX-pxP" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="-4" id="Igk-l6-Va0"/>
                             <constraint firstItem="KoO-H7-SEv" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="JWz-PT-0dC"/>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="LG3-nl-nMb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zpx-Sz-2Xn" secondAttribute="trailing" constant="158" id="LjJ-HW-bmn"/>
                             <constraint firstItem="gKX-dm-Unt" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" id="U7Y-GB-iA6"/>
                             <constraint firstAttribute="trailing" secondItem="gKX-dm-Unt" secondAttribute="trailing" id="WHQ-fh-crJ"/>
                             <constraint firstAttribute="trailing" secondItem="uc2-RX-pxP" secondAttribute="trailing" constant="16" id="YHM-kr-igO"/>
@@ -385,7 +378,6 @@
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="gRv-c3-Vb8"/>
                             <constraint firstItem="uc2-RX-pxP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="gsM-Uf-q3h"/>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="top" secondItem="KoO-H7-SEv" secondAttribute="bottom" constant="8" id="hLU-a6-mqo"/>
-                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" constant="158" id="lHC-ny-RvL"/>
                             <constraint firstItem="gNl-Kt-RFT" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="s7Y-jA-xUV"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="sCi-eA-Ej7"/>
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="xbK-NW-pHC"/>
@@ -396,7 +388,6 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="DJB-N5-Ge8"/>
-                                <exclude reference="DKR-Ah-XZB"/>
                             </mask>
                         </variation>
                     </view>
@@ -1563,8 +1554,7 @@
         <image name="Formula" width="26" height="26"/>
         <image name="Help" width="26" height="26"/>
         <image name="Help-Blue" width="26" height="26"/>
-        <image name="SameComponent" width="24" height="24"/>
-        <image name="logo-anmat-chico.png" width="220" height="60"/>
+        <image name="SameComponent" width="25" height="25"/>
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
         <image name="logo-ministerio-toolbar.png" width="100" height="44"/>
         <image name="logo-patria-toolbar.png" width="100" height="44"/>
