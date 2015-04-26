@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -23,24 +22,20 @@ namespace Anmat.Server.Core.Data
 
 		public IEnumerable<T> GetAll (Expression<Func<T, bool>> predicate = null)
 		{
-			this.dataContext.Set<T> ().Load ();
-
 			if (predicate == null) {
-				return this.dataContext.Set<T>().AsEnumerable ();
+				return this.dataContext.Set<T>().AsNoTracking().AsEnumerable ();
 			}
 
-			return this.dataContext.Set<T>().Where (predicate).AsEnumerable();
+			return this.dataContext.Set<T>().Where (predicate).AsNoTracking().AsEnumerable();
 		}
 
 		public T Get (Expression<Func<T, bool>> predicate = null)
 		{
-			this.dataContext.Set<T> ().Load ();
-
 			if (predicate == null) {
-				return this.dataContext.Set<T>().FirstOrDefault ();
+				return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault ();
 			}
 
-			return this.dataContext.Set<T>().FirstOrDefault (predicate);
+			return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault (predicate);
 		}
 
 		public bool Exist (Expression<Func<T, bool>> predicate = null)

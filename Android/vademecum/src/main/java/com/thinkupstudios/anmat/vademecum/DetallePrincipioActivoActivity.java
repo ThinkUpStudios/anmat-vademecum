@@ -1,5 +1,6 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,7 +18,7 @@ import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
 
 
-public class DetallePrincipioActivoActivity extends MenuActivity {
+public class DetallePrincipioActivoActivity extends Activity {
 
 
 

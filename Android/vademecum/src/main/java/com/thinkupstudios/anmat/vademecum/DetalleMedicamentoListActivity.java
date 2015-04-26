@@ -27,7 +27,7 @@ import static android.R.anim.fade_out;
  * {@link DetalleMedicamentoListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DetalleMedicamentoListActivity extends MenuActivity
+public class DetalleMedicamentoListActivity extends NoMenuActivity
         implements DetalleMedicamentoListFragment.Callbacks {
 
     /**
