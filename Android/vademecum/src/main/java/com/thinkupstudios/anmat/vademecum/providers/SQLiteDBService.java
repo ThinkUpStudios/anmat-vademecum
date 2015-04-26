@@ -34,11 +34,11 @@ public class SQLiteDBService implements IRemoteDBService {
         VersionProvider vProvider = new VersionProvider(dbHelper);
         Integer versionLocal = vProvider.getVersionBo().getNumero();
         try {
-            String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version=", versionLocal);
+            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version="+versionLocal.intValue();
 
-            String resultado = HttpRequest.get(url).bufferSize(Integer.MAX_VALUE).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
-            Boolean reultadoBool = !Boolean.valueOf(resultado);
-            return reultadoBool;
+            String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
+
+            return !Boolean.valueOf(resultado);
         }catch (HttpRequest.HttpRequestException e){
             return true;
         }
@@ -55,13 +55,14 @@ public class SQLiteDBService implements IRemoteDBService {
 
             String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
 
-            String resultado = HttpRequest.get(url).bufferSize(Integer.MAX_VALUE).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
+            String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
             Gson gson = new Gson();
             AnmatData anmatData = gson.fromJson(resultado, AnmatData.class);
+            byte[] data = Base64.decode(anmatData.getContent(), Base64.DEFAULT);
 
-            if(anmatData.getContent().length() == anmatData.getContentSize()) {
-                byte[] data = Base64.decode(anmatData.getContent(), Base64.DEFAULT);
-                dbHelper.upgrade(this.context.getAssets().open("prueba.sqlite"));
+            if(data.length == anmatData.getContentSize()) {
+
+                dbHelper.upgrade(data);
 
                 return true;
             }

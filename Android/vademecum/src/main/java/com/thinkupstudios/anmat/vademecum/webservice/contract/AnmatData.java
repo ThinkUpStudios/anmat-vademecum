@@ -1,12 +1,18 @@
 package com.thinkupstudios.anmat.vademecum.webservice.contract;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by dcamarro on 23/04/2015.
  */
 public class AnmatData {
 
-    public int contentSize;
+    @SerializedName("Content")
     public String content;
+
+    @SerializedName("ContentSize")
+    public int contentSize;
+
 
     public int getContentSize() {
         return contentSize;
