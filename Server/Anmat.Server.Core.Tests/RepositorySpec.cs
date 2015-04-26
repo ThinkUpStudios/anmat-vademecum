@@ -8,15 +8,15 @@ namespace Anmat.Server.Core.Tests
     {
         private readonly bool cleanDbWhenFinishes;
 
-        protected MongoRepository<T> testRepository;
+        protected SqlRepository<T> testRepository;
 
         protected RepositorySpec(bool cleanDbWhenFinishes = true)
         {
             this.cleanDbWhenFinishes = cleanDbWhenFinishes;
 
-			var configuration = new AnmatConfiguration { SourceDatabaseConnectionString = "mongodb://localhost", SourceDatabaseName = "TestDatabase" };
+			var configuration = new AnmatConfiguration {};
 
-            this.testRepository = new MongoRepository<T>(configuration);
+            this.testRepository = new SqlRepository<T>(new AnmatDataContext(), configuration);
         }
 
         protected static string GetUniqueName(string name = null)
@@ -28,7 +28,7 @@ namespace Anmat.Server.Core.Tests
 
 		public void Dispose()
         {
-            this.testRepository.DeleteAll();
+			//this.testRepository.DeleteAll();
         }
     }
 }

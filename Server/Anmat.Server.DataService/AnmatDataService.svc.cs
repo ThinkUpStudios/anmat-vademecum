@@ -88,7 +88,7 @@ namespace Anmat.Server.DataService
 			}
 
 			
-			latestJob.DateFinished = DateTime.Now;
+			latestJob.DateFinished = DateTime.Now.ToString();
 			context.JobService.UpdateJob (latestJob);
 		}
 

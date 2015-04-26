@@ -28,7 +28,7 @@ namespace Anmat.Server.Core.Data
 
 		private void CleanExistingData (IRepository<DocumentMetadata> repository)
 		{
-			(repository as MongoRepository<DocumentMetadata>).DeleteAll ();
+			(repository as SqlRepository<DocumentMetadata>).DeleteAll ();
 		}
 
 		private void InitializeMedicineMetadata(IRepository<DocumentMetadata> repository)

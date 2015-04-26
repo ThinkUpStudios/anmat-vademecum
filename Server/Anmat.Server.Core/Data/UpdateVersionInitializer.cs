@@ -22,7 +22,7 @@ namespace Anmat.Server.Core.Data
 
 		private void CleanExistingData (IRepository<UpdateVersion> repository)
 		{
-			(repository as MongoRepository<UpdateVersion>).DeleteAll ();
+			(repository as SqlRepository<UpdateVersion>).DeleteAll ();
 		}
 	}
 }

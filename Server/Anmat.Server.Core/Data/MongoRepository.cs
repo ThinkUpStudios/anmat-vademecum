@@ -152,5 +152,11 @@ namespace Anmat.Server.Core.Data
 		{
 			return this.client.GetDatabase(this.databaseName);
 		}
-    }
+
+
+		public void Save ()
+		{
+			throw new NotImplementedException ();
+		}
+	}
 }
