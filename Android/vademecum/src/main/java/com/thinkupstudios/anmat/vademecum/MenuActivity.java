@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+
 /**
  * Created by fcostazini on 02/03/2015.
  * <p/>
@@ -29,6 +32,12 @@ public abstract class MenuActivity extends Activity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this));
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
@@ -42,7 +51,7 @@ public abstract class MenuActivity extends Activity {
 
             case R.id.mn_email:
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde)});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde_value)});
                 email.putExtra(Intent.EXTRA_SUBJECT, " ");
                 email.putExtra(Intent.EXTRA_TEXT, " ");
                 email.setType("message/rfc822");
