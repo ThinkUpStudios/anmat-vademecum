@@ -351,11 +351,7 @@
                                     <constraint firstAttribute="width" constant="568" id="35W-xq-D2b"/>
                                     <constraint firstAttribute="height" constant="21" id="SO4-Tb-xux"/>
                                 </constraints>
-                                <string key="text">Cualquier irregularidad o falta, por favor comuniquese con ANMAT.
-
-Telefono: 0800-333-1234
-Fax: (011) 4340-0800/5252-8200 int 1159
-Email: responde@anmat.gov.ar</string>
+                                <string key="text">Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, cosméticos, domisanitarios, reactivos de diagnóstico, faltantes, trámites o legislación comunicate ANMAT Responde al 0800-333-1234 o vía mail a responde@anmat.gov.ar</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
