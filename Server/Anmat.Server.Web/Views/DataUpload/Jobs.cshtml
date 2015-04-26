@@ -22,11 +22,12 @@
             if(job.Status == DataGenerationJobStatus.Pending) {
                return  @<img class="thumb" src="~/Images/job-pending.png" height="20" width="20" alt="Pendiente" />;
             } else if (job.Status == DataGenerationJobStatus.InProgress) {
-                return @<img class="thumb" src="~/Images/job-processing.gif" height="20" width="20" alt="En Proceso" />;
+                return @<img class="thumb" src="~/Images/job-processing.png" height="20" width="20" alt="En Proceso" />;
             } else if (job.Status == DataGenerationJobStatus.Completed) {
                 return @<img class="thumb" src="~/Images/job-completed.png" height="20" width="20" alt="Completo" />;
             } else {
                 return @<img class="thumb" src="~/Images/job-error.png" height="20" width="20" alt="Error" />;
             }
-        }).Titled("Estado");
+        }).Titled("Estado")";
+		//.Style("text-align: center;")
     }).WithPaging(pageSize: 10).Sortable(enable: true)
