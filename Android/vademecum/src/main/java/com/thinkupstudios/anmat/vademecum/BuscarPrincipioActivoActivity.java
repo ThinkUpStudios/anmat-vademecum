@@ -16,7 +16,7 @@ import java.util.List;
 import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
 
-public class BuscarPrincipioActivoActivity extends MenuActivity implements AdapterView.OnItemClickListener {
+public class BuscarPrincipioActivoActivity extends NoMenuActivity implements AdapterView.OnItemClickListener {
 private ClearableAutoCompliteEditText principioActivo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

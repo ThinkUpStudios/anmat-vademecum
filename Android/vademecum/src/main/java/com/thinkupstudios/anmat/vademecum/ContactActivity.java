@@ -19,7 +19,7 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
  * <p/>
  * Activity Generica que maneja el menu de llamadas y email, asi como el menu main_menu.xml
  */
-public abstract class MenuActivity extends Activity {
+public abstract class ContactActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,6 @@ public abstract class MenuActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.mnu_informacion:
-                startActivity(new Intent(this, AcercaDeActivity.class));
-                return true;
             case R.id.mn_llamada:
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel: " + getResources().getString(R.string.tel_anmat_number)));
@@ -65,7 +62,7 @@ public abstract class MenuActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.contact_menu, menu);
         return true;
     }
 

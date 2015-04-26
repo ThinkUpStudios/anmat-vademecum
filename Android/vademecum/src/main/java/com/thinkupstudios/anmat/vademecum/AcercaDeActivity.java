@@ -2,7 +2,6 @@ package com.thinkupstudios.anmat.vademecum;
 
 import android.os.Bundle;
 import android.text.Html;
-import android.view.Menu;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.VersionBo;
@@ -13,7 +12,7 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
  * Created by dcamarro on 02/03/2015.
  * Pantalla de ACerca de
  */
-public class AcercaDeActivity extends MenuActivity {
+public class AcercaDeActivity extends NoMenuActivity{
 
 
 
@@ -58,9 +57,5 @@ public class AcercaDeActivity extends MenuActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.acerca_de_menu, menu);
-        return true;
-    }
+
 }
