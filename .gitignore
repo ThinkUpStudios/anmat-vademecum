@@ -53,3 +53,7 @@ proguard/
 /Server/Anmat.Server.Core/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
 /Server/*.suo
 /Server/Anmat.Server.Core/*.user
+/Android/.navigation/vademecum/raw/main.nvg.xml
+/Android/vademecum/src/main/res/anim/test.xml
+/Docs/Images/ios/AppIcon.appiconset/Contents.json
+/Docs/Images/ios/README.md

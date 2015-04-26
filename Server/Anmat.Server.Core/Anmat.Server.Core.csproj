@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\MongoDB.Bson.2.0.0\lib\net45\MongoDB.Bson.dll</HintPath>
@@ -47,6 +54,7 @@
       <HintPath>..\packages\mongocsharpdriver.2.0.0\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite">
@@ -59,8 +67,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AnmatDataContext.cs" />
     <Compile Include="Data\DataGenerationJob.cs" />
     <Compile Include="Data\DataGenerationJobStatus.cs" />
+    <Compile Include="Data\SqlRepository.cs" />
     <Compile Include="DocumentGenerator.cs" />
     <Compile Include="Context\IAnmatContext.cs" />
     <Compile Include="Context\AnmatContext.cs" />
@@ -84,7 +94,6 @@
     <Compile Include="IDocumentGenerator.cs" />
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="ISQLGenerator.cs" />
-    <Compile Include="Data\MongoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,7 +103,9 @@
     <Compile Include="Model\Row.cs" />
     <Compile Include="Exceptions\SQLGenerationException.cs" />
     <Compile Include="Services\DataGenerationJobService.cs" />
+    <Compile Include="Services\DocumentMetadataService.cs" />
     <Compile Include="Services\IDataGenerationJobService.cs" />
+    <Compile Include="Services\IDocumentMetadataService.cs" />
     <Compile Include="Services\IVersionService.cs" />
     <Compile Include="Services\VersionService.cs" />
     <Compile Include="SQLiteGenerator.cs">

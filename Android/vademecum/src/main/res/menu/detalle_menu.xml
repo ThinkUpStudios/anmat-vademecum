@@ -25,10 +25,4 @@
         android:title="@string/recomendados"
         android:showAsAction="ifRoom" >
         </item>
-    <item
-        android:id="@+id/mnu_informacion"
-        android:orderInCategory="103"
-        android:icon="@drawable/ic_acerca_de"
-        android:title="@string/lbl_acerca_de"
-        android:showAsAction="ifRoom" />
 </menu>

@@ -15,7 +15,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.InProgress,
 				Version = new Random().Next(),
 				Message = "Job In Progress",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var jobId = job.Id;
 
@@ -40,7 +40,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.InProgress,
 				Version = new Random().Next(),
 				Message = "Job In Progress",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var jobId = job.Id;
 
@@ -51,7 +51,7 @@ namespace Anmat.Server.Core.Tests
 
 			createdJob.Status = DataGenerationJobStatus.Failed;
 			createdJob.Message = errorMessage;
-			createdJob.DateFinished = DateTime.Now;
+			createdJob.DateFinished = DateTime.Now.ToString();
 
 			this.testRepository.Update (createdJob);
 
@@ -74,7 +74,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.InProgress,
 				Version = 2,
 				Message = "Job In Progress",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var job1Id = job1.Id;
 
@@ -83,7 +83,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.Completed,
 				Version = 3,
 				Message = "Job Completed",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var job2Id = job1.Id;
 
@@ -92,7 +92,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.Completed,
 				Version = 4,
 				Message = "Job Completed",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var job3Id = job1.Id;
 
@@ -101,7 +101,7 @@ namespace Anmat.Server.Core.Tests
 				Status = DataGenerationJobStatus.Failed,
 				Version = 5,
 				Message = "Job Failed",
-				DateStarted = DateTime.Now.AddDays(-1)
+				DateStarted = DateTime.Now.AddDays(-1).ToString()
             };
 			var job4Id = job1.Id;
 

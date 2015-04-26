@@ -28,7 +28,6 @@ namespace Anmat.Server.Core.Tests
             Assert.Equal(metadata.DocumentName, createdTestEntity.DocumentName);
             Assert.Equal(true, createdTestEntity.HasHeader);
         }
-
         
         [Fact]
         public void when_updating_metadata_then_succeeds()
@@ -90,7 +89,7 @@ namespace Anmat.Server.Core.Tests
             var metadata = new DocumentMetadata
             {
                 DocumentName = metadataName,
-                Columns = columns,
+                Columns = columns.ToList(),
                 HasHeader = true
             };
 
@@ -98,7 +97,7 @@ namespace Anmat.Server.Core.Tests
             var metadata2 = new DocumentMetadata
             {
                 DocumentName = metadataName2,
-                Columns = columns,
+                Columns = columns.ToList(),
                 HasHeader = false
             };
 
@@ -106,7 +105,7 @@ namespace Anmat.Server.Core.Tests
             var metadata3 = new DocumentMetadata
             {
                 DocumentName = metadataName3,
-                Columns = columns,
+                Columns = columns.ToList(),
                 HasHeader = true
             };
 

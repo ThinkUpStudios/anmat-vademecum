@@ -18,8 +18,6 @@ namespace Anmat.Server.Core.Context
 			var configuration = new AnmatConfiguration {
 				AnmatDataServiceUrl = ConfigurationManager.AppSettings["AnmatDataServiceUrl"],
 				DocumentsPath = ConfigurationManager.AppSettings["DocumentsPath"],
-				SourceDatabaseConnectionString = ConfigurationManager.AppSettings["SourceDatabaseConnectionString"],
-				SourceDatabaseName = ConfigurationManager.AppSettings["SourceDatabaseName"],
 				TargetDatabaseName = ConfigurationManager.AppSettings["TargetDatabaseName"],
 				TargetMedicinesTableName = ConfigurationManager.AppSettings["TargetMedicinesTableName"],
 				TargetActiveComponentsTableName = ConfigurationManager.AppSettings["TargetActiveComponentsTableName"],
@@ -27,21 +25,23 @@ namespace Anmat.Server.Core.Context
 				FullInitialize = bool.Parse(ConfigurationManager.AppSettings["FullInitialize"]),
 				DefaultTextEncoding = ConfigurationManager.AppSettings["DefaultTextEncoding"]
 			};
-			var metadataRepository = new MongoRepository<DocumentMetadata>(configuration, new DocumentMetadataInitializer(configuration));
-			var versionRepository = new MongoRepository<UpdateVersion>(configuration, new UpdateVersionInitializer());
-			var jobRepository = new MongoRepository<DataGenerationJob>(configuration);
+			var dataContext = new AnmatDataContext ();
+			var metadataRepository = new SqlRepository<DocumentMetadata>(dataContext, configuration, new DocumentMetadataInitializer(configuration));
+			var versionRepository = new SqlRepository<UpdateVersion>(dataContext, configuration, new UpdateVersionInitializer());
+			var jobRepository = new SqlRepository<DataGenerationJob>(dataContext, configuration);
 
 			var versionService = new VersionService (versionRepository);
+			var metadataService = new DocumentMetadataService(metadataRepository);
 			var jobService = new DataGenerationJobService (jobRepository);
 
 			var documentReader = new CsvDocumentReader (configuration);
 			var documentGenerators = new List<IDocumentGenerator> ();
 
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetMedicinesTableName, 
-				documentReader, jobService, metadataRepository, configuration));
+				documentReader, jobService, metadataService, configuration));
 
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetActiveComponentsTableName, 
-				documentReader, jobService, metadataRepository, configuration));
+				documentReader, jobService, metadataService, configuration));
 
 			var sqlGenerator = new SQLiteGenerator(jobService, versionService, configuration);
 
