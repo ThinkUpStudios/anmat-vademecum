@@ -9,7 +9,7 @@ import android.widget.TextView;
  * Created by dcamarro on 02/03/2015.
  * Actividad que muestra la pantalla de Información
  */
-public class InformacionActivity extends MenuActivity {
+public class InformacionActivity extends NoMenuActivity {
 
 
     @Override

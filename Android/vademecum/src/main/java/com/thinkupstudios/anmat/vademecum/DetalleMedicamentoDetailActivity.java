@@ -22,7 +22,7 @@ import static android.R.anim.fade_out;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link DetalleMedicamentoDetailFragment}.
  */
-public class DetalleMedicamentoDetailActivity extends MenuActivity {
+public class DetalleMedicamentoDetailActivity extends ContactActivity {
 
     private MedicamentoBO medicamento;
 
