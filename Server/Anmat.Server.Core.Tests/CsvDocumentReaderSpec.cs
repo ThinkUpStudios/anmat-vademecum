@@ -98,13 +98,13 @@ namespace Anmat.Server.Core.Tests
         }
 
         [Fact]
-        public void when_read_file_with_nullable_fields_and_metadata_has_nullable_then_gets_empty_value()
+        public void when_reading_file_with_nullable_fields_and_metadata_has_nullable_then_gets_empty_value()
         {
 			var path = @"Files\field_with_null.csv";
 			var columns = TestMetadataGenerator.GetColumnsMetadata ();
             var metadata = new DocumentMetadata
             {
-                DocumentName = "Sad Case",
+                DocumentName = "FileWithNullFields",
                 Columns = columns,
                 HasHeader = true
             };
@@ -113,17 +113,11 @@ namespace Anmat.Server.Core.Tests
             Assert.Equal(string.Empty, document.Rows.First().Cells.First().Value);
         }
 
-		public void Dispose ()
-		{
-			this.reader = null;
-		}
-
-        [Fact]
-        public void when_read_file_with_metadata_has_removableAccents_and_upperCase_then_gets_removableAccents_and_upperCase_value()
+		[Fact]
+        public void when_reading_file_with_metadata_with_removableAccents_and_upperCase_then_gets_removableAccents_and_upperCase_value()
         {
             
             var path = @"Files\valid_format_upper.csv";
-
             var columns = new List<DocumentColumnMetadata>();
 
             columns.Add(new DocumentColumnMetadata
@@ -166,10 +160,9 @@ namespace Anmat.Server.Core.Tests
                 UpperCase = false
             });
 
-
             var metadata = new DocumentMetadata
             {
-                DocumentName = "Sad Case",
+                DocumentName = "FileWithLatinChars",
                 Columns = columns,
                 HasHeader = true
             };
@@ -179,5 +172,10 @@ namespace Anmat.Server.Core.Tests
             Assert.Equal("PAPEPIPOPU PAPEPIPOPU", document.Rows.First().Cells.First().Value);
             
         }
+		
+		public void Dispose ()
+		{
+			this.reader = null;
+		}
 	}
 }

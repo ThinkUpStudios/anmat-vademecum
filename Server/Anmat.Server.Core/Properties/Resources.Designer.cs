@@ -106,6 +106,15 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El job {0} para la version {1} ha finalizado exitosamente.
+        /// </summary>
+        internal static string DataGenerationJobService_JobCompleted {
+            get {
+                return ResourceManager.GetString("DataGenerationJobService_JobCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No se ha encontrado metadata definida para generar el documento {0}.
         /// </summary>
         internal static string DocumentGenerator_NoMetadataFound {
@@ -129,6 +138,24 @@ namespace Anmat.Server.Core.Properties {
         internal static string DocumentReader_NotSupportedFileExtension {
             get {
                 return ResourceManager.GetString("DocumentReader_NotSupportedFileExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El job con id {0} y version {1} no se encuentra en progreso, por lo tanto no puede realizarse ningun procesamiento de informacion.
+        /// </summary>
+        internal static string LatestJob_NotInProgress {
+            get {
+                return ResourceManager.GetString("LatestJob_NotInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No hay ningun job creado,  por lo tanto no puede realizarse ningun procesamiento de informacion.
+        /// </summary>
+        internal static string LatestJob_Null {
+            get {
+                return ResourceManager.GetString("LatestJob_Null", resourceCulture);
             }
         }
         

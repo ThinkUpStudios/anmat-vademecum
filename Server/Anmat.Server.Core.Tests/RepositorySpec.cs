@@ -14,7 +14,7 @@ namespace Anmat.Server.Core.Tests
         {
             this.cleanDbWhenFinishes = cleanDbWhenFinishes;
 
-			var configuration = new AnmatConfiguration { SourceDatabaseName = "TestDatabase" };
+			var configuration = new AnmatConfiguration { SourceDatabaseConnectionString = "mongodb://localhost", SourceDatabaseName = "TestDatabase" };
 
             this.testRepository = new MongoRepository<T>(configuration);
         }

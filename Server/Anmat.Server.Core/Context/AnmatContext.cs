@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using Anmat.Server.Core.Data;
+using Anmat.Server.Core.Services;
 
 namespace Anmat.Server.Core.Context
 {
@@ -15,7 +16,9 @@ namespace Anmat.Server.Core.Context
 			}
 
 			var configuration = new AnmatConfiguration {
+				AnmatDataServiceUrl = ConfigurationManager.AppSettings["AnmatDataServiceUrl"],
 				DocumentsPath = ConfigurationManager.AppSettings["DocumentsPath"],
+				SourceDatabaseConnectionString = ConfigurationManager.AppSettings["SourceDatabaseConnectionString"],
 				SourceDatabaseName = ConfigurationManager.AppSettings["SourceDatabaseName"],
 				TargetDatabaseName = ConfigurationManager.AppSettings["TargetDatabaseName"],
 				TargetMedicinesTableName = ConfigurationManager.AppSettings["TargetMedicinesTableName"],
@@ -26,32 +29,43 @@ namespace Anmat.Server.Core.Context
 			};
 			var metadataRepository = new MongoRepository<DocumentMetadata>(configuration, new DocumentMetadataInitializer(configuration));
 			var versionRepository = new MongoRepository<UpdateVersion>(configuration, new UpdateVersionInitializer());
+			var jobRepository = new MongoRepository<DataGenerationJob>(configuration);
+
+			var versionService = new VersionService (versionRepository);
+			var jobService = new DataGenerationJobService (jobRepository);
+
 			var documentReader = new CsvDocumentReader (configuration);
 			var documentGenerators = new List<IDocumentGenerator> ();
 
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetMedicinesTableName, 
-				documentReader, metadataRepository, versionRepository, configuration));
+				documentReader, jobService, metadataRepository, configuration));
 
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetActiveComponentsTableName, 
-				documentReader, metadataRepository, versionRepository, configuration));
+				documentReader, jobService, metadataRepository, configuration));
 
-			var sqlGenerator = new SQLiteGenerator(versionRepository, configuration);
+			var sqlGenerator = new SQLiteGenerator(jobService, versionService, configuration);
 
-			context = new AnmatContext (documentReader, documentGenerators, sqlGenerator, configuration);
+			context = new AnmatContext (versionService, jobService, documentReader, documentGenerators, sqlGenerator, configuration);
 
 			return context;
 		}
 
-		private AnmatContext (IDocumentReader documentReader, IEnumerable<IDocumentGenerator> documentGenerators, 
+		private AnmatContext (IVersionService versionService, IDataGenerationJobService jobService, IDocumentReader documentReader, IEnumerable<IDocumentGenerator> documentGenerators, 
 			ISQLGenerator sqlGenerator, AnmatConfiguration configuration)
 		{
 			this.Configuration = configuration;
+			this.VersionService = versionService;
+			this.JobService = jobService;
 			this.DocumentReader = documentReader;
 			this.DocumentGenerators = documentGenerators;
 			this.SQLGenerator = sqlGenerator;
 		}
 
 		public AnmatConfiguration Configuration { get; private set; }
+
+		public IVersionService VersionService { get; private set; }
+
+		public IDataGenerationJobService JobService { get; private set; }
 
 		public IDocumentReader DocumentReader { get; private set; }
 
