@@ -19,7 +19,7 @@ namespace Anmat.Server.Core.Services
 		{
 			var job = new DataGenerationJob {
 				Status = DataGenerationJobStatus.InProgress,
-				DateStarted = DateTime.Now,
+				DateStarted = DateTime.Now.ToString(),
 				Version = version
 			};
 
@@ -44,8 +44,10 @@ namespace Anmat.Server.Core.Services
 			var existingJob = this.repository.Get (j => j.Id == job.Id);
 
 			existingJob.Status = DataGenerationJobStatus.Completed;
-			existingJob.DateFinished = DateTime.Now;
+			existingJob.DateFinished = DateTime.Now.ToString();
 			existingJob.Message = string.Format (Resources.DataGenerationJobService_JobCompleted, job.Id, job.Version);
+
+			this.repository.Update (existingJob);
 		}
 
 		public IEnumerable<DataGenerationJob> GetJobs ()

@@ -8,7 +8,7 @@ namespace Anmat.Server.Core.Data
 
         public bool HasHeader { get; set; }
 
-        public List<DocumentColumnMetadata> Columns { get; set; }
+        public virtual List<DocumentColumnMetadata> Columns { get; set; }
 
 		public IEnumerable<DocumentColumnMetadata> GetColumns()
 		{

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Anmat.Server.Core.Data
 {
     public abstract class DataEntity<T>
     {
+		[Key] 
         public T Id { get; set; }
 
         protected DataEntity()

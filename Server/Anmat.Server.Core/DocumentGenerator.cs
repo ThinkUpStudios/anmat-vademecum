@@ -9,16 +9,16 @@ namespace Anmat.Server.Core
 	public class DocumentGenerator: IDocumentGenerator
     {
         private readonly IDocumentReader reader;
-        private readonly IRepository<DocumentMetadata> metadataRepository;
+        private readonly IDocumentMetadataService metadataService;
 		private readonly IDataGenerationJobService jobService;
 		private readonly AnmatConfiguration configuration;
 
         public DocumentGenerator(string name, IDocumentReader reader, IDataGenerationJobService jobService,
-			IRepository<DocumentMetadata> metadataRepository, AnmatConfiguration configuration)
+			IDocumentMetadataService metadataService, AnmatConfiguration configuration)
         {
             this.reader = reader;
 			this.jobService = jobService;
-            this.metadataRepository = metadataRepository;
+            this.metadataService = metadataService;
 			this.configuration = configuration;
 
 			this.Name = name;
@@ -49,7 +49,7 @@ namespace Anmat.Server.Core
 
         private DocumentMetadata GetMetadata()
         {
-            var metadata = this.metadataRepository.Get(d => d.DocumentName == this.Name);
+			var metadata = this.metadataService.GetByDocumentName (this.Name);
 
             if (metadata == null)
             {

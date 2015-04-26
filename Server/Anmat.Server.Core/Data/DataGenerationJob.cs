@@ -8,9 +8,9 @@ namespace Anmat.Server.Core.Data
 
 		public DataGenerationJobStatus Status { get; set; }
 
-		public DateTime DateStarted { get; set; }
+		public string DateStarted { get; set; }
 
-		public DateTime DateFinished { get; set; }
+		public string DateFinished { get; set; }
 
 		public string Message { get; set; }
 	}

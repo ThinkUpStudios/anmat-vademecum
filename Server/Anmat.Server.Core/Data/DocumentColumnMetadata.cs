@@ -2,7 +2,7 @@
 
 namespace Anmat.Server.Core.Data
 {
-    public class DocumentColumnMetadata
+    public class DocumentColumnMetadata: DataEntity
     {
         public int ColumnNumber { get; set; }
 
@@ -15,6 +15,8 @@ namespace Anmat.Server.Core.Data
         public bool RemovableAccents { get; set; }
 
         public bool UpperCase { get; set; }
+
+		public virtual DocumentMetadata Metadata { get; set; }
 
 		public void AddType(Type type)
 		{
