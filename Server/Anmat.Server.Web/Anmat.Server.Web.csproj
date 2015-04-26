@@ -265,11 +265,13 @@
     <Content Include="Global.asax" />
     <Content Include="Images\job-completed.png" />
     <Content Include="Images\job-error.png" />
-    <Content Include="Images\job-inprogress.png" />
+    <Content Include="Images\job-pending.png" />
+    <Content Include="Images\job-processing.gif" />
     <Content Include="Images\start-upload-job.png" />
     <Content Include="Scripts\dropzone\css\stylus\basic.styl" />
     <Content Include="Scripts\dropzone\css\stylus\dropzone.styl" />
     <Content Include="Grid.mvc.readme" />
+    <None Include="Properties\PublishProfiles\LocalIIS.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\logo-anmat.png" />
     <Content Include="Scripts\dropzone\css\basic.css" />
@@ -332,7 +334,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\DataUpload\Index.cshtml" />
     <Content Include="Views\DataUpload\Jobs.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
@@ -340,7 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

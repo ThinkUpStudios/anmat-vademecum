@@ -9,6 +9,6 @@ namespace Anmat.Server.DataService
 		public int ContentSize { get; set; }
  
 		[DataMember]
-		public byte[] Content { get; set; }
+		public string Content { get; set; }
 	}
 }

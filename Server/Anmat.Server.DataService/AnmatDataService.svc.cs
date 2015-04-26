@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Anmat.Server.Core;
 using Anmat.Server.Core.Context;
 using Anmat.Server.Core.Data;
 using Anmat.Server.DataService.Properties;
+using System.Linq;
 
 namespace Anmat.Server.DataService
 {
@@ -30,14 +32,14 @@ namespace Anmat.Server.DataService
 			var databaseFileName = Path.Combine (latestVersionPath, context.Configuration.TargetDatabaseName + context.SQLGenerator.FileExtension);
 
 			if (!File.Exists (databaseFileName)) {
-				return new AnmatData { ContentSize = 0, Content = new byte[] {} };
+				return new AnmatData { ContentSize = 0, Content = string.Empty };
 			}
 
 			var databaseContent = File.ReadAllBytes (databaseFileName);
 
 			return new AnmatData {
 				ContentSize = databaseContent.Length,
-				Content = databaseContent
+				Content = Convert.ToBase64String(databaseContent)
 			};
 		}
 
@@ -49,17 +51,33 @@ namespace Anmat.Server.DataService
 				return;
 			}
 
-			try {
-				var tempPath = AnmatConfiguration.GetTempVersionPath (latestJob.Version);
-				var tempFiles = Directory.EnumerateFiles (tempPath);
-				var destinationPath = context.Configuration.GetVersionPath (latestJob.Version);
+			var tempFiles = this.GetVersionTempFiles (latestJob.Version);
+			var destinationPath = context.Configuration.GetVersionPath (latestJob.Version);
 
-				foreach (var tempFile in tempFiles) {
-					var destinationFile = Path.Combine(destinationPath, Path.GetFileName(tempFile));
+			foreach (var tempFile in tempFiles) {
+				var destinationFile = Path.Combine(destinationPath, Path.GetFileName(tempFile));
 
-					File.Copy(tempFile, destinationFile, overwrite: true);
+				File.Copy(tempFile, destinationFile, overwrite: true);
+			}
+
+			var expectedFiles = new List<string> { 
+				context.Configuration.TargetMedicinesTableName, 
+				context.Configuration.TargetActiveComponentsTableName 
+			};
+			var missingFiles = expectedFiles.Where (f => !tempFiles.Any (x => Path.GetFileNameWithoutExtension(x) == f));
+
+			if (missingFiles.Any ()) {
+				var previousVersionFiles = this.GetVersionFiles (latestJob.Version - 1);
+
+				foreach (var missingFile in missingFiles) {
+					var sourceFile = previousVersionFiles.FirstOrDefault(f => Path.GetFileNameWithoutExtension(f) == missingFile);
+					var destinationFile = Path.Combine(destinationPath, Path.GetFileName(sourceFile));
+				
+					File.Copy(sourceFile, destinationFile, overwrite: true);
 				}
+			}
 
+			try {
 				context.SQLGenerator.GenerateDatabase (context.DocumentGenerators);
 
 				latestJob.Status = DataGenerationJobStatus.Completed;
@@ -72,6 +90,20 @@ namespace Anmat.Server.DataService
 			
 			latestJob.DateFinished = DateTime.Now;
 			context.JobService.UpdateJob (latestJob);
+		}
+
+		private IEnumerable<string> GetVersionTempFiles (int version)
+		{
+			var tempPath = AnmatConfiguration.GetTempVersionPath (version);
+			
+			return Directory.EnumerateFiles (tempPath);
+		}
+
+		private IEnumerable<string> GetVersionFiles (int version)
+		{
+			var tempPath = context.Configuration.GetVersionPath (version);
+			
+			return Directory.EnumerateFiles (tempPath);
 		}
 	}
 }

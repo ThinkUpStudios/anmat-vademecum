@@ -40,6 +40,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.96.0\lib\net45\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +75,10 @@
     <ProjectReference Include="..\Anmat.Server.Core\Anmat.Server.Core.csproj">
       <Project>{454eee7e-a504-478f-b10e-64ef78a3e870}</Project>
       <Name>Anmat.Server.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Anmat.Server.DataService\Anmat.Server.DataService.csproj">
+      <Project>{5a422444-0a6d-46c9-90d3-e54986f925da}</Project>
+      <Name>Anmat.Server.DataService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

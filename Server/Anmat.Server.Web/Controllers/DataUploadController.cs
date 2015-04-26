@@ -6,6 +6,7 @@ using Anmat.Server.Core;
 using Anmat.Server.Core.Context;
 using System.Linq;
 using Anmat.Server.Core.Data;
+using System.Threading.Tasks;
 
 namespace Anmat.Server.Web.Controllers
 {
@@ -42,6 +43,19 @@ namespace Anmat.Server.Web.Controllers
         public ActionResult StartJob()
         {
 			var version = this.GetNewVersion ();
+			
+			var tempPath = AnmatConfiguration.GetTempVersionPath (version);
+			var tempFiles = Directory.EnumerateFiles (tempPath);
+
+			var invalidFiles = tempFiles.Select(f => Path.GetFileNameWithoutExtension(f)).Where (f => f != this.context.Configuration.TargetMedicinesTableName &&
+				f != this.context.Configuration.TargetActiveComponentsTableName);
+
+			if (invalidFiles.Any()) {
+				var message = string.Format ("Uno o mas archivos tienen nombre incorrecto.\nNombres incorrectos: {0}.\nNombres esperados: {1}", string.Join (", ", invalidFiles), string.Concat (this.context.Configuration.TargetMedicinesTableName, ", ", this.context.Configuration.TargetActiveComponentsTableName));
+				
+				return Json(new { success = false, message = message });
+			}
+
 			var latestJob = this.context.JobService.GetJobs ().FirstOrDefault (j => j.Version == version);
 
 			if (latestJob != null && latestJob.Status == DataGenerationJobStatus.InProgress) {
@@ -50,7 +64,15 @@ namespace Anmat.Server.Web.Controllers
 
 			var newJob = this.context.JobService.CreateJob (version);
 
-			this.anmatDataGenerationServiceClient.ProcessJob (newJob.Id);
+			try {
+				Task.Run (() => {
+					this.anmatDataGenerationServiceClient.ProcessJob (newJob.Id);
+				});
+			} catch (Exception ex) {
+				var message = string.Format ("Ha ocurrido un error al procesar el job {0}. Detalles: {1}", newJob.Id, ex.Message);
+
+				return Json(new { success = false, message = message });
+			}
 
             return Json(new { success = true });
         }

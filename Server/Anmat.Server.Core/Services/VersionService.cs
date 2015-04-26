@@ -24,7 +24,7 @@ namespace Anmat.Server.Core.Services
 		{
 			var latestVersion = this.GetLatestVersion ();
 			var newVersion = new UpdateVersion {
-				Number = latestVersion.Number++,
+				Number = latestVersion.Number + 1,
 				Date = DateTime.Now
 			};
 

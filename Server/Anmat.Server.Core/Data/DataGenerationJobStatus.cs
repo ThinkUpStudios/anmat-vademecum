@@ -2,8 +2,9 @@
 {
 	public enum DataGenerationJobStatus
 	{
-		Completed = 1,
+		Pending = 1,
 		InProgress = 2,
-		Failed = 3
+		Completed = 3,
+		Failed = 4
 	}
 }
