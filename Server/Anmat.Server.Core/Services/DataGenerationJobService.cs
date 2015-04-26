@@ -55,7 +55,13 @@ namespace Anmat.Server.Core.Services
 
 		public DataGenerationJob GetLatestJob ()
 		{
-			var latestJobVersion = this.repository.GetAll ().Max (j => j.Version);
+			var jobs = this.repository.GetAll ();
+
+			if (!jobs.Any ()) {
+				return null;
+			}
+
+			var latestJobVersion = jobs.Max (j => j.Version);
 
 			return this.repository.Get(j => j.Version == latestJobVersion);
 		}
