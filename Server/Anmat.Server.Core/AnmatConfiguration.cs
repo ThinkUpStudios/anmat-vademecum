@@ -23,10 +23,6 @@ namespace Anmat.Server.Core
 
 		public string DocumentsPath { get; set; }
 
-		public string SourceDatabaseConnectionString { get; set; }
-
-		public string SourceDatabaseName { get; set; }
-
 		public string TargetDatabaseName { get; set; }
 
 		public string TargetMedicinesTableName { get; set; }

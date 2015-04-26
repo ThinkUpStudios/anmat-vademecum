@@ -16,7 +16,7 @@ namespace Anmat.Server.Core.IntegrationTests
 		[Fact]
 		public void when_consuming_anmat_data_service_then_succeeds()
 		{
-			var address = "http://anmatmanager.cloudapp.net//anmatdataservice/AnmatDataService.svc";
+			var address = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc";
 			var binding = new WebHttpBinding ();
 
 			binding.MaxReceivedMessageSize = int.MaxValue;
@@ -27,7 +27,7 @@ namespace Anmat.Server.Core.IntegrationTests
 			
 			var channel = channelFactory.CreateChannel ();
 
-			if(channel.IsNewDataAvailable(version: 2)) {
+			if(channel.IsNewDataAvailable(version: 0)) {
 				var data = channel.GetData ();
 			}
 

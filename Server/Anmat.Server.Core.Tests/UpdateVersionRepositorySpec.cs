@@ -47,8 +47,6 @@ namespace Anmat.Server.Core.Tests
             var deletedTestEntity = this.testRepository.Get(v => v.Number == number);
 
             Assert.Null(deletedTestEntity);
-
-			this.testRepository.Delete (createdversion);
         }
 
         [Fact]

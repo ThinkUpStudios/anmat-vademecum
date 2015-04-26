@@ -15,8 +15,8 @@
 @Html.Grid(Model).Columns(columns => {
         columns.Add(c => c.Id).Titled("Id");
         columns.Add (c => c.Version).Titled("Version");
-        columns.Add(c => c.DateStarted).RenderValueAs(job => job.DateStarted.ToString()).Titled("Fecha Inicio");
-        columns.Add (c => c.DateFinished).RenderValueAs(job => job.DateFinished == default(DateTime) ? "-" : job.DateFinished.ToString()).Titled("Fecha Fin");
+        columns.Add(c => c.DateStarted).Titled("Fecha Inicio");
+        columns.Add (c => c.DateFinished).Titled("Fecha Fin");
         columns.Add (c => c.Message).RenderValueAs(job => string.IsNullOrEmpty (job.Message) ? "-" : job.Message).Titled ("Mensaje");
         columns.Add (c => c.Status).Encoded (false).Sanitized (false).RenderValueAs (job => {
             if(job.Status == DataGenerationJobStatus.Pending) {

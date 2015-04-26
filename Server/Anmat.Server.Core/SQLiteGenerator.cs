@@ -66,10 +66,6 @@ namespace Anmat.Server.Core
 
 				this.CreateDocumentTables (documentGenerators, inMemoryConnection);
 
-				var newVersion = this.versionService.IncrementVersion ();
-
-				this.CreateVersionTable (newVersion, inMemoryConnection);
-
 				var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
 
 				using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
@@ -77,6 +73,10 @@ namespace Anmat.Server.Core
 
 					inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
 				}
+
+				var newVersion = this.versionService.IncrementVersion ();
+
+				this.CreateVersionTable (newVersion, inMemoryConnection);
 			}
 
 			this.Script = scriptBuilder.ToString ();
