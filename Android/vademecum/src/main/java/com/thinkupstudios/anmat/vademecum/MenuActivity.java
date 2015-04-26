@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+
 /**
  * Created by fcostazini on 02/03/2015.
  * <p/>
@@ -26,6 +29,12 @@ public abstract class MenuActivity extends Activity {
         TelephonyManager telephonyManager = (TelephonyManager) this
                 .getSystemService(Context.TELEPHONY_SERVICE);
         telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this));
     }
 
     @Override

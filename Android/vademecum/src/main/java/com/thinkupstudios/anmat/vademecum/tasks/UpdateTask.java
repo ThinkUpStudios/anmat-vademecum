@@ -51,14 +51,9 @@ public class UpdateTask extends AsyncTask<Activity, Long, String> {
             return "No se pudo actualizar";
 
         }
-        DatabaseHelper helper = new DatabaseHelper(updateActivity);
-        GenericProvider genericProvider = new GenericProvider(helper);
-        PrincipioActivoProvider principioActivoProvider = new PrincipioActivoProvider(helper);
+        DatabaseHelper dbHelper = new DatabaseHelper(params[0]);
+        ((MiAplicacion)params[0].getApplication()).updateCache(dbHelper);
 
-                ((MiAplicacion) this.updateActivity.getApplication()).setNombresComerciales(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL));
-        ((MiAplicacion)this.updateActivity.getApplication()).setLaboratorios(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO));
-        ((MiAplicacion)this.updateActivity.getApplication()).setNombresGenericos(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO));
-        ((MiAplicacion)this.updateActivity.getApplication()).setPrincipiosActivos(principioActivoProvider.getDistinctPrincipiosColumns());
         return OK;
     }
 

@@ -4,11 +4,13 @@ import android.app.Application;
 
 import com.thinkupstudios.anmat.vademecum.bo.VersionBo;
 import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
+import com.thinkupstudios.anmat.vademecum.providers.PrincipioActivoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 import com.thinkupstudios.anmat.vademecum.providers.tables.PrincipiosActivosTable;
 
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by dcamarro on 27/02/2015.
@@ -16,10 +18,10 @@ import java.util.List;
  */
 public class MiAplicacion extends Application {
 
-    private List<String> nombresComerciales;
-    private List<String> nombresGenericos;
-    private List<String> laboratorios;
-    private List<String> principiosActivos;
+    private List<String> nombresComerciales = new Vector<>();
+    private List<String> nombresGenericos = new Vector<>();
+    private List<String> laboratorios = new Vector<>();
+    private List<String> principiosActivos = new Vector<>();
     private VersionBo versionBo;
 
     public List<String> getNombresComerciales() {
@@ -69,4 +71,20 @@ public class MiAplicacion extends Application {
 
     }
 
+    public void updateCache(DatabaseHelper dbHelper) {
+        GenericProvider genericProvider = new GenericProvider(dbHelper);
+        PrincipioActivoProvider principioActivoProvider = new PrincipioActivoProvider(dbHelper);
+        if(this.getNombresComerciales().isEmpty()){
+            this.setNombresComerciales(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL));
+        }
+        if(this.getLaboratorios().isEmpty()){
+           this.setLaboratorios(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO));
+        }
+        if(this.getNombresGenericos().isEmpty()){
+            this.setNombresGenericos(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO));
+        }
+        if(this.getPrincipiosActivos().isEmpty()){
+            this.setPrincipiosActivos(principioActivoProvider.getDistinctPrincipiosColumns());
+        }
+    }
 }
