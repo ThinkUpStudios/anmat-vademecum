@@ -1,6 +1,7 @@
 package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -29,6 +30,7 @@ public class UpdateDBActivity extends Activity {
 
         if (mWifi.isConnected()) {
             new UpdateTask(this).execute(this);
+
         }else{
             DatabaseHelper dbHelper = new DatabaseHelper(this);
             ((MiAplicacion)this.getApplication()).updateCache(dbHelper);
@@ -36,14 +38,7 @@ public class UpdateDBActivity extends Activity {
         }
 
     }
-    public void updateStatus(String status){
-
-        TextView txtStat = (TextView)findViewById(R.id.txt_status);
-        txtStat.setText(status);
-
-    }
-
-    @Override
+     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_splash, menu);
@@ -71,4 +66,5 @@ public class UpdateDBActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

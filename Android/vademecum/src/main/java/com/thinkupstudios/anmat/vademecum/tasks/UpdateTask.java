@@ -1,8 +1,10 @@
 package com.thinkupstudios.anmat.vademecum.tasks;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.Gravity;
 
 import com.thinkupstudios.anmat.vademecum.UpdateDBActivity;
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
@@ -17,18 +19,21 @@ import java.io.IOException;
 /**
  * Created by dcamarro on 22/04/2015.
  */
-public class UpdateTask extends AsyncTask<Activity, Long, String> {
+public class UpdateTask extends AsyncTask<Activity, String, String> {
 
     public static final String OK = "OK";
     private IRemoteDBService dbService;
     private DatabaseHelper dbHelper;
     private UpdateDBActivity updateActivity;
+    private ProgressDialog progressDialog;
 
     public UpdateTask(Context context) {
         super();
         this.dbService = new SQLiteDBService(context);
         this.dbHelper = new DatabaseHelper(context);
         updateActivity = (UpdateDBActivity) context;
+        progressDialog = new ProgressDialog(context);
+
     }
 
 
@@ -37,9 +42,11 @@ public class UpdateTask extends AsyncTask<Activity, Long, String> {
         try {
         dbHelper.createIfFirstRun();
         if (!dbService.isUpToDate()) {
-            //this.updateActivity.updateStatus("Bajando actualización");
+
+            this.publishProgress("Descargando Actualización");
+
             dbService.updateDatabase();
-            //this.updateActivity.updateStatus("Bajando actualización");
+            this.publishProgress("Instalando Actualización");
 
         }
         } catch (UpdateNotPosibleException | IOException e) {
@@ -48,22 +55,33 @@ public class UpdateTask extends AsyncTask<Activity, Long, String> {
 
         }
         DatabaseHelper dbHelper = new DatabaseHelper(params[0]);
-        ((MiAplicacion)params[0].getApplication()).updateCache(dbHelper);
+        ((MiAplicacion)this.updateActivity.getApplication()).updateCache(dbHelper);
 
         return OK;
     }
 
     @Override
+    protected void onProgressUpdate(String... values) {
+        super.onProgressUpdate(values);
+        this.progressDialog.setMessage(values[0]);
+
+    }
+
+    @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
         updateActivity.continuar();
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        this.updateActivity.updateStatus("Buscando actualizaciones...");
+        progressDialog.setMessage("Buscando Actualizaciones...");
+        progressDialog.getWindow().setGravity(Gravity.BOTTOM);
+        progressDialog.show();
 
     }
 
