@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.tasks.UpdateTask;
 
 import org.w3c.dom.Text;
@@ -26,8 +28,10 @@ public class UpdateDBActivity extends Activity {
         NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
         if (mWifi.isConnected()) {
-            new UpdateTask(this).execute();
+            new UpdateTask(this).execute(this);
         }else{
+            DatabaseHelper dbHelper = new DatabaseHelper(this);
+            ((MiAplicacion)this.getApplication()).updateCache(dbHelper);
             this.continuar();
         }
 

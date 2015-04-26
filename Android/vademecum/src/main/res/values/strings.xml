@@ -51,6 +51,7 @@
     <string name="lbl_observaciones">Observaciones:</string>
     <string name="lbl_denuncias">ANMAT Responde</string>
     <string name="email_responde">Email: responde@anmat.gov.ar</string>
+    <string name="email_responde_value">responde@anmat.gov.ar</string>
     <string name="tel_anmat">Tel: 0800-333-1234</string>
     <string name="fax_anmat">Fax: (011) 4340-0800/5252-8200 int 1159</string>
     <string name="tel_anmat_number">08003331234</string>
