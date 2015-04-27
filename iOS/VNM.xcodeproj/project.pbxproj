@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14161CB21AEDA3EF00D63958 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14161CB11AEDA3EF00D63958 /* anmat.sqlite */; };
+		14161CB41AEDBA4200D63958 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14161CB31AEDBA4200D63958 /* anmat.sqlite */; };
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
@@ -56,7 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14161CB11AEDA3EF00D63958 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
+		14161CB31AEDBA4200D63958 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		141BC4E31A97652D00B78F0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		141BC4E41A97652D00B78F0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSearchSectionViewController.h; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
-				14161CB11AEDA3EF00D63958 /* anmat.sqlite */,
+				14161CB31AEDBA4200D63958 /* anmat.sqlite */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
@@ -371,7 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
-				14161CB21AEDA3EF00D63958 /* anmat.sqlite in Resources */,
+				14161CB41AEDBA4200D63958 /* anmat.sqlite in Resources */,
 				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */,
