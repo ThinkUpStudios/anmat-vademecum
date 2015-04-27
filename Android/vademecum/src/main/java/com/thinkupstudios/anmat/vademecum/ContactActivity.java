@@ -20,21 +20,23 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
  * Activity Generica que maneja el menu de llamadas y email, asi como el menu main_menu.xml
  */
 public abstract class ContactActivity extends Activity {
-
+private PhoneCallListener phoneCallListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        PhoneCallListener phoneListener = new PhoneCallListener();
+        phoneCallListener = new PhoneCallListener();
         TelephonyManager telephonyManager = (TelephonyManager) this
                 .getSystemService(Context.TELEPHONY_SERVICE);
-        telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+        telephonyManager.listen(phoneCallListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this));
+        DatabaseHelper dh = new DatabaseHelper(this);
+        ((MiAplicacion)this.getApplication()).updateCache(dh);
+        dh.close();
     }
 
     @Override
@@ -45,6 +47,7 @@ public abstract class ContactActivity extends Activity {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel: " + getResources().getString(R.string.tel_anmat_number)));
                 startActivity(callIntent);
+                this.phoneCallListener.setIsOwnCalling(true);
 
             case R.id.mn_email:
                 Intent email = new Intent(Intent.ACTION_SEND);
@@ -70,41 +73,32 @@ public abstract class ContactActivity extends Activity {
     private class PhoneCallListener extends PhoneStateListener {
 
         private boolean isPhoneCalling = false;
-
+        private boolean isOwnCalling = false;
         String LOG_TAG = "LOGGING 123";
-
+        public void setIsOwnCalling(boolean ownCalling){
+            this.isOwnCalling = ownCalling;
+        }
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
 
             if (TelephonyManager.CALL_STATE_RINGING == state) {
-                // phone ringing
-                Log.i(LOG_TAG, "RINGING, number: " + incomingNumber);
             }
 
             if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
-                // active
-                Log.i(LOG_TAG, "OFFHOOK");
-
                 isPhoneCalling = true;
             }
 
             if (TelephonyManager.CALL_STATE_IDLE == state) {
-                // run when class initial and phone call ended,
-                // need detect flag from CALL_STATE_OFFHOOK
-                Log.i(LOG_TAG, "IDLE");
-
-                if (isPhoneCalling) {
-
-                    Log.i(LOG_TAG, "restart app");
-
-                    // restart app
-                    Intent i = getBaseContext().getPackageManager()
+                 if (isPhoneCalling && isOwnCalling) {
+                   Intent i = getBaseContext().getPackageManager()
                             .getLaunchIntentForPackage(
                                     getBaseContext().getPackageName());
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
 
                     isPhoneCalling = false;
+                     isOwnCalling = false;
+
                 }
 
             }

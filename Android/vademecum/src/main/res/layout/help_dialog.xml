@@ -4,11 +4,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="20dp">
-
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:textSize="@dimen/size_text_collapsible"
     android:text="@string/busqueda_nombre_generico_help"
     android:textStyle="bold"
     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -19,6 +26,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/size_text_collapsible"
         android:text="@string/intro_help"
     />
     <LinearLayout
@@ -32,12 +40,14 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="#:"
+            android:textSize="@dimen/size_text_collapsible"
             android:labelFor="@+id/and_explanation_id"
             />
         <TextView
             android:id="@+id/and_explanation_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/size_text_collapsible"
             android:text="@string/and_explanation"
             />
         </LinearLayout>
@@ -51,6 +61,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/size_text_collapsible"
             android:text="\?:"
             android:labelFor="@+id/or_explanation_id"
             />
@@ -58,13 +69,11 @@
             android:id="@+id/or_explanation_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/size_text_collapsible"
             android:text="@string/or_explanation"
             />
     </LinearLayout>
-
-
-
-
-
+   </LinearLayout>
+  </ScrollView>
 </LinearLayout>
 

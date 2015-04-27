@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14161CB41AEDBA4200D63958 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14161CB31AEDBA4200D63958 /* anmat.sqlite */; };
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
@@ -41,7 +42,12 @@
 		14E8430F1AD9797800FB8213 /* FormulaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8430E1AD9797800FB8213 /* FormulaParser.m */; };
 		14E843121AD979A500FB8213 /* Formula.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E843111AD979A500FB8213 /* Formula.m */; };
 		14E8431B1ADAE4C900FB8213 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E8431A1ADAE4C900FB8213 /* String.m */; };
-		14F97A391AD2183300C08620 /* anmat.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14F97A381AD2183300C08620 /* anmat.sqlite */; };
+		14F720611AEE86D900FFEDA1 /* AnmatDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720601AEE86D900FFEDA1 /* AnmatDataService.m */; };
+		14F720641AEE878D00FFEDA1 /* AnmatData.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720631AEE878D00FFEDA1 /* AnmatData.m */; };
+		14F720671AEE94C700FFEDA1 /* UpdatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720661AEE94C700FFEDA1 /* UpdatesViewController.m */; };
+		14F7206A1AEEA44C00FFEDA1 /* PushNoAnimationSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */; };
+		14F7206D1AEEA6BF00FFEDA1 /* VersionRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */; };
+		14F720701AEEA78E00FFEDA1 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7206F1AEEA78E00FFEDA1 /* Version.m */; };
 		14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F97A3B1AD229C300C08620 /* ContactAlertController.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14161CB31AEDBA4200D63958 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
 		141BC4E31A97652D00B78F0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		141BC4E41A97652D00B78F0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		141BC4E61A9765FC00B78F0B /* MainSearchSectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSearchSectionViewController.h; sourceTree = "<group>"; };
@@ -116,7 +123,18 @@
 		14E843111AD979A500FB8213 /* Formula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formula.m; sourceTree = "<group>"; };
 		14E843191ADAE4C900FB8213 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
 		14E8431A1ADAE4C900FB8213 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = String.m; sourceTree = "<group>"; };
-		14F97A381AD2183300C08620 /* anmat.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = anmat.sqlite; sourceTree = "<group>"; };
+		14F7205F1AEE86D900FFEDA1 /* AnmatDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnmatDataService.h; sourceTree = "<group>"; };
+		14F720601AEE86D900FFEDA1 /* AnmatDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnmatDataService.m; sourceTree = "<group>"; };
+		14F720621AEE878D00FFEDA1 /* AnmatData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnmatData.h; sourceTree = "<group>"; };
+		14F720631AEE878D00FFEDA1 /* AnmatData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnmatData.m; sourceTree = "<group>"; };
+		14F720651AEE94C700FFEDA1 /* UpdatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatesViewController.h; sourceTree = "<group>"; };
+		14F720661AEE94C700FFEDA1 /* UpdatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatesViewController.m; sourceTree = "<group>"; };
+		14F720681AEEA44C00FFEDA1 /* PushNoAnimationSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNoAnimationSegue.h; sourceTree = "<group>"; };
+		14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNoAnimationSegue.m; sourceTree = "<group>"; };
+		14F7206B1AEEA6BF00FFEDA1 /* VersionRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionRepository.h; sourceTree = "<group>"; };
+		14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionRepository.m; sourceTree = "<group>"; };
+		14F7206E1AEEA78E00FFEDA1 /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		14F7206F1AEEA78E00FFEDA1 /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
 		14F97A3A1AD229C300C08620 /* ContactAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAlertController.h; sourceTree = "<group>"; };
 		14F97A3B1AD229C300C08620 /* ContactAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +181,8 @@
 				141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */,
 				14F97A3A1AD229C300C08620 /* ContactAlertController.h */,
 				14F97A3B1AD229C300C08620 /* ContactAlertController.m */,
+				14F720651AEE94C700FFEDA1 /* UpdatesViewController.h */,
+				14F720661AEE94C700FFEDA1 /* UpdatesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +202,10 @@
 				14E843111AD979A500FB8213 /* Formula.m */,
 				14E843191ADAE4C900FB8213 /* String.h */,
 				14E8431A1ADAE4C900FB8213 /* String.m */,
+				14F720621AEE878D00FFEDA1 /* AnmatData.h */,
+				14F720631AEE878D00FFEDA1 /* AnmatData.m */,
+				14F7206E1AEEA78E00FFEDA1 /* Version.h */,
+				14F7206F1AEEA78E00FFEDA1 /* Version.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,6 +219,8 @@
 				14DDAC401ACB588B003A1A52 /* ActiveComponentRepository.m */,
 				14DDAC451ACB59F4003A1A52 /* DataBaseProvider.h */,
 				14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */,
+				14F7206B1AEEA6BF00FFEDA1 /* VersionRepository.h */,
+				14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -206,6 +232,8 @@
 				14DDAC491ACB6365003A1A52 /* ActiveComponentService.m */,
 				14BC10C21AACABF100CA80FC /* MedicineService.h */,
 				14BC10C31AACABF100CA80FC /* MedicineService.m */,
+				14F7205F1AEE86D900FFEDA1 /* AnmatDataService.h */,
+				14F720601AEE86D900FFEDA1 /* AnmatDataService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -226,7 +254,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
-				14F97A381AD2183300C08620 /* anmat.sqlite */,
+				14161CB31AEDBA4200D63958 /* anmat.sqlite */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
 				14E29FF81A975D83005292FE /* Anmat VademecumTests */,
@@ -259,6 +287,8 @@
 				14E29FDF1A975D83005292FE /* Supporting Files */,
 				14BC10C71AACF33C00CA80FC /* UISelectableButton.h */,
 				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
+				14F720681AEEA44C00FFEDA1 /* PushNoAnimationSegue.h */,
+				14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -371,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
+				14161CB41AEDBA4200D63958 /* anmat.sqlite in Resources */,
 				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
 				1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */,
@@ -378,7 +409,6 @@
 				148987B01AD097340054FE02 /* logo-vnm.png in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
 				148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */,
-				14F97A391AD2183300C08620 /* anmat.sqlite in Resources */,
 				149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +427,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F720671AEE94C700FFEDA1 /* UpdatesViewController.m in Sources */,
 				14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */,
+				14F720701AEEA78E00FFEDA1 /* Version.m in Sources */,
+				14F7206D1AEEA6BF00FFEDA1 /* VersionRepository.m in Sources */,
 				14DDAC441ACB590E003A1A52 /* ActiveComponent.m in Sources */,
 				149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */,
 				147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */,
@@ -407,12 +440,15 @@
 				14DDAC4A1ACB6365003A1A52 /* ActiveComponentService.m in Sources */,
 				14E843121AD979A500FB8213 /* Formula.m in Sources */,
 				14DDAC411ACB588B003A1A52 /* ActiveComponentRepository.m in Sources */,
+				14F7206A1AEEA44C00FFEDA1 /* PushNoAnimationSegue.m in Sources */,
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
 				149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
+				14F720611AEE86D900FFEDA1 /* AnmatDataService.m in Sources */,
+				14F720641AEE878D00FFEDA1 /* AnmatData.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UIViewController<NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
 @end

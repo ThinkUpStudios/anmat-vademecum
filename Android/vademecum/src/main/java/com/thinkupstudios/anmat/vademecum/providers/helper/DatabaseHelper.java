@@ -4,13 +4,16 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.sql.SQLException;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -50,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String path = getPath();
             checkDB = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 
-        } catch (SQLiteException e) {
+        } catch (Exception e) {
             checkDB = null;
         }
 
@@ -140,31 +143,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void upgrade(InputStream in) throws IOException {
-
+    public void upgrade(byte[] in) throws IOException {
 
         File actualDB =  new File(myContext.getDatabasePath(DB_NAME).getPath());
         File backUp = this.bakupFile(actualDB);
 
-
+        InputStream inputStream = new ByteArrayInputStream(in);
         OutputStream out = new FileOutputStream(actualDB,false);
         try {
             byte[] buf = new byte[1024];
             int len;
-            while ((len = in.read(buf)) > 0) {
+            while ((len = inputStream.read(buf)) > 0) {
                 out.write(buf, 0, len);
             }
 
             this.getReadableDatabase().getVersion();
         }catch (IOException e){
 
-            in.close();
+            inputStream.close();
             out.close();
             backUp.renameTo( new File(myContext.getDatabasePath(DB_NAME).getPath()));
             throw new IOException();
         }
         finally {
-            in.close();
+            inputStream.close();
             out.close();
             out.flush();
             this.close();
@@ -198,6 +200,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             this.copyDataBase();
         }
     }
-
 
 }
