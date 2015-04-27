@@ -23,6 +23,7 @@
             android:gravity="start"
             android:text="@string/dummy_small_text"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/header_text_size"
             android:textStyle="bold" />
 
         <TextView
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/active_component"
             android:gravity="center"
+            android:textSize="@dimen/size_text_collapsible"
             android:text="@string/dummy_small_text"
 
             />
