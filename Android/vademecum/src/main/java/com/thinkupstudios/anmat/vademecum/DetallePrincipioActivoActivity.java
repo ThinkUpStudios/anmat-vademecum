@@ -50,49 +50,54 @@ public class DetallePrincipioActivoActivity extends Activity {
         observacion = (CollapsibleContent) findViewById(R.id.col_observaciones);
         txtNoResultados = (TextView) findViewById(R.id.txt_no_resultados);
 
+        DatabaseHelper dh = null;
 
+        try {
+            dh = new DatabaseHelper(this);
+            provider = new PrincipioActivoProvider(dh);
+            if (getIntent().getExtras() != null && getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO) != null) {
+                principioActivo = provider.findPrincipioActivo(getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO));
 
+                if (principioActivo != null) {
+                    txtNoResultados.setVisibility(View.INVISIBLE);
 
-        provider = new PrincipioActivoProvider(new DatabaseHelper(this));
-        if (getIntent().getExtras() != null && getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO) != null) {
-            principioActivo = provider.findPrincipioActivo(getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO));
+                    accionTerapeutica.setVisibility(View.VISIBLE);
+                    indicaciones.setVisibility(View.VISIBLE);
+                    presentacion.setVisibility(View.VISIBLE);
+                    posologia.setVisibility(View.VISIBLE);
+                    duracion.setVisibility(View.VISIBLE);
+                    contraindicaciones.setVisibility(View.VISIBLE);
+                    observacion.setVisibility(View.VISIBLE);
+                    txtPrincipioActivo.setVisibility(View.VISIBLE);
+                    txtPrincipioActivo.setText(principioActivo.getNombre());
+                    accionTerapeutica.setContent(principioActivo.getAccionTerapeutica());
+                    indicaciones.setContent(principioActivo.getIndicaciones());
+                    presentacion.setContent(principioActivo.getPresentacion());
+                    posologia.setContent(principioActivo.getPosologia());
+                    duracion.setContent(principioActivo.getDuracion());
+                    contraindicaciones.setContent(principioActivo.getContraindicaciones());
+                    observacion.setContent(principioActivo.getObservaciones());
+                } else {
 
-            if (principioActivo != null) {
-                txtNoResultados.setVisibility(View.INVISIBLE);
+                    int color = getResources().getColor(R.color.anmat_azul);
+                    txtNoResultados.setVisibility(View.VISIBLE);
+                    txtNoResultados.setText("Sin Resultados");
+                    txtNoResultados.setTextColor(color);
 
-                accionTerapeutica.setVisibility(View.VISIBLE);
-                indicaciones.setVisibility(View.VISIBLE);
-                presentacion.setVisibility(View.VISIBLE);
-                posologia.setVisibility(View.VISIBLE);
-                duracion.setVisibility(View.VISIBLE);
-                contraindicaciones.setVisibility(View.VISIBLE);
-                observacion.setVisibility(View.VISIBLE);
-                txtPrincipioActivo.setVisibility(View.VISIBLE);
-                txtPrincipioActivo.setText(principioActivo.getNombre());
-                accionTerapeutica.setContent(principioActivo.getAccionTerapeutica());
-                indicaciones.setContent(principioActivo.getIndicaciones());
-                presentacion.setContent(principioActivo.getPresentacion());
-                posologia.setContent(principioActivo.getPosologia());
-                duracion.setContent(principioActivo.getDuracion());
-                contraindicaciones.setContent(principioActivo.getContraindicaciones());
-                observacion.setContent(principioActivo.getObservaciones());
-            } else {
+                    accionTerapeutica.setVisibility(View.INVISIBLE);
+                    indicaciones.setVisibility(View.INVISIBLE);
+                    presentacion.setVisibility(View.INVISIBLE);
+                    posologia.setVisibility(View.INVISIBLE);
+                    duracion.setVisibility(View.INVISIBLE);
+                    contraindicaciones.setVisibility(View.INVISIBLE);
+                    observacion.setVisibility(View.INVISIBLE);
+                    txtPrincipioActivo.setVisibility(View.INVISIBLE);
 
-                int color = getResources().getColor(R.color.anmat_azul);
-                txtNoResultados.setVisibility(View.VISIBLE);
-                txtNoResultados.setText("Sin Resultados");
-                txtNoResultados.setTextColor(color);
-
-                accionTerapeutica.setVisibility(View.INVISIBLE);
-                indicaciones.setVisibility(View.INVISIBLE);
-                presentacion.setVisibility(View.INVISIBLE);
-                posologia.setVisibility(View.INVISIBLE);
-                duracion.setVisibility(View.INVISIBLE);
-                contraindicaciones.setVisibility(View.INVISIBLE);
-                observacion.setVisibility(View.INVISIBLE);
-                txtPrincipioActivo.setVisibility(View.INVISIBLE);
-
+                }
             }
+        }finally {
+            if(dh != null)
+                dh.close();
         }
     }
 

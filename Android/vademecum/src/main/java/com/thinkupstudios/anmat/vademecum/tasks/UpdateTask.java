@@ -9,14 +9,10 @@ import android.view.Gravity;
 import com.thinkupstudios.anmat.vademecum.UpdateDBActivity;
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
-import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
-import com.thinkupstudios.anmat.vademecum.providers.PrincipioActivoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.SQLiteDBService;
-import com.thinkupstudios.anmat.vademecum.providers.VersionProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBService;
-import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
-import com.thinkupstudios.anmat.vademecum.providers.tables.PrincipiosActivosTable;
+
 
 import java.io.IOException;
 
@@ -77,6 +73,10 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
+        if(dbHelper != null){
+            dbHelper.close();
+        }
+        this.dbService.closeHelper();
         updateActivity.continuar();
     }
 

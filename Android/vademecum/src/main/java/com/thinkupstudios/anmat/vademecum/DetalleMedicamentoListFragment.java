@@ -150,14 +150,19 @@ public class DetalleMedicamentoListFragment extends ListFragment {
     public class BuscarResultadosTask extends AsyncTask<Integer, Integer, List<MedicamentoBO>> {
         @Override
         protected List<MedicamentoBO> doInBackground(Integer... params) {
-            MedicamentosProvider provider =
-                    new MedicamentosProvider(new DatabaseHelper(
-                            DetalleMedicamentoListFragment.this.getActivity()));
-            List<MedicamentoBO> resultados = provider
-                    .findMedicamentos((FormularioBusqueda)
-                                    DetalleMedicamentoListFragment.this.getActivity().getIntent().getExtras()
-                                            .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
-                    );
+            DatabaseHelper dh = null;
+            List<MedicamentoBO> resultados = null;
+            try {
+                dh = new DatabaseHelper(DetalleMedicamentoListFragment.this.getActivity());
+                MedicamentosProvider provider = new MedicamentosProvider(dh);
+                resultados = provider.findMedicamentos((FormularioBusqueda)
+                                        DetalleMedicamentoListFragment.this.getActivity().getIntent().getExtras()
+                                                .getSerializable(FormularioBusqueda.FORMULARIO_MANUAL)
+                                    );
+            }finally {
+                if(dh != null)
+                    dh.close();
+            }
             return resultados;
         }
 

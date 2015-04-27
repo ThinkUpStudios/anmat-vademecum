@@ -1,13 +1,15 @@
 package com.thinkupstudios.anmat.vademecum.providers;
 
 import android.content.Context;
+import android.util.Base64;
 
+import com.google.gson.Gson;
 import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBService;
+import com.thinkupstudios.anmat.vademecum.webservice.contract.AnmatData;
+import com.thinkupstudios.anmat.vademecum.webservice.http.HttpRequest;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -31,30 +33,52 @@ public class SQLiteDBService implements IRemoteDBService {
 
         VersionProvider vProvider = new VersionProvider(dbHelper);
         Integer versionLocal = vProvider.getVersionBo().getNumero();
+        try {
+            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version="+versionLocal.intValue();
 
-        //TODO: Llamar al ws.
-        String url = String.format("http://mymovieapi.com/?title=%1$s&type=json&limit=10", versionLocal);
-        //HttpRequest.get("https://encrypted.google.com/").trustAllCerts().trustAllHosts().accept("application/json").body();
-        Integer versionServer = 10;
+            String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
-        return (versionLocal == versionServer);
+            return !Boolean.valueOf(resultado);
+        }catch (HttpRequest.HttpRequestException e){
+            return true;
+        }
     }
 
     @Override
     public boolean updateDatabase() throws UpdateNotPosibleException {
 
-
-        //SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbService.getNewDataBase(), null);
-        String outFileName = "/data/data/com.thinkupstudios.annmat.vademecum/databases/prueba.sqlite";
-
         try {
 
-            dbHelper.upgrade(this.context.getAssets().open("prueba.sqlite"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
 
-        return true;
+            String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
+            Gson gson = new Gson();
+            AnmatData anmatData = gson.fromJson(resultado, AnmatData.class);
+            byte[] data = Base64.decode(anmatData.getContent(), Base64.DEFAULT);
+
+            if(data.length == anmatData.getContentSize()) {
+
+                dbHelper.upgrade(data);
+
+                return true;
+            }
+            else{
+                return false;
+            }
+        }catch (HttpRequest.HttpRequestException e){
+            return false;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public void closeHelper() {
+        if(this.dbHelper != null){
+            this.dbHelper.close();
+        }
     }
 
 }
