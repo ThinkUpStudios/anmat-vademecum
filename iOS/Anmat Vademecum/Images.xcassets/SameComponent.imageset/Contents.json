@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "samecomponent25@1x.png"
+      "filename" : "25_ic_mismo_comp.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "samecomponent25@2x.png"
+      "filename" : "50_ic_mismo_comp.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "samecomponent25@3x.png"
+      "filename" : "75_ic_mismo_comp.png"
     }
   ],
   "info" : {

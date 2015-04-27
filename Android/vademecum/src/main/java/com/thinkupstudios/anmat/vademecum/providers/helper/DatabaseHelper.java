@@ -53,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String path = getPath();
             checkDB = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 
-        } catch (SQLiteException e) {
+        } catch (Exception e) {
             checkDB = null;
         }
 

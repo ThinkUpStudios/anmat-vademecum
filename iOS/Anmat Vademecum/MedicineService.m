@@ -9,26 +9,30 @@
 #import "MedicineService.h"
 #import "Medicine.h"
 #import "MedicineRepository.h"
+#import "ActiveComponentRepository.h"
 #import "String.h"
 
 @implementation MedicineService {
-    MedicineRepository *repository;
+    MedicineRepository *medicinesRepository;
+    ActiveComponentRepository *componentsRepository;
 }
 
 - (id) init {
-    repository = [[MedicineRepository alloc] init];
+    medicinesRepository = [[MedicineRepository alloc] init];
+    componentsRepository = [[ActiveComponentRepository alloc] init];
     
     return self;
 }
 
 - (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory {
-    NSArray *medicines = [repository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory]];
+    NSArray *medicines = [medicinesRepository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory]];
     
     return [self reOrder:medicines];
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
-    NSArray *medicines = [repository getByActiveComponent:[String trim:activeComponent]];
+    NSArray *componentIdentifiers = [componentsRepository getAllIdentifiers:activeComponent];
+    NSArray *medicines = [medicinesRepository getByActiveComponent:componentIdentifiers];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -65,7 +69,9 @@
                 componentName = trimmedFormulaDetail;
             }
             
-            if([[String trim:componentName] isEqualToString:[String trim:activeComponent]]) {
+            
+            
+            if([componentIdentifiers containsObject:[String trim:componentName]]) {
                 include = YES;
                 break;
             }
@@ -80,7 +86,7 @@
 }
 
 - (NSArray *) getSimilarMedicines: (Medicine *)reference {
-    NSArray *medicines = [repository getByGenericName:reference.genericName];
+    NSArray *medicines = [medicinesRepository getByGenericName:reference.genericName];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -99,15 +105,15 @@
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
-    return [repository getGenericNames:[String trim:searchText]];
+    return [medicinesRepository getGenericNames:[String trim:searchText]];
 }
 
 - (NSArray *) getComercialNames:(NSString *)searchText {
-    return [repository getComercialNames:[String trim:searchText]];
+    return [medicinesRepository getComercialNames:[String trim:searchText]];
 }
 
 - (NSArray *) getLaboratories:(NSString *)searchText {
-    return [repository getLaboratories:[String trim:searchText]];
+    return [medicinesRepository getLaboratories:[String trim:searchText]];
 }
 
 - (NSArray *) reOrder: (NSArray *) medicines {
