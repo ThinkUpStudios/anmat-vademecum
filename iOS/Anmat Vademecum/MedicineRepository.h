@@ -16,7 +16,7 @@
 
 - (NSArray *)getByGenericName:(NSString *)genericName;
 
-- (NSArray *)getByActiveComponent:(NSString *)componentName;
+- (NSArray *)getByActiveComponent:(NSArray *)componentIdentifiers;
 
 - (NSArray *) getGenericNames: (NSString *)searchText;
 

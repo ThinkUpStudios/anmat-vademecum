@@ -17,4 +17,6 @@
 
 - (ActiveComponent *) getByName: (NSString *)name;
 
+- (NSArray *) getAllIdentifiers: (NSString *)name;
+
 @end
