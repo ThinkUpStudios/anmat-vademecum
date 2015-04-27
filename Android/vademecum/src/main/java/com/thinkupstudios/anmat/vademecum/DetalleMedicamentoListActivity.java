@@ -3,8 +3,11 @@ package com.thinkupstudios.anmat.vademecum;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 
 import static android.R.anim.fade_in;
@@ -27,7 +30,7 @@ import static android.R.anim.fade_out;
  * {@link DetalleMedicamentoListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DetalleMedicamentoListActivity extends NoMenuActivity
+public class DetalleMedicamentoListActivity extends ContactActivity
         implements DetalleMedicamentoListFragment.Callbacks {
 
     /**
@@ -35,6 +38,7 @@ public class DetalleMedicamentoListActivity extends NoMenuActivity
      * device.
      */
     private boolean mTwoPane;
+    private MedicamentoBO medicamento;
 
 private View selectedView;
 
@@ -74,6 +78,7 @@ private View selectedView;
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
+            this.medicamento = m;
             arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO, m);
             DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
             fragment.setArguments(arguments);
@@ -92,4 +97,35 @@ private View selectedView;
         }
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.detalle_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.mnu_recomendados) {
+            if(this.medicamento == null){
+                return false;
+            }
+            Intent i = new Intent(this,
+                    DetalleMedicamentoListActivity.class);
+            i.putExtra("COMERCIAL_RECOMENDADO", this.medicamento.getNombreComercial());
+            FormularioBusqueda f = new FormularioBusqueda();
+            f.setNombreGenerico(this.medicamento.getNombreGenerico());
+            f.setUseLike(false);
+            f.setFiltrarPorFormula(false);
+            i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
+            startActivity(i);
+            this.overridePendingTransition(fade_in, fade_out);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+
+    }
+
  }
