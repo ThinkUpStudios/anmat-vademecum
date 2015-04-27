@@ -21,7 +21,7 @@
         android:id="@+id/txt_acerca_de"
         android:textSize="@dimen/size_text_collapsible"
         android:padding="20dp"
-        
+
         android:text="@string/dummy_long_text"/>
     </ScrollView>
     <LinearLayout
