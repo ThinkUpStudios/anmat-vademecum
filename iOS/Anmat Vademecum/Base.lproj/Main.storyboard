@@ -210,7 +210,7 @@
         <!--About-->
         <scene sceneID="86y-Jy-cuc">
             <objects>
-                <viewController title="About" id="J3I-4s-JDD" sceneMemberID="viewController">
+                <viewController title="About" id="J3I-4s-JDD" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z7M-E4-kOA"/>
                         <viewControllerLayoutGuide type="bottom" id="wxj-3F-nOs"/>
@@ -219,8 +219,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
-                                <rect key="frame" x="16" y="378" width="568" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
+                                <rect key="frame" x="7" y="311" width="568" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="HVA-Jb-w2c"/>
                                     <constraint firstAttribute="width" constant="446" id="bCe-MM-M8F"/>
@@ -235,12 +235,14 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNl-Kt-RFT" userLabel="Intro">
-                                <rect key="frame" x="16" y="72" width="568" height="81"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNl-Kt-RFT" userLabel="Intro">
+                                <rect key="frame" x="16" y="72" width="568" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="FK6-Nk-Ec2"/>
                                 </constraints>
-                                <string key="text">ANMAT Vademecum se creó para proveer información sobre medicamentos, sus principios activos, nombres comerciales, laboratorios y precios oficiales, entre otros.</string>
+                                <string key="text">ANMAT Vademecum se creó para proveer información sobre medicamentos, sus principios activos, nombres comerciales, laboratorios y precios oficiales, entre otros.
+
+Esta aplicación fue desarrollada a partir de la información brindada por el Ministerio de Salud de la Nación - ANMAT.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -250,22 +252,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Esta aplicación fue desarrollada a partir de la información brindada por el Ministerio de Salud de la Nación - ANMAT." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoO-H7-SEv" userLabel="Desarrollo">
-                                <rect key="frame" x="16" y="136" width="568" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="VyH-ts-ebs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="VyH-ts-ebs"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Los datos se encuentran actualizados al 10 de Febrero de 2015" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cci-se-hVi">
-                                <rect key="frame" x="16" y="196" width="568" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los datos se encuentran actualizados al {fecha}" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cci-se-hVi">
+                                <rect key="frame" x="16" y="180" width="568" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Fqs-Ia-HC2"/>
                                     <constraint firstAttribute="width" constant="568" id="Rby-1N-Tqg"/>
@@ -280,8 +268,25 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2015 Ministerio de Salud de la Nación - ANMAT. Todos los derechos reservados" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-Dd-j1P">
-                                <rect key="frame" x="16" y="349" width="568" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RX-pxP">
+                                <rect key="frame" x="16" y="205" width="568" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="568" id="35W-xq-D2b"/>
+                                    <constraint firstAttribute="height" constant="21" id="SO4-Tb-xux"/>
+                                </constraints>
+                                <string key="text">Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, cosméticos, domisanitarios, reactivos de diagnóstico, faltantes, trámites o legislación comunicate ANMAT Responde al 0800-333-1234 o vía mail a responde@anmat.gov.ar</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="35W-xq-D2b"/>
+                                        <exclude reference="SO4-Tb-xux"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Ministerio de Salud de la Nación - ANMAT. Todos los derechos reservados" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-Dd-j1P">
+                                <rect key="frame" x="7" y="289" width="568" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="568" id="08f-nx-iZC"/>
                                     <constraint firstAttribute="height" constant="21" id="PZD-0w-OS9"/>
@@ -342,48 +347,28 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RX-pxP">
-                                <rect key="frame" x="16" y="213" width="568" height="116"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="568" id="35W-xq-D2b"/>
-                                    <constraint firstAttribute="height" constant="21" id="SO4-Tb-xux"/>
-                                </constraints>
-                                <string key="text">Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, cosméticos, domisanitarios, reactivos de diagnóstico, faltantes, trámites o legislación comunicate ANMAT Responde al 0800-333-1234 o vía mail a responde@anmat.gov.ar</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="35W-xq-D2b"/>
-                                        <exclude reference="SO4-Tb-xux"/>
-                                    </mask>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Cci-se-hVi" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="229-go-dWP"/>
-                            <constraint firstItem="mS3-5G-BzP" firstAttribute="top" secondItem="rDx-Dd-j1P" secondAttribute="bottom" constant="8" id="3lF-kV-6SC"/>
-                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="9aF-wQ-aLU"/>
-                            <constraint firstItem="KoO-H7-SEv" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="72" id="Ayg-8z-jAC"/>
+                            <constraint firstAttribute="bottom" secondItem="gKX-dm-Unt" secondAttribute="bottom" id="3Vc-1s-KHr"/>
+                            <constraint firstItem="Cci-se-hVi" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="5KR-qG-dRH"/>
+                            <constraint firstItem="mS3-5G-BzP" firstAttribute="top" secondItem="rDx-Dd-j1P" secondAttribute="bottom" constant="8" id="8CW-Kb-UP9"/>
+                            <constraint firstItem="uc2-RX-pxP" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="8" id="AEZ-8A-o2j"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="161" id="DJB-N5-Ge8"/>
-                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="FAs-WT-Fc4"/>
-                            <constraint firstItem="uc2-RX-pxP" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="-4" id="Igk-l6-Va0"/>
-                            <constraint firstItem="KoO-H7-SEv" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="JWz-PT-0dC"/>
-                            <constraint firstItem="Cci-se-hVi" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="LG3-nl-nMb"/>
-                            <constraint firstItem="gKX-dm-Unt" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" id="U7Y-GB-iA6"/>
-                            <constraint firstAttribute="trailing" secondItem="gKX-dm-Unt" secondAttribute="trailing" id="WHQ-fh-crJ"/>
-                            <constraint firstAttribute="trailing" secondItem="uc2-RX-pxP" secondAttribute="trailing" constant="16" id="YHM-kr-igO"/>
-                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="uc2-RX-pxP" secondAttribute="bottom" constant="20" id="aRD-GS-8II"/>
-                            <constraint firstItem="mS3-5G-BzP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="gRv-c3-Vb8"/>
-                            <constraint firstItem="uc2-RX-pxP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="gsM-Uf-q3h"/>
-                            <constraint firstItem="Cci-se-hVi" firstAttribute="top" secondItem="KoO-H7-SEv" secondAttribute="bottom" constant="8" id="hLU-a6-mqo"/>
-                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="s7Y-jA-xUV"/>
-                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="sCi-eA-Ej7"/>
-                            <constraint firstItem="mS3-5G-BzP" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="xbK-NW-pHC"/>
-                            <constraint firstAttribute="bottom" secondItem="gKX-dm-Unt" secondAttribute="bottom" id="ycj-XL-Kvd"/>
-                            <constraint firstItem="KoO-H7-SEv" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="yr2-fq-TCH"/>
-                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="8" id="zOv-3t-i7y"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="7" id="F69-bx-Rqd"/>
+                            <constraint firstAttribute="trailing" secondItem="gKX-dm-Unt" secondAttribute="trailing" id="M5a-21-FeN"/>
+                            <constraint firstAttribute="trailing" secondItem="rDx-Dd-j1P" secondAttribute="trailing" constant="25" id="P87-su-Ryn"/>
+                            <constraint firstAttribute="trailing" secondItem="Cci-se-hVi" secondAttribute="trailing" constant="16" id="TUI-GF-ggB"/>
+                            <constraint firstItem="uc2-RX-pxP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="ThM-cS-Qhn"/>
+                            <constraint firstItem="Cci-se-hVi" firstAttribute="top" secondItem="gNl-Kt-RFT" secondAttribute="bottom" constant="24" id="XIp-l7-SAr"/>
+                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="8" id="Ynn-cm-UDV"/>
+                            <constraint firstAttribute="trailing" secondItem="gNl-Kt-RFT" secondAttribute="trailing" constant="16" id="ZEb-0S-7Om"/>
+                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="uc2-RX-pxP" secondAttribute="bottom" constant="17" id="cl1-U7-2Kc"/>
+                            <constraint firstItem="gNl-Kt-RFT" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="mPt-2y-miU"/>
+                            <constraint firstItem="gKX-dm-Unt" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" id="t4g-G9-s9n"/>
+                            <constraint firstItem="mS3-5G-BzP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="7" id="umh-Md-twH"/>
+                            <constraint firstAttribute="trailing" secondItem="mS3-5G-BzP" secondAttribute="trailing" constant="25" id="wLj-cH-OJb"/>
+                            <constraint firstAttribute="trailing" secondItem="uc2-RX-pxP" secondAttribute="trailing" constant="16" id="xCh-WO-DgT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -392,6 +377,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Acerca de VNM" id="wMz-GP-qdW"/>
+                    <connections>
+                        <outlet property="lblUpdatedDate" destination="Cci-se-hVi" id="FRa-Jo-UV2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgY-4q-6KG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1493,7 +1481,7 @@
                                     <constraint firstAttribute="height" constant="68" id="h6W-6N-MHN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

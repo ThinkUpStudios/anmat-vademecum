@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Reachability.h"
 
 @interface AppDelegate ()
 
@@ -22,8 +22,16 @@
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewController;
+    
+    if ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] == ReachableViaWiFi) {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"UpdatesViewController"];
+    } else {
+        viewController = [storyboard instantiateViewControllerWithIdentifier:@"NavigationViewController"];
 
-    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"UpdatesViewController"];
+    }
+    
+    self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
     
     return YES;

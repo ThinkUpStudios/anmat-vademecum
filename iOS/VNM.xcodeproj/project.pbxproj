@@ -21,6 +21,7 @@
 		1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */; };
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
 		148987B01AD097340054FE02 /* logo-vnm.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AF1AD097340054FE02 /* logo-vnm.png */; };
+		148A26091AEECCB3001DDBE6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 148A26081AEECCB3001DDBE6 /* Reachability.m */; };
 		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
@@ -48,6 +49,8 @@
 		14F7206A1AEEA44C00FFEDA1 /* PushNoAnimationSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */; };
 		14F7206D1AEEA6BF00FFEDA1 /* VersionRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */; };
 		14F720701AEEA78E00FFEDA1 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7206F1AEEA78E00FFEDA1 /* Version.m */; };
+		14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720721AEEC06A00FFEDA1 /* AboutViewController.m */; };
+		14F720751AEECAFC00FFEDA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F720741AEECAFC00FFEDA1 /* SystemConfiguration.framework */; };
 		14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F97A3B1AD229C300C08620 /* ContactAlertController.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,8 @@
 		1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
 		148987AD1AD096330054FE02 /* logo-patria-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-patria-toolbar.png"; sourceTree = "<group>"; };
 		148987AF1AD097340054FE02 /* logo-vnm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-vnm.png"; sourceTree = "<group>"; };
+		148A26071AEECCB3001DDBE6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../Downloads/Reachability/Reachability/Reachability.h; sourceTree = "<group>"; };
+		148A26081AEECCB3001DDBE6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../../../../Downloads/Reachability/Reachability/Reachability.m; sourceTree = "<group>"; };
 		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
 		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
@@ -135,6 +140,9 @@
 		14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionRepository.m; sourceTree = "<group>"; };
 		14F7206E1AEEA78E00FFEDA1 /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		14F7206F1AEEA78E00FFEDA1 /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
+		14F720711AEEC06A00FFEDA1 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		14F720721AEEC06A00FFEDA1 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		14F720741AEECAFC00FFEDA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14F97A3A1AD229C300C08620 /* ContactAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactAlertController.h; sourceTree = "<group>"; };
 		14F97A3B1AD229C300C08620 /* ContactAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F720751AEECAFC00FFEDA1 /* SystemConfiguration.framework in Frameworks */,
 				14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +192,8 @@
 				14F97A3B1AD229C300C08620 /* ContactAlertController.m */,
 				14F720651AEE94C700FFEDA1 /* UpdatesViewController.h */,
 				14F720661AEE94C700FFEDA1 /* UpdatesViewController.m */,
+				14F720711AEEC06A00FFEDA1 /* AboutViewController.h */,
+				14F720721AEEC06A00FFEDA1 /* AboutViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -254,6 +265,7 @@
 		14E29FD31A975D83005292FE = {
 			isa = PBXGroup;
 			children = (
+				14F720741AEECAFC00FFEDA1 /* SystemConfiguration.framework */,
 				14161CB31AEDBA4200D63958 /* anmat.sqlite */,
 				14343C411AB7276A00238B73 /* libsqlite3.dylib */,
 				14E29FDE1A975D83005292FE /* Anmat Vademecum */,
@@ -274,6 +286,8 @@
 		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
 			isa = PBXGroup;
 			children = (
+				148A26071AEECCB3001DDBE6 /* Reachability.h */,
+				148A26081AEECCB3001DDBE6 /* Reachability.m */,
 				14DDAC4F1ACB6D0D003A1A52 /* Images */,
 				14DDAC4E1ACB6CFB003A1A52 /* Services */,
 				14DDAC4D1ACB6CD2003A1A52 /* Repository */,
@@ -453,6 +467,8 @@
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,
 				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
+				148A26091AEECCB3001DDBE6 /* Reachability.m in Sources */,
+				14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */,
 				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
 				1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */,
