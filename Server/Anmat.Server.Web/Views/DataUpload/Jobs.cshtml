@@ -19,8 +19,8 @@
         columns.Add (c => c.DateFinished).Titled("Fecha Fin");
         columns.Add (c => c.Message).RenderValueAs(job => string.IsNullOrEmpty (job.Message) ? "-" : job.Message).Titled ("Mensaje");
         columns.Add (c => c.Status).Encoded (false).Sanitized (false).RenderValueAs (job => {
-            if(job.Status == DataGenerationJobStatus.Pending) {
-               return  @<img class="thumb" src="~/Images/job-pending.png" height="20" width="20" alt="Pendiente" />;
+            if (job.Status == DataGenerationJobStatus.Pending) {
+                return @<img class="thumb" src="~/Images/job-pending.png" height="20" width="20" alt="Pendiente" />;
             } else if (job.Status == DataGenerationJobStatus.InProgress) {
                 return @<img class="thumb" src="~/Images/job-processing.png" height="20" width="20" alt="En Proceso" />;
             } else if (job.Status == DataGenerationJobStatus.Completed) {
@@ -28,6 +28,5 @@
             } else {
                 return @<img class="thumb" src="~/Images/job-error.png" height="20" width="20" alt="Error" />;
             }
-        }).Titled("Estado")";
-		//.Style("text-align: center;")
+        }).Titled("Estado");
     }).WithPaging(pageSize: 10).Sortable(enable: true)

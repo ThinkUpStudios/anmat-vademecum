@@ -66,6 +66,10 @@ namespace Anmat.Server.Core
 
 				this.CreateDocumentTables (documentGenerators, inMemoryConnection);
 
+				var newVersion = this.versionService.IncrementVersion ();
+
+				this.CreateVersionTable (newVersion, inMemoryConnection);
+
 				var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
 
 				using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
@@ -73,10 +77,6 @@ namespace Anmat.Server.Core
 
 					inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
 				}
-
-				var newVersion = this.versionService.IncrementVersion ();
-
-				this.CreateVersionTable (newVersion, inMemoryConnection);
 			}
 
 			this.Script = scriptBuilder.ToString ();
@@ -129,7 +129,7 @@ namespace Anmat.Server.Core
 
 			var i = 1;
 
-			foreach (var columnMetadaData in metadata.Columns)
+			foreach (var columnMetadaData in metadata.Columns.OrderBy(c => c.ColumnNumber))
 			{
 				 scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (columnMetadaData)));
 
@@ -153,7 +153,7 @@ namespace Anmat.Server.Core
 			scriptBuilder.Append (metadata.DocumentName);
 			scriptBuilder.Append ("(");
 
-			var columnNames = metadata.Columns.Select (c => c.Name);
+			var columnNames = metadata.Columns.OrderBy(c => c.ColumnNumber).Select (c => c.Name);
 			var columns = string.Join (", ", columnNames);
 
 			scriptBuilder.Append (columns);

@@ -51,7 +51,12 @@ namespace Anmat.Server.DataService
 				return;
 			}
 
-			var tempFiles = this.GetVersionTempFiles (latestJob.Version);
+			var expectedFiles = new List<string> { 
+				context.Configuration.TargetMedicinesTableName, 
+				context.Configuration.TargetActiveComponentsTableName 
+			};
+			var tempFiles = this.GetVersionTempFiles (latestJob.Version)
+				.Where(f => expectedFiles.Any(e => e == Path.GetFileNameWithoutExtension(f)));
 			var destinationPath = context.Configuration.GetVersionPath (latestJob.Version);
 
 			foreach (var tempFile in tempFiles) {
@@ -60,11 +65,7 @@ namespace Anmat.Server.DataService
 				File.Copy(tempFile, destinationFile, overwrite: true);
 			}
 
-			var expectedFiles = new List<string> { 
-				context.Configuration.TargetMedicinesTableName, 
-				context.Configuration.TargetActiveComponentsTableName 
-			};
-			var missingFiles = expectedFiles.Where (f => !tempFiles.Any (x => Path.GetFileNameWithoutExtension(x) == f));
+			var missingFiles = expectedFiles.Where (e => !tempFiles.Any (t => Path.GetFileNameWithoutExtension(t) == e));
 
 			if (missingFiles.Any ()) {
 				var previousVersionFiles = this.GetVersionFiles (latestJob.Version - 1);
