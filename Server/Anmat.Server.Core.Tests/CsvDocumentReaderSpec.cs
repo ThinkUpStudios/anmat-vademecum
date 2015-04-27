@@ -4,6 +4,7 @@ using Anmat.Server.Core.Data;
 using Anmat.Server.Core.Exceptions;
 using Xunit;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Anmat.Server.Core.Tests
 {
@@ -14,7 +15,6 @@ namespace Anmat.Server.Core.Tests
         public CsvDocumentReaderSpec()
         {
             this.reader = new CsvDocumentReader(new AnmatConfiguration { DefaultTextEncoding = "ISO-8859-1" });
-
         }
 
         [Fact]
