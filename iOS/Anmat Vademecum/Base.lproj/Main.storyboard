@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="96q-cL-gzf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="96q-cL-gzf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -219,9 +219,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.15000000000000002" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-anmat-chico.png" translatesAutoresizingMaskIntoConstraints="NO" id="zpx-Sz-2Xn">
-                                <rect key="frame" x="174" y="213" width="252" height="174"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
                                 <rect key="frame" x="16" y="378" width="568" height="21"/>
                                 <constraints>
@@ -351,11 +348,7 @@
                                     <constraint firstAttribute="width" constant="568" id="35W-xq-D2b"/>
                                     <constraint firstAttribute="height" constant="21" id="SO4-Tb-xux"/>
                                 </constraints>
-                                <string key="text">Cualquier irregularidad o falta, por favor comuniquese con ANMAT.
-
-Telefono: 0800-333-1234
-Fax: (011) 4340-0800/5252-8200 int 1159
-Email: responde@anmat.gov.ar</string>
+                                <string key="text">Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, cosméticos, domisanitarios, reactivos de diagnóstico, faltantes, trámites o legislación comunicate ANMAT Responde al 0800-333-1234 o vía mail a responde@anmat.gov.ar</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -370,18 +363,14 @@ Email: responde@anmat.gov.ar</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="229-go-dWP"/>
-                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="149" id="3in-mv-Jrh"/>
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="top" secondItem="rDx-Dd-j1P" secondAttribute="bottom" constant="8" id="3lF-kV-6SC"/>
                             <constraint firstItem="gNl-Kt-RFT" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="9aF-wQ-aLU"/>
                             <constraint firstItem="KoO-H7-SEv" firstAttribute="top" secondItem="Z7M-E4-kOA" secondAttribute="bottom" constant="72" id="Ayg-8z-jAC"/>
-                            <constraint firstItem="wxj-3F-nOs" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="169" id="Cw0-Kq-5Ro"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="161" id="DJB-N5-Ge8"/>
-                            <constraint firstItem="rDx-Dd-j1P" firstAttribute="top" secondItem="zpx-Sz-2Xn" secondAttribute="bottom" constant="155" id="DKR-Ah-XZB"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="FAs-WT-Fc4"/>
                             <constraint firstItem="uc2-RX-pxP" firstAttribute="top" secondItem="Cci-se-hVi" secondAttribute="bottom" constant="-4" id="Igk-l6-Va0"/>
                             <constraint firstItem="KoO-H7-SEv" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="JWz-PT-0dC"/>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="LG3-nl-nMb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zpx-Sz-2Xn" secondAttribute="trailing" constant="158" id="LjJ-HW-bmn"/>
                             <constraint firstItem="gKX-dm-Unt" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" id="U7Y-GB-iA6"/>
                             <constraint firstAttribute="trailing" secondItem="gKX-dm-Unt" secondAttribute="trailing" id="WHQ-fh-crJ"/>
                             <constraint firstAttribute="trailing" secondItem="uc2-RX-pxP" secondAttribute="trailing" constant="16" id="YHM-kr-igO"/>
@@ -389,7 +378,6 @@ Email: responde@anmat.gov.ar</string>
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" id="gRv-c3-Vb8"/>
                             <constraint firstItem="uc2-RX-pxP" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leading" constant="16" id="gsM-Uf-q3h"/>
                             <constraint firstItem="Cci-se-hVi" firstAttribute="top" secondItem="KoO-H7-SEv" secondAttribute="bottom" constant="8" id="hLU-a6-mqo"/>
-                            <constraint firstItem="zpx-Sz-2Xn" firstAttribute="leading" secondItem="fwh-cX-7zj" secondAttribute="leadingMargin" constant="158" id="lHC-ny-RvL"/>
                             <constraint firstItem="gNl-Kt-RFT" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="s7Y-jA-xUV"/>
                             <constraint firstItem="rDx-Dd-j1P" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="sCi-eA-Ej7"/>
                             <constraint firstItem="mS3-5G-BzP" firstAttribute="trailing" secondItem="fwh-cX-7zj" secondAttribute="trailingMargin" id="xbK-NW-pHC"/>
@@ -400,7 +388,6 @@ Email: responde@anmat.gov.ar</string>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="DJB-N5-Ge8"/>
-                                <exclude reference="DKR-Ah-XZB"/>
                             </mask>
                         </variation>
                     </view>
@@ -1476,17 +1463,16 @@ Email: responde@anmat.gov.ar</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-anmat-chico.png" translatesAutoresizingMaskIntoConstraints="NO" id="vBL-je-43f">
-                                <rect key="frame" x="174" y="213" width="252" height="174"/>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XK-f8-ORw">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbm-yV-YkZ" userLabel="Intro">
                                         <rect key="frame" x="15" y="8" width="571" height="437"/>
-                                        <string key="text">Nombre genérico es la denominación de un principio activo, monodroga  o de una asociación de principios activos a dosis fijas adoptada por la autoridad sanitaria (ANMAT)  o, en su defecto, la denominación común internacional recomendada por la Organización Mundial de la Salud.
+                                        <string key="text">¿Qué es el nombre genérico?
 
-Según la ley 25.649 es obligatorio que toda receta médica exprese el nombre genérico del medicamento o denominación común internacional, seguida de forma farmacéutica y dosis/unidad, con detalle del grado de concentración.  
+Nombre genérico es la denominación de un principio activo, monodroga  o de una asociación de principios activos a dosis fijas adoptada por la autoridad sanitaria (ANMAT)  o, en su defecto, la denominación común internacional recomendada por la Organización Mundial de la Salud.
+
+Segùn la ley 25.649 es obligatorio que toda receta médica exprese el nombre genérico del medicamento o denominación común internacional, seguida de forma farmacéutica y dosis/ unidad, con detalle del grado de concentración.  
 
 De esta forma, el farmacéutico debe ofrecer todas las opciones disponibles.
 
@@ -1495,12 +1481,16 @@ La receta puede indicar, además del nombre genérico, el nombre o marca comerci
 La libertad de prescripción y de dispensa está garantizada por la elección del principio activo y no sobre especialidades de referencia o de marca. 
 
 El uso de nombre genérico es obligatorio en:
+	a) Todo envase, rótulo, prospecto o cualquier documento utilizado por la industria farmacéutica para información médica o promoción de las especialidades medicinales;
+ 	b) Todos los textos normativos, inclusive registros y autorizaciones relativas a la elaboración, fraccionamiento, comercialización, exportación e importación de medicamentos;
+	c) Toda publicidad o propaganda dirigida al público en general.
+	
+¿Qué es el sistema de Trazabilidad?
 
-a) todo envase, rótulo, prospecto o cualquier documento utilizado por la industria farmacéutica para información médica o promoción de las especialidades medicinales;
+Es un sistema de control que consiste en la identificación de cada uno de los medicamentos que van a ser comercializados y su seguimiento a través de toda la cadena de distribución (laboratorios, distribuidoras, operadores logísticos, farmacias, establecimientos asistenciales)  para erradicar los que sean ilegítimos.
 
- b) todos los textos normativos, inclusive registros y autorizaciones relativas a la elaboración, fraccionamiento, comercialización, exportación e importación de medicamentos; 
-
-c) toda publicidad o propaganda dirigida al público en general.</string>
+Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos médicos, cosmétcos, domisanitarios, reactivos de diagnóstico, faltantes, trámites o legislación comunicate ANMAT Responde al 0800-333-1234 o vía mail a responde@anmat.gov.ar
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1564,17 +1554,13 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8XK-f8-ORw" firstAttribute="leading" secondItem="Y0b-97-MVU" secondAttribute="leading" id="1vj-7k-iFa"/>
-                            <constraint firstItem="vBL-je-43f" firstAttribute="top" secondItem="MgI-18-hYj" secondAttribute="bottom" constant="149" id="8Hv-et-1lO"/>
                             <constraint firstAttribute="trailing" secondItem="K7n-PT-FVc" secondAttribute="trailing" id="EPG-Dd-v0H"/>
                             <constraint firstAttribute="trailing" secondItem="8XK-f8-ORw" secondAttribute="trailing" id="Gxj-l7-VWE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vBL-je-43f" secondAttribute="trailing" constant="158" id="MLa-rB-Fyy"/>
                             <constraint firstItem="8XK-f8-ORw" firstAttribute="top" secondItem="MgI-18-hYj" secondAttribute="bottom" id="MNY-UA-G26"/>
                             <constraint firstItem="K7n-PT-FVc" firstAttribute="leading" secondItem="Y0b-97-MVU" secondAttribute="leading" id="Mhq-6A-C55"/>
                             <constraint firstAttribute="bottom" secondItem="K7n-PT-FVc" secondAttribute="bottom" id="Nq3-Db-21u"/>
                             <constraint firstItem="fbm-Xr-zau" firstAttribute="top" secondItem="8XK-f8-ORw" secondAttribute="bottom" id="rvc-0D-GYd"/>
                             <constraint firstAttribute="centerX" secondItem="8XK-f8-ORw" secondAttribute="centerX" id="sWZ-pC-U4o"/>
-                            <constraint firstItem="vBL-je-43f" firstAttribute="leading" secondItem="Y0b-97-MVU" secondAttribute="leadingMargin" constant="158" id="tcS-hi-pSO"/>
-                            <constraint firstItem="fbm-Xr-zau" firstAttribute="top" secondItem="vBL-je-43f" secondAttribute="bottom" constant="169" id="uJI-IQ-tO3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Información" id="qg8-jL-3im"/>
@@ -1590,8 +1576,7 @@ c) toda publicidad o propaganda dirigida al público en general.</string>
         <image name="Formula" width="26" height="26"/>
         <image name="Help" width="26" height="26"/>
         <image name="Help-Blue" width="26" height="26"/>
-        <image name="SameComponent" width="24" height="24"/>
-        <image name="logo-anmat-chico.png" width="220" height="60"/>
+        <image name="SameComponent" width="25" height="25"/>
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
         <image name="logo-ministerio-toolbar.png" width="100" height="44"/>
         <image name="logo-patria-toolbar.png" width="100" height="44"/>
