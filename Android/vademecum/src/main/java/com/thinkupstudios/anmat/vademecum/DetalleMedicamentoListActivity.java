@@ -30,7 +30,7 @@ import static android.R.anim.fade_out;
  * {@link DetalleMedicamentoListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DetalleMedicamentoListActivity extends ContactActivity
+public class DetalleMedicamentoListActivity extends NoMenuActivity
         implements DetalleMedicamentoListFragment.Callbacks {
 
     /**
@@ -101,31 +101,35 @@ private View selectedView;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.detalle_menu, menu);
-        return true;
+        if(mTwoPane) {
+            getMenuInflater().inflate(R.menu.detalle_menu, menu);
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.mnu_recomendados) {
-            if(this.medicamento == null){
-                return false;
-            }
-            Intent i = new Intent(this,
-                    DetalleMedicamentoListActivity.class);
-            i.putExtra("COMERCIAL_RECOMENDADO", this.medicamento.getNombreComercial());
-            FormularioBusqueda f = new FormularioBusqueda();
-            f.setNombreGenerico(this.medicamento.getNombreGenerico());
-            f.setUseLike(false);
-            f.setFiltrarPorFormula(false);
-            i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
-            startActivity(i);
-            this.overridePendingTransition(fade_in, fade_out);
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
 
+            if (item.getItemId() == R.id.mnu_recomendados) {
+                if (this.medicamento == null) {
+                    return false;
+                }
+                Intent i = new Intent(this,
+                        DetalleMedicamentoListActivity.class);
+                i.putExtra("COMERCIAL_RECOMENDADO", this.medicamento.getNombreComercial());
+                FormularioBusqueda f = new FormularioBusqueda();
+                f.setNombreGenerico(this.medicamento.getNombreGenerico());
+                f.setUseLike(false);
+                f.setFiltrarPorFormula(false);
+                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
+                startActivity(i);
+                this.overridePendingTransition(fade_in, fade_out);
+                return true;
+            } else {
+                return super.onOptionsItemSelected(item);
+            }
     }
 
  }
