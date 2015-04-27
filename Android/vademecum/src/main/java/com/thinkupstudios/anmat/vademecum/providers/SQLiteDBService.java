@@ -63,7 +63,7 @@ public class SQLiteDBService implements IRemoteDBService {
                 return false;
             }
 
-            
+
         } catch (HttpRequest.HttpRequestException e) {
             return false;
         } catch (IOException e) {
