@@ -42,24 +42,25 @@
     return dataBase;
 }
 
-- (void)verifyDataBase {
-    BOOL needsCopy = YES;
-    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseFilename];
-    NSString *destinationPath = [self getDBPath];
+-(void)updateDataBase:(NSData *)data {
+    NSError *error;
+     NSString *destinationPath = [self getDBPath];
     
-    //[[NSFileManager defaultManager] removeItemAtPath:destinationPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:destinationPath error:nil];
     
-    if([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
-        NSDate *sourceCreationDate = [self getCreationDate:sourcePath];
-        NSDate *destinationCreationDate = [self getCreationDate:destinationPath];
-        
-        if([sourceCreationDate compare:destinationCreationDate] == NSOrderedSame) {
-            needsCopy = NO;
-        }
+    if (error != nil) {
+        NSLog(@"%@", [error localizedDescription]);
     }
     
-    if (needsCopy) {
+    [[NSFileManager defaultManager] createFileAtPath:destinationPath contents:data attributes:nil];
+}
+
+- (void)verifyDataBase {
+    NSString *destinationPath = [self getDBPath];
+    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
         NSError *error;
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseFilename];
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
         
         if (error != nil) {
