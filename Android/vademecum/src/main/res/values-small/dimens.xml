@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -10,7 +11,7 @@
     <dimen name="maximo_linea_con_icono">290dp</dimen>
     <dimen name="maximo_linea_con_precio">240dp</dimen>
     <dimen name="button_height">80dp</dimen>
-    <dimen name="size_text_collapsible">16sp</dimen>
-    <dimen name="header_text_size">24sp</dimen>
+    <dimen name="size_text_collapsible">10sp</dimen>
+    <dimen name="header_text_size">14sp</dimen>
 
 </resources>

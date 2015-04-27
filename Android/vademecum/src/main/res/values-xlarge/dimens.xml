@@ -11,7 +11,8 @@
     <dimen name="maximo_linea_con_icono">450dp</dimen>
     <dimen name="maximo_linea_con_precio">400dp</dimen>
     <dimen name="button_height">120dp</dimen>
-    <dimen name="size_text_collapsible">24sp</dimen>
+    <dimen name="size_text_collapsible">18sp</dimen>
+    <dimen name="header_text_size">28sp</dimen>
 
 
 </resources>

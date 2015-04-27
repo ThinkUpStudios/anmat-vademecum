@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/header_text_size"
         android:text="@string/lbl_contraindicaciones"
         android:layout_gravity="end|center_vertical"
         android:id="@+id/txt_header"
