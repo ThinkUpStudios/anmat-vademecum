@@ -127,7 +127,8 @@ namespace Anmat.Server.Core
             inputString = e.Replace(inputString, "e");
             inputString = i.Replace(inputString, "i");
             inputString = o.Replace(inputString, "o");
-            inputString = u.Replace(inputString, "u");            
+            inputString = u.Replace(inputString, "u"); 
+           
             return inputString;
         }
 
