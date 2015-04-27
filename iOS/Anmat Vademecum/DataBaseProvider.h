@@ -13,6 +13,8 @@
 
 - (sqlite3 *) getDataBase;
 
+- (void) updateDataBase: (NSData *)data;
+
 + (id)instance;
 
 @end
