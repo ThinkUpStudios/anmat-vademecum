@@ -22,4 +22,6 @@ public interface IRemoteDBService {
       * @return File de base de datos
      */
     public boolean updateDatabase() throws UpdateNotPosibleException;
+
+    void closeHelper();
 }

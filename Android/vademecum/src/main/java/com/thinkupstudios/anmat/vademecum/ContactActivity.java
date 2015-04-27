@@ -34,7 +34,9 @@ public abstract class ContactActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this));
+        DatabaseHelper dh = new DatabaseHelper(this);
+        ((MiAplicacion)this.getApplication()).updateCache(dh);
+        dh.close();
     }
 
     @Override

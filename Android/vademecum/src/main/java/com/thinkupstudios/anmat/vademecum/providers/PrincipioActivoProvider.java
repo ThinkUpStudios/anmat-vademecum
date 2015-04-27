@@ -63,9 +63,12 @@ public class PrincipioActivoProvider extends GenericProvider {
                 }
                 cursor.moveToNext();
             }
-            cursor.close();
+
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            if(cursor != null)
+                cursor.close();
         }
 
         return resultado;
