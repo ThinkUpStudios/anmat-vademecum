@@ -40,7 +40,7 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
     @Override
     protected String doInBackground(Activity... params) {
         try {
-        dbHelper.createIfFirstRun();
+
         if (!dbService.isUpToDate()) {
 
             this.publishProgress("Descargando Actualización");
@@ -49,7 +49,7 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
             this.publishProgress("Instalando Actualización");
 
         }
-        } catch (UpdateNotPosibleException | IOException e) {
+        } catch (UpdateNotPosibleException e) {
             e.printStackTrace();
             return "No se pudo actualizar";
 

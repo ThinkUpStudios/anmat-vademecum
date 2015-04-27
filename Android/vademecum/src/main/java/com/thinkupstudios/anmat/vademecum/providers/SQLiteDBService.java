@@ -10,7 +10,6 @@ import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBS
 import com.thinkupstudios.anmat.vademecum.webservice.contract.AnmatData;
 import com.thinkupstudios.anmat.vademecum.webservice.http.HttpRequest;
 
-
 import java.io.IOException;
 
 /**
@@ -34,12 +33,12 @@ public class SQLiteDBService implements IRemoteDBService {
         VersionProvider vProvider = new VersionProvider(dbHelper);
         Integer versionLocal = vProvider.getVersionBo().getNumero();
         try {
-            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version="+versionLocal.intValue();
+            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version=" + versionLocal.intValue();
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
             return !Boolean.valueOf(resultado);
-        }catch (HttpRequest.HttpRequestException e){
+        } catch (HttpRequest.HttpRequestException e) {
             return true;
         }
     }
@@ -64,7 +63,7 @@ public class SQLiteDBService implements IRemoteDBService {
                 return false;
             }
 
-
+            
         } catch (HttpRequest.HttpRequestException e) {
             return false;
         } catch (IOException e) {
@@ -72,11 +71,12 @@ public class SQLiteDBService implements IRemoteDBService {
             return false;
         }
 
+
     }
 
     @Override
     public void closeHelper() {
-        if(this.dbHelper != null){
+        if (this.dbHelper != null) {
             this.dbHelper.close();
         }
     }
