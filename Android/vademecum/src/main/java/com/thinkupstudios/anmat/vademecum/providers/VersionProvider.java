@@ -29,7 +29,6 @@ public class VersionProvider extends GenericProvider{
             e.printStackTrace();
         }
         finally {
-            helper.close();
             if(cursor!= null) cursor.close();
         }
         return versionBo;
