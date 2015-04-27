@@ -25,40 +25,48 @@ public class MedicamentosProvider extends GenericProvider {
 
     public List<MedicamentoBO> findMedicamentos(FormularioBusqueda form) {
         String where = "";
-        if(form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty() || !form.getLaboratorio().isEmpty())){
-            where += "where  1=1 ";
+        Cursor cursor = null;
 
-            if(form.getNombreComercial()!= null && !form.getNombreComercial().isEmpty())
-                where += " and " + MedicamentosTable.COLUMNS[6] + " like '%"+form.getNombreComercial()+"%'";
-            if(!form.getNombreGenerico().isEmpty()){
-                where += this.armarWhereANDyOR(form.getNombreGenerico(), form.useLike(), MedicamentosTable.COLUMNS[8]);
+        try {
+            if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty() || !form.getLaboratorio().isEmpty())) {
+                where += "where  1=1 ";
 
+                if (form.getNombreComercial() != null && !form.getNombreComercial().isEmpty())
+                    where += " and " + MedicamentosTable.COLUMNS[6] + " like '%" + form.getNombreComercial() + "%'";
+                if (!form.getNombreGenerico().isEmpty()) {
+                    where += this.armarWhereANDyOR(form.getNombreGenerico(), form.useLike(), MedicamentosTable.COLUMNS[8]);
+
+                }
+
+                if (!form.getLaboratorio().isEmpty())
+                    where += " and " + MedicamentosTable.COLUMNS[3] + " like '%" + form.getLaboratorio() + "%'";
             }
 
-            if(!form.getLaboratorio().isEmpty())
-                where += " and " + MedicamentosTable.COLUMNS[3] + " like '%"+form.getLaboratorio()+"%'";
+            List<MedicamentoBO> medicamentoBOs = new ArrayList<>();
+
+            String orderBy = "order by " + MedicamentosTable.COLUMNS[13] + " asc ";
+
+            cursor = this.getAllByWhere(MedicamentosTable.TABLE_NAME, where, orderBy);
+
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                MedicamentoBO medicamento = cursorToMedicamentoBO(cursor);
+                medicamentoBOs.add(medicamento);
+                cursor.moveToNext();
+            }
+
+            if (form != null && form.filtrarPorFormula()) {
+                medicamentoBOs = this.filtrarPorFormula(medicamentoBOs, form.getNombreGenerico());
+            }
+
+            return this.ordenarMedicamentos(medicamentoBOs);
+        }
+        finally {
+            // make sure to close the cursor
+            if(cursor != null)
+                cursor.close();
         }
 
-        List<MedicamentoBO> medicamentoBOs = new ArrayList<>();
-
-        String orderBy = "order by "+ MedicamentosTable.COLUMNS[13] + " asc ";
-
-        Cursor cursor = this.getAllByWhere(MedicamentosTable.TABLE_NAME, where, orderBy);
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            MedicamentoBO medicamento = cursorToMedicamentoBO(cursor);
-            medicamentoBOs.add(medicamento);
-            cursor.moveToNext();
-        }
-        // make sure to close the cursor
-        cursor.close();
-
-        if(form != null && form.filtrarPorFormula()){
-            medicamentoBOs = this.filtrarPorFormula(medicamentoBOs, form.getNombreGenerico());
-        }
-
-        return this.ordenarMedicamentos(medicamentoBOs);
     }
 
     private String armarWhereANDyOR(String campo, Boolean useLike, String column) {

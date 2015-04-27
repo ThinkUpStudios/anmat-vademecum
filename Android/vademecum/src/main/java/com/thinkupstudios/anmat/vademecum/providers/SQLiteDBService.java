@@ -47,10 +47,6 @@ public class SQLiteDBService implements IRemoteDBService {
     @Override
     public boolean updateDatabase() throws UpdateNotPosibleException {
 
-
-        //SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(dbService.getNewDataBase(), null);
-        String outFileName = "/data/data/com.thinkupstudios.annmat.vademecum/databases/prueba.sqlite";
-
         try {
 
             String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
@@ -75,6 +71,13 @@ public class SQLiteDBService implements IRemoteDBService {
         catch (IOException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public void closeHelper() {
+        if(this.dbHelper != null){
+            this.dbHelper.close();
         }
     }
 

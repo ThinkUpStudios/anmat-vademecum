@@ -27,6 +27,7 @@ public class UpdateDBActivity extends NoMenuActivity {
         }else{
             DatabaseHelper dbHelper = new DatabaseHelper(this);
             ((MiAplicacion)this.getApplication()).updateCache(dbHelper);
+            dbHelper.close();
             this.continuar();
         }
 

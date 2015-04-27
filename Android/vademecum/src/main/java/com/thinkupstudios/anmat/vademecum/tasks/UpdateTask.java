@@ -73,6 +73,10 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
+        if(dbHelper != null){
+            dbHelper.close();
+        }
+        this.dbService.closeHelper();
         updateActivity.continuar();
     }
 
