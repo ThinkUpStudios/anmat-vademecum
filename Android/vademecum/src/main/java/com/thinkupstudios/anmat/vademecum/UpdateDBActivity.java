@@ -10,6 +10,8 @@ import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.tasks.UpdateTask;
 
+import java.io.IOException;
+
 public class UpdateDBActivity extends NoMenuActivity {
 
     @Override
@@ -21,14 +23,22 @@ public class UpdateDBActivity extends NoMenuActivity {
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
+
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        try {
+            dbHelper.createIfFirstRun();
+
         if (mWifi.isConnected()) {
             new UpdateTask(this).execute(this);
 
         }else{
-            DatabaseHelper dbHelper = new DatabaseHelper(this);
+
             ((MiAplicacion)this.getApplication()).updateCache(dbHelper);
             dbHelper.close();
             this.continuar();
+        }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
