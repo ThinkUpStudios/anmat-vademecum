@@ -47,8 +47,7 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
         if (getArguments().containsKey(MedicamentoBO.MEDICAMENTOBO)) {
             this.medicamento = (MedicamentoBO) getArguments()
                     .getSerializable(MedicamentoBO.MEDICAMENTOBO);
-            ((DetalleMedicamentoDetailActivity)this.getActivity())
-                    .setMedicamento(this.medicamento);
+
 
 
         }
