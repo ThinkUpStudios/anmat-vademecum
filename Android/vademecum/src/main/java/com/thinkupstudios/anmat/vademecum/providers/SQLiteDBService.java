@@ -46,32 +46,32 @@ public class SQLiteDBService implements IRemoteDBService {
 
     @Override
     public boolean updateDatabase() throws UpdateNotPosibleException {
-
         try {
-
             String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
-            Gson gson = new Gson();
-            AnmatData anmatData = gson.fromJson(resultado, AnmatData.class);
-            byte[] data = Base64.decode(anmatData.getContent(), Base64.DEFAULT);
 
-            if(data.length == anmatData.getContentSize()) {
+            Long contentSize = Long.valueOf(resultado.split(",")[1].split(":")[1].replace("}","").replace("\"",""));
+
+            byte[] data = Base64.decode(resultado.split(",")[0].split(":")[1].replace("}","").replace("\"",""), Base64.DEFAULT);
+
+            if (data.length == contentSize) {
 
                 dbHelper.upgrade(data);
 
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
-        }catch (HttpRequest.HttpRequestException e){
+
+
+        } catch (HttpRequest.HttpRequestException e) {
             return false;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
+
     }
 
     @Override
