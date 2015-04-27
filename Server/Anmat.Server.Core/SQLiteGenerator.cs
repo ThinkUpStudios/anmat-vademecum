@@ -8,6 +8,7 @@ using Anmat.Server.Core.Model;
 using Anmat.Server.Core.Properties;
 using System.Collections.Generic;
 using Anmat.Server.Core.Services;
+using System.Globalization;
 
 namespace Anmat.Server.Core
 {
@@ -109,7 +110,7 @@ namespace Anmat.Server.Core
 			var tableScript = "CREATE TABLE version (numero	INT NOT NULL, ultima_actualizacion TEXT NOT NULL)";
 			var tableCommand = new SQLiteCommand(tableScript, connection);
 
-			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", version.Number, version.Date.ToString ());
+			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", version.Number, version.Date.ToString ("U", new CultureInfo ("es-AR")));
 			var insertCommand = new SQLiteCommand(insertScript, connection);
 
 			tableCommand.ExecuteNonQuery();
