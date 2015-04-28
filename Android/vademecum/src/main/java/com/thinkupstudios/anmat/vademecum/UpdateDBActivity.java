@@ -33,7 +33,7 @@ public class UpdateDBActivity extends NoMenuActivity {
 
         }else{
 
-            ((MiAplicacion)this.getApplication()).updateCache(dbHelper);
+            ((MiAplicacion)this.getApplication()).updateCache(dbHelper, false);
             dbHelper.close();
             this.continuar();
         }
@@ -49,4 +49,9 @@ public class UpdateDBActivity extends NoMenuActivity {
         startActivity(new Intent(this, MainMenuActivity.class));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }
 }

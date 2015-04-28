@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.TextView;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
+
 
 /**
  * Created by dcamarro on 02/03/2015.
@@ -56,5 +59,8 @@ public class InformacionActivity extends NoMenuActivity {
         );
 
     }
-
-}
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }}

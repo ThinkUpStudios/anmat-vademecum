@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import java.util.List;
 
@@ -35,6 +36,11 @@ private ClearableAutoCompliteEditText principioActivo;
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }
 
 
 
