@@ -23,9 +23,11 @@
         == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *componentNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *componentName = [[NSString alloc] initWithUTF8String:componentNameChars];
+            NSString *componentName = [String trim:[[NSString alloc] initWithUTF8String:componentNameChars]];
             
-            [result addObject:componentName];
+            if(componentName.length > 0) {
+                [result addObject:componentName];
+            }
         }
         
         sqlite3_finalize(statement);
@@ -103,12 +105,19 @@
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *componentNameChars = (char *) sqlite3_column_text(statement, 0);
             char *otherNamesChars = (char *) sqlite3_column_text(statement, 1);
-            NSString *componentName = [self getUTF8:componentNameChars];
-            NSString *otherNames = [self getUTF8:otherNamesChars];
-            NSArray *otherNamesSplitted = [otherNames componentsSeparatedByString:@"#"];
+            NSString *componentName = [String trim:[self getUTF8:componentNameChars]];
             
-            [result addObject:componentName];
-            [result addObjectsFromArray:otherNamesSplitted];
+            if(componentName.length > 0) {
+                [result addObject:componentName];
+            }
+            
+            NSString *otherNames = [String trim:[self getUTF8:otherNamesChars]];
+            
+            if(otherNames.length > 0) {
+                NSArray *otherNamesSplitted = [otherNames componentsSeparatedByString:@"#"];
+                
+                [result addObjectsFromArray:otherNamesSplitted];
+            }
         }
         
         sqlite3_finalize(statement);
