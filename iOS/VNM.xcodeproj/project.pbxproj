@@ -22,6 +22,7 @@
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
 		148987B01AD097340054FE02 /* logo-vnm.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AF1AD097340054FE02 /* logo-vnm.png */; };
 		148A26091AEECCB3001DDBE6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 148A26081AEECCB3001DDBE6 /* Reachability.m */; };
+		148A260C1AEED9FE001DDBE6 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148A260B1AEED9FE001DDBE6 /* InformationViewController.m */; };
 		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
@@ -89,6 +90,8 @@
 		148987AF1AD097340054FE02 /* logo-vnm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-vnm.png"; sourceTree = "<group>"; };
 		148A26071AEECCB3001DDBE6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../Downloads/Reachability/Reachability/Reachability.h; sourceTree = "<group>"; };
 		148A26081AEECCB3001DDBE6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../../../../Downloads/Reachability/Reachability/Reachability.m; sourceTree = "<group>"; };
+		148A260A1AEED9FE001DDBE6 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		148A260B1AEED9FE001DDBE6 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
 		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				14F720661AEE94C700FFEDA1 /* UpdatesViewController.m */,
 				14F720711AEEC06A00FFEDA1 /* AboutViewController.h */,
 				14F720721AEEC06A00FFEDA1 /* AboutViewController.m */,
+				148A260A1AEED9FE001DDBE6 /* InformationViewController.h */,
+				148A260B1AEED9FE001DDBE6 /* InformationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148A260C1AEED9FE001DDBE6 /* InformationViewController.m in Sources */,
 				14F720671AEE94C700FFEDA1 /* UpdatesViewController.m in Sources */,
 				14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */,
 				14F720701AEEA78E00FFEDA1 /* Version.m in Sources */,
