@@ -9,6 +9,7 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -151,18 +152,21 @@ public class MedicamentosProvider extends GenericProvider {
         List<MedicamentoBO> resultadosFiltrados = new Vector<>();
 
         String[] principiosActivos = principioActivo.split("\\?");
+        List<String> principios = Arrays.asList(principiosActivos);
 
-        for(String pincipioAct : principiosActivos) {
-            Component c = new Component();
-            c.setActiveComponent(pincipioAct.trim());
-
-            for (MedicamentoBO medicamento : medicamentoBOs) {
-
-                if (medicamento.getFormula().getComponents().contains(c))
-                    resultadosFiltrados.add(medicamento);
+        for (MedicamentoBO medicamento : medicamentoBOs) {
+            boolean existe = false;
+            for(Component compuesto : medicamento.getFormula().getComponents()) {
+                if(principios.contains(compuesto.getActiveComponent())){
+                    existe = true;
+                }
             }
-        }
-        return resultadosFiltrados;
+            if (!existe) {
+                medicamentoBOs.remove(medicamento);
+            }
+         }
+
+        return medicamentoBOs;
     }
 
     private MedicamentoBO cursorToMedicamentoBO(Cursor cursor) {
