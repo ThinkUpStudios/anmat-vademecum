@@ -11,6 +11,6 @@
     <dimen name="maximo_linea_con_icono">600dp</dimen>
     <dimen name="maximo_linea_con_precio">500dp</dimen>
     <dimen name="size_text_collapsible">18sp</dimen>
-    <dimen name="header_text_size">28sp</dimen>
+    <dimen name="header_text_size">26sp</dimen>
 
 </resources>
