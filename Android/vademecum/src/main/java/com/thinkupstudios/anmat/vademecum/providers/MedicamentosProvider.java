@@ -161,12 +161,12 @@ public class MedicamentosProvider extends GenericProvider {
                     existe = true;
                 }
             }
-            if (!existe) {
-                medicamentoBOs.remove(medicamento);
+            if (existe) {
+                resultadosFiltrados.add(medicamento);
             }
          }
 
-        return medicamentoBOs;
+        return resultadosFiltrados;
     }
 
     private MedicamentoBO cursorToMedicamentoBO(Cursor cursor) {
