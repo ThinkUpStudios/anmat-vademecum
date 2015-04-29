@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="vertical_detalles">35dp</dimen>
     <dimen name="distancia_plano_valor">20dp</dimen>
-    <dimen name="margen_entre_lineas_detalle">20dp</dimen>
+    <dimen name="margen_entre_lineas_detalle">12dp</dimen>
     <dimen name="espacio_hasta_recomendados">60dp</dimen>
     <dimen name="tamnio_minimo_imagen">72dp</dimen>
     <dimen name="maximo_linea_con_icono">450dp</dimen>

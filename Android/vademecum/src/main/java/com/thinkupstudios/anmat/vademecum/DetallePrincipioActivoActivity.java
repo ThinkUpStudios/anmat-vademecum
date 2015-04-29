@@ -57,7 +57,9 @@ public class DetallePrincipioActivoActivity extends Activity {
             dh = new DatabaseHelper(this);
             provider = new PrincipioActivoProvider(dh);
             if (getIntent().getExtras() != null && getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO) != null) {
-                principioActivo = provider.findPrincipioActivo(getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO));
+                String nombre = getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO);
+                txtPrincipioActivo.setText(nombre);
+                principioActivo = provider.findPrincipioActivo(nombre);
 
                 if (principioActivo != null) {
                     txtNoResultados.setVisibility(View.INVISIBLE);
@@ -70,7 +72,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                     contraindicaciones.setVisibility(View.VISIBLE);
                     observacion.setVisibility(View.VISIBLE);
                     txtPrincipioActivo.setVisibility(View.VISIBLE);
-                    txtPrincipioActivo.setText(principioActivo.getNombre());
+
                     accionTerapeutica.setContent(principioActivo.getAccionTerapeutica());
                     indicaciones.setContent(principioActivo.getIndicaciones());
                     presentacion.setContent(principioActivo.getPresentacion());
@@ -82,7 +84,7 @@ public class DetallePrincipioActivoActivity extends Activity {
 
                     int color = getResources().getColor(R.color.anmat_azul);
                     txtNoResultados.setVisibility(View.VISIBLE);
-                    txtNoResultados.setText("Sin Resultados");
+                    txtNoResultados.setText("Sin Detalle");
                     txtNoResultados.setTextColor(color);
 
                     accionTerapeutica.setVisibility(View.INVISIBLE);
@@ -92,7 +94,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                     duracion.setVisibility(View.INVISIBLE);
                     contraindicaciones.setVisibility(View.INVISIBLE);
                     observacion.setVisibility(View.INVISIBLE);
-                    txtPrincipioActivo.setVisibility(View.INVISIBLE);
+                    //txtPrincipioActivo.setVisibility(View.INVISIBLE);
 
                 }
             }
@@ -112,17 +114,18 @@ public class DetallePrincipioActivoActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.mnu_mismo_comp) {
-            if (principioActivo != null) {
-
-
+            TextView txtPrincipioActivo = (TextView) findViewById(R.id.txt_principio);
+            if (!txtPrincipioActivo.getText().toString().isEmpty()) {
                 Intent i = new Intent(DetallePrincipioActivoActivity.this,
                         DetalleMedicamentoListActivity.class);
-                i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getNombre());
+                i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
                 FormularioBusqueda f = new FormularioBusqueda();
-                String campoBusquedaCompleta = principioActivo.getNombre();
-                if(principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
-                    campoBusquedaCompleta += "?" + principioActivo.getOtrosNombres();
-                }
+                String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
+
+                    if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
+                        campoBusquedaCompleta += "?" + principioActivo.getOtrosNombres();
+                    }
+
                 f.setNombreGenerico(campoBusquedaCompleta);
                 f.setFiltrarPorFormula(true);
                 f.setUseLike(true);
