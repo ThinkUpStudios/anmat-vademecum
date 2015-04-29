@@ -32,14 +32,6 @@ private PhoneCallListener phoneCallListener;
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        DatabaseHelper dh = new DatabaseHelper(this);
-        ((MiAplicacion)this.getApplication()).updateCache(dh);
-        dh.close();
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {

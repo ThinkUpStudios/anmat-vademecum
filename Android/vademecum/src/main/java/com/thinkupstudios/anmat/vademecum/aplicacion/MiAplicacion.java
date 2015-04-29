@@ -71,20 +71,22 @@ public class MiAplicacion extends Application {
 
     }
 
-    public void updateCache(DatabaseHelper dbHelper) {
+    public void updateCache(DatabaseHelper dbHelper, boolean force) {
         GenericProvider genericProvider = new GenericProvider(dbHelper);
         PrincipioActivoProvider principioActivoProvider = new PrincipioActivoProvider(dbHelper);
-        if(this.getNombresComerciales().isEmpty()){
+        if(this.getNombresComerciales().isEmpty()|| force){
             this.setNombresComerciales(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL));
         }
-        if(this.getLaboratorios().isEmpty()){
+        if(this.getLaboratorios().isEmpty()||force){
            this.setLaboratorios(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO));
         }
-        if(this.getNombresGenericos().isEmpty()){
+        if(this.getNombresGenericos().isEmpty()||force){
             this.setNombresGenericos(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO));
         }
-        if(this.getPrincipiosActivos().isEmpty()){
+        if(this.getPrincipiosActivos().isEmpty()||force){
             this.setPrincipiosActivos(principioActivoProvider.getDistinctPrincipiosColumns());
         }
+
+        dbHelper.close();
     }
 }

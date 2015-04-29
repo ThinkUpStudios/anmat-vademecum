@@ -7,8 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import static android.R.anim.fade_in;
 import static android.R.anim.fade_out;
@@ -132,4 +134,9 @@ private View selectedView;
             }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }
  }

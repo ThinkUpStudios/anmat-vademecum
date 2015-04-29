@@ -7,7 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 
 public class MainMenuActivity extends ContactActivity implements View.OnClickListener {
@@ -63,7 +65,11 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

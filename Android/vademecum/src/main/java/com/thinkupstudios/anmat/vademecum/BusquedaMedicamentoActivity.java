@@ -14,6 +14,7 @@ import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
+import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import java.util.List;
 
@@ -125,5 +126,10 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+    }
 
 }
