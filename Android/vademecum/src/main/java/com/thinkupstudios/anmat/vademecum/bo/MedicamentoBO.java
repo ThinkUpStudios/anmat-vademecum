@@ -10,7 +10,7 @@ public class MedicamentoBO implements Serializable {
 
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
     public static String UH = "U.H.";
-    public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario";
+    public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario (U.H.)";
     public static String SIN_PRECIO = "$ - ";
     private String nombreComercial = "-";
     private String nombreGenerico = "-";
