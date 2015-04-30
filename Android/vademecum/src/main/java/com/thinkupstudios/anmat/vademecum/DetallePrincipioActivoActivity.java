@@ -123,7 +123,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                 }else{
                     i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
                 }
-                i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+
                 FormularioBusqueda f = new FormularioBusqueda();
                 String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
 
