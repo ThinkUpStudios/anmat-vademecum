@@ -127,9 +127,9 @@ public class DetallePrincipioActivoActivity extends Activity {
                 FormularioBusqueda f = new FormularioBusqueda();
                 String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
 
-                    if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
-                        campoBusquedaCompleta += "?" + principioActivo.getOtrosNombres();
-                    }
+                if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
+                    campoBusquedaCompleta = principioActivo.getNombre()+ "?" + principioActivo.getOtrosNombres();
+                }
 
                 f.setNombreGenerico(campoBusquedaCompleta);
                 f.setFiltrarPorFormula(true);
