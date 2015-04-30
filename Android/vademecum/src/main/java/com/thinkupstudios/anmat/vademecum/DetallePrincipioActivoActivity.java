@@ -118,7 +118,12 @@ public class DetallePrincipioActivoActivity extends Activity {
             if (!txtPrincipioActivo.getText().toString().isEmpty()) {
                 Intent i = new Intent(DetallePrincipioActivoActivity.this,
                         DetalleMedicamentoListActivity.class);
-                i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+                if(principioActivo!=null){
+                    i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getNombre());
+                }else{
+                    i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+                }
+
                 FormularioBusqueda f = new FormularioBusqueda();
                 String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
 
