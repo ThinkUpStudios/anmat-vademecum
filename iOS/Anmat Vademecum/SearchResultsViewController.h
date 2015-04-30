@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MedicinesFilter.h"
 
 @interface SearchResultsViewController : UITableViewController
 
-@property (nonatomic , strong) NSArray *medicines;
+@property (nonatomic , strong) MedicinesFilter* searchFilter;
 
 @end

@@ -13,6 +13,8 @@
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
 		14343C421AB7276A00238B73 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14343C411AB7276A00238B73 /* libsqlite3.dylib */; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
+		143A4DEA1AF2C5B800CAA8AE /* MedicinesFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */; };
+		143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */; };
 		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* Component.m */; };
@@ -76,6 +78,10 @@
 		14343C411AB7276A00238B73 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
+		143A4DE81AF2C5B800CAA8AE /* MedicinesFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicinesFilter.h; sourceTree = "<group>"; };
+		143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicinesFilter.m; sourceTree = "<group>"; };
+		143A4DEB1AF2C8D500CAA8AE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
 		1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -222,6 +228,8 @@
 				14F720631AEE878D00FFEDA1 /* AnmatData.m */,
 				14F7206E1AEEA78E00FFEDA1 /* Version.h */,
 				14F7206F1AEEA78E00FFEDA1 /* Version.m */,
+				143A4DE81AF2C5B800CAA8AE /* MedicinesFilter.h */,
+				143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -291,6 +299,8 @@
 		14E29FDE1A975D83005292FE /* Anmat Vademecum */ = {
 			isa = PBXGroup;
 			children = (
+				143A4DEB1AF2C8D500CAA8AE /* MBProgressHUD.h */,
+				143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */,
 				148A26071AEECCB3001DDBE6 /* Reachability.h */,
 				148A26081AEECCB3001DDBE6 /* Reachability.m */,
 				14DDAC4F1ACB6D0D003A1A52 /* Images */,
@@ -473,10 +483,12 @@
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,
 				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
+				143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */,
 				148A26091AEECCB3001DDBE6 /* Reachability.m in Sources */,
 				14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */,
 				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
+				143A4DEA1AF2C5B800CAA8AE /* MedicinesFilter.m in Sources */,
 				1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */,
 				14E8430F1AD9797800FB8213 /* FormulaParser.m in Sources */,
 			);
