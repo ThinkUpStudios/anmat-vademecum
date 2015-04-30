@@ -117,15 +117,18 @@ public class DetallePrincipioActivoActivity extends Activity {
             TextView txtPrincipioActivo = (TextView) findViewById(R.id.txt_principio);
             if (!txtPrincipioActivo.getText().toString().isEmpty()) {
                 Intent i = new Intent(DetallePrincipioActivoActivity.this,
-                        DetalleMedicamentoListActivity.class);
+                        DetalleMedicamentoListActivity.class); String campoBusquedaCompleta;
+
                 if(principioActivo!=null){
                     i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getNombre());
+                    campoBusquedaCompleta = principioActivo.getNombre();
                 }else{
                     i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+                    campoBusquedaCompleta= txtPrincipioActivo.getText().toString();
                 }
 
                 FormularioBusqueda f = new FormularioBusqueda();
-                String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
+
 
                     if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
                         campoBusquedaCompleta += "?" + principioActivo.getOtrosNombres();
