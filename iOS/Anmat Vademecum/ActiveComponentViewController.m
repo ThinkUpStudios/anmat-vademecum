@@ -9,6 +9,7 @@
 #import "ActiveComponentViewController.h"
 #import "SearchResultsViewController.h"
 #import "MedicineService.h"
+#import "MedicinesFilter.h"
 
 @interface ActiveComponentViewController ()
 
@@ -25,9 +26,7 @@
 
 @end
 
-@implementation ActiveComponentViewController {
-    MedicineService *medicineService;
-}
+@implementation ActiveComponentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,8 +39,6 @@
     self.lblDuration.text = self.component.duration;
     self.lblContraindication.text = self.component.contraindication;
     self.lblObservation.text = self.component.observation;
-    
-    medicineService = [[MedicineService alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,8 +48,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowMedicinesWithSameComponent"]) {
         SearchResultsViewController *results = segue.destinationViewController;
+        MedicinesFilter *filter = [[MedicinesFilter alloc] init];
         
-        results.medicines = [medicineService getMedicines:self.lblActiveComponent.text];
+        filter.activeComponent = self.lblActiveComponent.text;
+        results.searchFilter = filter;
     }
 }
 
