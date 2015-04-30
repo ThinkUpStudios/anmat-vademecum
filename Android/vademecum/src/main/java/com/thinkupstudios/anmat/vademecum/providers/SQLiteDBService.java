@@ -2,6 +2,7 @@ package com.thinkupstudios.anmat.vademecum.providers;
 
 import android.content.Context;
 import android.util.Base64;
+import android.util.Base64InputStream;
 
 import com.google.gson.Gson;
 import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
@@ -10,7 +11,13 @@ import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBS
 import com.thinkupstudios.anmat.vademecum.webservice.contract.AnmatData;
 import com.thinkupstudios.anmat.vademecum.webservice.http.HttpRequest;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
 
 /**
  * Created by FaQ on 20/04/2015.
@@ -50,24 +57,38 @@ public class SQLiteDBService implements IRemoteDBService {
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
-            Long contentSize = Long.valueOf(resultado.split(",")[1].split(":")[1].replace("}","").replace("\"",""));
+            Long contentSize = Long.valueOf(resultado.split(",")[1].split(":")[1].replace("}", "").replace("\"", ""));
+            try {
 
-            byte[] data = Base64.decode(resultado.split(",")[0].split(":")[1].replace("}","").replace("\"",""), Base64.DEFAULT);
+                byte[] buffer = new byte[3000];
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+               InputStream fin = new Base64InputStream(new ByteArrayInputStream(resultado.split(",")[0].split(":")[1].replace("}", "").replace("\"", "").getBytes()),Base64.DEFAULT );
 
-            if (data.length == contentSize) {
+                while (fin.read(buffer) >= 0) {
+                    os.write(buffer);
+                }
 
-                dbHelper.upgrade(data);
 
-                return true;
-            } else {
+                String s = new String(os.toByteArray(),"UTF-8");
+                if (s.length() == contentSize) {
+
+                    dbHelper.upgrade(s.getBytes());
+
+                    return true;
+                } else {
+                    return false;
+                }
+
+
+            } catch (HttpRequest.HttpRequestException e) {
+                return false;
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
 
 
         } catch (HttpRequest.HttpRequestException e) {
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
             return false;
         }
 

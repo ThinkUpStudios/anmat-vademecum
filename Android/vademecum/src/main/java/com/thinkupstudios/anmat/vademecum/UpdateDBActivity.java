@@ -28,15 +28,15 @@ public class UpdateDBActivity extends NoMenuActivity {
         try {
             dbHelper.createIfFirstRun();
 
-        if (mWifi.isConnected()) {
+       // if (mWifi.isConnected()) {
             new UpdateTask(this).execute(this);
 
-        }else{
+      /*  }else{
 
             ((MiAplicacion)this.getApplication()).updateCache(dbHelper, false);
             dbHelper.close();
             this.continuar();
-        }
+        }*/
         } catch (IOException e) {
             e.printStackTrace();
         }
