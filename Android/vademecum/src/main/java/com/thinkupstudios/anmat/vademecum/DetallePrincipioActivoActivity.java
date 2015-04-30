@@ -120,13 +120,14 @@ public class DetallePrincipioActivoActivity extends Activity {
                         DetalleMedicamentoListActivity.class); String campoBusquedaCompleta;
 
                 if(principioActivo!=null){
-                    i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getNombre());
+
                     campoBusquedaCompleta = principioActivo.getNombre();
                 }else{
-                    i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+
                     campoBusquedaCompleta= txtPrincipioActivo.getText().toString();
                 }
-
+                
+                i.putExtra("COMERCIAL_RECOMENDADO",campoBusquedaCompleta);
                 FormularioBusqueda f = new FormularioBusqueda();
 
 
