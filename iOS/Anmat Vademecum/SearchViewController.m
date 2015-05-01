@@ -11,6 +11,7 @@
 #import "SearchResultsViewController.h"
 #import "MedicineService.h"
 #import "Medicine.h"
+#import "MedicinesFilter.h"
 
 @interface SearchViewController()
 
@@ -122,8 +123,12 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowResults"]) {
         SearchResultsViewController *results = segue.destinationViewController;
+        MedicinesFilter *filter = [[MedicinesFilter alloc] init];
         
-        results.medicines = [medicineService getMedicines:self.txtGenericName.text comercialName:self.txtComercialName.text laboratory:self.txtLaboratory.text];
+        filter.genericName = self.txtGenericName.text;
+        filter.comercialName = self.txtComercialName.text;
+        filter.laboratory = self.txtLaboratory.text;
+        results.searchFilter = filter;
     }
 }
 

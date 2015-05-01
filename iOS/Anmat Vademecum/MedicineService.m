@@ -85,22 +85,7 @@
 }
 
 - (NSArray *) getSimilarMedicines: (Medicine *)reference {
-    NSArray *medicines = [medicinesRepository getByGenericName:reference.genericName];
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    
-    for (Medicine *medicine in medicines) {
-        BOOL include = YES;
-        
-        if([self areEqual:medicine reference:reference]) {
-            include = NO;
-        }
-        
-        if(include) {
-            [result addObject:medicine];
-        }
-    }
-    
-    return [self reOrder:result];
+    return [medicinesRepository getByGenericName:reference.genericName];
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
@@ -140,15 +125,6 @@
     [result addObjectsFromArray:emptyPriceMedicines];
     
     return result;
-}
-
-- (BOOL) areEqual: (Medicine *)medicine reference: (Medicine *) reference {
-    return [medicine.genericName isEqualToString:reference.genericName] &&
-    [medicine.comercialName isEqualToString:reference.comercialName] &&
-    [medicine.laboratory isEqualToString:reference.laboratory] &&
-    [medicine.form isEqualToString:reference.form] &&
-    [medicine.certificate isEqualToString:reference.certificate] &&
-    [medicine.presentation isEqualToString:reference.presentation];
 }
 
 @end
