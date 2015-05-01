@@ -46,6 +46,7 @@ public class SQLiteDBService implements IRemoteDBService {
     @Override
     public boolean updateDatabase() throws UpdateNotPosibleException {
         try {
+            System.gc();
             String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
@@ -57,6 +58,7 @@ public class SQLiteDBService implements IRemoteDBService {
             if (data.length == contentSize) {
 
                 dbHelper.upgrade(data);
+                System.gc();
 
                 return true;
             } else {
