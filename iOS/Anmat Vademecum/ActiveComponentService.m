@@ -30,8 +30,7 @@
     ActiveComponent *component = [repository getByName:trimmedName];
     
     if(component == nil) {
-        component = [[ActiveComponent alloc] init];
-        component.name = trimmedName;
+        return component;
     }
     
     component.action = [self sanitize:component.action];

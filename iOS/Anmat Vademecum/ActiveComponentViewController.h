@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ActiveComponent.h"
 
-@interface ActiveComponentViewController : UIViewController
+@interface ActiveComponentViewController : UITableViewController
 
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) ActiveComponent *component;
 
 @end
