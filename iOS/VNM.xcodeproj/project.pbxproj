@@ -29,8 +29,10 @@
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
 		149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */; };
+		149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
+		14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */; };
 		14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C31AACABF100CA80FC /* MedicineService.m */; };
 		14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BC10C81AACF33C00CA80FC /* UISelectableButton.m */; };
 		14DDAC411ACB588B003A1A52 /* ActiveComponentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDAC401ACB588B003A1A52 /* ActiveComponentRepository.m */; };
@@ -104,10 +106,14 @@
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
 		149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentViewController.h; sourceTree = "<group>"; };
 		149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentViewController.m; sourceTree = "<group>"; };
+		149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell.h; sourceTree = "<group>"; };
+		149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
 		14AABA441A97C1BC00126B22 /* Medicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicine.m; sourceTree = "<group>"; };
 		14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineRepository.h; sourceTree = "<group>"; };
 		14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineRepository.m; sourceTree = "<group>"; };
+		14AE74791AF7C0ED00C32CF1 /* AutoLayoutLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutLabel.h; sourceTree = "<group>"; };
+		14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutLabel.m; sourceTree = "<group>"; };
 		14BC10C21AACABF100CA80FC /* MedicineService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineService.h; sourceTree = "<group>"; };
 		14BC10C31AACABF100CA80FC /* MedicineService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineService.m; sourceTree = "<group>"; };
 		14BC10C71AACF33C00CA80FC /* UISelectableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISelectableButton.h; sourceTree = "<group>"; };
@@ -318,6 +324,10 @@
 				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
 				14F720681AEEA44C00FFEDA1 /* PushNoAnimationSegue.h */,
 				14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */,
+				149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */,
+				149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */,
+				14AE74791AF7C0ED00C32CF1 /* AutoLayoutLabel.h */,
+				14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -462,6 +472,7 @@
 				14F720701AEEA78E00FFEDA1 /* Version.m in Sources */,
 				14F7206D1AEEA6BF00FFEDA1 /* VersionRepository.m in Sources */,
 				14DDAC441ACB590E003A1A52 /* ActiveComponent.m in Sources */,
+				149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */,
 				149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */,
 				147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */,
 				14E29FE51A975D83005292FE /* AppDelegate.m in Sources */,
@@ -473,6 +484,7 @@
 				14F7206A1AEEA44C00FFEDA1 /* PushNoAnimationSegue.m in Sources */,
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
+				14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
 				149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,

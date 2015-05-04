@@ -108,6 +108,7 @@
         NSString *selectedComponentName = [searchResults objectAtIndex:selectedIndex.item];
         ActiveComponent *component = [componentsService getByName:selectedComponentName];
         
+        activeComponent.name = selectedComponentName;
         activeComponent.component = component;
     }
 }
