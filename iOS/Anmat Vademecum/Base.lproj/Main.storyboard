@@ -603,12 +603,12 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
         <scene sceneID="F9X-Yo-5iu">
             <objects>
                 <tableViewController storyboardIdentifier="SearchResultsViewController" title="SearchResults" id="xEB-Ul-rPE" customClass="SearchResultsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="164" sectionHeaderHeight="22" sectionFooterHeight="22" id="3lh-3h-ZPP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="196" sectionHeaderHeight="22" sectionFooterHeight="22" id="3lh-3h-ZPP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MedicineCell" rowHeight="164" id="Vu8-mE-3lv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MedicineCell" rowHeight="196" id="Vu8-mE-3lv">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="Vu8-mE-3lv" id="gpf-DB-CWt" userLabel="Container">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -632,7 +632,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djm-qI-33y">
-                                            <rect key="frame" x="8" y="132" width="264" height="21"/>
+                                            <rect key="frame" x="8" y="132" width="551" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="8c9-B9-L1n"/>
                                             </constraints>
@@ -668,7 +668,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdc-bA-9qX">
-                                            <rect key="frame" x="372" y="134" width="187" height="21"/>
+                                            <rect key="frame" x="8" y="166" width="551" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="dNL-4f-von"/>
                                                 <constraint firstAttribute="height" constant="21" id="rUY-uw-OPV"/>
@@ -701,18 +701,21 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                         <constraint firstAttribute="trailing" secondItem="c4C-we-kad" secondAttribute="trailing" constant="8" id="IYe-dR-CjC"/>
                                         <constraint firstAttribute="centerX" secondItem="1xp-sh-cbB" secondAttribute="centerX" constant="-218" id="JMg-L4-6Ib"/>
                                         <constraint firstItem="mdc-bA-9qX" firstAttribute="leading" secondItem="Djm-qI-33y" secondAttribute="trailing" constant="13" id="KQi-FV-1Q0"/>
+                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="leading" secondItem="gpf-DB-CWt" secondAttribute="leading" constant="8" id="KeG-7L-XJi"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="mdc-bA-9qX" secondAttribute="bottom" constant="18.5" id="MlG-Eh-IR1"/>
                                         <constraint firstItem="1xp-sh-cbB" firstAttribute="top" secondItem="Z9m-VR-9xb" secondAttribute="bottom" constant="8" id="Nb9-T5-6Uy"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Djm-qI-33y" secondAttribute="bottom" constant="18.5" id="OfQ-OR-spm"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Djm-qI-33y" secondAttribute="bottom" constant="18.5" id="ROi-pj-cBe"/>
-                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="top" secondItem="D4c-Sg-Io9" secondAttribute="bottom" constant="10" id="Rag-Bo-WDs"/>
+                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="top" secondItem="D4c-Sg-Io9" secondAttribute="bottom" constant="42" id="Rag-Bo-WDs"/>
                                         <constraint firstItem="1xp-sh-cbB" firstAttribute="top" secondItem="gpf-DB-CWt" secondAttribute="topMargin" constant="66" id="STG-yx-pWd"/>
                                         <constraint firstAttribute="centerX" secondItem="c4C-we-kad" secondAttribute="centerX" id="SXn-Zj-g9w"/>
                                         <constraint firstAttribute="centerX" secondItem="Z9m-VR-9xb" secondAttribute="centerX" id="VuQ-dp-V0H"/>
+                                        <constraint firstAttribute="trailing" secondItem="mdc-bA-9qX" secondAttribute="trailing" constant="8" id="W8q-wy-y6e"/>
+                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="top" secondItem="Djm-qI-33y" secondAttribute="bottom" constant="13" id="WA3-Rc-1ic"/>
                                         <constraint firstItem="D4c-Sg-Io9" firstAttribute="top" secondItem="3n9-6u-scY" secondAttribute="bottom" constant="8" id="WPy-Pg-9b1"/>
                                         <constraint firstItem="c4C-we-kad" firstAttribute="top" secondItem="gpf-DB-CWt" secondAttribute="top" constant="8" id="Zhq-a8-xDP"/>
                                         <constraint firstItem="mdc-bA-9qX" firstAttribute="top" secondItem="Djm-qI-33y" secondAttribute="bottom" constant="-19" id="bmp-m1-smQ"/>
-                                        <constraint firstAttribute="centerX" secondItem="Djm-qI-33y" secondAttribute="centerX" constant="143.5" id="dAP-TC-SsX"/>
+                                        <constraint firstAttribute="centerX" secondItem="Djm-qI-33y" secondAttribute="centerX" id="dAP-TC-SsX"/>
                                         <constraint firstAttribute="centerX" secondItem="mdc-bA-9qX" secondAttribute="centerX" constant="-184.5" id="e9r-15-Tkq"/>
                                         <constraint firstItem="mdc-bA-9qX" firstAttribute="top" secondItem="D4c-Sg-Io9" secondAttribute="bottom" constant="8" id="ec4-yc-HZh"/>
                                         <constraint firstItem="Djm-qI-33y" firstAttribute="leading" secondItem="gpf-DB-CWt" secondAttribute="leading" constant="8" id="f6Q-F1-RbB"/>
@@ -731,7 +734,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                         <constraint firstItem="mdc-bA-9qX" firstAttribute="trailing" secondItem="gpf-DB-CWt" secondAttribute="trailingMargin" id="uqg-lg-jB0"/>
                                         <constraint firstAttribute="trailing" secondItem="Z9m-VR-9xb" secondAttribute="trailing" constant="8" id="wQU-pQ-pWC"/>
                                         <constraint firstItem="c4C-we-kad" firstAttribute="leading" secondItem="gpf-DB-CWt" secondAttribute="leading" constant="8" id="wgx-bl-wdi"/>
-                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="leading" secondItem="Djm-qI-33y" secondAttribute="trailing" constant="100" id="yWQ-Jq-aJk"/>
+                                        <constraint firstItem="mdc-bA-9qX" firstAttribute="leading" secondItem="Djm-qI-33y" secondAttribute="trailing" constant="-187" id="yWQ-Jq-aJk"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -751,11 +754,14 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                             <exclude reference="Guf-Br-lR1"/>
                                             <exclude reference="KQi-FV-1Q0"/>
                                             <exclude reference="MlG-Eh-IR1"/>
+                                            <exclude reference="Rag-Bo-WDs"/>
                                             <exclude reference="bmp-m1-smQ"/>
                                             <exclude reference="e9r-15-Tkq"/>
                                             <exclude reference="ec4-yc-HZh"/>
                                             <exclude reference="jXv-lf-2JD"/>
                                             <exclude reference="niQ-Nd-xzN"/>
+                                            <exclude reference="uqg-lg-jB0"/>
+                                            <exclude reference="yWQ-Jq-aJk"/>
                                             <exclude reference="Nb9-T5-6Uy"/>
                                         </mask>
                                     </variation>
@@ -1436,7 +1442,7 @@ Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos 
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
         <image name="logo-ministerio-toolbar.png" width="100" height="44"/>
         <image name="logo-patria-toolbar.png" width="100" height="44"/>
-        <image name="logo-vnm.png" width="607" height="474"/>
+        <image name="logo-vnm.png" width="882" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bhG-2h-eJg"/>

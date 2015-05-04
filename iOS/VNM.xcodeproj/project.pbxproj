@@ -15,12 +15,10 @@
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		143A4DEA1AF2C5B800CAA8AE /* MedicinesFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */; };
 		143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */; };
-		1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* Component.m */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
-		1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */; };
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
 		148987B01AD097340054FE02 /* logo-vnm.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AF1AD097340054FE02 /* logo-vnm.png */; };
 		148A26091AEECCB3001DDBE6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 148A26081AEECCB3001DDBE6 /* Reachability.m */; };
@@ -84,7 +82,6 @@
 		143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicinesFilter.m; sourceTree = "<group>"; };
 		143A4DEB1AF2C8D500CAA8AE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
 		1451E5E31AAB618C00F9FEC7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		1451E5E61AAB7BBA00F9FEC7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
@@ -93,7 +90,6 @@
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
 		147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTabViewController.m; sourceTree = "<group>"; };
-		1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-chico.png"; sourceTree = "<group>"; };
 		148987AD1AD096330054FE02 /* logo-patria-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-patria-toolbar.png"; sourceTree = "<group>"; };
 		148987AF1AD097340054FE02 /* logo-vnm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-vnm.png"; sourceTree = "<group>"; };
 		148A26071AEECCB3001DDBE6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../Downloads/Reachability/Reachability/Reachability.h; sourceTree = "<group>"; };
@@ -271,12 +267,10 @@
 		14DDAC4F1ACB6D0D003A1A52 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1483F52F1AD22F1F0070AC0C /* logo-anmat-chico.png */,
 				148987AF1AD097340054FE02 /* logo-vnm.png */,
 				148987AD1AD096330054FE02 /* logo-patria-toolbar.png */,
 				1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */,
 				1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */,
-				1451E5E11AAB60ED00F9FEC7 /* wallpaper.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -439,11 +433,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1451E5E21AAB60ED00F9FEC7 /* wallpaper.png in Resources */,
 				14161CB41AEDBA4200D63958 /* anmat.sqlite in Resources */,
 				1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */,
 				14E29FEB1A975D83005292FE /* Main.storyboard in Resources */,
-				1483F5301AD22F1F0070AC0C /* logo-anmat-chico.png in Resources */,
 				14E29FF01A975D83005292FE /* LaunchScreen.xib in Resources */,
 				148987B01AD097340054FE02 /* logo-vnm.png in Resources */,
 				14E29FED1A975D83005292FE /* Images.xcassets in Resources */,
