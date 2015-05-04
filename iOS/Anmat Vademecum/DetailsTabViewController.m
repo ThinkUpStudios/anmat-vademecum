@@ -63,7 +63,7 @@
     
     filter.medicine = mainDetails.medicine;
     searchResults.searchFilter = filter;
-    searchResults.title = @"Mismo Principio Activo";
+    searchResults.title = @"Mismo Nombre Genérico";
     
     [self.navigationController pushViewController:searchResults animated:YES];
 }

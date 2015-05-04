@@ -31,7 +31,14 @@
 }
 
 -(NSArray *)getMedicines:(NSString *)activeComponent {
-    NSArray *componentIdentifiers = [componentsRepository getAllIdentifiers:activeComponent];
+    NSString *trimmedActiveComponent = [String trim:activeComponent];
+    
+    NSMutableArray *componentIdentifiers = [[NSMutableArray alloc] initWithArray:[componentsRepository getAllIdentifiers:trimmedActiveComponent]];
+    
+    if(componentIdentifiers.count == 0) {
+        [componentIdentifiers addObject:trimmedActiveComponent];
+    }
+    
     NSArray *medicines = [medicinesRepository getByActiveComponent:componentIdentifiers];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
