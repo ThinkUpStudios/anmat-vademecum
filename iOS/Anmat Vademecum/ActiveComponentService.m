@@ -22,7 +22,7 @@
 }
 
 - (NSArray *) getAll: (NSString *)searchText {
-    return [repository getAllNames:searchText];
+    return [repository getAllNames:[String trim:searchText]];
 }
 
 - (ActiveComponent *) getByName: (NSString *)name {

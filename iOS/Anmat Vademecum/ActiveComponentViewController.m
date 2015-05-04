@@ -26,6 +26,15 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *btnContact = [[UIBarButtonItem alloc] init];
+    UIImage *imgContact = [UIImage imageNamed:@"SameComponent"];
+    
+    [btnContact setImage:imgContact];
+    [btnContact setTarget:self];
+    [btnContact setAction:@selector(showMedicinesWithSameComponent:)];
+    
+    self.navigationItem.rightBarButtonItem = btnContact;
+    
     if(self.component) {
         activeComponentTitles = [[NSArray alloc] initWithObjects:@"Acción terapéutica", @"Indicaciones", @"Presentación", @"Posología", @"Duración", @"Contraindicaciones", @"Observaciones", nil];
         activeComponentDetails = [[NSArray alloc] initWithObjects:self.component.action, self.component.indication, self.component.presentation, self.component.posology, self.component.duration, self.component.contraindication, self.component.observation, nil];
@@ -135,6 +144,17 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.frame), CGRectGetHeight(sizingCell.bounds));
     
     return size.height + 1.0f;
+}
+
+-(void) showMedicinesWithSameComponent:(id) sender {
+    SearchResultsViewController *searchResults = (SearchResultsViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultsViewController"];
+    MedicinesFilter *filter = [[MedicinesFilter alloc] init];
+    
+    filter.activeComponent = self.name;
+    searchResults.searchFilter = filter;
+    searchResults.title = @"Mismo Principio Activo";
+    
+    [self.navigationController pushViewController:searchResults animated:YES];
 }
 
 @end
