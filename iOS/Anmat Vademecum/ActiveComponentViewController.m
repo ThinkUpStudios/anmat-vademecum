@@ -11,6 +11,7 @@
 #import "MedicineService.h"
 #import "MedicinesFilter.h"
 #import "AutoLayoutCell.h"
+#import "MenuViewController.h"
 
 static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
 
@@ -26,14 +27,21 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *btnContact = [[UIBarButtonItem alloc] init];
-    UIImage *imgContact = [UIImage imageNamed:@"SameComponent"];
+    UIBarButtonItem *btnSameComponent = [[UIBarButtonItem alloc] init];
+    UIImage *imgSameComponent = [UIImage imageNamed:@"SameComponent"];
     
-    [btnContact setImage:imgContact];
-    [btnContact setTarget:self];
-    [btnContact setAction:@selector(showMedicinesWithSameComponent:)];
+    [btnSameComponent setImage:imgSameComponent];
+    [btnSameComponent setTarget:self];
+    [btnSameComponent setAction:@selector(showMedicinesWithSameComponent:)];
     
-    self.navigationItem.rightBarButtonItem = btnContact;
+    UIBarButtonItem *btnHome = [[UIBarButtonItem alloc] init];
+    UIImage *imgHome = [UIImage imageNamed:@"Home"];
+    
+    [btnHome setImage:imgHome];
+    [btnHome setTarget:self];
+    [btnHome setAction:@selector(showHome:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSameComponent, btnHome, nil];
     
     if(self.component) {
         activeComponentTitles = [[NSArray alloc] initWithObjects:@"Acción terapéutica", @"Indicaciones", @"Presentación", @"Posología", @"Duración", @"Contraindicaciones", @"Observaciones", nil];
@@ -155,6 +163,12 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     searchResults.title = @"Mismo Principio Activo";
     
     [self.navigationController pushViewController:searchResults animated:YES];
+}
+
+-(void) showHome:(id) sender {
+    MenuViewController *about = (MenuViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    
+    [self.navigationController pushViewController:about animated:YES];
 }
 
 @end

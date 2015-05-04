@@ -151,53 +151,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Menu" id="uVo-jn-eDv">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="5Fs-az-Fbd">
-                            <view key="customView" contentMode="scaleToFill" id="t4t-Z0-ME5">
-                                <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTi-Ej-yYq">
-                                        <rect key="frame" x="109" y="5" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="N4t-kc-32H"/>
-                                            <constraint firstAttribute="height" constant="24" id="S2S-ei-qjt"/>
-                                        </constraints>
-                                        <state key="normal" image="Help">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="J3I-4s-JDD" kind="show" id="tUJ-Tr-82x"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-xj-g4V">
-                                        <rect key="frame" x="60" y="5" width="30" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="Mpo-IL-0Fg"/>
-                                            <constraint firstAttribute="width" constant="30" id="peG-OS-U5p"/>
-                                        </constraints>
-                                        <state key="normal" image="Contact">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnContact:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XC2-fD-5PC"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="EMS-xj-g4V" firstAttribute="top" secondItem="t4t-Z0-ME5" secondAttribute="top" constant="5" id="HWK-As-foP"/>
-                                    <constraint firstItem="pTi-Ej-yYq" firstAttribute="top" secondItem="t4t-Z0-ME5" secondAttribute="top" constant="5" id="Ipo-di-tBc"/>
-                                    <constraint firstItem="pTi-Ej-yYq" firstAttribute="leading" secondItem="EMS-xj-g4V" secondAttribute="trailing" constant="19" id="MoF-M3-u7I"/>
-                                    <constraint firstAttribute="trailing" secondItem="pTi-Ej-yYq" secondAttribute="trailing" id="SbG-iD-ib5"/>
-                                    <constraint firstAttribute="bottom" secondItem="EMS-xj-g4V" secondAttribute="bottom" constant="4" id="ed7-RJ-7xk"/>
-                                </constraints>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Menu" id="uVo-jn-eDv"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="btnBar" destination="5Fs-az-Fbd" id="KzU-zh-b5N"/>
                         <outlet property="btnComponents" destination="N9C-Qb-7TV" id="xY2-ei-cpD"/>
                         <outlet property="btnInfo" destination="kLy-Tg-Ygp" id="KDv-MH-ZOh"/>
                         <outlet property="btnMeds" destination="r6G-WJ-bie" id="Vh9-zD-k05"/>
@@ -210,7 +166,7 @@
         <!--About-->
         <scene sceneID="86y-Jy-cuc">
             <objects>
-                <viewController title="About" id="J3I-4s-JDD" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" title="About" id="J3I-4s-JDD" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z7M-E4-kOA"/>
                         <viewControllerLayoutGuide type="bottom" id="wxj-3F-nOs"/>
@@ -1434,10 +1390,8 @@ Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos 
         </scene>
     </scenes>
     <resources>
-        <image name="Contact" width="24" height="24"/>
         <image name="Details" width="26" height="26"/>
         <image name="Formula" width="26" height="26"/>
-        <image name="Help" width="26" height="26"/>
         <image name="Help-Blue" width="26" height="26"/>
         <image name="logo-anmat-toolbar.png" width="100" height="44"/>
         <image name="logo-ministerio-toolbar.png" width="100" height="44"/>
