@@ -55,6 +55,8 @@
 -(void) setBorder: (UISelectableButton *) button {
     [[button layer] setBorderWidth:1.0f];
     [[button layer] setBorderColor:[UIColor colorWithRed:17/255.0 green:55/255.0 blue:86/255.0 alpha:255].CGColor];
+    [button setSelected:NO];
+    [button setHighlighted:NO];
 }
 
 -(void) showAbout:(id) sender {
