@@ -10,15 +10,52 @@
 #import "Medicine.h"
 #import "MainDetailsViewController.h"
 #import "FormulaDetailsViewController.h"
+#import "MBProgressHUD.h"
+#import "MedicineService.h"
+#import "MenuViewController.h"
 
 @interface SearchResultsViewController()
 
 @end
 
-@implementation SearchResultsViewController
+@implementation SearchResultsViewController {
+    MedicineService *medicineService;
+    NSArray *medicines;
+    BOOL isLoading;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *btnHome = [[UIBarButtonItem alloc] init];
+    UIImage *imgHome = [UIImage imageNamed:@"Home"];
+    
+    [btnHome setImage:imgHome];
+    [btnHome setTarget:self];
+    [btnHome setAction:@selector(showHome:)];
+    
+    self.navigationItem.rightBarButtonItem = btnHome;
+    
+    medicineService = [[MedicineService alloc] init];
+    medicines = [[NSArray alloc] init];
+    isLoading = YES;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        if(self.searchFilter.activeComponent != nil && self.searchFilter.activeComponent.length > 0) {
+            medicines = [medicineService getMedicines:self.searchFilter.activeComponent];
+        } else if(self.searchFilter.medicine != nil) {
+            medicines = [medicineService getSimilarMedicines:self.searchFilter.medicine];
+        } else {
+            medicines = [medicineService getMedicines:self.searchFilter.genericName comercialName:self.searchFilter.comercialName laboratory:self.searchFilter.laboratory];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            isLoading = NO;
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,18 +63,21 @@
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-    if(self.medicines.count > 0) {
+    if(medicines.count > 0) {
         return 1;
     } else {
-        UILabel *lblMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        if(isLoading == NO) {
+            UILabel *lblMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+            
+            lblMessage.text = @"Sin Resultados";
+            lblMessage.textColor = [UIColor grayColor];
+            lblMessage.numberOfLines = 0;
+            lblMessage.textAlignment = NSTextAlignmentCenter;
+            [lblMessage sizeToFit];
+            
+            self.tableView.backgroundView = lblMessage;
+        }
         
-        lblMessage.text = @"Sin Resultados";
-        lblMessage.textColor = [UIColor grayColor];
-        lblMessage.numberOfLines = 0;
-        lblMessage.textAlignment = NSTextAlignmentCenter;
-        [lblMessage sizeToFit];
-        
-        self.tableView.backgroundView = lblMessage;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         return 0;
@@ -45,7 +85,7 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.medicines count];
+    return [medicines count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,7 +93,7 @@
                              dequeueReusableCellWithIdentifier:@"MedicineCell"
                              forIndexPath:indexPath];
 
-    Medicine *medicine = [self.medicines objectAtIndex:indexPath.row];
+    Medicine *medicine = [medicines objectAtIndex:indexPath.row];
     
     UILabel * lblGenericName = (UILabel *)[cell.contentView viewWithTag:1];
     UILabel * lblComercialName = (UILabel *)[cell.contentView viewWithTag:2];
@@ -81,7 +121,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 164;
+    return 196;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -91,11 +131,17 @@
         FormulaDetailsViewController *formula = [tabs.viewControllers objectAtIndex:1];
         
         NSIndexPath *selectedIndex = [self.tableView indexPathForCell:sender];
-        Medicine * selectedMed = [self.medicines objectAtIndex:selectedIndex.item];
+        Medicine * selectedMed = [medicines objectAtIndex:selectedIndex.item];
         
         details.medicine = selectedMed;
         formula.medicine = selectedMed;
     }
+}
+
+-(void) showHome:(id) sender {
+    MenuViewController *about = (MenuViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    
+    [self.navigationController pushViewController:about animated:YES];
 }
 
 @end

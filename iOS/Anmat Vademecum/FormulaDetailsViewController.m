@@ -80,6 +80,7 @@
         Component *selectedFormulaComponent = [[formula getComponents] objectAtIndex:selectedIndex.item];
         ActiveComponent *component = [componentsService getByName:selectedFormulaComponent.activeComponent];
         
+        activeComponent.name = selectedFormulaComponent.activeComponent;
         activeComponent.component = component;
     }
 }

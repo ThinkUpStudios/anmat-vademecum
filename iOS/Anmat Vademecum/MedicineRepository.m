@@ -190,9 +190,11 @@
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *genericNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *genericName = [[NSString alloc] initWithUTF8String:genericNameChars];
+            NSString *genericName = [String trim:[[NSString alloc] initWithUTF8String:genericNameChars]];
             
-            [result addObject:genericName];
+            if(genericName.length > 0) {
+                [result addObject:genericName];
+            }
         }
         
         sqlite3_finalize(statement);
@@ -217,9 +219,11 @@
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *comercialNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *comercialName = [[NSString alloc] initWithUTF8String:comercialNameChars];
+            NSString *comercialName = [String trim:[[NSString alloc] initWithUTF8String:comercialNameChars]];
             
-            [result addObject:comercialName];
+            if(comercialName.length > 0) {
+                [result addObject:comercialName];
+            }
         }
         
         sqlite3_finalize(statement);
@@ -244,9 +248,11 @@
         
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *laboratoryChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *laboratory = [[NSString alloc] initWithUTF8String:laboratoryChars];
+            NSString *laboratory = [String trim:[[NSString alloc] initWithUTF8String:laboratoryChars]];
             
-            [result addObject:laboratory];
+            if(laboratory.length > 0) {
+                [result addObject:laboratory];
+            }
         }
         
         sqlite3_finalize(statement);

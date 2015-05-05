@@ -23,9 +23,11 @@
         == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *componentNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *componentName = [[NSString alloc] initWithUTF8String:componentNameChars];
+            NSString *componentName = [String trim:[[NSString alloc] initWithUTF8String:componentNameChars]];
             
-            [result addObject:componentName];
+            if(componentName.length > 0) {
+                [result addObject:componentName];
+            }
         }
         
         sqlite3_finalize(statement);
@@ -39,16 +41,29 @@
 - (NSArray *) getAllNames:(NSString *)searchText {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = [NSString stringWithFormat: @"SELECT principio FROM principios_activos WHERE principio LIKE \"%%%@%%\" COLLATE NOCASE OR otros_nombres LIKE \"%%%@%%\" COLLATE NOCASE ORDER BY principio ASC", [String trim:searchText], [String trim:searchText]];
+    NSString *query = [NSString stringWithFormat: @"SELECT principio, otros_nombres FROM principios_activos WHERE principio LIKE \"%%%@%%\" COLLATE NOCASE OR otros_nombres LIKE \"%%%@%%\" COLLATE NOCASE ORDER BY principio ASC", [String trim:searchText], [String trim:searchText]];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
         == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *componentNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *componentName = [self getUTF8:componentNameChars];
+            NSString *componentName = [String trim:[self getUTF8:componentNameChars]];
+
+            if(componentName.length > 0 && ![result containsObject:componentName]) {
+                [result addObject:componentName];
+            }
             
-            [result addObject:componentName];
+            char *otherNamesChars = (char *) sqlite3_column_text(statement, 1);
+            NSString *otherNames = [String trim:[self getUTF8:otherNamesChars]];
+            
+            NSArray *otherNamesParts = [otherNames componentsSeparatedByString:@"#"];
+            
+            for (NSString *otherName in otherNamesParts) {
+                if(otherName.length > 0 && ![result containsObject:otherName]) {
+                    [result addObject:otherName];
+                }
+            }
         }
         
         sqlite3_finalize(statement);
@@ -82,7 +97,7 @@
 - (NSArray *) getAllIdentifiers:(NSString *)name {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = [NSString stringWithFormat: @"SELECT principio, otros_nombres FROM principios_activos WHERE principio=\"%@\" COLLATE NOCASE  LIMIT 1", [String trim:name]];
+    NSString *query = [NSString stringWithFormat: @"SELECT principio, otros_nombres FROM principios_activos WHERE principio=\"%@\" COLLATE NOCASE OR otros_nombres LIKE \"%%%@%%\" COLLATE NOCASE  LIMIT 1", [String trim:name], [String trim:name]];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -90,12 +105,19 @@
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *componentNameChars = (char *) sqlite3_column_text(statement, 0);
             char *otherNamesChars = (char *) sqlite3_column_text(statement, 1);
-            NSString *componentName = [self getUTF8:componentNameChars];
-            NSString *otherNames = [self getUTF8:otherNamesChars];
-            NSArray *otherNamesSplitted = [otherNames componentsSeparatedByString:@"#"];
+            NSString *componentName = [String trim:[self getUTF8:componentNameChars]];
             
-            [result addObject:componentName];
-            [result addObjectsFromArray:otherNamesSplitted];
+            if(componentName.length > 0) {
+                [result addObject:componentName];
+            }
+            
+            NSString *otherNames = [String trim:[self getUTF8:otherNamesChars]];
+            
+            if(otherNames.length > 0) {
+                NSArray *otherNamesSplitted = [otherNames componentsSeparatedByString:@"#"];
+                
+                [result addObjectsFromArray:otherNamesSplitted];
+            }
         }
         
         sqlite3_finalize(statement);
