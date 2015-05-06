@@ -12,6 +12,7 @@
 #import "FormulaDetailsViewController.h"
 #import "MBProgressHUD.h"
 #import "MedicineService.h"
+#import "MenuViewController.h"
 
 @interface SearchResultsViewController()
 
@@ -25,6 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *btnHome = [[UIBarButtonItem alloc] init];
+    UIImage *imgHome = [UIImage imageNamed:@"Home"];
+    
+    [btnHome setImage:imgHome];
+    [btnHome setTarget:self];
+    [btnHome setAction:@selector(showHome:)];
+    
+    self.navigationItem.rightBarButtonItem = btnHome;
+    
     medicineService = [[MedicineService alloc] init];
     medicines = [[NSArray alloc] init];
     isLoading = YES;
@@ -110,7 +121,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 164;
+    return 196;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -125,6 +136,12 @@
         details.medicine = selectedMed;
         formula.medicine = selectedMed;
     }
+}
+
+-(void) showHome:(id) sender {
+    MenuViewController *about = (MenuViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    
+    [self.navigationController pushViewController:about animated:YES];
 }
 
 @end
