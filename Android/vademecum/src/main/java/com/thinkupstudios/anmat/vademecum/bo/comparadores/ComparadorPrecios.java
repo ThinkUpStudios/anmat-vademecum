@@ -1,4 +1,4 @@
-package com.thinkupstudios.anmat.vademecum.providers;
+package com.thinkupstudios.anmat.vademecum.bo.comparadores;
 
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 
