@@ -10,6 +10,7 @@ import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -128,7 +129,7 @@ public class MedicamentosProvider extends GenericProvider {
 
 
     private List<MedicamentoBO> ordenarMedicamentos(List<MedicamentoBO> medicamentoBOs) {
-        List<MedicamentoBO> medOrdenados = new Vector<>();
+       /* List<MedicamentoBO> medOrdenados = new Vector<>();
         List<MedicamentoBO> medUsoHospitalario = new Vector<>();
         List<MedicamentoBO> medSinPrecio = new Vector<>();
         for (MedicamentoBO medicamento : medicamentoBOs){
@@ -143,9 +144,13 @@ public class MedicamentosProvider extends GenericProvider {
             }
         }
         medOrdenados.addAll(medUsoHospitalario);
-        medOrdenados.addAll(medSinPrecio);
-        return medOrdenados;
+        medOrdenados.addAll(medSinPrecio);*/
+        Collections.sort(medicamentoBOs, new ComparadorPrecios());
+        return medicamentoBOs;
+
     }
+
+
 
 
     private List<MedicamentoBO> filtrarPorFormula(List<MedicamentoBO> medicamentoBOs, String principioActivo) {
