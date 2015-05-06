@@ -154,29 +154,31 @@ public class MedicamentoBO implements Serializable {
             this.troquel = troquel;
     }
 
-    public Formula getFormula(){
-       if(this.formula == null){
-           this.formula =  FormulaParser.parse(this.getNombreGenerico());
-       }
-       return this.formula;
+    public Formula getFormula() {
+        if (this.formula == null) {
+            this.formula = FormulaParser.parse(this.getNombreGenerico());
+        }
+        return this.formula;
     }
 
     public void setEsUsoHospitalario(Integer esUsoHospitalario) {
-        if(esUsoHospitalario != null){
+        if (esUsoHospitalario != null) {
             this.esUsoHospitalario = esUsoHospitalario == 0 ? false : true;
-        }
-        else this.esUsoHospitalario = false;
+        } else this.esUsoHospitalario = false;
     }
 
     public boolean isEsUsoHospitalario() {
-        return esUsoHospitalario && this.precio== null;
+        return esUsoHospitalario && this.precio == null;
     }
 
-    public String getUsoHospitalarioLabel(){
-        if(this.getPrecio().equals(UH)){
+    public String getUsoHospitalarioLabel() {
+        if (this.getPrecio().equals(UH)) {
             return USO_HOSPITALARIO;
-        }else{
+        } else {
             return " ";
         }
     }
-}
+
+
+
+ }
