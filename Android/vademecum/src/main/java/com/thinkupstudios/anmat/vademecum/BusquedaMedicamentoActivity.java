@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
@@ -28,6 +31,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
     private ClearableAutoCompliteEditText nombreComercial;
     private ClearableAutoCompliteEditText laboratorio;
     private ClearableAutoCompliteEditText nombreGenerico;
+    private LinearLayout checkBoxFrame;
 
 
     @Override
@@ -50,7 +54,20 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
         buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
         //buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-
+        this.checkBoxFrame = (LinearLayout)findViewById(R.id.cb_remediar);
+        this.checkBoxFrame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox cb = (CheckBox)v.findViewById(R.id.checkBox);
+                cb.performClick();
+                BusquedaMedicamentoActivity.this.laboratorio.setEnabled(!cb.isChecked());
+                if(cb.isChecked()) {
+                    BusquedaMedicamentoActivity.this.laboratorio.setText(MedicamentoBO.REMEDIAR);
+                }else{
+                    BusquedaMedicamentoActivity.this.laboratorio.setText("");
+                }
+            }
+        });
         this.configEditTextLabs();
 
         this.configEditTextGenericos();

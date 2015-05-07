@@ -140,10 +140,10 @@ public class DetalleMedicamentoListActivity extends Activity
             this.overridePendingTransition(fade_in, fade_out);
             return true;
         } else if (item.getItemId() == R.id.mnu_ordenar) {
-            if(this.fragmentLista!= null) {
-                this.fragmentLista.ordenar();
+            if(this.fragmentLista== null) {
+                this.fragmentLista = ((DetalleMedicamentoListFragment) getFragmentManager() .findFragmentById(R.id.detallemedicamento_list));
             }
-
+            this.fragmentLista.ordenar();
         }
 
         return super.onOptionsItemSelected(item);

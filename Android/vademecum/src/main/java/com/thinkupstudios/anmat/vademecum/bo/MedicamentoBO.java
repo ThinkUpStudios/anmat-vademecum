@@ -10,6 +10,7 @@ import java.util.Vector;
  */
 public class MedicamentoBO implements Serializable {
 
+    public static final String REMEDIAR = "REMEDIAR";
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
     public static String UH = "U.H.";
     public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario (U.H.)";
@@ -70,7 +71,9 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
-        if (this.precio == null || this.precio.isEmpty()) {
+        if(esRemediar()){
+            return MedicamentoBO.REMEDIAR;
+        }else if (this.precio == null || this.precio.isEmpty()) {
             if (this.isEsUsoHospitalario()) {
                 return (MedicamentoBO.UH);
             } else {
@@ -87,7 +90,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getLaboratorio() {
-        return laboratorio;
+        return esRemediar() ? " " : this.laboratorio;
     }
 
     public void setLaboratorio(String laboratorio) {
@@ -183,6 +186,11 @@ public class MedicamentoBO implements Serializable {
         }
     }
 
+    public boolean esRemediar(){
+
+        return laboratorio.equals(MedicamentoBO.REMEDIAR);
+
+    }
 
 
  }

@@ -25,7 +25,7 @@ public class ComparadorPrecios implements Comparator<MedicamentoBO>{
     }
 
     private Integer getPesoOrden(MedicamentoBO m){
-        if (m.getLaboratorio().equals("REMEDIAR")) {
+        if (m.esRemediar()) {
             return -1;
 
         } else if (m.getPrecio().equals(MedicamentoBO.SIN_PRECIO)) {
