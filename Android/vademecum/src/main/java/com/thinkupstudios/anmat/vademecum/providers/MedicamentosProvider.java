@@ -5,6 +5,7 @@ import android.database.Cursor;
 import com.thinkupstudios.anmat.vademecum.bo.Component;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorPrecios;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 

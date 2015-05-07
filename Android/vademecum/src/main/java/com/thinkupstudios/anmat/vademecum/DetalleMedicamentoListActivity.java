@@ -1,5 +1,8 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -32,7 +35,7 @@ import static android.R.anim.fade_out;
  * {@link DetalleMedicamentoListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class DetalleMedicamentoListActivity extends NoMenuActivity
+public class DetalleMedicamentoListActivity extends Activity
         implements DetalleMedicamentoListFragment.Callbacks {
 
     /**
@@ -41,33 +44,37 @@ public class DetalleMedicamentoListActivity extends NoMenuActivity
      */
     private boolean mTwoPane;
     private MedicamentoBO medicamento;
+    private AlertDialog orderDialog;
+    private DetalleMedicamentoDetailFragment fragmentDetalle;
+    private DetalleMedicamentoListFragment fragmentLista;
 
-private View selectedView;
+    private View selectedView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detallemedicamento_list);
-        if(getIntent().getExtras() != null && getIntent().getStringExtra("COMERCIAL_RECOMENDADO")!= null){
+        if (getIntent().getExtras() != null && getIntent().getStringExtra("COMERCIAL_RECOMENDADO") != null) {
             this.setTitle(getIntent().getStringExtra("COMERCIAL_RECOMENDADO"));
         }
         if (findViewById(R.id.detallemedicamento_detail_container) != null) {
             mTwoPane = true;
-            DetalleMedicamentoListFragment fragment =
+            fragmentLista =
                     ((DetalleMedicamentoListFragment) getFragmentManager()
                             .findFragmentById(R.id.detallemedicamento_list));
 
-                    fragment.setActivateOnItemClick(true);
+            fragmentLista.setActivateOnItemClick(true);
 
         }
     }
+
     /**
      * Callback method from {@link DetalleMedicamentoListFragment.Callbacks}
      * indicating that the item with the given ID was selected.
      */
     @Override
     public void onItemSelected(MedicamentoBO m, View item) {
-        if(this.selectedView!= null){
+        if (this.selectedView != null) {
             this.selectedView.getBackground().clearColorFilter();
         }
         this.selectedView = item;
@@ -82,11 +89,11 @@ private View selectedView;
             Bundle arguments = new Bundle();
             this.medicamento = m;
             arguments.putSerializable(MedicamentoBO.MEDICAMENTOBO, m);
-            DetalleMedicamentoDetailFragment fragment = new DetalleMedicamentoDetailFragment();
-            fragment.setArguments(arguments);
+            this.fragmentDetalle = new DetalleMedicamentoDetailFragment();
+            fragmentDetalle.setArguments(arguments);
 
             getFragmentManager().beginTransaction()
-                    .replace(R.id.detallemedicamento_detail_container, fragment)
+                    .replace(R.id.detallemedicamento_detail_container, fragmentDetalle)
                     .commit();
 
         } else {
@@ -103,40 +110,48 @@ private View selectedView;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        if(mTwoPane) {
+        if (mTwoPane) {
             getMenuInflater().inflate(R.menu.detalle_menu, menu);
             return true;
+        } else {
+            getMenuInflater().inflate(R.menu.resultado_menu, menu);
+            return true;
         }
-        return super.onCreateOptionsMenu(menu);
+
 
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-            if (item.getItemId() == R.id.mnu_recomendados) {
-                if (this.medicamento == null) {
-                    return false;
-                }
-                Intent i = new Intent(this,
-                        DetalleMedicamentoListActivity.class);
-                i.putExtra("COMERCIAL_RECOMENDADO", this.medicamento.getNombreComercial());
-                FormularioBusqueda f = new FormularioBusqueda();
-                f.setNombreGenerico(this.medicamento.getNombreGenerico());
-                f.setUseLike(false);
-                f.setFiltrarPorFormula(false);
-                i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
-                startActivity(i);
-                this.overridePendingTransition(fade_in, fade_out);
-                return true;
-            } else {
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.mnu_recomendados) {
+            if (this.medicamento == null) {
+                return false;
             }
+            Intent i = new Intent(this,
+                    DetalleMedicamentoListActivity.class);
+            i.putExtra("COMERCIAL_RECOMENDADO", this.medicamento.getNombreComercial());
+            FormularioBusqueda f = new FormularioBusqueda();
+            f.setNombreGenerico(this.medicamento.getNombreGenerico());
+            f.setUseLike(false);
+            f.setFiltrarPorFormula(false);
+            i.putExtra(FormularioBusqueda.FORMULARIO_MANUAL, f);
+            startActivity(i);
+            this.overridePendingTransition(fade_in, fade_out);
+            return true;
+        } else if (item.getItemId() == R.id.mnu_ordenar) {
+            if(this.fragmentLista!= null) {
+                this.fragmentLista.ordenar();
+            }
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
     }
- }
+}
