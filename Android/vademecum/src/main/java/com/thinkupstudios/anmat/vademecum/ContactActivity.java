@@ -40,7 +40,7 @@ private PhoneCallListener phoneCallListener;
                 callIntent.setData(Uri.parse("tel: " + getResources().getString(R.string.tel_anmat_number)));
                 startActivity(callIntent);
                 this.phoneCallListener.setIsOwnCalling(true);
-
+                return true;
             case R.id.mn_email:
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{getResources().getString(R.string.email_responde_value)});
@@ -48,7 +48,7 @@ private PhoneCallListener phoneCallListener;
                 email.putExtra(Intent.EXTRA_TEXT, " ");
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, getString(R.string.choose_account)));
-
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
