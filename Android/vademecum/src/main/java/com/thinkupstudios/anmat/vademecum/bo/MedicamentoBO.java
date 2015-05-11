@@ -30,7 +30,7 @@ public class MedicamentoBO implements Serializable {
     private String cuit = "-";
     private boolean esUsoHospitalario = false;
     private Formula formula;
-
+    private boolean esRemediar;
 
 
     public String getCuit() {
@@ -71,9 +71,9 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
-        if(esRemediar()){
+        if (esRemediar()) {
             return MedicamentoBO.REMEDIAR;
-        }else if (this.precio == null || this.precio.isEmpty()) {
+        } else if (this.precio == null || this.precio.isEmpty()) {
             if (this.isEsUsoHospitalario()) {
                 return (MedicamentoBO.UH);
             } else {
@@ -186,11 +186,13 @@ public class MedicamentoBO implements Serializable {
         }
     }
 
-    public boolean esRemediar(){
 
-        return laboratorio.equals(MedicamentoBO.REMEDIAR);
+    public void setEsRemediar(int esRemediar) {
 
+        this.esRemediar = esRemediar == 0 ? false : true;
     }
 
-
- }
+    public boolean esRemediar() {
+        return esRemediar;
+    }
+}
