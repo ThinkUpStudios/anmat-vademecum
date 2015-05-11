@@ -28,30 +28,31 @@ public class UpdateDBActivity extends NoMenuActivity {
         try {
             dbHelper.createIfFirstRun();
 
-        if (mWifi.isConnected()) {
-            new UpdateTask(this).execute(this);
+            if (mWifi.isConnected()) {
+                new UpdateTask(this).execute(this);
 
-        }else{
+            } else {
 
-            ((MiAplicacion)this.getApplication()).updateCache(dbHelper, false);
-            dbHelper.close();
-            this.continuar();
-        }
+                ((MiAplicacion) this.getApplication()).updateCache(dbHelper, false);
+                dbHelper.close();
+                this.continuar();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-     /**
+
+    /**
      * Continua el flujo de la aplicacion
-      */
-    public void continuar(){
+     */
+    public void continuar() {
         startActivity(new Intent(this, MainMenuActivity.class));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
     }
 }

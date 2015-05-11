@@ -76,5 +76,7 @@
     <string name="intro_help">En la búsqueda de medicamentos por nombre genérico, puede buscar por más de un criterio aplicando las siguientes condiciones lógicas:</string>
     <string name="busqueda_nombre_generico_help">Búsqueda por Nombre Genérico</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="ordenar">Ordenar</string>
+    <string name="filtrar_medicamentos">Mostrar solo Remediar</string>
 
 </resources>

@@ -19,7 +19,8 @@
         android:singleLine="true"
         android:imeOptions="actionDone"
         android:layout_margin="10dp"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:completionThreshold="3">
         <requestFocus />
 
     </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
@@ -42,7 +43,8 @@
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
         android:imeOptions="actionDone"
-        android:hint="@string/hint_nombre_comercial">
+        android:hint="@string/hint_nombre_comercial"
+        android:completionThreshold="3">
 
     </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
     <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
@@ -54,8 +56,11 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:imeOptions="actionDone"
-        android:hint="@string/hint_laboratorio">
+        android:hint="@string/hint_laboratorio"
+        android:completionThreshold="3">
     </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+
+
 
     <Button
         android:id="@+id/btn_form_busqueda_buscar"
@@ -74,5 +79,6 @@
         android:padding="10dp"
 
         />
+
 
 </LinearLayout>

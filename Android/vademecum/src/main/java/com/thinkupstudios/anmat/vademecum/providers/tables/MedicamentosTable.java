@@ -26,7 +26,8 @@ public class MedicamentosTable {
                                         "trazabilidad",
                                         "presentacion",
                                         "precio",
-                                        "es_hospitalario"};
+                                        "es_hospitalario",
+                                        "es_remediar"};
 
 
 }

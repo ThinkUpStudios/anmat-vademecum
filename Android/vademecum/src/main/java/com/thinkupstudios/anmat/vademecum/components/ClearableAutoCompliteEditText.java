@@ -8,7 +8,10 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorStringAutocomplete;
 
 /**
  * Componente de tipo Autocomplete con funcionalidad de limpiar texto.
@@ -96,6 +99,7 @@ public class ClearableAutoCompliteEditText extends AutoCompleteTextView {
                         .toString().equals("") ? x : searchIcon) : null;
 
                 setCompoundDrawables(null, null, viewSide.equals("right") ? x4 : null, null);
+                ((ArrayAdapter)ClearableAutoCompliteEditText.this.getAdapter()).sort(new ComparadorStringAutocomplete(s.toString()));
                 // setCompoundDrawables(searchIcon, null, viewSide.equals("right") ? x4 : null, null);
             }
 

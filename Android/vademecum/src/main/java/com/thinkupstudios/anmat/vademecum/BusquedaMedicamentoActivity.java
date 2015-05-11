@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorStringAutocomplete;
 import com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText;
 import com.thinkupstudios.anmat.vademecum.listeners.DarkenerButtonTouchListener;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
@@ -28,6 +29,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
     private ClearableAutoCompliteEditText nombreComercial;
     private ClearableAutoCompliteEditText laboratorio;
     private ClearableAutoCompliteEditText nombreGenerico;
+
 
 
     @Override
@@ -49,6 +51,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
         buscarBtn.setOnClickListener(this);
         buscarBtn.setOnTouchListener(new DarkenerButtonTouchListener());
         //buscarBtn.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
 
 
         this.configEditTextLabs();
@@ -96,6 +99,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
         List<String> genericos = app.getNombresGenericos();
         ArrayAdapter<String> adapterGen = new ArrayAdapter<>
                 (this, android.R.layout.simple_list_item_1, genericos);
+        adapterGen.sort(new ComparadorStringAutocomplete());
         adapterGen.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.nombreGenerico.setAdapter(adapterGen);
 
@@ -109,6 +113,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
         List<String> comerciales = app.getNombresComerciales();
         ArrayAdapter<String> adapterCom = new ArrayAdapter<>
                 (this, android.R.layout.simple_list_item_1, comerciales);
+        adapterCom.sort(new ComparadorStringAutocomplete());
         adapterCom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.nombreComercial.setAdapter(adapterCom);
     }
@@ -121,6 +126,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
         List<String> laboratorios = app.getLaboratorios();
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, laboratorios);
+        dataAdapter.sort(new ComparadorStringAutocomplete());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         laboratorio.setAdapter(dataAdapter);
 
@@ -129,7 +135,7 @@ public class BusquedaMedicamentoActivity extends NoMenuActivity implements View.
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
     }
 
 }

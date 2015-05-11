@@ -1,6 +1,8 @@
 package com.thinkupstudios.anmat.vademecum.bo;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by FaQ on 19/02/2015.
@@ -8,6 +10,7 @@ import java.io.Serializable;
  */
 public class MedicamentoBO implements Serializable {
 
+    public static final String REMEDIAR = "REMEDIAR";
     public static String MEDICAMENTOBO = "MEDICAMENTO_BO";
     public static String UH = "U.H.";
     public static String USO_HOSPITALARIO = "Producto de Uso Hospitalario (U.H.)";
@@ -27,6 +30,8 @@ public class MedicamentoBO implements Serializable {
     private String cuit = "-";
     private boolean esUsoHospitalario = false;
     private Formula formula;
+    private boolean esRemediar;
+
 
     public String getCuit() {
         return cuit;
@@ -66,7 +71,9 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getPrecio() {
-        if (this.precio == null || this.precio.isEmpty()) {
+        if (esRemediar()) {
+            return MedicamentoBO.REMEDIAR;
+        } else if (this.precio == null || this.precio.isEmpty()) {
             if (this.isEsUsoHospitalario()) {
                 return (MedicamentoBO.UH);
             } else {
@@ -83,7 +90,7 @@ public class MedicamentoBO implements Serializable {
     }
 
     public String getLaboratorio() {
-        return laboratorio;
+        return esRemediar() ? " " : this.laboratorio;
     }
 
     public void setLaboratorio(String laboratorio) {
@@ -154,29 +161,38 @@ public class MedicamentoBO implements Serializable {
             this.troquel = troquel;
     }
 
-    public Formula getFormula(){
-       if(this.formula == null){
-           this.formula =  FormulaParser.parse(this.getNombreGenerico());
-       }
-       return this.formula;
+    public Formula getFormula() {
+        if (this.formula == null) {
+            this.formula = FormulaParser.parse(this.getNombreGenerico());
+        }
+        return this.formula;
     }
 
     public void setEsUsoHospitalario(Integer esUsoHospitalario) {
-        if(esUsoHospitalario != null){
+        if (esUsoHospitalario != null) {
             this.esUsoHospitalario = esUsoHospitalario == 0 ? false : true;
-        }
-        else this.esUsoHospitalario = false;
+        } else this.esUsoHospitalario = false;
     }
 
     public boolean isEsUsoHospitalario() {
-        return esUsoHospitalario && this.precio== null;
+        return esUsoHospitalario && this.precio == null;
     }
 
-    public String getUsoHospitalarioLabel(){
-        if(this.getPrecio().equals(UH)){
+    public String getUsoHospitalarioLabel() {
+        if (this.getPrecio().equals(UH)) {
             return USO_HOSPITALARIO;
-        }else{
+        } else {
             return " ";
         }
+    }
+
+
+    public void setEsRemediar(int esRemediar) {
+
+        this.esRemediar = esRemediar == 0 ? false : true;
+    }
+
+    public boolean esRemediar() {
+        return esRemediar;
     }
 }
