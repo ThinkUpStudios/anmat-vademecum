@@ -31,7 +31,8 @@ public class MedicamentosProvider extends GenericProvider {
         Cursor cursor = null;
 
         try {
-            if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty() || !form.getLaboratorio().isEmpty())) {
+            if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty()
+                    || !form.getLaboratorio().isEmpty()) || !form.getForma().isEmpty()||form.isRemediar()) {
                 where += "where  1=1 ";
 
                 if (form.getNombreComercial() != null && !form.getNombreComercial().isEmpty())
@@ -43,6 +44,11 @@ public class MedicamentosProvider extends GenericProvider {
 
                 if (!form.getLaboratorio().isEmpty())
                     where += " and " + MedicamentosTable.COLUMNS[3] + " like '%" + form.getLaboratorio() + "%'";
+                if (!form.getForma().isEmpty())
+                    where += " and " + MedicamentosTable.COLUMNS[7] + " like '%" + form.getForma() + "%'";
+                if(form.isRemediar()){
+                    where += " and " + MedicamentosTable.COLUMNS[15] + " = '1'";
+                }
             }
 
             List<MedicamentoBO> medicamentoBOs = new ArrayList<>();
