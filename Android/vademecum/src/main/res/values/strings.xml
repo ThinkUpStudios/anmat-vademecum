@@ -61,6 +61,7 @@
     <string name="hint_nombre_generico">Nombre Genérico</string>
     <string name="hint_nombre_comercial">Nombre Comercial</string>
     <string name="hint_laboratorio">Laboratorio</string>
+    <string name="hint_forma">Forma Farmacéutica</string>
     <string name="stat_icon">statIcon</string>
     <string name="dummy_small_text">Small Text</string>
     <string name="dummy_generico">Ibuprofeno / CAP</string>
@@ -78,5 +79,6 @@
     <string name="title_activity_splash">Splash</string>
     <string name="ordenar">Ordenar</string>
     <string name="filtrar_medicamentos">Mostrar solo Remediar</string>
+    <string name="es_remediar">Remediar</string>
 
 </resources>
