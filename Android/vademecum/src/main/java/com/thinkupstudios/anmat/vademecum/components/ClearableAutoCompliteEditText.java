@@ -10,8 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-
-import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorStringAutocomplete;
+import android.widget.Filter;
 
 /**
  * Componente de tipo Autocomplete con funcionalidad de limpiar texto.
@@ -91,6 +90,7 @@ public class ClearableAutoCompliteEditText extends AutoCompleteTextView {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
+
                 Drawable x4 = viewMode.equals("never") ? null : viewMode
                         .equals("always") ? x
                         : viewMode.equals("editing") ? (getText().toString()
@@ -99,7 +99,6 @@ public class ClearableAutoCompliteEditText extends AutoCompleteTextView {
                         .toString().equals("") ? x : searchIcon) : null;
 
                 setCompoundDrawables(null, null, viewSide.equals("right") ? x4 : null, null);
-                ((ArrayAdapter)ClearableAutoCompliteEditText.this.getAdapter()).sort(new ComparadorStringAutocomplete(s.toString()));
                 // setCompoundDrawables(searchIcon, null, viewSide.equals("right") ? x4 : null, null);
             }
 
@@ -114,7 +113,9 @@ public class ClearableAutoCompliteEditText extends AutoCompleteTextView {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,
                                           int after) {
+
             }
         });
     }
+
 }

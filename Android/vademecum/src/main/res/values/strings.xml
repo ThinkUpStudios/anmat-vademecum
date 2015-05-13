@@ -78,7 +78,7 @@
     <string name="busqueda_nombre_generico_help">Búsqueda por Nombre Genérico</string>
     <string name="title_activity_splash">Splash</string>
     <string name="ordenar">Ordenar</string>
-    <string name="filtrar_medicamentos">Mostrar solo Remediar</string>
-    <string name="es_remediar">Remediar</string>
+    <string name="es_remediar">Solo Remediar</string>
+    <string name="leyenda_remediar">El Ministerio de Salud de la Nación garantiza la distribución gratuita de este medicamento mediante el programa REMEDIAR</string>
 
 </resources>
