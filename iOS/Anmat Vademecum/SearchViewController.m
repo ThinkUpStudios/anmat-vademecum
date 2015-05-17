@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *txtGenericName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtComercialName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtLaboratory;
+@property (weak, nonatomic) IBOutlet UISearchBar *txtForm;
 @property (weak, nonatomic) IBOutlet UITableView *tblResults;
 - (IBAction)showGenericNameHelp:(id)sender;
 - (IBAction)searchResults:(id)sender;
@@ -37,6 +38,7 @@
     self.txtGenericName.delegate = self;
     self.txtComercialName.delegate = self;
     self.txtLaboratory.delegate = self;
+    self.txtForm.delegate = self;
     self.tblResults.delegate = self;
     self.tblResults.dataSource = self;
     self.tblResults.hidden = YES;
@@ -112,9 +114,12 @@
     } else if ([searchMode isEqualToString:@"comercial"]) {
         self.txtComercialName.text = selected;
         [self.txtComercialName resignFirstResponder];
-    } else {
+    } else if ([searchMode isEqualToString:@"laboratory"]) {
         self.txtLaboratory.text = selected;
         [self.txtLaboratory resignFirstResponder];
+    } else {
+        self.txtForm.text = selected;
+        [self.txtForm resignFirstResponder];
     }
     
     self.tblResults.hidden = YES;
@@ -156,7 +161,7 @@
 }
 
 -(void)searchResults:(id)sender {
-    if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0) {
+    if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0 && self.txtForm.text.length == 0) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         
@@ -182,9 +187,12 @@
     } else if([searchBar isEqual:self.txtComercialName]) {
         searchMode = @"comercial";
         [self loadSuggested:[medicineService getComercialNames:text ]];
-    } else {
+    } else if([searchBar isEqual:self.txtLaboratory]) {
         searchMode = @"laboratory";
         [self loadSuggested:[medicineService getLaboratories:text ]];
+    } else {
+        searchMode = @"form";
+        [self loadSuggested:[medicineService getForms:text ]];
     }
     
     [self.tblResults reloadData];

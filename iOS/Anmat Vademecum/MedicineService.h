@@ -23,4 +23,6 @@
 
 - (NSArray *) getLaboratories: (NSString *)searchText;
 
+- (NSArray *) getForms: (NSString *)searchText;
+
 @end

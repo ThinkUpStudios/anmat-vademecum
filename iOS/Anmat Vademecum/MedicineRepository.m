@@ -188,6 +188,10 @@
     return [self getOrderedAlphabetically:@"laboratorio" condition:searchText];
 }
 
+- (NSArray *) getForms: (NSString *)searchText {
+    return [self getOrderedAlphabetically:@"forma" condition:searchText];
+}
+
 - (NSArray *) getOrderedAlphabetically:(NSString *)field condition:(NSString *)condition {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
