@@ -112,7 +112,9 @@ namespace Anmat.Server.DataService
 
 		private void SetCulture()
 		{
-			Thread.CurrentThread.CurrentCulture = new CultureInfo("es-AR");
+			var culture = context.Configuration.DefaultCulture;
+
+			Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
 		}
 	}
 }

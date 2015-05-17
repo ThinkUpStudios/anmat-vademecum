@@ -27,28 +27,24 @@ namespace Anmat.Server.Core.IntegrationTests
 			channelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 			
 			var channel = channelFactory.CreateChannel ();
+			var isNewDataAvailable = channel.IsNewDataAvailable(version: 0);
+			var newData = channel.GetData ();
 
-			if(channel.IsNewDataAvailable(version: 0)) {
-				var data = channel.GetData ();
-			}
-
-			try {
-				channel.ProcessJob (new Guid ("f7e59820-9899-4962-92b8-4e2df8fedb20"));
-			} catch (Exception ex) {
-				var m = ex.Message;
-			}
+			Assert.True (isNewDataAvailable);
+			Assert.NotNull (newData);
 		}
 
 		[Fact]
 		public void when_generating_database_from_existing_files_then_succeeds()
 		{
-			Thread.CurrentThread.CurrentCulture = new CultureInfo("es-AR");
-
 			var stopwatch = new Stopwatch ();
 
 			stopwatch.Start ();
 
 			var context = AnmatContext.Initialize ();
+
+			Thread.CurrentThread.CurrentCulture = new CultureInfo(context.Configuration.DefaultCulture);
+
 			var latestVersion = context.VersionService.GetLatestVersion ();
 
 			context.JobService.CreateJob (latestVersion.Number + 1);

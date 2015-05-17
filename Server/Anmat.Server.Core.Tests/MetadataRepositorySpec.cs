@@ -109,13 +109,15 @@ namespace Anmat.Server.Core.Tests
                 HasHeader = true
             };
 
+			var metadataNames = new List<string> { metadataName, metadataName2, metadataName3 };
+
             this.testRepository.Create(metadata);
             this.testRepository.Create(metadata2);
             this.testRepository.Create(metadata3);
 
-            var hasHeader = this.testRepository.GetAll(e => e.HasHeader);
-            var startsWithTest = this.testRepository.Get(e => e.DocumentName.StartsWith("Test"));
-            var startsWithDoc = this.testRepository.GetAll(e => e.DocumentName.StartsWith("Doc"));
+            var hasHeader = this.testRepository.GetAll(e => e.HasHeader && metadataNames.Any(n => n == e.DocumentName));
+            var startsWithTest = this.testRepository.Get(e => e.DocumentName.StartsWith("Test") && metadataNames.Any(n => n == e.DocumentName));
+            var startsWithDoc = this.testRepository.GetAll(e => e.DocumentName.StartsWith("Doc") && metadataNames.Any(n => n == e.DocumentName));
 
             Assert.Equal(2, hasHeader.Count());
             Assert.True(startsWithTest.DocumentName.Contains("TestMetadata"));

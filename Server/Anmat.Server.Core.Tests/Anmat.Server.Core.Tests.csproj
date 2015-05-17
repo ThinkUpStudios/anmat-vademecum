@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataGenerationJobRepositorySpec.cs" />
+    <Compile Include="TestDataContext.cs" />
     <Compile Include="UpdateVersionRepositorySpec.cs" />
     <Compile Include="MetadataRepositorySpec.cs" />
     <Compile Include="RepositorySpec.cs" />

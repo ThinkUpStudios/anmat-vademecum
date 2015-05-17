@@ -92,14 +92,27 @@ namespace Anmat.Server.Core
 				var tableScript = this.GetCreateTableScript(documentGenerator.Metadata);
 				var tableCommand = new SQLiteCommand(tableScript, connection);
 
-				tableCommand.ExecuteNonQuery();
+				try {
+					tableCommand.ExecuteNonQuery();
+				} catch (Exception ex) {
+					throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_UnhandledTableError, documentGenerator.Metadata.DocumentName), ex);
+				}
+				
 				this.scriptBuilder.AppendLine (tableScript);
+
+				var i = 1;
 
 				foreach(var row in document.Rows) {
 					var insertScript = this.GetInsertScript(documentGenerator.Metadata, row);
 					var insertCommand = new SQLiteCommand(insertScript, connection);
 
-					insertCommand.ExecuteNonQuery();
+					try {
+						insertCommand.ExecuteNonQuery();
+						i++;
+					} catch (Exception ex) {
+						throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_UnhandledRowError, i, documentGenerator.Metadata.DocumentName), ex);
+					}
+
 					this.scriptBuilder.AppendLine(insertScript);
 				}
 			}
@@ -165,7 +178,7 @@ namespace Anmat.Server.Core
 				var cell = row.Cells.ElementAt (i);
 
 				if(cell.Type == typeof(string) || cell.Type == typeof(DateTime)) {
-					scriptBuilder.Append (string.Format("'{0}'", cell.Value));
+					scriptBuilder.Append (string.Format("'{0}'", cell.Value.Replace("'", "''")));
 				} else if(cell.Type == typeof(bool))
 				{
 					scriptBuilder.Append (string.Format ("{0}", cell.Value.ToLower () == "true" ? 1 : 0));

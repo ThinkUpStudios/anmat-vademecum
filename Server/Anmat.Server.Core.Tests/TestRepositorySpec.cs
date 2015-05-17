@@ -1,11 +1,17 @@
 ﻿using Anmat.Server.Core.Tests.TestModels;
 using System.Linq;
 using Xunit;
+using System.Collections.Generic;
 
 namespace Anmat.Server.Core.Tests
 {
     public class TestRepositorySpec : RepositorySpec<TestEntity>
     {
+		public TestRepositorySpec ()
+			: base(new TestDataContext())
+		{
+		}
+
         [Fact]
         public void when_creating_test_entity_then_succeeds()
         {
@@ -109,14 +115,16 @@ namespace Anmat.Server.Core.Tests
                 IsValid = true
             };
 
+			var testEntityNames = new List<string> { testEntityName1, testEntityName2, testEntityName3, testEntityName4 };
+
             this.testRepository.Create(testEntity1);
             this.testRepository.Create(testEntity2);
             this.testRepository.Create(testEntity3);
             this.testRepository.Create(testEntity4);
 
-            var validEntities = this.testRepository.GetAll(e => e.IsValid);
-            var testEntities = this.testRepository.GetAll(e => e.Name.StartsWith("test"));
-            var entitiesWith4 = this.testRepository.GetAll(e => e.DisplayName.Contains("Entity"));
+            var validEntities = this.testRepository.GetAll(e => e.IsValid && testEntityNames.Any(n => n == e.Name));
+            var testEntities = this.testRepository.GetAll(e => e.Name.StartsWith("test") && testEntityNames.Any(n => n == e.Name));
+            var entitiesWith4 = this.testRepository.GetAll(e => e.DisplayName.Contains("Entity") && testEntityNames.Any(n => n == e.Name));
 
             Assert.Equal(3, validEntities.Count());
             Assert.Equal(3, testEntities.Count());

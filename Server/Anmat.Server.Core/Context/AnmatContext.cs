@@ -23,6 +23,7 @@ namespace Anmat.Server.Core.Context
 				TargetActiveComponentsTableName = ConfigurationManager.AppSettings["TargetActiveComponentsTableName"],
 				ReplaceExistingTargetDatabase = bool.Parse(ConfigurationManager.AppSettings["ReplaceExistingTargetDatabase"]),
 				FullInitialize = bool.Parse(ConfigurationManager.AppSettings["FullInitialize"]),
+				DefaultCulture = ConfigurationManager.AppSettings["DefaultCulture"],
 				DefaultTextEncoding = ConfigurationManager.AppSettings["DefaultTextEncoding"]
 			};
 			var dataContext = new AnmatDataContext ();
