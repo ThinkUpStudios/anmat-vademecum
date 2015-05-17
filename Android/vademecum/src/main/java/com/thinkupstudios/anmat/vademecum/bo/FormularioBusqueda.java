@@ -12,6 +12,8 @@ public class FormularioBusqueda implements Serializable {
     private String laboratorio ="";
     private String nombreGenerico ="";
     private String nombreComercial ="";
+    private String forma ="";
+    private Boolean esRemediar = false;
     private Boolean useLike = true;
     private Boolean filtrarPorFormula = false;
 
@@ -39,6 +41,14 @@ public class FormularioBusqueda implements Serializable {
         this.nombreComercial = nombreComercial;
     }
 
+    public String getForma() {
+        return forma;
+    }
+
+    public void setForma(String forma) {
+        this.forma = forma;
+    }
+
     public Boolean useLike() {
         return useLike;
     }
@@ -55,9 +65,19 @@ public class FormularioBusqueda implements Serializable {
         return this.filtrarPorFormula;
     }
 
+    public Boolean isRemediar() {
+        return esRemediar;
+    }
+
+    public void setEsRemediar(Boolean esRemediar) {
+        this.esRemediar = esRemediar;
+    }
+
     public boolean isEmprty(){
         return  this.laboratorio.isEmpty()
                 && this.nombreComercial.isEmpty()
-                && this.nombreGenerico.isEmpty();
+                && this.nombreGenerico.isEmpty()
+                && this.forma.isEmpty()
+                && !this.esRemediar;
     }
 }

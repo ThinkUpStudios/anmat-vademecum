@@ -45,6 +45,14 @@
                     });
                 }
             });
+			$("a").on("click",function(){
+				if($("#dropzoneForm .dz-preview").size() >0){
+					$("#generateJob img").notify("Click aquí para procesar",{elementPosition:'right middle', showAnimation:'slideDown', showDuration:0});
+					return confirm("Los archivos no fueron procesados, desea continuar?")
+				}else{
+					return true
+				}
+			});
         });
 
         Dropzone.options.dropzoneForm = {

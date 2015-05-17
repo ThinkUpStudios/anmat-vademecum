@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using Anmat.Server.Core.Data;
 
 namespace Anmat.Server.Core.Tests
@@ -10,13 +11,18 @@ namespace Anmat.Server.Core.Tests
 
         protected SqlRepository<T> testRepository;
 
-        protected RepositorySpec(bool cleanDbWhenFinishes = true)
+		protected RepositorySpec(bool cleanDbWhenFinishes = true)
+			: this(new AnmatDataContext(), cleanDbWhenFinishes)
+        {
+        }
+
+        protected RepositorySpec(DbContext context, bool cleanDbWhenFinishes = true)
         {
             this.cleanDbWhenFinishes = cleanDbWhenFinishes;
 
 			var configuration = new AnmatConfiguration {};
 
-            this.testRepository = new SqlRepository<T>(new AnmatDataContext(), configuration);
+            this.testRepository = new SqlRepository<T>(context, configuration);
         }
 
         protected static string GetUniqueName(string name = null)

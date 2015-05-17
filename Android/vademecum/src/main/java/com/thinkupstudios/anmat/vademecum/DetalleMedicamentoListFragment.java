@@ -1,18 +1,26 @@
 package com.thinkupstudios.anmat.vademecum;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListFragment;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
 import com.thinkupstudios.anmat.vademecum.bo.ResultadoAdapter;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorFormaFarmaceutica;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorNombreComercial;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorNombreGenerico;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorPrecios;
 import com.thinkupstudios.anmat.vademecum.providers.MedicamentosProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -25,8 +33,8 @@ import java.util.Vector;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class DetalleMedicamentoListFragment extends ListFragment {
-
+public class DetalleMedicamentoListFragment extends ListFragment implements DialogInterface.OnClickListener{
+private AlertDialog orderDialog;
     /**
      * The serialization (saved instance state) Bundle key representing the
      * activated item position. Only used on tablets.
@@ -147,6 +155,53 @@ public class DetalleMedicamentoListFragment extends ListFragment {
         mActivatedPosition = position;
     }
 
+    public void ordenar() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
+        builder.setTitle("Elija un Ordenamiento");
+        final CharSequence[] items = {" Precio ", " Forma Farmacológica ", " Nombre Genérico ", " Nombre Comercial "};
+        builder.setSingleChoiceItems(items, -1, this);
+        orderDialog = builder.create();
+        orderDialog.show();
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.mnu_ordenar) {
+            this.ordenar();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int item) {
+        switch (item) {
+            case 0:
+                Collections.sort(this.resultados, new ComparadorPrecios());
+                setListAdapter(new ResultadoAdapter(this.getActivity(),this.resultados));
+                break;
+            case 1:
+                // Your code when 2nd  option seletced
+                Collections.sort(this.resultados, new ComparadorFormaFarmaceutica());
+                setListAdapter(new ResultadoAdapter(this.getActivity(),this.resultados));
+                break;
+            case 2:
+                // Your code when 3rd option seletced
+                Collections.sort(this.resultados, new ComparadorNombreGenerico());
+                setListAdapter(new ResultadoAdapter(this.getActivity(),this.resultados));
+                break;
+            case 3:
+                // Your code when 4th  option seletced
+                Collections.sort(this.resultados, new ComparadorNombreComercial());
+                setListAdapter(new ResultadoAdapter(this.getActivity(),this.resultados));
+                break;
+
+        }
+
+
+
+        orderDialog.dismiss();
+    }
     public class BuscarResultadosTask extends AsyncTask<Integer, Integer, List<MedicamentoBO>> {
         @Override
         protected List<MedicamentoBO> doInBackground(Integer... params) {

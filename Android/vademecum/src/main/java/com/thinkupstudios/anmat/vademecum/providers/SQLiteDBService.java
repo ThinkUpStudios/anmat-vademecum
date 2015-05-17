@@ -3,11 +3,9 @@ package com.thinkupstudios.anmat.vademecum.providers;
 import android.content.Context;
 import android.util.Base64;
 
-import com.google.gson.Gson;
 import com.thinkupstudios.anmat.vademecum.exceptions.UpdateNotPosibleException;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.services.contract.IRemoteDBService;
-import com.thinkupstudios.anmat.vademecum.webservice.contract.AnmatData;
 import com.thinkupstudios.anmat.vademecum.webservice.http.HttpRequest;
 
 import java.io.IOException;
@@ -19,12 +17,12 @@ import java.io.IOException;
 public class SQLiteDBService implements IRemoteDBService {
 
     private DatabaseHelper dbHelper;
-    private Context context;
+
 
     public SQLiteDBService(Context context) {
         dbHelper = new DatabaseHelper(context);
 
-        this.context = context;
+
     }
 
     @Override
@@ -33,7 +31,7 @@ public class SQLiteDBService implements IRemoteDBService {
         VersionProvider vProvider = new VersionProvider(dbHelper);
         Integer versionLocal = vProvider.getVersionBo().getNumero();
         try {
-            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version=" + versionLocal.intValue();
+            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version=" + versionLocal;
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
@@ -46,6 +44,7 @@ public class SQLiteDBService implements IRemoteDBService {
     @Override
     public boolean updateDatabase() throws UpdateNotPosibleException {
         try {
+            System.gc();
             String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
@@ -57,6 +56,7 @@ public class SQLiteDBService implements IRemoteDBService {
             if (data.length == contentSize) {
 
                 dbHelper.upgrade(data);
+                System.gc();
 
                 return true;
             } else {

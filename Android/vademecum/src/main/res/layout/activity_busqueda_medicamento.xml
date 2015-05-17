@@ -1,78 +1,114 @@
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="10dp">
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
 
-    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
-        android:id="@+id/txt_nombre_generico"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="@string/hint_nombre_generico"
-        android:nextFocusForward="@+id/txt_nombre_comercial"
-        android:singleLine="true"
-        android:imeOptions="actionDone"
-        android:layout_margin="10dp"
-        android:layout_weight="3">
-        <requestFocus />
-
-    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
-    <ImageButton
-        android:id="@+id/btn_input_help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_acerca_de"
-        android:layout_gravity="center"
-        android:background="@color/anmat_azul"
-        android:contentDescription="@string/help"/>
-</LinearLayout>
-    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
-        android:id="@+id/txt_nombre_comercial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:nextFocusForward="@+id/txt_laboratorio"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:layout_marginTop="20dp"
-        android:imeOptions="actionDone"
-        android:hint="@string/hint_nombre_comercial">
-
-    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
-    <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
-        android:id="@+id/txt_laboratorio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:nextFocusForward="@+id/btn_form_busqueda_buscar"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:imeOptions="actionDone"
-        android:hint="@string/hint_laboratorio">
-    </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
-
-    <Button
-        android:id="@+id/btn_form_busqueda_buscar"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/anmat_azul"
-        android:paddingLeft="76dp"
-        android:paddingRight="76dp"
-        android:background="@drawable/button_txt_search"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        android:text="@string/buscar_medicamento"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
+            <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
+                android:id="@+id/txt_nombre_generico"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="@string/hint_nombre_generico"
+                android:nextFocusForward="@+id/txt_nombre_comercial"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:layout_margin="10dp"
+                android:layout_weight="3"
+                android:completionThreshold="3">
+                <requestFocus />
 
-        />
+            </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+            <ImageButton
+                android:id="@+id/btn_input_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_acerca_de"
+                android:layout_gravity="center"
+                android:background="@color/anmat_azul"
+                android:contentDescription="@string/help"/>
+        </LinearLayout>
+        <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
+            android:id="@+id/txt_nombre_comercial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:nextFocusForward="@+id/txt_laboratorio"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/hint_nombre_comercial"
+            android:completionThreshold="3">
 
+        </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+        <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
+            android:id="@+id/txt_laboratorio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:nextFocusForward="@+id/btn_form_busqueda_buscar"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/hint_laboratorio"
+            android:completionThreshold="3">
+        </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+        <com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText
+            android:id="@+id/txt_forma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:nextFocusForward="@+id/btn_form_busqueda_buscar"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:imeOptions="actionDone"
+            android:hint="@string/hint_forma"
+            android:completionThreshold="3">
+        </com.thinkupstudios.anmat.vademecum.components.ClearableAutoCompliteEditText>
+
+        <CheckBox android:id="@+id/checkbox_remediar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/es_remediar"
+            android:textColor="@color/anmat_azul"
+            android:onClick="onCheckboxClicked"/>
+
+
+            <Button
+                android:id="@+id/btn_form_busqueda_buscar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:textColor="@color/anmat_azul"
+                android:paddingLeft="76dp"
+                android:paddingRight="76dp"
+                android:background="@drawable/button_txt_search"
+
+                android:text="@string/buscar_medicamento"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+
+            />
+
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

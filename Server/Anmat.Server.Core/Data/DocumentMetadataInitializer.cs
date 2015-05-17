@@ -169,6 +169,15 @@ namespace Anmat.Server.Core.Data
                 RemovableAccents = false,
                 UpperCase = false
             });
+            columns.Add(new DocumentColumnMetadata()
+            {
+                ColumnNumber = 15,
+                Name = "es_remediar",
+                Type = typeof(int).ToString(),
+                IsNullable = true,
+                RemovableAccents = false,
+                UpperCase = false
+            });
 
             var metadata = new DocumentMetadata
             {

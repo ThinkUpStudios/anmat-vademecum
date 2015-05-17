@@ -7,7 +7,8 @@ using Anmat.Server.DataService;
 using System.ServiceModel.Description;
 using System;
 using System.ServiceModel.Web;
-using System.Net;
+using System.Threading;
+using System.Globalization;
 
 namespace Anmat.Server.Core.IntegrationTests
 {
@@ -26,16 +27,11 @@ namespace Anmat.Server.Core.IntegrationTests
 			channelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 			
 			var channel = channelFactory.CreateChannel ();
+			var isNewDataAvailable = channel.IsNewDataAvailable(version: 0);
+			var newData = channel.GetData ();
 
-			if(channel.IsNewDataAvailable(version: 0)) {
-				var data = channel.GetData ();
-			}
-
-			try {
-				channel.ProcessJob (new Guid ("f7e59820-9899-4962-92b8-4e2df8fedb20"));
-			} catch (Exception ex) {
-				var m = ex.Message;
-			}
+			Assert.True (isNewDataAvailable);
+			Assert.NotNull (newData);
 		}
 
 		[Fact]
@@ -46,9 +42,12 @@ namespace Anmat.Server.Core.IntegrationTests
 			stopwatch.Start ();
 
 			var context = AnmatContext.Initialize ();
+
+			Thread.CurrentThread.CurrentCulture = new CultureInfo(context.Configuration.DefaultCulture);
+
 			var latestVersion = context.VersionService.GetLatestVersion ();
 
-			context.JobService.CreateJob (1);
+			context.JobService.CreateJob (latestVersion.Number + 1);
 
 			var databaseFileName = context.SQLGenerator.GenerateDatabase (context.DocumentGenerators);
 			

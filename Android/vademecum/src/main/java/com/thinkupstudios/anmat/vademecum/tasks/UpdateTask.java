@@ -54,8 +54,7 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
             return "No se pudo actualizar";
 
         }
-        DatabaseHelper dbHelper = new DatabaseHelper(params[0]);
-        ((MiAplicacion)this.updateActivity.getApplication()).updateCache(dbHelper);
+
 
         return OK;
     }
@@ -77,6 +76,8 @@ public class UpdateTask extends AsyncTask<Activity, String, String> {
             dbHelper.close();
         }
         this.dbService.closeHelper();
+        DatabaseHelper dbHelper = new DatabaseHelper(this.updateActivity);
+        ((MiAplicacion)this.updateActivity.getApplication()).updateCache(dbHelper, true);
         updateActivity.continuar();
     }
 

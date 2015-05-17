@@ -61,7 +61,7 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El valor {0} no puede ser convertido al tipo {1} definido en la metadata.
+        ///   Looks up a localized string similar to El valor {0} no puede ser convertido al tipo {1} definido en la metadata  del documento {2}..
         /// </summary>
         internal static string CsvDocumentReader_CantConvertFieldValue {
             get {
@@ -70,7 +70,7 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to La columna {0} no esta definida en la metadata de {1}.
+        ///   Looks up a localized string similar to La columna {0} no esta definida en la metadata del documento {1}..
         /// </summary>
         internal static string CsvDocumentReader_ColumnNotDefined {
             get {
@@ -79,7 +79,7 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se esperaban {0} columnas separadas por &apos;;&apos;. Se encontraron {1} en la linea {2}..
+        ///   Looks up a localized string similar to Se esperaban {0} columnas separadas por &apos;;&apos;. Se encontraron {1} en la linea {2} del documento {3}..
         /// </summary>
         internal static string CsvDocumentReader_ExpectedColumnsFailed {
             get {
@@ -88,7 +88,7 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El campo {0} no tiene el formato esperado. Se esperaba un {1} valido.
+        ///   Looks up a localized string similar to El campo {0} no tiene el formato esperado. Se esperaba un {1} valido en el documento {2}..
         /// </summary>
         internal static string CsvDocumentReader_InvalidFieldFormat {
             get {
@@ -97,7 +97,7 @@ namespace Anmat.Server.Core.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El campo {0} del documento {1} tiene valor nulo y la metadata de la columna esta definida como no Nullable.
+        ///   Looks up a localized string similar to El campo {0} del documento {1} tiene valor nulo en la linea {2} y la metadata de la columna esta definida como no Nullable..
         /// </summary>
         internal static string CsvDocumentReader_NullValueOnFieldNotAllowed {
             get {
@@ -210,6 +210,24 @@ namespace Anmat.Server.Core.Properties {
         internal static string SQLiteGenerator_DatabaseAlreadyExists {
             get {
                 return ResourceManager.GetString("SQLiteGenerator_DatabaseAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ha ocurrido un error inesperado al crear la fila {0} de tabla {1}.
+        /// </summary>
+        internal static string SQLiteGenerator_UnhandledRowError {
+            get {
+                return ResourceManager.GetString("SQLiteGenerator_UnhandledRowError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ha ocurrido un error inesperado al crear la tabla {0}.
+        /// </summary>
+        internal static string SQLiteGenerator_UnhandledTableError {
+            get {
+                return ResourceManager.GetString("SQLiteGenerator_UnhandledTableError", resourceCulture);
             }
         }
     }

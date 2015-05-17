@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CsvDocumentReader_CantConvertFieldValue" xml:space="preserve">
-    <value>El valor {0} no puede ser convertido al tipo {1} definido en la metadata</value>
+    <value>El valor {0} no puede ser convertido al tipo {1} definido en la metadata  del documento {2}.</value>
   </data>
   <data name="CsvDocumentReader_ColumnNotDefined" xml:space="preserve">
-    <value>La columna {0} no esta definida en la metadata de {1}</value>
+    <value>La columna {0} no esta definida en la metadata del documento {1}.</value>
   </data>
   <data name="CsvDocumentReader_ExpectedColumnsFailed" xml:space="preserve">
-    <value>Se esperaban {0} columnas separadas por ';'. Se encontraron {1} en la linea {2}.</value>
+    <value>Se esperaban {0} columnas separadas por ';'. Se encontraron {1} en la linea {2} del documento {3}.</value>
   </data>
   <data name="CsvDocumentReader_InvalidFieldFormat" xml:space="preserve">
-    <value>El campo {0} no tiene el formato esperado. Se esperaba un {1} valido</value>
+    <value>El campo {0} no tiene el formato esperado. Se esperaba un {1} valido en el documento {2}.</value>
   </data>
   <data name="CsvDocumentReader_NullValueOnFieldNotAllowed" xml:space="preserve">
-    <value>El campo {0} del documento {1} tiene valor nulo y la metadata de la columna esta definida como no Nullable</value>
+    <value>El campo {0} del documento {1} tiene valor nulo en la linea {2} y la metadata de la columna esta definida como no Nullable.</value>
   </data>
   <data name="DataGenerationJobService_JobCompleted" xml:space="preserve">
     <value>El job {0} para la version {1} ha finalizado exitosamente</value>
@@ -167,5 +167,11 @@
   </data>
   <data name="SQLiteGenerator_DatabaseAlreadyExists" xml:space="preserve">
     <value>El archivo {0} ya existe y la configuracion no permite que sea reemplazado</value>
+  </data>
+  <data name="SQLiteGenerator_UnhandledRowError" xml:space="preserve">
+    <value>Ha ocurrido un error inesperado al crear la fila {0} de tabla {1}</value>
+  </data>
+  <data name="SQLiteGenerator_UnhandledTableError" xml:space="preserve">
+    <value>Ha ocurrido un error inesperado al crear la tabla {0}</value>
   </data>
 </root>

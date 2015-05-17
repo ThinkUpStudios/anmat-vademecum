@@ -5,6 +5,7 @@ using Anmat.Server.Core.Exceptions;
 using Xunit;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 
 namespace Anmat.Server.Core.Tests
 {
@@ -173,6 +174,39 @@ namespace Anmat.Server.Core.Tests
             
         }
 		
+		[Fact]
+		public void when_reading_file_with_decimal_numbers_then_conversion_is_successfully()
+		{
+			var path = @"Files\number_format.csv";
+            var metadata = new DocumentMetadata
+            {
+                DocumentName = "ValidFile",
+                Columns = new List<DocumentColumnMetadata> {
+					new DocumentColumnMetadata { 
+						ColumnNumber = 0,
+						Name = "nombre",
+						Type = typeof(string).Name
+					},
+					new DocumentColumnMetadata { 
+						ColumnNumber = 1,
+						Name = "valor",
+						Type = typeof(double).Name
+					}
+				},
+                HasHeader = true
+            };
+
+            var document = this.reader.Read(path, metadata);
+			var expectedNumbers = File.ReadAllLines (path).Skip (1).Select (l => l.Split (';').Skip (1).First ());
+
+			Assert.NotNull (document);
+			Assert.Equal(9, document.Rows.Count());
+
+			var convertedNumbers = document.Rows.Select (r => r.Cells.Skip(1).First().Value);
+
+
+		}
+
 		public void Dispose ()
 		{
 			this.reader = null;

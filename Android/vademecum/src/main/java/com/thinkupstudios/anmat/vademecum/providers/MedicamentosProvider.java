@@ -5,10 +5,13 @@ import android.database.Cursor;
 import com.thinkupstudios.anmat.vademecum.bo.Component;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
 import com.thinkupstudios.anmat.vademecum.bo.MedicamentoBO;
+import com.thinkupstudios.anmat.vademecum.bo.comparadores.ComparadorPrecios;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -28,7 +31,8 @@ public class MedicamentosProvider extends GenericProvider {
         Cursor cursor = null;
 
         try {
-            if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty() || !form.getLaboratorio().isEmpty())) {
+            if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty()
+                    || !form.getLaboratorio().isEmpty()) || !form.getForma().isEmpty()||form.isRemediar()) {
                 where += "where  1=1 ";
 
                 if (form.getNombreComercial() != null && !form.getNombreComercial().isEmpty())
@@ -40,6 +44,11 @@ public class MedicamentosProvider extends GenericProvider {
 
                 if (!form.getLaboratorio().isEmpty())
                     where += " and " + MedicamentosTable.COLUMNS[3] + " like '%" + form.getLaboratorio() + "%'";
+                if (!form.getForma().isEmpty())
+                    where += " and " + MedicamentosTable.COLUMNS[7] + " like '%" + form.getForma() + "%'";
+                if(form.isRemediar()){
+                    where += " and " + MedicamentosTable.COLUMNS[15] + " = '1'";
+                }
             }
 
             List<MedicamentoBO> medicamentoBOs = new ArrayList<>();
@@ -127,7 +136,7 @@ public class MedicamentosProvider extends GenericProvider {
 
 
     private List<MedicamentoBO> ordenarMedicamentos(List<MedicamentoBO> medicamentoBOs) {
-        List<MedicamentoBO> medOrdenados = new Vector<>();
+       /* List<MedicamentoBO> medOrdenados = new Vector<>();
         List<MedicamentoBO> medUsoHospitalario = new Vector<>();
         List<MedicamentoBO> medSinPrecio = new Vector<>();
         for (MedicamentoBO medicamento : medicamentoBOs){
@@ -142,26 +151,33 @@ public class MedicamentosProvider extends GenericProvider {
             }
         }
         medOrdenados.addAll(medUsoHospitalario);
-        medOrdenados.addAll(medSinPrecio);
-        return medOrdenados;
+        medOrdenados.addAll(medSinPrecio);*/
+        Collections.sort(medicamentoBOs, new ComparadorPrecios());
+        return medicamentoBOs;
+
     }
+
+
 
 
     private List<MedicamentoBO> filtrarPorFormula(List<MedicamentoBO> medicamentoBOs, String principioActivo) {
         List<MedicamentoBO> resultadosFiltrados = new Vector<>();
 
         String[] principiosActivos = principioActivo.split("\\?");
+        List<String> principios = Arrays.asList(principiosActivos);
 
-        for(String pincipioAct : principiosActivos) {
-            Component c = new Component();
-            c.setActiveComponent(pincipioAct.trim());
-
-            for (MedicamentoBO medicamento : medicamentoBOs) {
-
-                if (medicamento.getFormula().getComponents().contains(c))
-                    resultadosFiltrados.add(medicamento);
+        for (MedicamentoBO medicamento : medicamentoBOs) {
+            boolean existe = false;
+            for(Component compuesto : medicamento.getFormula().getComponents()) {
+                if(principios.contains(compuesto.getActiveComponent())){
+                    existe = true;
+                }
             }
-        }
+            if (existe) {
+                resultadosFiltrados.add(medicamento);
+            }
+         }
+
         return resultadosFiltrados;
     }
 
@@ -182,6 +198,7 @@ public class MedicamentosProvider extends GenericProvider {
         String precio = cursor.getString(cursor.getColumnIndex(MedicamentosTable.COLUMNS[13]));
         medicamento.setPrecio(precio);
         medicamento.setEsUsoHospitalario(cursor.getInt(cursor.getColumnIndex(MedicamentosTable.COLUMNS[14])));
+        medicamento.setEsRemediar(cursor.getInt(cursor.getColumnIndex(MedicamentosTable.COLUMNS[15])));
         return medicamento;
     }
 

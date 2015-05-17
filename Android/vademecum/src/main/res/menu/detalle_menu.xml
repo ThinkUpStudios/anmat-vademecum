@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mnu_contactenos"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:icon="@drawable/headset_white_100"
         android:title="@string/lbl_denuncias"
         android:showAsAction="ifRoom" >
@@ -25,4 +25,5 @@
         android:title="@string/recomendados"
         android:showAsAction="ifRoom" >
         </item>
+
 </menu>

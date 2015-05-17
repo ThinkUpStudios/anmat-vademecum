@@ -49,10 +49,16 @@ namespace Anmat.Server.Core
 					}
 
 					var fields = parser.ReadFields();
-					
+
+					if (parser.LineNumber == -1) {
+						continue;
+					}
+
+					fields = this.SanitizeColumns (fields, metadata);
+
 					this.ValidateDocumentColumns (metadata, fields, parser.LineNumber);
 
-					var row = this.GetRow (fields, metadata);
+					var row = this.GetRow (fields, metadata, parser.LineNumber);
                                 
 					document.AddRow(row);
 				}
@@ -77,11 +83,30 @@ namespace Anmat.Server.Core
 		{
 			if (fields.Length != metadata.Columns.Count())
             {
-                throw new DocumentFormatException(string.Format(Resources.CsvDocumentReader_ExpectedColumnsFailed, metadata.Columns.Count(), fields.Length, line));
+                throw new DocumentFormatException(string.Format(Resources.CsvDocumentReader_ExpectedColumnsFailed, metadata.Columns.Count(), fields.Length, line, metadata.DocumentName));
             }
 		}
 
-		private Row GetRow(string[] fields, DocumentMetadata metadata)
+		private string[] SanitizeColumns (string[] fields, DocumentMetadata metadata)
+		{
+			var result = fields;
+
+			if (fields.Length > metadata.Columns.Count) {
+				var canClean = true;
+
+				for (var i = metadata.Columns.Count; i < fields.Length; i++) {
+					canClean = canClean && string.IsNullOrWhiteSpace (fields[i]);
+				}
+
+				if (canClean) {
+					result = fields.Take (metadata.Columns.Count).ToArray ();
+				}
+			}
+
+			return result;
+		}
+
+		private Row GetRow(string[] fields, DocumentMetadata metadata, long line)
 		{
 			var row = new Row();
 
@@ -97,39 +122,41 @@ namespace Anmat.Server.Core
                 var value = this.Normalize(fields[i]);
 
                 if(!columnMetadata.IsNullable && string.IsNullOrEmpty(value)) {
-                    throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_NullValueOnFieldNotAllowed, columnMetadata.Name, metadata.DocumentName));
+                    throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_NullValueOnFieldNotAllowed, columnMetadata.Name, metadata.DocumentName, line));
                 }
 
-                if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase && columnMetadata.RemovableAccents)
+                if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.RemovableAccents)
                 {
-                    value = QuitAccents(value.ToLower());
-                    value = value.ToUpper();                    
-
+                    value = this.RemoveAccents(value.ToLower());
                 }
+
+				if ((typeof (string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase) {
+					value = value.ToUpper();
+				}
+
 				var formattedValue = this.FormatField (metadata, columnMetadata, value);
 
-                    
                 row.AddCell(formattedValue, columnMetadata.GetType());    
             }
 
 			return row;
 		}
 
-        private string QuitAccents(string inputString)
+        private string RemoveAccents(string value)
         {
-            Regex a = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
-            Regex e = new Regex("[é|è|ë|ê]", RegexOptions.Compiled);
-            Regex i = new Regex("[í|ì|ï|î]", RegexOptions.Compiled);
-            Regex o = new Regex("[ó|ò|ö|ô]", RegexOptions.Compiled);
-            Regex u = new Regex("[ú|ù|ü|û]", RegexOptions.Compiled);
+            var a = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
+            var e = new Regex("[é|è|ë|ê]", RegexOptions.Compiled);
+            var i = new Regex("[í|ì|ï|î]", RegexOptions.Compiled);
+            var o = new Regex("[ó|ò|ö|ô]", RegexOptions.Compiled);
+            var u = new Regex("[ú|ù|ü|û]", RegexOptions.Compiled);
             
-            inputString = a.Replace(inputString, "a");
-            inputString = e.Replace(inputString, "e");
-            inputString = i.Replace(inputString, "i");
-            inputString = o.Replace(inputString, "o");
-            inputString = u.Replace(inputString, "u"); 
+            value = a.Replace(value, "a");
+            value = e.Replace(value, "e");
+            value = i.Replace(value, "i");
+            value = o.Replace(value, "o");
+            value = u.Replace(value, "u"); 
            
-            return inputString;
+            return value;
         }
 
 		private string FormatField(DocumentMetadata metadata, DocumentColumnMetadata columnMetadata, string value)
@@ -146,7 +173,7 @@ namespace Anmat.Server.Core
 			}
 
 			if (!this.typeConverters.TryGetValue (fieldType, out converter)) {
-				throw new FieldFormatException (string.Format(Resources.CsvDocumentReader_CantConvertFieldValue, value, columnMetadata.Type));
+				throw new FieldFormatException (string.Format(Resources.CsvDocumentReader_CantConvertFieldValue, value, columnMetadata.Type, metadata.DocumentName));
 			}
 
 			return converter (value, columnMetadata);
@@ -168,7 +195,7 @@ namespace Anmat.Server.Core
 				var converted = default (bool);
 
 				if (!bool.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(bool).Name));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(bool).Name, columnMetadata.Metadata.DocumentName));
 				}
 
 				return converted.ToString();
@@ -177,7 +204,7 @@ namespace Anmat.Server.Core
 				var converted = default (int);
 
 				if (!int.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(int).Name));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(int).Name, columnMetadata.Metadata.DocumentName));
 				}
 
 				return converted.ToNumberString ();
@@ -186,7 +213,7 @@ namespace Anmat.Server.Core
 				var converted = default (double);
 
 				if (!double.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(double).Name));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(double).Name, columnMetadata.Metadata.DocumentName));
 				}
 
 				return converted.ToNumberString ();
@@ -195,7 +222,7 @@ namespace Anmat.Server.Core
 				var converted = default (DateTime);
 
 				if (!DateTime.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(DateTime).Name));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(DateTime).Name, columnMetadata.Metadata.DocumentName));
 				}
 
 				return converted.ToString ();

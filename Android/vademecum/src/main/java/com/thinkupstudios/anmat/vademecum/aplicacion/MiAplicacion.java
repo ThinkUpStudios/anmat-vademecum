@@ -22,6 +22,7 @@ public class MiAplicacion extends Application {
     private List<String> nombresGenericos = new Vector<>();
     private List<String> laboratorios = new Vector<>();
     private List<String> principiosActivos = new Vector<>();
+    private List<String> formasFarmaceuticas = new Vector<>();
     private VersionBo versionBo;
 
     public List<String> getNombresComerciales() {
@@ -64,6 +65,14 @@ public class MiAplicacion extends Application {
         this.versionBo = versionBo;
     }
 
+    public List<String> getFormasFarmaceuticas() {
+        return formasFarmaceuticas;
+    }
+
+    public void setFormasFarmaceuticas(List<String> formasFarmaceuticas) {
+        this.formasFarmaceuticas = formasFarmaceuticas;
+    }
+
     @Override
     public void onCreate() {
 
@@ -71,20 +80,30 @@ public class MiAplicacion extends Application {
 
     }
 
-    public void updateCache(DatabaseHelper dbHelper) {
+    public void updateCache(DatabaseHelper dbHelper, boolean force) {
+        long time_start, time_end;
+        time_start = System.currentTimeMillis();
         GenericProvider genericProvider = new GenericProvider(dbHelper);
         PrincipioActivoProvider principioActivoProvider = new PrincipioActivoProvider(dbHelper);
-        if(this.getNombresComerciales().isEmpty()){
+        if(this.getNombresComerciales().isEmpty()|| force){
             this.setNombresComerciales(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_COMERCIAL));
         }
-        if(this.getLaboratorios().isEmpty()){
+        if(this.getLaboratorios().isEmpty()||force){
            this.setLaboratorios(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_LABORATORIO));
         }
-        if(this.getNombresGenericos().isEmpty()){
+        if(this.getNombresGenericos().isEmpty()||force){
             this.setNombresGenericos(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_GENERICO));
         }
-        if(this.getPrincipiosActivos().isEmpty()){
+        if(this.getPrincipiosActivos().isEmpty()||force){
             this.setPrincipiosActivos(principioActivoProvider.getDistinctPrincipiosColumns());
         }
+        if(this.getFormasFarmaceuticas().isEmpty()||force){
+            this.setFormasFarmaceuticas(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_FORMA));
+        }
+        dbHelper.close();
+        time_end = System.currentTimeMillis();
+        System.out.println("*******  ***** Ejecutar UpdateCache demoro: "+ ( time_end - time_start ) +" milliseconds *********");
     }
+
+
 }
