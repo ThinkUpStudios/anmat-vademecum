@@ -94,7 +94,11 @@ public class DetalleMedicamentoDetailFragment extends Fragment implements View.O
 
     public void setValores(View rootView, MedicamentoBO m, ViewGroup container) {
 
-
+        if(m.esRemediar()){
+            rootView.findViewById(R.id.lbl_leyenda_remediar).setVisibility(View.VISIBLE);
+        }else{
+            rootView.findViewById(R.id.lbl_leyenda_remediar).setVisibility(View.GONE);
+        }
         ((TextView) rootView.findViewById(R.id.condicion_de_expendioValor)).setText(m.getCondicionExpendio());
         ((TextView) rootView.findViewById(R.id.condicion_de_trazabilidadValor)).setText(m.getCondicionTrazabilidad());
         ((TextView) rootView.findViewById(R.id.forma_farmaceuticaValor)).setText(m.getForma());
