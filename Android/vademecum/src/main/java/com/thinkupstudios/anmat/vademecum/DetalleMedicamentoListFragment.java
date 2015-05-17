@@ -158,7 +158,7 @@ private AlertDialog orderDialog;
     public void ordenar() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getActivity());
         builder.setTitle("Elija un Ordenamiento");
-        final CharSequence[] items = {" Precio ", " Forma Farmacológica ", " Nombre Genérico ", " Nombre Comercial "};
+        final CharSequence[] items = {" Precio ", " Forma Farmacéutica ", " Nombre Genérico ", " Nombre Comercial "};
         builder.setSingleChoiceItems(items, -1, this);
         orderDialog = builder.create();
         orderDialog.show();
