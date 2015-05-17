@@ -110,7 +110,8 @@ namespace Anmat.Server.Core
 			var tableScript = "CREATE TABLE version (numero	INT NOT NULL, ultima_actualizacion TEXT NOT NULL)";
 			var tableCommand = new SQLiteCommand(tableScript, connection);
 
-			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", version.Number, version.Date.ToString ("U", new CultureInfo ("es-AR")));
+			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", 
+				version.Number, version.Date.ToString ("D", new CultureInfo ("es-AR")));
 			var insertCommand = new SQLiteCommand(insertScript, connection);
 
 			tableCommand.ExecuteNonQuery();

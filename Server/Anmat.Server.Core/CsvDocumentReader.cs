@@ -8,7 +8,6 @@ using Anmat.Server.Core.Model;
 using Anmat.Server.Core.Properties;
 using Microsoft.VisualBasic.FileIO;
 using System.Text.RegularExpressions;
-using System.Text;
 
 namespace Anmat.Server.Core
 {
@@ -117,23 +116,6 @@ namespace Anmat.Server.Core
 
 			return row;
 		}
-
-		private string ReplaceAccents(string value)
-        {
-            var a = new Regex("[à|ä|â]", RegexOptions.Compiled);
-            var e = new Regex("[è|ë|ê]", RegexOptions.Compiled);
-            var i = new Regex("[ì|ï|î]", RegexOptions.Compiled);
-            var o = new Regex("[ò|ö|ô]", RegexOptions.Compiled);
-            var u = new Regex("[ù|ü|û]", RegexOptions.Compiled);
-            
-            value = a.Replace(value, "á");
-            value = e.Replace(value, "é");
-            value = i.Replace(value, "í");
-            value = o.Replace(value, "ó");
-            value = u.Replace(value, "ú"); 
-           
-            return value;
-        }
 
         private string RemoveAccents(string value)
         {
