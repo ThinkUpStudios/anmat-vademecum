@@ -175,7 +175,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Versión 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mS3-5G-BzP">
                                 <rect key="frame" x="7" y="311" width="568" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="HVA-Jb-w2c"/>
@@ -191,7 +191,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNl-Kt-RFT" userLabel="Intro">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNl-Kt-RFT" userLabel="Intro">
                                 <rect key="frame" x="16" y="72" width="568" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="FK6-Nk-Ec2"/>
@@ -208,7 +208,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los datos se encuentran actualizados al {fecha}" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cci-se-hVi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Los datos se encuentran actualizados al {fecha}" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cci-se-hVi">
                                 <rect key="frame" x="16" y="180" width="568" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Fqs-Ia-HC2"/>
@@ -224,7 +224,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RX-pxP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc2-RX-pxP">
                                 <rect key="frame" x="16" y="205" width="568" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="568" id="35W-xq-D2b"/>
@@ -241,7 +241,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Ministerio de Salud de la Nación - ANMAT. Todos los derechos reservados" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-Dd-j1P">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2015 Ministerio de Salud de la Nación - ANMAT. Todos los derechos reservados" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rDx-Dd-j1P">
                                 <rect key="frame" x="7" y="289" width="568" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="568" id="08f-nx-iZC"/>
@@ -361,7 +361,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="PnB-nd-sM5">
-                                <rect key="frame" x="0.0" y="239" width="600" height="317"/>
+                                <rect key="frame" x="0.0" y="274" width="600" height="282"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultCell" textLabel="HGZ-eD-A7r" style="IBUITableViewCellStyleDefault" id="cCi-fA-OUH">
@@ -387,10 +387,10 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                 </constraints>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
                             </searchBar>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Laboratorio" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-ll-48x">
-                                <rect key="frame" x="7" y="176" width="585" height="44"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Forma Farmaceútica" translatesAutoresizingMaskIntoConstraints="NO" id="AI7-1a-pkB">
+                                <rect key="frame" x="7" y="215" width="585" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="0bd-7c-Q5t"/>
+                                    <constraint firstAttribute="height" constant="44" id="9JM-SW-rvU"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
                             </searchBar>
@@ -403,28 +403,44 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                                     <action selector="showGenericNameHelp:" destination="Zlx-am-yMZ" eventType="touchUpInside" id="8ou-Zp-igP"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Laboratorio" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-ll-48x">
+                                <rect key="frame" x="7" y="171" width="585" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0bd-7c-Q5t"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PnB-nd-sM5" firstAttribute="top" secondItem="AI7-1a-pkB" secondAttribute="bottom" constant="15" id="0O8-x2-XD2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eSy-ll-48x" secondAttribute="trailing" constant="-8" id="2KY-GM-y7E"/>
                             <constraint firstAttribute="trailing" secondItem="W6G-Ky-DWT" secondAttribute="trailing" constant="16" id="3cf-8t-VCe"/>
+                            <constraint firstAttribute="trailing" secondItem="AI7-1a-pkB" secondAttribute="trailing" constant="8" id="6hC-uu-hr5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eSy-ll-48x" secondAttribute="trailing" constant="-8" id="Bd1-lO-lPW"/>
                             <constraint firstItem="qY1-7g-69l" firstAttribute="top" secondItem="jNk-Ie-f8K" secondAttribute="bottom" constant="8" id="CTe-Ju-Rp7"/>
                             <constraint firstItem="ZOz-Ik-YjC" firstAttribute="top" secondItem="qY1-7g-69l" secondAttribute="bottom" constant="11" id="FCd-F6-3Ag"/>
                             <constraint firstItem="PnB-nd-sM5" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" constant="-16" id="I7X-eB-l4G"/>
                             <constraint firstItem="eSy-ll-48x" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" constant="-9" id="Izm-xt-Rlr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZOz-Ik-YjC" secondAttribute="trailing" constant="-8" id="Sxz-q6-dtd"/>
-                            <constraint firstItem="eSy-ll-48x" firstAttribute="top" secondItem="ZOz-Ik-YjC" secondAttribute="bottom" constant="5" id="WBx-B7-hra"/>
+                            <constraint firstItem="eSy-ll-48x" firstAttribute="top" secondItem="ZOz-Ik-YjC" secondAttribute="bottom" id="WBx-B7-hra"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PnB-nd-sM5" secondAttribute="trailing" constant="-16" id="XXT-aN-xfr"/>
                             <constraint firstItem="37P-eD-FAp" firstAttribute="top" secondItem="PnB-nd-sM5" secondAttribute="bottom" id="YVL-Nz-dVb"/>
                             <constraint firstItem="qY1-7g-69l" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" id="dEb-vq-5Ie"/>
+                            <constraint firstItem="AI7-1a-pkB" firstAttribute="top" secondItem="eSy-ll-48x" secondAttribute="bottom" id="dva-br-q1b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZOz-Ik-YjC" secondAttribute="trailing" constant="-8" id="hih-4z-dLT"/>
                             <constraint firstItem="ZOz-Ik-YjC" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leadingMargin" constant="-9" id="ipS-mw-XTl"/>
+                            <constraint firstItem="AI7-1a-pkB" firstAttribute="leading" secondItem="Vqc-9r-GZD" secondAttribute="leading" constant="7" id="jx6-1m-fCN"/>
                             <constraint firstItem="qY1-7g-69l" firstAttribute="trailing" secondItem="Vqc-9r-GZD" secondAttribute="trailingMargin" constant="-33" id="mT1-wp-rLk"/>
                             <constraint firstItem="W6G-Ky-DWT" firstAttribute="top" secondItem="jNk-Ie-f8K" secondAttribute="bottom" constant="17" id="rtO-QE-KGD"/>
-                            <constraint firstItem="PnB-nd-sM5" firstAttribute="top" secondItem="eSy-ll-48x" secondAttribute="bottom" constant="19" id="tdI-lg-rzM"/>
+                            <constraint firstItem="PnB-nd-sM5" firstAttribute="top" secondItem="eSy-ll-48x" secondAttribute="bottom" constant="79" id="tdI-lg-rzM"/>
                             <constraint firstItem="W6G-Ky-DWT" firstAttribute="leading" secondItem="qY1-7g-69l" secondAttribute="trailing" constant="7" id="wSS-o3-wtX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="tdI-lg-rzM"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Buscar" id="0Nx-wV-V1q">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="10o-PR-New">
@@ -437,6 +453,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                         <outlet property="btnShowGenericNameHelp" destination="W6G-Ky-DWT" id="GXg-iO-2Og"/>
                         <outlet property="tblResults" destination="PnB-nd-sM5" id="Slu-M5-Igz"/>
                         <outlet property="txtComercialName" destination="ZOz-Ik-YjC" id="P79-md-EKX"/>
+                        <outlet property="txtForm" destination="AI7-1a-pkB" id="Of4-ke-mQj"/>
                         <outlet property="txtGenericName" destination="qY1-7g-69l" id="svK-2k-GZH"/>
                         <outlet property="txtLaboratory" destination="eSy-ll-48x" id="AaZ-o2-Gs1"/>
                         <segue destination="xEB-Ul-rPE" kind="show" identifier="ShowResults" id="M0p-07-XWr"/>

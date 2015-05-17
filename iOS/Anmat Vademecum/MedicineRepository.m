@@ -177,17 +177,60 @@
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
+    return [self getOrderedAlphabetically:@"generico" condition:searchText];
+}
+
+- (NSArray *) getComercialNames:(NSString *)searchText {
+    return [self getOrderedAlphabetically:@"comercial" condition:searchText];
+}
+
+- (NSArray *) getLaboratories:(NSString *)searchText {
+    return [self getOrderedAlphabetically:@"laboratorio" condition:searchText];
+}
+
+- (NSArray *) getForms: (NSString *)searchText {
+    return [self getOrderedAlphabetically:@"forma" condition:searchText];
+}
+
+- (NSArray *) getOrderedAlphabetically:(NSString *)field condition:(NSString *)condition {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT DISTINCT generico FROM medicamentos WHERE generico LIKE ?001 COLLATE NOCASE ORDER BY generico ASC";
+    NSMutableString *query = [[NSMutableString alloc] init];
+    
+    [query appendString:@"SELECT DISTINCT "];
+    [query appendString:field];
+    [query appendString:@" FROM medicamentos WHERE "];
+    [query appendString:[self getStartsWithLikeExpression:field value:condition]];
+    [query appendString:@" ORDER BY "];
+    [query appendString:field];
+    [query appendString:@" ASC"];
+    
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
         == SQLITE_OK) {
-        NSString *search = [NSString stringWithFormat:@"%%%@%%", searchText];
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            char *genericNameChars = (char *) sqlite3_column_text(statement, 0);
+            NSString *genericName = [String trim:[[NSString alloc] initWithUTF8String:genericNameChars]];
+            
+            if(genericName.length > 0) {
+                [result addObject:genericName];
+            }
+        }
         
-        sqlite3_bind_text(statement, 1, [search UTF8String], -1, SQLITE_STATIC);
-        
+        sqlite3_finalize(statement);
+    }
+    
+    [query appendString:@"SELECT DISTINCT "];
+    [query appendString:field];
+    [query appendString:@" FROM medicamentos WHERE "];
+    [query appendString:[self getLikeExpression:field value:condition]];
+    [query appendString:@" ORDER BY "];
+    [query appendString:field];
+    [query appendString:@" ASC"];
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
+        == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             char *genericNameChars = (char *) sqlite3_column_text(statement, 0);
             NSString *genericName = [String trim:[[NSString alloc] initWithUTF8String:genericNameChars]];
@@ -202,65 +245,9 @@
     
     sqlite3_close(database);
     
-    return result;
-}
-
-- (NSArray *) getComercialNames:(NSString *)searchText {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT DISTINCT comercial FROM medicamentos WHERE comercial LIKE ?001 COLLATE NOCASE ORDER BY comercial ASC";
-    sqlite3_stmt *statement;
+    NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:result];
     
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
-        == SQLITE_OK) {
-        NSString *search = [NSString stringWithFormat:@"%%%@%%", searchText];
-        
-        sqlite3_bind_text(statement, 1, [search UTF8String], -1, SQLITE_STATIC);
-        
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *comercialNameChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *comercialName = [String trim:[[NSString alloc] initWithUTF8String:comercialNameChars]];
-            
-            if(comercialName.length > 0) {
-                [result addObject:comercialName];
-            }
-        }
-        
-        sqlite3_finalize(statement);
-    }
-    
-    sqlite3_close(database);
-    
-    return result;
-}
-
-- (NSArray *) getLaboratories:(NSString *)searchText {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT DISTINCT laboratorio FROM medicamentos WHERE laboratorio LIKE ?001 COLLATE NOCASE ORDER BY laboratorio ASC";
-    sqlite3_stmt *statement;
-    
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
-        == SQLITE_OK) {
-        NSString *search = [NSString stringWithFormat:@"%%%@%%", searchText];
-        
-        sqlite3_bind_text(statement, 1, [search UTF8String], -1, SQLITE_STATIC);
-        
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *laboratoryChars = (char *) sqlite3_column_text(statement, 0);
-            NSString *laboratory = [String trim:[[NSString alloc] initWithUTF8String:laboratoryChars]];
-            
-            if(laboratory.length > 0) {
-                [result addObject:laboratory];
-            }
-        }
-        
-        sqlite3_finalize(statement);
-    }
-    
-    sqlite3_close(database);
-    
-    return result;
+    return [orderedSet array];
 }
 
 - (BOOL) containsOrExpression: (NSString *) text {
@@ -323,6 +310,10 @@
     }
     
     return andExpression;
+}
+
+- (NSString *) getStartsWithLikeExpression:(NSString *) field value: (NSString *) value {
+    return [NSString stringWithFormat:@"%@ LIKE \"%@%%\" COLLATE NOCASE", field, [String trim:value]];
 }
 
 - (NSString *) getLikeExpression:(NSString *) field value: (NSString *) value {

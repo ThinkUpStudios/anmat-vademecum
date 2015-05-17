@@ -107,6 +107,10 @@
     return [medicinesRepository getLaboratories:[String trim:searchText]];
 }
 
+- (NSArray *) getForms: (NSString *)searchText {
+    return [medicinesRepository getForms:[String trim:searchText]];
+}
+
 - (NSArray *) reOrder: (NSArray *) medicines {
     NSMutableArray *emptyPriceMedicines = [[NSMutableArray alloc] init];
     NSMutableArray *result = [[NSMutableArray alloc] init];

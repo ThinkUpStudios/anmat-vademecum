@@ -41,6 +41,7 @@
     [btnContact setTarget:self];
     [btnContact setAction:@selector(showContactInfo:)];
     
+    
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnHelp, btnContact, nil];
     
     [self setBorder:self.btnMeds];
