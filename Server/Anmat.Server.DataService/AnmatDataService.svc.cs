@@ -6,6 +6,8 @@ using Anmat.Server.Core.Context;
 using Anmat.Server.Core.Data;
 using Anmat.Server.DataService.Properties;
 using System.Linq;
+using System.Threading;
+using System.Globalization;
 
 namespace Anmat.Server.DataService
 {
@@ -45,6 +47,8 @@ namespace Anmat.Server.DataService
 
 		public void ProcessJob (Guid id)
 		{
+			this.SetCulture ();
+
 			var latestJob = context.JobService.GetLatestJob ();
 
 			if (latestJob.Id != id) {
@@ -105,6 +109,11 @@ namespace Anmat.Server.DataService
 			var tempPath = context.Configuration.GetVersionPath (version);
 			
 			return Directory.EnumerateFiles (tempPath);
+		}
+
+		private void SetCulture()
+		{
+			Thread.CurrentThread.CurrentCulture = new CultureInfo("es-AR");
 		}
 	}
 }

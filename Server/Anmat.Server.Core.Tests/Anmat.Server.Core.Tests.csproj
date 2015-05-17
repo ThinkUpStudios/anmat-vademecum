@@ -94,6 +94,9 @@
     <None Include="Files\field_with_null.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\number_format.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\valid_format_upper.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

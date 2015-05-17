@@ -7,7 +7,8 @@ using Anmat.Server.DataService;
 using System.ServiceModel.Description;
 using System;
 using System.ServiceModel.Web;
-using System.Net;
+using System.Threading;
+using System.Globalization;
 
 namespace Anmat.Server.Core.IntegrationTests
 {
@@ -41,6 +42,8 @@ namespace Anmat.Server.Core.IntegrationTests
 		[Fact]
 		public void when_generating_database_from_existing_files_then_succeeds()
 		{
+			Thread.CurrentThread.CurrentCulture = new CultureInfo("es-AR");
+
 			var stopwatch = new Stopwatch ();
 
 			stopwatch.Start ();
@@ -48,7 +51,7 @@ namespace Anmat.Server.Core.IntegrationTests
 			var context = AnmatContext.Initialize ();
 			var latestVersion = context.VersionService.GetLatestVersion ();
 
-			context.JobService.CreateJob (1);
+			context.JobService.CreateJob (latestVersion.Number + 1);
 
 			var databaseFileName = context.SQLGenerator.GenerateDatabase (context.DocumentGenerators);
 			

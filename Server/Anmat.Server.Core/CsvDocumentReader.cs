@@ -8,6 +8,7 @@ using Anmat.Server.Core.Model;
 using Anmat.Server.Core.Properties;
 using Microsoft.VisualBasic.FileIO;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace Anmat.Server.Core
 {
@@ -100,36 +101,55 @@ namespace Anmat.Server.Core
                     throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_NullValueOnFieldNotAllowed, columnMetadata.Name, metadata.DocumentName));
                 }
 
-                if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase && columnMetadata.RemovableAccents)
+                if ((typeof(string)) == (columnMetadata.GetType ()) && columnMetadata.RemovableAccents)
                 {
-                    value = QuitAccents(value.ToLower());
-                    value = value.ToUpper();                    
-
+                    value = this.RemoveAccents(value.ToLower());
                 }
+
+				if ((typeof (string)) == (columnMetadata.GetType ()) && columnMetadata.UpperCase) {
+					value = value.ToUpper();
+				}
+
 				var formattedValue = this.FormatField (metadata, columnMetadata, value);
 
-                    
                 row.AddCell(formattedValue, columnMetadata.GetType());    
             }
 
 			return row;
 		}
 
-        private string QuitAccents(string inputString)
+		private string ReplaceAccents(string value)
         {
-            Regex a = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
-            Regex e = new Regex("[é|è|ë|ê]", RegexOptions.Compiled);
-            Regex i = new Regex("[í|ì|ï|î]", RegexOptions.Compiled);
-            Regex o = new Regex("[ó|ò|ö|ô]", RegexOptions.Compiled);
-            Regex u = new Regex("[ú|ù|ü|û]", RegexOptions.Compiled);
+            var a = new Regex("[à|ä|â]", RegexOptions.Compiled);
+            var e = new Regex("[è|ë|ê]", RegexOptions.Compiled);
+            var i = new Regex("[ì|ï|î]", RegexOptions.Compiled);
+            var o = new Regex("[ò|ö|ô]", RegexOptions.Compiled);
+            var u = new Regex("[ù|ü|û]", RegexOptions.Compiled);
             
-            inputString = a.Replace(inputString, "a");
-            inputString = e.Replace(inputString, "e");
-            inputString = i.Replace(inputString, "i");
-            inputString = o.Replace(inputString, "o");
-            inputString = u.Replace(inputString, "u"); 
+            value = a.Replace(value, "á");
+            value = e.Replace(value, "é");
+            value = i.Replace(value, "í");
+            value = o.Replace(value, "ó");
+            value = u.Replace(value, "ú"); 
            
-            return inputString;
+            return value;
+        }
+
+        private string RemoveAccents(string value)
+        {
+            var a = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
+            var e = new Regex("[é|è|ë|ê]", RegexOptions.Compiled);
+            var i = new Regex("[í|ì|ï|î]", RegexOptions.Compiled);
+            var o = new Regex("[ó|ò|ö|ô]", RegexOptions.Compiled);
+            var u = new Regex("[ú|ù|ü|û]", RegexOptions.Compiled);
+            
+            value = a.Replace(value, "a");
+            value = e.Replace(value, "e");
+            value = i.Replace(value, "i");
+            value = o.Replace(value, "o");
+            value = u.Replace(value, "u"); 
+           
+            return value;
         }
 
 		private string FormatField(DocumentMetadata metadata, DocumentColumnMetadata columnMetadata, string value)
