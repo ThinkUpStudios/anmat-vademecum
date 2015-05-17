@@ -16,5 +16,14 @@ namespace Anmat.Server.Core.Data
 		public DbSet<DocumentMetadata> Metadata { get; set; }
 
 		public DbSet<DataGenerationJob> Jobs { get; set; }
+
+		protected override void OnModelCreating (DbModelBuilder modelBuilder)
+		{
+			base.OnModelCreating (modelBuilder);
+
+			modelBuilder.Entity<DocumentMetadata>()
+				.HasMany(d => d.Columns).WithOptional(c => c.Metadata)
+				.WillCascadeOnDelete(true);
+		}
 	}
 }

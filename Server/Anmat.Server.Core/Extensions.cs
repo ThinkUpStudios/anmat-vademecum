@@ -6,9 +6,9 @@ namespace Anmat.Server.Core
 	{
 		public static string ToNumberString(this int number)
 		{
-			var formatInfo = new CultureInfo( "en-US", false).NumberFormat;
+			var formatInfo = new NumberFormatInfo ();
 
-			formatInfo.NumberGroupSeparator = string.Empty;
+			formatInfo.NumberGroupSeparator = "";
 			formatInfo.NumberDecimalDigits = 0;
 
 			return number.ToString ("N", formatInfo);
@@ -16,9 +16,9 @@ namespace Anmat.Server.Core
 
 		public static string ToNumberString(this double number)
 		{
-			var formatInfo = new CultureInfo( "en-US", false).NumberFormat;
+			var formatInfo = new NumberFormatInfo();
 
-			formatInfo.NumberGroupSeparator = string.Empty;
+			formatInfo.NumberGroupSeparator = "";
 			formatInfo.NumberDecimalSeparator = ".";
 			formatInfo.NumberDecimalDigits = 2;
 

@@ -171,7 +171,7 @@ namespace Anmat.Server.Core.Data
             });
             columns.Add(new DocumentColumnMetadata()
             {
-                ColumnNumber = 14,
+                ColumnNumber = 15,
                 Name = "es_remediar",
                 Type = typeof(int).ToString(),
                 IsNullable = true,

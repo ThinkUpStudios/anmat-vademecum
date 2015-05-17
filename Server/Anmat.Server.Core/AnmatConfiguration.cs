@@ -33,6 +33,8 @@ namespace Anmat.Server.Core
 
 		public bool FullInitialize { get; set; }
 
+		public string DefaultCulture { get; set; }
+
 		public string DefaultTextEncoding { get; set; }
 
 		public string GetVersionPath(int version)
