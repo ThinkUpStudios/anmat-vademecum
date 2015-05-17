@@ -8,9 +8,7 @@ import java.util.Comparator;
 public class ComparadorStringAutocomplete implements Comparator<String>{
     private String prefix;
 
-    public ComparadorStringAutocomplete() {
-        prefix = "";
-    }
+
 
     public ComparadorStringAutocomplete(String prefix) {
         this.prefix = prefix;
@@ -18,9 +16,9 @@ public class ComparadorStringAutocomplete implements Comparator<String>{
 
     @Override
     public int compare(String lhs, String rhs) {
-        if (lhs.toUpperCase().startsWith(prefix.toUpperCase()) && !rhs.toUpperCase().startsWith(prefix.toUpperCase())) {
+        if (lhs.startsWith(prefix.toUpperCase()) && !rhs.startsWith(prefix.toUpperCase())) {
             return -1;
-        } else if (!lhs.toUpperCase().startsWith(prefix.toUpperCase()) && rhs.toUpperCase().startsWith(prefix.toUpperCase())) {
+        } else if (!lhs.startsWith(prefix.toUpperCase()) && rhs.startsWith(prefix.toUpperCase())) {
             return 1;
         } else {
             return lhs.compareTo(rhs);
