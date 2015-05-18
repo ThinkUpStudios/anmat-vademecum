@@ -17,6 +17,8 @@
 
 @property NSString *laboratory;
 
+@property NSString *form;
+
 @property Medicine *medicine;
 
 @property NSString *activeComponent;

@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *txtComercialName;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtLaboratory;
 @property (weak, nonatomic) IBOutlet UISearchBar *txtForm;
+@property (weak, nonatomic) IBOutlet UISwitch *swRemediar;
 @property (weak, nonatomic) IBOutlet UITableView *tblResults;
+- (IBAction)searchByRemediar:(id)sender;
 - (IBAction)showGenericNameHelp:(id)sender;
 - (IBAction)searchResults:(id)sender;
 
@@ -133,7 +135,22 @@
         filter.genericName = self.txtGenericName.text;
         filter.comercialName = self.txtComercialName.text;
         filter.laboratory = self.txtLaboratory.text;
+        filter.form = self.txtForm.text;
         results.searchFilter = filter;
+    }
+}
+
+- (IBAction)searchByRemediar:(id)sender {
+    if(self.swRemediar.on) {
+        self.txtComercialName.userInteractionEnabled = NO;
+        self.txtComercialName.alpha = .3;
+        self.txtLaboratory.userInteractionEnabled = NO;
+        self.txtLaboratory.alpha = .3;
+    } else {
+        self.txtComercialName.userInteractionEnabled = YES;
+        self.txtComercialName.alpha = 1.0;
+        self.txtLaboratory.userInteractionEnabled = YES;
+        self.txtLaboratory.alpha = 1.0;
     }
 }
 

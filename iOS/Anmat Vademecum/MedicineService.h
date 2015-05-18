@@ -11,7 +11,7 @@
 
 @interface MedicineService : NSObject
 
-- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory;
+- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form;
 
 - (NSArray *) getMedicines: (NSString *)activeComponent;
 

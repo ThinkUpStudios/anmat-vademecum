@@ -12,7 +12,7 @@
 
 - (NSArray *) getAll;
 
-- (NSArray *) getAll: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory;
+- (NSArray *) getAll: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form;
 
 - (NSArray *)getByGenericName:(NSString *)genericName;
 

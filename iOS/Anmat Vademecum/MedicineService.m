@@ -24,8 +24,8 @@
     return self;
 }
 
-- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory {
-    NSArray *medicines = [medicinesRepository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory]];
+- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form {
+    NSArray *medicines = [medicinesRepository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory] form: [String trim:form]];
     
     return [self reOrder:medicines];
 }

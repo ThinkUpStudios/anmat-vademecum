@@ -47,7 +47,7 @@
         } else if(self.searchFilter.medicine != nil) {
             medicines = [medicineService getSimilarMedicines:self.searchFilter.medicine];
         } else {
-            medicines = [medicineService getMedicines:self.searchFilter.genericName comercialName:self.searchFilter.comercialName laboratory:self.searchFilter.laboratory];
+            medicines = [medicineService getMedicines:self.searchFilter.genericName comercialName:self.searchFilter.comercialName laboratory:self.searchFilter.laboratory form:self.searchFilter.form];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{

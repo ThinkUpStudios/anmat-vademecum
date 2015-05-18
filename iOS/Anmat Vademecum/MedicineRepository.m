@@ -35,7 +35,7 @@
     return result;
 }
 
--(NSArray *) getAll:(NSString *)genericName comercialName:(NSString *)comercialName laboratory:(NSString *)laboratory {
+-(NSArray *) getAll:(NSString *)genericName comercialName:(NSString *)comercialName laboratory:(NSString *)laboratory form: (NSString *) form {
     BOOL conditionStarted = NO;
     NSMutableString *query = [[NSMutableString alloc] init];
     
@@ -87,6 +87,16 @@
         }
         
         [query appendString:[self getLikeExpression:@"laboratorio" value:laboratory]];
+    }
+    
+    if(form != nil && form.length > 0) {
+        if(conditionStarted) {
+            [query appendString:@" AND "];
+        } else {
+            conditionStarted = YES;
+        }
+        
+        [query appendString:[self getLikeExpression:@"forma" value:form]];
     }
     
     [query appendString:@" ORDER BY es_hospitalario ASC, precio ASC"];
