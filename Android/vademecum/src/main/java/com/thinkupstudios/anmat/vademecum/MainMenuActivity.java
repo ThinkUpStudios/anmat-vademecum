@@ -1,6 +1,7 @@
 package com.thinkupstudios.anmat.vademecum;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,27 +18,28 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Button btnBuscar;
-        Button btnInformacion;
-        Button btnPrincipioActivo;
+
 
         setContentView(R.layout.activity_main_menu);
-        btnBuscar =(Button) findViewById(R.id.btn_busqueda);
+        Button btnBuscar = (Button) findViewById(R.id.btn_busqueda);
         btnBuscar.setOnTouchListener(new DarkenerButtonTouchListener());
         btnBuscar.setOnClickListener(this);
 
 
-        btnPrincipioActivo = (Button) findViewById(R.id.btn_principio_activo);
+        Button btnPrincipioActivo = (Button) findViewById(R.id.btn_principio_activo);
         btnPrincipioActivo.setOnTouchListener(new DarkenerButtonTouchListener());
         btnPrincipioActivo.setOnClickListener(this);
 
 
-        btnInformacion = (Button) findViewById(R.id.btn_informacion);
+        Button btnInformacion = (Button) findViewById(R.id.btn_informacion);
         btnInformacion.setOnTouchListener(new DarkenerButtonTouchListener());
         btnInformacion.setOnClickListener(this);
 
-    }
+        Button btnAdversos = (Button) findViewById(R.id.btn_efectos_adversos);
+        btnAdversos.setOnTouchListener(new DarkenerButtonTouchListener());
+        btnAdversos.setOnClickListener(this);
 
+    }
 
 
     @Override
@@ -54,8 +56,15 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
             case R.id.btn_informacion:
                 startActivity(new Intent(this, InformacionActivity.class));
                 break;
+            case R.id.btn_efectos_adversos:
+                String url = getString(R.string.url_efectos_adversos);
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
-         }
+
+                break;
+        }
 
     }
 
@@ -65,11 +74,13 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

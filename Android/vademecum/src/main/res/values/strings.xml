@@ -80,5 +80,7 @@
     <string name="ordenar">Ordenar</string>
     <string name="es_remediar">Solo Remediar</string>
     <string name="leyenda_remediar">El Ministerio de Salud de la Nación garantiza la distribución gratuita de este medicamento mediante el programa REMEDIAR</string>
+    <string name="lbl_efectos_adversos">Comunicar Efectos Adversos</string>
+    <string name="url_efectos_adversos">http://sistemas.anmat.gov.ar/aplicaciones_net/applications/fvg_eventos_adversos_nuevo/index.html</string>
 
 </resources>
