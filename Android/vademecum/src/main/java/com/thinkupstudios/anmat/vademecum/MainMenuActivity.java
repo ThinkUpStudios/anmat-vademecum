@@ -39,6 +39,9 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
         btnAdversos.setOnTouchListener(new DarkenerButtonTouchListener());
         btnAdversos.setOnClickListener(this);
 
+        Button btnEmbarazo= (Button) findViewById(R.id.btn_embarazo);
+        btnEmbarazo.setOnTouchListener(new DarkenerButtonTouchListener());
+        btnEmbarazo.setOnClickListener(this);
     }
 
 
@@ -56,13 +59,18 @@ public class MainMenuActivity extends ContactActivity implements View.OnClickLis
             case R.id.btn_informacion:
                 startActivity(new Intent(this, InformacionActivity.class));
                 break;
-            case R.id.btn_efectos_adversos:
-                String url = getString(R.string.url_efectos_adversos);
+
+            case R.id.btn_embarazo:
+                String url = getString(R.string.url_medicamentos_y_embarazo);
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
-
-
+                break;
+            case R.id.btn_efectos_adversos:
+                String urlEA = getString(R.string.url_efectos_adversos);
+                Intent iEA = new Intent(Intent.ACTION_VIEW);
+                iEA.setData(Uri.parse(urlEA));
+                startActivity(iEA);
                 break;
         }
 
