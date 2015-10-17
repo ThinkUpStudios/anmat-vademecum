@@ -30,7 +30,8 @@ proguard/
 *.log
 /Android/.idea/libraries
 .idea
-
+/Android/.idea/*.xml
+/Android/.idea/*.iml
 # XCode User State
 *.xcuserstate
 /%merger
