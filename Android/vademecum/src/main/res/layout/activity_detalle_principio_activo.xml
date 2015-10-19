@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,100 +6,328 @@
     android:paddingBottom="0dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.thinkupstudios.anmat.vademecum.DetallePrincipioActivoActivity">
-
+    <TextView
+        android:id="@+id/txt_principio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="@string/dummy_long_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/txt_principio">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txt_principio"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="5dp"
-                android:text="@string/dummy_long_text"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold" />
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/txt_no_resultados"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_below="@id/txt_principio"
+                android:visibility="gone"
                 android:padding="5dp"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <view
-                android:id="@+id/col_accion_terapeutica"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_principio"
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_clasificacion_terapeutica">
 
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_accion_terapeutica" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_clasificacion_Terapeutica"
+                    android:textSize="@dimen/header_text_size" />
 
-            <view
-                android:id="@+id/col_indicaciones"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_accion_terapeutica"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_indicaciones" />
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_farmacologia">
 
-            <view
-                android:id="@+id/col_presentacion"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_farmacologia"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_indicaciones"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/presentacion" />
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_indicaciones_posologia">
 
-            <view
-                android:id="@+id/col_posologia"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_indicaciones_posologia"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_presentacion"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_posologia" />
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_contraindicaciones">
 
-            <view
-                android:id="@+id/col_duracion"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_contraindicaciones"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_posologia"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_duracion" />
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_interacciones">
 
-            <view
-                android:id="@+id/col_contraindicaciones"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_interacciones"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_duracion"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_contraindicaciones" />
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_reacciones_adversas">
 
-            <view
-                android:id="@+id/col_observaciones"
-                class="com.thinkupstudios.anmat.vademecum.components.CollapsibleContent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lb_reacciones_adversas"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/col_contraindicaciones"
-                app:content="Esto es contenido de prueba"
-                app:header="@string/lbl_observaciones" />
-        </RelativeLayout>
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_referencias">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lb_referencias"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_info_adicional">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lb_info_adicional"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_bibliografia">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_bibliografia"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@drawable/divider"
+                android:id="@+id/ly_otros_nombres">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/lb_otros_nombres"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

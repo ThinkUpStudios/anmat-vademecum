@@ -32,6 +32,11 @@
             android:label="@string/title_activity_busqueda_medicamento"
             android:parentActivityName=".MainMenuActivity" />
         <activity
+            android:name=".DetalleCategoriaActivity"
+            android:label="@string/title_activity_detalle_principio_activo"
+            android:parentActivityName=".DetallePrincipioActivoActivity" />
+
+        <activity
             android:name=".AcercaDeActivity"
             android:label="@string/title_activity_ecerca_de"
             android:parentActivityName=".MainMenuActivity" />

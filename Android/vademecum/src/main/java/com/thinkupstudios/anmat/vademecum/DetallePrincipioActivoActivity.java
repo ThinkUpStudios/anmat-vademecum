@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.bo.FormularioBusqueda;
+import com.thinkupstudios.anmat.vademecum.bo.PairHeadDetail;
 import com.thinkupstudios.anmat.vademecum.bo.PrincipioActivo;
-import com.thinkupstudios.anmat.vademecum.components.CollapsibleContent;
 import com.thinkupstudios.anmat.vademecum.providers.PrincipioActivoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
@@ -22,7 +23,6 @@ import static android.R.anim.fade_out;
 public class DetallePrincipioActivoActivity extends Activity {
 
 
-
     private PrincipioActivo principioActivo;
 
     @Override
@@ -31,25 +31,20 @@ public class DetallePrincipioActivoActivity extends Activity {
 
 
         PrincipioActivoProvider provider;
-        CollapsibleContent accionTerapeutica;
-        CollapsibleContent indicaciones;
-        CollapsibleContent presentacion;
-        CollapsibleContent posologia;
-        CollapsibleContent duracion;
-        CollapsibleContent contraindicaciones;
-        CollapsibleContent observacion;
-        TextView txtNoResultados;
-        TextView txtPrincipioActivo;
         setContentView(R.layout.activity_detalle_principio_activo);
-        txtPrincipioActivo = (TextView) findViewById(R.id.txt_principio);
-        accionTerapeutica = (CollapsibleContent) findViewById(R.id.col_accion_terapeutica);
-        indicaciones = (CollapsibleContent) findViewById(R.id.col_indicaciones);
-        presentacion = (CollapsibleContent) findViewById(R.id.col_presentacion);
-        posologia = (CollapsibleContent) findViewById(R.id.col_posologia);
-        duracion = (CollapsibleContent) findViewById(R.id.col_duracion);
-        contraindicaciones = (CollapsibleContent) findViewById(R.id.col_contraindicaciones);
-        observacion = (CollapsibleContent) findViewById(R.id.col_observaciones);
-        txtNoResultados = (TextView) findViewById(R.id.txt_no_resultados);
+        TextView txtNoResultados = (TextView) findViewById(R.id.txt_no_resultados);
+        TextView txtPrincipioActivo = (TextView) findViewById(R.id.txt_principio);
+        RelativeLayout lyClasificacionTerapeutica = (RelativeLayout) findViewById(R.id.ly_clasificacion_terapeutica);
+        RelativeLayout lyContraindicaciones = (RelativeLayout) findViewById(R.id.ly_contraindicaciones);
+        RelativeLayout lyBibliografia = (RelativeLayout) findViewById(R.id.ly_bibliografia);
+        RelativeLayout lyFarmacologia = (RelativeLayout) findViewById(R.id.ly_farmacologia);
+        RelativeLayout lyIndicacionesPosologia = (RelativeLayout) findViewById(R.id.ly_indicaciones_posologia);
+        RelativeLayout lyInfoAdicional = (RelativeLayout) findViewById(R.id.ly_info_adicional);
+        RelativeLayout lyInteracciones = (RelativeLayout) findViewById(R.id.ly_interacciones);
+        RelativeLayout lyOtrosNombres = (RelativeLayout) findViewById(R.id.ly_otros_nombres);
+        RelativeLayout lyReaccionesAdversas = (RelativeLayout) findViewById(R.id.ly_reacciones_adversas);
+        RelativeLayout lyReferencias = (RelativeLayout) findViewById(R.id.ly_referencias);
+
 
         DatabaseHelper dh = null;
 
@@ -62,24 +57,48 @@ public class DetallePrincipioActivoActivity extends Activity {
                 principioActivo = provider.findPrincipioActivo(nombre);
 
                 if (principioActivo != null) {
-                    txtNoResultados.setVisibility(View.INVISIBLE);
+                    txtNoResultados.setVisibility(View.GONE);
+                    lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Clasificación Terapéutica", principioActivo.getClasificacionTerapeutica())
+                    ));
 
-                    accionTerapeutica.setVisibility(View.VISIBLE);
-                    indicaciones.setVisibility(View.VISIBLE);
-                    presentacion.setVisibility(View.VISIBLE);
-                    posologia.setVisibility(View.VISIBLE);
-                    duracion.setVisibility(View.VISIBLE);
-                    contraindicaciones.setVisibility(View.VISIBLE);
-                    observacion.setVisibility(View.VISIBLE);
-                    txtPrincipioActivo.setVisibility(View.VISIBLE);
+                    lyContraindicaciones.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Contraindicaciones", principioActivo.getContraindicaciones())
+                    ));
 
-                    accionTerapeutica.setContent(principioActivo.getAccionTerapeutica());
-                    indicaciones.setContent(principioActivo.getIndicaciones());
-                    presentacion.setContent(principioActivo.getPresentacion());
-                    posologia.setContent(principioActivo.getPosologia());
-                    duracion.setContent(principioActivo.getDuracion());
-                    contraindicaciones.setContent(principioActivo.getContraindicaciones());
-                    observacion.setContent(principioActivo.getObservaciones());
+                    lyBibliografia.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Bibliografía", principioActivo.getBibliografia())
+                    ));
+
+                    lyFarmacologia.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Descripción", principioActivo.getDescripcionFarmacologia()),
+                            new PairHeadDetail("Mecanismo de Acción", principioActivo.getMecanismoAccion()),
+                            new PairHeadDetail("Farmacocinetica", principioActivo.getDescripcionFarmacologia())
+                    ));
+
+                    lyIndicacionesPosologia.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Indicaciones", principioActivo.getIndicaciones()),
+                            new PairHeadDetail("Posología", principioActivo.getPosologia())
+                    ));
+
+                    lyInfoAdicional.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Información Adicional", principioActivo.getInformacionAdicional())
+                    ));
+
+                    lyInteracciones.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Interacciones", principioActivo.getInteracciones())
+                    ));
+
+                    lyOtrosNombres.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Otros Nombres", principioActivo.getOtrosNombres())
+                    ));
+
+                    lyReaccionesAdversas.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Reacciones Adversas", principioActivo.getReaccionesAdversas())
+                    ));
+                    lyReferencias.setOnClickListener(new CategoryClickHandler(
+                            new PairHeadDetail("Referencias", principioActivo.getReferencias())
+                    ));
                 } else {
 
                     int color = getResources().getColor(R.color.anmat_azul);
@@ -87,19 +106,10 @@ public class DetallePrincipioActivoActivity extends Activity {
                     txtNoResultados.setText("Sin Detalle");
                     txtNoResultados.setTextColor(color);
 
-                    accionTerapeutica.setVisibility(View.INVISIBLE);
-                    indicaciones.setVisibility(View.INVISIBLE);
-                    presentacion.setVisibility(View.INVISIBLE);
-                    posologia.setVisibility(View.INVISIBLE);
-                    duracion.setVisibility(View.INVISIBLE);
-                    contraindicaciones.setVisibility(View.INVISIBLE);
-                    observacion.setVisibility(View.INVISIBLE);
-                    //txtPrincipioActivo.setVisibility(View.INVISIBLE);
-
                 }
             }
-        }finally {
-            if(dh != null)
+        } finally {
+            if (dh != null)
                 dh.close();
         }
     }
@@ -119,18 +129,18 @@ public class DetallePrincipioActivoActivity extends Activity {
                 Intent i = new Intent(DetallePrincipioActivoActivity.this,
                         DetalleMedicamentoListActivity.class);
 
-                if(principioActivo!=null){
-                    i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getNombre());
-                }else{
-                    i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
+                if (principioActivo != null) {
+                    i.putExtra("COMERCIAL_RECOMENDADO", principioActivo.getIfa());
+                } else {
+                    i.putExtra("COMERCIAL_RECOMENDADO", txtPrincipioActivo.getText().toString());
                 }
 
                 FormularioBusqueda f = new FormularioBusqueda();
 
                 String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
 
-                if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
-                    campoBusquedaCompleta = principioActivo.getNombre()+ "?" + principioActivo.getOtrosNombres();
+                if (principioActivo != null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
+                    campoBusquedaCompleta = principioActivo.getIfa() + "?" + principioActivo.getOtrosNombres();
                 }
 
                 f.setNombreGenerico(campoBusquedaCompleta);
@@ -151,7 +161,26 @@ public class DetallePrincipioActivoActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
+    }
+
+    private class CategoryClickHandler implements View.OnClickListener{
+
+        private PairHeadDetail[] toRender;
+
+        public CategoryClickHandler(PairHeadDetail... toRender) {
+            this.toRender = toRender;
+        }
+
+        @Override
+        public void onClick(View view) {
+            Bundle b = new Bundle();
+            b.putSerializable("toRender",this.toRender);
+            Intent i = new Intent(DetallePrincipioActivoActivity.this,DetalleCategoriaActivity.class);
+            i.putExtras(b);
+            DetallePrincipioActivoActivity.this.startActivity(i);
+
+        }
     }
 
 }

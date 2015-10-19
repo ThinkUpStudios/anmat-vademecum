@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/header_text_size"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/anmat_azul"
+        android:text="@string/lbl_contraindicaciones"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/txt_header"
+        android:ellipsize="end" />
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/dummy_small_text"
+        android:textSize="@dimen/size_text_collapsible"
+        android:textColor="@color/anmat_azul"
+        android:padding="10dp"
+        android:id="@+id/txt_detail"
+        android:textIsSelectable="false" />
+</LinearLayout>

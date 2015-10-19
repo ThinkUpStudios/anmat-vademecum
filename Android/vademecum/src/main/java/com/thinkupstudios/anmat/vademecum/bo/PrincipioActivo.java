@@ -2,35 +2,65 @@ package com.thinkupstudios.anmat.vademecum.bo;
 
 /**
  * Created by FaQ on 29/03/2015.
- *
+ * <p/>
  * Clase modelo de Principio Activo
- *
  */
 public class PrincipioActivo {
-    private String nombre;
-    private String accionTerapeutica;
+
+    private String ifa;
+    private String clasificacionTerapeutica;
+    private String descripcionFarmacologia;
+    private String mecanismoAccion;
+    private String farmacocinetica;
     private String indicaciones;
-    private String presentacion;
     private String posologia;
-    private String duracion;
     private String contraindicaciones;
-    private String observaciones;
+    private String interacciones;
+    private String reaccionesAdversas;
+    private String referencias;
+    private String informacionAdicional;
+    private String bibliografia;
     private String otrosNombres;
 
-    public String getNombre() {
-        return nombre;
+
+    public String getIfa() {
+        return ifa;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIfa(String ifa) {
+        this.ifa = ifa;
     }
 
-    public String getAccionTerapeutica() {
-        return accionTerapeutica;
+    public String getClasificacionTerapeutica() {
+        return clasificacionTerapeutica;
     }
 
-    public void setAccionTerapeutica(String accionTerapeutica) {
-        this.accionTerapeutica = accionTerapeutica;
+    public void setClasificacionTerapeutica(String clasificacionTerapeutica) {
+        this.clasificacionTerapeutica = clasificacionTerapeutica;
+    }
+
+    public String getDescripcionFarmacologia() {
+        return descripcionFarmacologia;
+    }
+
+    public void setDescripcionFarmacologia(String descripcionFarmacologia) {
+        this.descripcionFarmacologia = descripcionFarmacologia;
+    }
+
+    public String getMecanismoAccion() {
+        return mecanismoAccion;
+    }
+
+    public void setMecanismoAccion(String mecanismoAccion) {
+        this.mecanismoAccion = mecanismoAccion;
+    }
+
+    public String getFarmacocinetica() {
+        return farmacocinetica;
+    }
+
+    public void setFarmacocinetica(String farmacocinetica) {
+        this.farmacocinetica = farmacocinetica;
     }
 
     public String getIndicaciones() {
@@ -41,28 +71,12 @@ public class PrincipioActivo {
         this.indicaciones = indicaciones;
     }
 
-    public String getPresentacion() {
-        return presentacion;
-    }
-
-    public void setPresentacion(String presentacion) {
-        this.presentacion = presentacion;
-    }
-
     public String getPosologia() {
         return posologia;
     }
 
     public void setPosologia(String posologia) {
         this.posologia = posologia;
-    }
-
-    public String getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
     }
 
     public String getContraindicaciones() {
@@ -73,12 +87,44 @@ public class PrincipioActivo {
         this.contraindicaciones = contraindicaciones;
     }
 
-    public String getObservaciones() {
-        return observaciones;
+    public String getInteracciones() {
+        return interacciones;
     }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void setInteracciones(String interacciones) {
+        this.interacciones = interacciones;
+    }
+
+    public String getReaccionesAdversas() {
+        return reaccionesAdversas;
+    }
+
+    public void setReaccionesAdversas(String reaccionesAdversas) {
+        this.reaccionesAdversas = reaccionesAdversas;
+    }
+
+    public String getInformacionAdicional() {
+        return informacionAdicional;
+    }
+
+    public void setInformacionAdicional(String informacionAdicional) {
+        this.informacionAdicional = informacionAdicional;
+    }
+
+    public String getReferencias() {
+        return referencias;
+    }
+
+    public void setReferencias(String referencias) {
+        this.referencias = referencias;
+    }
+
+    public String getBibliografia() {
+        return bibliografia;
+    }
+
+    public void setBibliografia(String bibliografia) {
+        this.bibliografia = bibliografia;
     }
 
     public String getOtrosNombres() {
