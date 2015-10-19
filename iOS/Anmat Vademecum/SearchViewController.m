@@ -136,6 +136,7 @@
         filter.comercialName = self.txtComercialName.text;
         filter.laboratory = self.txtLaboratory.text;
         filter.form = self.txtForm.text;
+        filter.onlyRemediar = [self.swRemediar isOn];
         results.searchFilter = filter;
     }
 }
@@ -178,7 +179,7 @@
 }
 
 -(void)searchResults:(id)sender {
-    if(self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0 && self.txtForm.text.length == 0) {
+    if(![self.swRemediar isOn] && self.txtGenericName.text.length == 0 && self.txtComercialName.text.length == 0 && self.txtLaboratory.text.length == 0 && self.txtForm.text.length == 0) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Campos requeridos" message:@"Al menos uno de los tres campos debe contener un valor" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         

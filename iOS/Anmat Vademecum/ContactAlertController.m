@@ -30,7 +30,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto://" stringByAppendingString:mailAddress]]];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     

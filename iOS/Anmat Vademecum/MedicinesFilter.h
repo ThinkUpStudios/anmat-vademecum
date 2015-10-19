@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Medicine.h"
 
+typedef NS_OPTIONS(NSUInteger, SortOptions) {
+    Price                 = 0,
+    Form   = 1 << 0,
+    GenericName        = 1 << 1,
+    ComercialName  = 1 << 2
+};
+
 @interface MedicinesFilter : NSObject
 
 @property NSString *genericName;
@@ -19,8 +26,8 @@
 
 @property NSString *form;
 
-@property Medicine *medicine;
-
 @property NSString *activeComponent;
+
+@property BOOL onlyRemediar;
 
 @end

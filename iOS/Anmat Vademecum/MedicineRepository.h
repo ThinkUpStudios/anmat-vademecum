@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MedicinesFilter.h"
 
 @interface MedicineRepository : NSObject
 
-- (NSArray *) getAll;
+- (NSArray *) getAll: (SortOptions) orderBy;
 
-- (NSArray *) getAll: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form;
+- (NSArray *) getAll: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form onlyRemediar: (BOOL) onlyRemediar orderBy: (SortOptions) orderBy;
 
-- (NSArray *)getByGenericName:(NSString *)genericName;
-
-- (NSArray *)getByActiveComponent:(NSArray *)componentIdentifiers;
+- (NSArray *)getAll:(NSArray *)componentIdentifiers orderBy: (SortOptions) orderBy;
 
 - (NSArray *) getGenericNames: (NSString *)searchText;
 
