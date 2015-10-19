@@ -222,6 +222,8 @@
         sqlite3_finalize(statement);
     }
     
+    [query setString:@""];
+    
     [query appendString:@"SELECT DISTINCT "];
     [query appendString:field];
     [query appendString:@" FROM medicamentos WHERE "];

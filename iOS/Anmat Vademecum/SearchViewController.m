@@ -54,7 +54,11 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self search:searchBar text:searchText];
+    if(searchText.length < 3) {
+        [self search:searchBar text:@""];
+    } else {
+        [self search:searchBar text:searchText];
+    }
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
