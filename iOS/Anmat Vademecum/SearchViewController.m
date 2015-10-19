@@ -143,8 +143,10 @@
 
 - (IBAction)searchByRemediar:(id)sender {
     if(self.swRemediar.on) {
+        self.txtComercialName.text = @"";
         self.txtComercialName.userInteractionEnabled = NO;
         self.txtComercialName.alpha = .3;
+        self.txtLaboratory.text = @"";
         self.txtLaboratory.userInteractionEnabled = NO;
         self.txtLaboratory.alpha = .3;
     } else {
