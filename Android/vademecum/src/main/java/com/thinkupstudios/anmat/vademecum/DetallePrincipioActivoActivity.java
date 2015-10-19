@@ -120,7 +120,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                         DetalleMedicamentoListActivity.class);
 
                 if(principioActivo!=null){
-                    i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getNombre());
+                    i.putExtra("COMERCIAL_RECOMENDADO",principioActivo.getIfa());
                 }else{
                     i.putExtra("COMERCIAL_RECOMENDADO",txtPrincipioActivo.getText().toString());
                 }
@@ -130,7 +130,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                 String campoBusquedaCompleta = txtPrincipioActivo.getText().toString();
 
                 if (principioActivo!=null && principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
-                    campoBusquedaCompleta = principioActivo.getNombre()+ "?" + principioActivo.getOtrosNombres();
+                    campoBusquedaCompleta = principioActivo.getIfa()+ "?" + principioActivo.getOtrosNombres();
                 }
 
                 f.setNombreGenerico(campoBusquedaCompleta);
