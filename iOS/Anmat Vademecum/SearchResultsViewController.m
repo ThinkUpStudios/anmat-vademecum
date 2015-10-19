@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "MedicineService.h"
 #import "MenuViewController.h"
+#import "MedicinesFilter.h"
 
 @interface SearchResultsViewController()
 
@@ -27,6 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] init];
+    UIImage *imgSort = [UIImage imageNamed:@"Sort"];
+    
+    [btnSort setImage:imgSort];
+    [btnSort setTarget:self];
+    [btnSort setAction:@selector(showSortOptions:)];
+    
     UIBarButtonItem *btnHome = [[UIBarButtonItem alloc] init];
     UIImage *imgHome = [UIImage imageNamed:@"Home"];
     
@@ -34,28 +42,12 @@
     [btnHome setTarget:self];
     [btnHome setAction:@selector(showHome:)];
     
-    self.navigationItem.rightBarButtonItem = btnHome;
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnSort, btnHome, nil];
     
     medicineService = [[MedicineService alloc] init];
     medicines = [[NSArray alloc] init];
-    isLoading = YES;
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        if(self.searchFilter.activeComponent != nil && self.searchFilter.activeComponent.length > 0) {
-            medicines = [medicineService getMedicines:self.searchFilter.activeComponent];
-        } else if(self.searchFilter.medicine != nil) {
-            medicines = [medicineService getSimilarMedicines:self.searchFilter.medicine];
-        } else {
-            medicines = [medicineService getMedicines:self.searchFilter.genericName comercialName:self.searchFilter.comercialName laboratory:self.searchFilter.laboratory];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            isLoading = NO;
-            [self.tableView reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
-    });
+    [self loadMedicines:Price];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,10 +130,61 @@
     }
 }
 
+- (IBAction)showSortOptions:(id)sender {
+    UIAlertController *sortSheet = [UIAlertController alertControllerWithTitle:@"Ordenar por..." message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    sortSheet.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItems[0];
+    sortSheet.popoverPresentationController.sourceView = self.view;
+    
+    UIAlertAction *priceSortAction = [UIAlertAction actionWithTitle:@"Precio" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self loadMedicines:Price];
+    }];
+    UIAlertAction *formSortAction = [UIAlertAction actionWithTitle:@"Forma Farmaceútica" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self loadMedicines:Form];
+    }];
+    UIAlertAction *genericSortAction = [UIAlertAction actionWithTitle:@"Nombre Genérico" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self loadMedicines:GenericName];
+    }];
+    UIAlertAction *comercialSortAction = [UIAlertAction actionWithTitle:@"Nombre Comercial" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self loadMedicines:ComercialName];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [sortSheet addAction:priceSortAction];
+    [sortSheet addAction:formSortAction];
+    [sortSheet addAction:genericSortAction];
+    [sortSheet addAction:comercialSortAction];
+    [sortSheet addAction:cancelAction];
+    
+    [self
+     presentViewController:sortSheet animated:YES completion:nil];
+}
+
 -(void) showHome:(id) sender {
     MenuViewController *about = (MenuViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     
     [self.navigationController pushViewController:about animated:YES];
+}
+
+- (void) loadMedicines: (SortOptions) orderBy {
+    isLoading = YES;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        medicines = [medicineService getMedicinesByFilter:self.searchFilter orderBy:orderBy];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            isLoading = NO;
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 @end

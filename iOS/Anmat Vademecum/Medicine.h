@@ -25,5 +25,6 @@
 @property NSString *presentation;
 @property NSString *price;
 @property NSInteger hospitalUsage;
+@property NSInteger isRemediar;
 
 @end

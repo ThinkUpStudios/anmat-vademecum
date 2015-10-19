@@ -11,6 +11,7 @@
 #import "MedicineRepository.h"
 #import "ActiveComponentRepository.h"
 #import "String.h"
+#import "MedicinesFilter.h"
 
 @implementation MedicineService {
     MedicineRepository *medicinesRepository;
@@ -24,13 +25,24 @@
     return self;
 }
 
-- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory {
-    NSArray *medicines = [medicinesRepository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory]];
+- (NSArray *) getMedicinesByFilter: (MedicinesFilter *)filter orderBy:(SortOptions)orderBy {
+    NSArray *medicines;
+    
+    if(filter.activeComponent != nil && filter.activeComponent.length > 0) {
+        medicines = [self getMedicines:filter.activeComponent orderBy:orderBy];
+    } else {
+        medicines = [self getMedicines:filter.genericName comercialName:filter.comercialName laboratory:filter.laboratory form:filter.form onlyRemediar: filter.onlyRemediar orderBy:orderBy];
+    }
     
     return [self reOrder:medicines];
 }
 
--(NSArray *)getMedicines:(NSString *)activeComponent {
+- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory form: (NSString *) form onlyRemediar: (BOOL) onlyRemediar orderBy: (SortOptions) orderBy {
+    
+    return [medicinesRepository getAll:[String trim:genericName] comercialName:[String trim:comercialName] laboratory:[String trim:laboratory] form: [String trim:form] onlyRemediar: onlyRemediar orderBy: orderBy];
+}
+
+- (NSArray *) getMedicines:(NSString *) activeComponent orderBy:(SortOptions) orderBy {
     NSString *trimmedActiveComponent = [String trim:activeComponent];
     
     NSMutableArray *componentIdentifiers = [[NSMutableArray alloc] initWithArray:[componentsRepository getAllIdentifiers:trimmedActiveComponent]];
@@ -39,7 +51,7 @@
         [componentIdentifiers addObject:trimmedActiveComponent];
     }
     
-    NSArray *medicines = [medicinesRepository getByActiveComponent:componentIdentifiers];
+    NSArray *medicines = [medicinesRepository getAll:componentIdentifiers orderBy:orderBy];
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     for (Medicine *medicine in medicines) {
@@ -88,11 +100,7 @@
         }
     }
     
-    return [self reOrder:result];
-}
-
-- (NSArray *) getSimilarMedicines: (Medicine *)reference {
-    return [medicinesRepository getByGenericName:reference.genericName];
+    return result;
 }
 
 - (NSArray *) getGenericNames:(NSString *)searchText {
@@ -119,7 +127,9 @@
         BOOL isEmpty = NO;
         
         if(medicine.price == nil || medicine.price.length == 0 || [medicine.price isEqualToString:@"$-"]) {
-            if(medicine.hospitalUsage == 1){
+            if(medicine.isRemediar == 1) {
+                medicine.price = @"REMEDIAR";
+            } else if(medicine.hospitalUsage == 1){
                 medicine.price = @"U.H";
             } else {
                 isEmpty = YES;

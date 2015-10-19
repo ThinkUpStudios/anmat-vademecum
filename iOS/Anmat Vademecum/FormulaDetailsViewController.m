@@ -23,6 +23,9 @@
     
     componentsService = [[ActiveComponentService alloc] init];
     formula = [FormulaParser parse:self.medicine.genericName];
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
 }
 
 - (void)didReceiveMemoryWarning {

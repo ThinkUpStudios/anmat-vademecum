@@ -27,7 +27,7 @@
     if ((self = [super init])) {
         databaseFilename = @"anmat.sqlite";
         
-        [self verifyDataBase];
+        [self verifyDataBase:false];
     }
     
     return self;
@@ -55,10 +55,10 @@
     [[NSFileManager defaultManager] createFileAtPath:destinationPath contents:data attributes:nil];
 }
 
-- (void)verifyDataBase {
+- (void)verifyDataBase:(BOOL) overwrite {
     NSString *destinationPath = [self getDBPath];
     
-    if(![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+    if(overwrite || ![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
         NSError *error;
         NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseFilename];
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];

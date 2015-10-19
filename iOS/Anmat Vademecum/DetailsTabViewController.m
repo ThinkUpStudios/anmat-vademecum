@@ -79,7 +79,7 @@
     MainDetailsViewController *mainDetails = (MainDetailsViewController *)[self.viewControllers firstObject];
     MedicinesFilter *filter = [[MedicinesFilter alloc] init];
     
-    filter.medicine = mainDetails.medicine;
+    filter.genericName = mainDetails.medicine.genericName;
     searchResults.searchFilter = filter;
     searchResults.title = @"Mismo Nombre Genérico";
     

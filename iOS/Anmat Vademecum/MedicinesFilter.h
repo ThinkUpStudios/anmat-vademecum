@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Medicine.h"
 
+typedef NS_ENUM(NSInteger, SortOptions) {
+    Price,
+    Form,
+    GenericName,
+    ComercialName
+};
+
 @interface MedicinesFilter : NSObject
 
 @property NSString *genericName;
@@ -17,8 +24,10 @@
 
 @property NSString *laboratory;
 
-@property Medicine *medicine;
+@property NSString *form;
 
 @property NSString *activeComponent;
+
+@property BOOL onlyRemediar;
 
 @end

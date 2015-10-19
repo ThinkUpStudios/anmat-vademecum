@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "Medicine.h"
+#import "MedicinesFilter.h"
 
 @interface MedicineService : NSObject
 
-- (NSArray *) getMedicines: (NSString *)genericName comercialName: (NSString *)comercialName laboratory: (NSString *) laboratory;
-
-- (NSArray *) getMedicines: (NSString *)activeComponent;
-
-- (NSArray *) getSimilarMedicines: (Medicine *)reference;
+- (NSArray *) getMedicinesByFilter: (MedicinesFilter *)filter orderBy: (SortOptions) orderBy;
 
 - (NSArray *) getGenericNames: (NSString *)searchText;
 

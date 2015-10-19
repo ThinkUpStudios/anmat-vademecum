@@ -10,13 +10,18 @@
 #import "Medicine.h"
 #import "DataBaseProvider.h"
 #import "String.h"
+#import "MedicinesFilter.h"
 
 @implementation MedicineRepository
 
--(NSArray *) getAll {
+-(NSArray *) getAll: (SortOptions) orderBy {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = @"SELECT * FROM medicamentos ORDER BY es_hospitalario ASC, precio ASC";
+    NSMutableString *query = [[NSMutableString alloc] init];
+    
+    [query appendString: @"SELECT * FROM medicamentos"];
+    [query appendString:[self getOrderByExpression:orderBy]];
+    
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
@@ -35,7 +40,7 @@
     return result;
 }
 
--(NSArray *) getAll:(NSString *)genericName comercialName:(NSString *)comercialName laboratory:(NSString *)laboratory {
+-(NSArray *) getAll:(NSString *)genericName comercialName:(NSString *)comercialName laboratory:(NSString *)laboratory form: (NSString *) form onlyRemediar: (BOOL) onlyRemediar orderBy: (SortOptions) orderBy {
     BOOL conditionStarted = NO;
     NSMutableString *query = [[NSMutableString alloc] init];
     
@@ -89,7 +94,27 @@
         [query appendString:[self getLikeExpression:@"laboratorio" value:laboratory]];
     }
     
-    [query appendString:@" ORDER BY es_hospitalario ASC, precio ASC"];
+    if(form != nil && form.length > 0) {
+        if(conditionStarted) {
+            [query appendString:@" AND "];
+        } else {
+            conditionStarted = YES;
+        }
+        
+        [query appendString:[self getLikeExpression:@"forma" value:form]];
+    }
+    
+    if(onlyRemediar) {
+        if(conditionStarted) {
+            [query appendString:@" AND "];
+        } else {
+            conditionStarted = YES;
+        }
+        
+        [query appendString:@"es_remediar = 1"];
+    }
+    
+    [query appendString:[self getOrderByExpression:orderBy]];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -113,31 +138,7 @@
     return result;
 }
 
-- (NSArray *)getByGenericName:(NSString *)genericName {
-    NSString *query = [NSString stringWithFormat: @"SELECT * FROM medicamentos WHERE generico=\"%@\" COLLATE NOCASE ORDER BY es_hospitalario ASC, precio ASC", genericName];
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    sqlite3_stmt *statement;
-    
-    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)
-        == SQLITE_OK) {
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            Medicine *medicine = [self getMedicine:statement];
-            
-            [result addObject:medicine];
-        }
-        
-        sqlite3_finalize(statement);
-    }else {
-        NSLog(@"Error while creating statement. '%s'", sqlite3_errmsg(database));
-    }
-    
-    sqlite3_close(database);
-    
-    return result;
-}
-
-- (NSArray *)getByActiveComponent:(NSArray *)componentIdentifiers {
+- (NSArray *)getAll:(NSArray *)componentIdentifiers orderBy: (SortOptions) orderBy {
     NSMutableString *query = [[NSMutableString alloc] init];
     
     [query appendString:@"SELECT * FROM medicamentos WHERE "];
@@ -152,7 +153,7 @@
         }
     }
     
-    [query appendString:@" ORDER BY es_hospitalario ASC, precio ASC"];
+    [query appendString:[self getOrderByExpression:orderBy]];
     
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
@@ -221,6 +222,8 @@
         sqlite3_finalize(statement);
     }
     
+    [query setString:@""];
+    
     [query appendString:@"SELECT DISTINCT "];
     [query appendString:field];
     [query appendString:@" FROM medicamentos WHERE "];
@@ -235,7 +238,7 @@
             char *genericNameChars = (char *) sqlite3_column_text(statement, 0);
             NSString *genericName = [String trim:[[NSString alloc] initWithUTF8String:genericNameChars]];
             
-            if(genericName.length > 0) {
+            if(genericName.length > 0 && ![result containsObject:genericName]) {
                 [result addObject:genericName];
             }
         }
@@ -320,6 +323,24 @@
     return [NSString stringWithFormat:@"%@ LIKE \"%%%@%%\" COLLATE NOCASE", field, [String trim:value]];
 }
 
+- (NSString *) getOrderByExpression: (SortOptions) orderBy {
+    NSMutableString *query = [[NSMutableString alloc] init];
+    
+    [query appendString:@" ORDER BY "];
+    
+    if(orderBy == Price) {
+        [query appendString:@"es_remediar DESC, es_hospitalario ASC, precio ASC"];
+    } else if(orderBy == Form) {
+        [query appendString:@"forma ASC"];
+    } else if(orderBy == GenericName) {
+        [query appendString:@"generico ASC"];
+    } else if(orderBy == ComercialName) {
+        [query appendString:@"comercial ASC"];
+    }
+    
+    return query;
+}
+
 -(Medicine *) getMedicine:(sqlite3_stmt *) statement {
     char *idChars = (char *) sqlite3_column_text(statement, 0);
     char *certificateChars = (char *) sqlite3_column_text(statement, 1);
@@ -336,6 +357,7 @@
     char *presentationChars = (char *) sqlite3_column_text(statement, 12);
     char *priceChars = (char *) sqlite3_column_text(statement, 13);
     int hopsitalUsage = sqlite3_column_int(statement, 14);
+    int isRemediar = sqlite3_column_int(statement, 15);
     
     NSString *id = [self getUTF8:idChars];
     NSString *certificate =  [self getUTF8:certificateChars];
@@ -369,6 +391,7 @@
     medicine.presentation = [self getFormattedValue:presentation];
     medicine.price = [self getFormattedPrice:price];
     medicine.hospitalUsage = (NSInteger)hopsitalUsage;
+    medicine.isRemediar = (NSInteger)isRemediar;
     
     return medicine;
 }
