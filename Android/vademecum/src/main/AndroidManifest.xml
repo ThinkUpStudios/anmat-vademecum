@@ -34,7 +34,7 @@
         <activity
             android:name=".DetalleCategoriaActivity"
             android:label="@string/title_activity_detalle_principio_activo"
-            android:parentActivityName=".DetallePrincipioActivoActivity" />
+            android:parentActivityName=".MainMenuActivity" />
 
         <activity
             android:name=".AcercaDeActivity"
