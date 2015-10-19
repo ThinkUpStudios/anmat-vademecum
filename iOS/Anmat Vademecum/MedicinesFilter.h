@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Medicine.h"
 
-typedef NS_OPTIONS(NSUInteger, SortOptions) {
-    Price                 = 0,
-    Form   = 1 << 0,
-    GenericName        = 1 << 1,
-    ComercialName  = 1 << 2
+typedef NS_ENUM(NSInteger, SortOptions) {
+    Price,
+    Form,
+    GenericName,
+    ComercialName
 };
 
 @interface MedicinesFilter : NSObject

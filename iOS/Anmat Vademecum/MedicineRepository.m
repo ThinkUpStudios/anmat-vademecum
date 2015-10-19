@@ -326,13 +326,13 @@
     
     [query appendString:@" ORDER BY "];
     
-    if((orderBy & Price) == Price) {
+    if(orderBy == Price) {
         [query appendString:@"es_remediar DESC, es_hospitalario ASC, precio ASC"];
-    } else if((orderBy & Form) == Form) {
+    } else if(orderBy == Form) {
         [query appendString:@"forma ASC"];
-    } else if((orderBy & GenericName) == GenericName) {
+    } else if(orderBy == GenericName) {
         [query appendString:@"generico ASC"];
-    } else if((orderBy & ComercialName) == ComercialName) {
+    } else if(orderBy == ComercialName) {
         [query appendString:@"comercial ASC"];
     }
     
