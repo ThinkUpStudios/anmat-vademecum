@@ -54,7 +54,7 @@ public class PrincipioActivoProvider extends GenericProvider {
 
             while (!cursor.isAfterLast()) {
                 principioActivo = cursorToPrincipioActivo(cursor);
-                resultado.add(principioActivo.getNombre());
+                resultado.add(principioActivo.getIfa());
                 if (principioActivo.getOtrosNombres() != null && !principioActivo.getOtrosNombres().isEmpty()) {
                     String[] otrosNombre = principioActivo.getOtrosNombres().split("\\?");
                     for (String otroNombre : otrosNombre) {
@@ -76,15 +76,18 @@ public class PrincipioActivoProvider extends GenericProvider {
 
     private PrincipioActivo cursorToPrincipioActivo(Cursor cursor) {
         PrincipioActivo principioActivo = new PrincipioActivo();
-        principioActivo.setNombre(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[0])));
-        principioActivo.setAccionTerapeutica(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[1])));
-        principioActivo.setIndicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[2])));
-        principioActivo.setPresentacion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[3])));
-        principioActivo.setPosologia(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[4])));
-        principioActivo.setDuracion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[5])));
+        principioActivo.setIfa(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[0])));
+        principioActivo.setClasificacionTerapeutica(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[1])));
+        principioActivo.setMecanismoAccion(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[2])));
+        principioActivo.setFarmacocinetica(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[3])));
+        principioActivo.setIndicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[4])));
+        principioActivo.setPosologia(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[5])));
         principioActivo.setContraindicaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[6])));
-        principioActivo.setObservaciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[7])));
-        principioActivo.setOtrosNombres(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[8])));
+        principioActivo.setInteracciones(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[7])));
+        principioActivo.setReaccionesAdversas(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[8])));
+        principioActivo.setInformacionAdicional(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[9])));
+        principioActivo.setBibliografia(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[10])));
+        principioActivo.setOtrosNombres(cursor.getString(cursor.getColumnIndex(PrincipiosActivosTable.COLUMNS[11])));
 
         return principioActivo;
     }
