@@ -17,6 +17,7 @@ public class PrincipioActivo {
     private String contraindicaciones;
     private String interacciones;
     private String reaccionesAdversas;
+    private String referencias;
     private String informacionAdicional;
     private String bibliografia;
     private String otrosNombres;
@@ -108,6 +109,14 @@ public class PrincipioActivo {
 
     public void setInformacionAdicional(String informacionAdicional) {
         this.informacionAdicional = informacionAdicional;
+    }
+
+    public String getReferencias() {
+        return referencias;
+    }
+
+    public void setReferencias(String referencias) {
+        this.referencias = referencias;
     }
 
     public String getBibliografia() {

@@ -84,5 +84,16 @@
     <string name="url_efectos_adversos">http://sistemas.anmat.gov.ar/aplicaciones_net/applications/fvg_eventos_adversos_nuevo/index.html</string>
     <string name="lbl_medicamentos_y_embarazo">Medicamentos y Embarazo</string>
     <string name="url_medicamentos_y_embarazo">http://www.anmat.gov.ar/principal.asp</string>
+    <string name="lb_clasificacion_Terapeutica">Clasificación Terapéutica</string>
+    <string name="lb_indicaciones_posologia">Indicaciones y Posología</string>
+    <string name="lb_contraindicaciones">Contraindicaciones y Advertencias</string>
+    <string name="lb_farmacologia">Farmacología</string>
+    <string name="lb_interacciones">Interacciones</string>
+    <string name="lb_reacciones_adversas">Reacciones Adversas</string>
+    <string name="lb_referencias">Referencias</string>
+    <string name="lb_info_adicional">Información Adicional</string>
+    <string name="lb_bibliografia">Bibliografía</string>
+    <string name="lb_otros_nombres">Otros Nombres</string>
+    <string name="txt_sin_detalle">SIN DETALLE</string>
 
 </resources>

@@ -10,20 +10,21 @@ public class PrincipiosActivosTable {
 
     public static String[] COLUMN_NAME = {"principio"};
 
-    public static String TABLE_NAME = "principios_activos";
+    public static String TABLE_NAME = "principio_activo";
     public static String[] COLUMNS =       {"ifa",
-                                            "clasificacionTerapeutica",
-                                            "descripcionFarmacologia",
-                                            "mecanismoAccion",
-                                            "farmacocinetica",
-                                            "indicaciones",
-                                            "posologia",
+                                            "clasificacion_terapeutica",
+                                            "farma_descripcion",
+                                            "farma_mecanismo_accion",
+                                            "farma_farmacocinetica",
+                                            "iyp_indicaciones",
+                                            "iyp_posologia",
                                             "contraindicaciones",
                                             "interacciones",
-                                            "reaccionesAdversas",
-                                            "informacionAdicional",
+                                            "reacciones_adversas",
+                                            "referencias",
+                                            "informacion_adicional",
                                             "bibliografia",
-                                            "otrosNombres"};
+                                            "otros_nombres"};
 
 
 
