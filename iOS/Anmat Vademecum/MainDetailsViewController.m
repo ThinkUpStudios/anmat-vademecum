@@ -9,54 +9,177 @@
 #import "MainDetailsViewController.h"
 #import "Medicine.h"
 #import "DetailsTabViewController.h"
+#import "AutoLayoutCell.h"
+
+static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
 
 @interface MainDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *cntDetails;
-@property (weak, nonatomic) IBOutlet UILabel *lblCertificate;
-@property (weak, nonatomic) IBOutlet UILabel *lblTroquel;
-@property (weak, nonatomic) IBOutlet UILabel *lblLaboratory;
-@property (weak, nonatomic) IBOutlet UILabel *lblComercialName;
-@property (weak, nonatomic) IBOutlet UILabel *lblGenericName;
-@property (weak, nonatomic) IBOutlet UILabel *lblRequestCondition;
-@property (weak, nonatomic) IBOutlet UILabel *lblTrazability;
-@property (weak, nonatomic) IBOutlet UILabel *lblForm;
-@property (weak, nonatomic) IBOutlet UILabel *lblPresentation;
-@property (weak, nonatomic) IBOutlet UILabel *lblPrice;
-@property (weak, nonatomic) IBOutlet UILabel *lblCountry;
-@property (weak, nonatomic) IBOutlet UILabel *lblGtin;
-
 @end
 
-@implementation MainDetailsViewController
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    [self loadMedicine];
+@implementation MainDetailsViewController {
+    NSMutableArray *medicineTitles;
+    NSMutableArray *medicineDetails;
 }
 
-- (void) didReceiveMemoryWarning {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if(self.medicine) {
+        medicineTitles = [[NSMutableArray alloc] init];
+        medicineDetails = [[NSMutableArray alloc] init];
+        
+        if(self.medicine.isRemediar == 1) {
+            [medicineTitles addObject:@"Remediar"];
+            [medicineDetails addObject:@"El Ministerio de Salud de la Nación garantiza la distribución gratuita de este medicamento mediante el programa REMEDIAR"];
+        }
+        
+        [medicineTitles addObject:@"Nro. de Certificado"];
+        [medicineTitles addObject:@"Nro. de Troquel"];
+        [medicineTitles addObject:@"País de Industria"];
+        [medicineTitles addObject:@"GTIN"];
+        [medicineTitles addObject:@"Laboratorio"];
+        [medicineTitles addObject:@"Nombre Comercial"];
+        [medicineTitles addObject:@"Nombre Genérico"];
+        [medicineTitles addObject:@"Condición de Expendio"];
+        [medicineTitles addObject:@"Condición de Trazabilidad"];
+        [medicineTitles addObject:@"Forma Farmaceútica"];
+        [medicineTitles addObject:@"Presentación"];
+        [medicineTitles addObject:@"Precio de Venta"];
+        
+        [medicineDetails addObject:self.medicine.certificate];
+        [medicineDetails addObject:self.medicine.troquel];
+        [medicineDetails addObject:self.medicine.country];
+        [medicineDetails addObject:self.medicine.gtin];
+        [medicineDetails addObject:self.medicine.laboratory];
+        [medicineDetails addObject:self.medicine.comercialName];
+        [medicineDetails addObject:self.medicine.genericName];
+        [medicineDetails addObject:self.medicine.requestCondition];
+        [medicineDetails addObject:self.medicine.trazability];
+        [medicineDetails addObject:self.medicine.form];
+        [medicineDetails addObject:self.medicine.presentation];
+        
+        NSString *price = self.medicine.price;
+        
+        if([price isEqualToString:@"U.H"]) {
+            price = @"Presentación de Uso Hospitalario (U.H)";
+        }
+        
+        [medicineDetails addObject:price];
+    }
+    
+    self.tableView.sectionHeaderHeight = 40.0;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
--(void) loadMedicine {
-    self.lblCertificate.text = self.medicine.certificate;
-    self.lblTroquel.text = self.medicine.troquel;
-    self.lblLaboratory.text = self.medicine.laboratory;
-    self.lblComercialName.text = self.medicine.comercialName;
-    self.lblGenericName.text = self.medicine.genericName;
-    self.lblRequestCondition.text = self.medicine.requestCondition;
-    self.lblTrazability.text = self.medicine.trazability;
-    self.lblPresentation.text = self.medicine.presentation;
-    self.lblForm.text = self.medicine.form;
-    self.lblCountry.text = self.medicine.country;
-    self.lblGtin.text = self.medicine.gtin;
-    
-    if([self.medicine.price isEqualToString:@"U.H"]) {
-        self.lblPrice.text = @"Presentación de Uso Hospitalario (U.H)";
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    if(self.medicine) {
+        return medicineTitles.count;
     } else {
-        self.lblPrice.text = self.medicine.price;
+        UILabel *lblMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        lblMessage.text = @"No hay detalle para mostrar";
+        lblMessage.textColor = [UIColor grayColor];
+        lblMessage.numberOfLines = 0;
+        lblMessage.textAlignment = NSTextAlignmentCenter;
+        [lblMessage sizeToFit];
+        
+        self.tableView.backgroundView = lblMessage;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        return 0;
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self basicCellAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self heightForBasicCellAtIndexPath:indexPath];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    UITableViewHeaderFooterView *headerIndexText = (UITableViewHeaderFooterView *)view;
+    
+    headerIndexText.backgroundView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:255.0];
+    
+    headerIndexText.textLabel.textColor = [UIColor colorWithRed:38/255.0 green:98/255.0 blue:140/255.0 alpha:255.0];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return medicineTitles[section];
+}
+
+- (AutoLayoutCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
+    AutoLayoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier forIndexPath:indexPath];
+    
+    [self configureBasicCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureBasicCell:(AutoLayoutCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NSString *title = medicineTitles[indexPath.section];
+    NSString *content = medicineDetails[indexPath.section];
+    NSTextAlignment alignment = NSTextAlignmentLeft;
+    BOOL bold = NO;
+    
+    if([title isEqualToString:@"Precio de Venta"]) {
+        alignment = NSTextAlignmentRight;
+        bold = YES;
+    }
+    
+    if([title isEqualToString:@"Remediar"]) {
+        alignment = NSTextAlignmentCenter;
+        bold = YES;
+    }
+    
+    [self setContentForCell:cell content:content alignment:alignment bold:bold];
+}
+
+- (void)setContentForCell:(AutoLayoutCell *)cell content:(NSString *)content alignment:(NSTextAlignment) alignment bold:(BOOL) bold {
+    NSString *text = content ?: NSLocalizedString(@"[-]", nil);
+    
+    if(bold) {
+        [cell.lblContent setFont:[UIFont boldSystemFontOfSize:15]];
+    }
+    
+    cell.lblContent.textAlignment = alignment;
+    [cell.lblContent setText:text];
+}
+
+- (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
+    static AutoLayoutCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier];
+    });
+    
+    [self configureBasicCell:sizingCell atIndexPath:indexPath];
+    
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.frame), CGRectGetHeight(sizingCell.bounds));
+    
+    return size.height + 1.0f;
 }
 
 @end

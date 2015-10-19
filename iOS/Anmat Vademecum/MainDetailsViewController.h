@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Medicine.h"
 
-@interface MainDetailsViewController : UIViewController<UIScrollViewDelegate>
+@interface MainDetailsViewController : UITableViewController
 
 @property (nonatomic , strong) Medicine* medicine;
 
