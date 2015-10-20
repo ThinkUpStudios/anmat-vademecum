@@ -59,7 +59,7 @@ public class DetallePrincipioActivoActivity extends Activity {
                 if (principioActivo != null) {
                     txtNoResultados.setVisibility(View.GONE);
                     lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(
-                            new PairHeadDetail("Clasificación Terapéutica", principioActivo.getClasificacionTerapeutica())
+                            new PairHeadDetail("Clasificaci\u00f3n Terap\u00e9utica", principioActivo.getClasificacionTerapeutica())
                     ));
 
                     lyContraindicaciones.setOnClickListener(new CategoryClickHandler(
@@ -67,22 +67,22 @@ public class DetallePrincipioActivoActivity extends Activity {
                     ));
 
                     lyBibliografia.setOnClickListener(new CategoryClickHandler(
-                            new PairHeadDetail("Bibliografía", principioActivo.getBibliografia())
+                            new PairHeadDetail("Bibliograf\u00eda", principioActivo.getBibliografia())
                     ));
 
                     lyFarmacologia.setOnClickListener(new CategoryClickHandler(
-                            new PairHeadDetail("Descripción", principioActivo.getDescripcionFarmacologia()),
-                            new PairHeadDetail("Mecanismo de Acción", principioActivo.getMecanismoAccion()),
+                            new PairHeadDetail("Descripci\u00f3n", principioActivo.getDescripcionFarmacologia()),
+                            new PairHeadDetail("Mecanismo de Acci\u00f3n", principioActivo.getMecanismoAccion()),
                             new PairHeadDetail("Farmacocinetica", principioActivo.getDescripcionFarmacologia())
                     ));
 
                     lyIndicacionesPosologia.setOnClickListener(new CategoryClickHandler(
                             new PairHeadDetail("Indicaciones", principioActivo.getIndicaciones()),
-                            new PairHeadDetail("Posología", principioActivo.getPosologia())
+                            new PairHeadDetail("Posolog\u00eda", principioActivo.getPosologia())
                     ));
 
                     lyInfoAdicional.setOnClickListener(new CategoryClickHandler(
-                            new PairHeadDetail("Información Adicional", principioActivo.getInformacionAdicional())
+                            new PairHeadDetail("Informaci\u00f3n Adicional", principioActivo.getInformacionAdicional())
                     ));
 
                     lyInteracciones.setOnClickListener(new CategoryClickHandler(
