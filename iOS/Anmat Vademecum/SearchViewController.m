@@ -12,6 +12,7 @@
 #import "MedicineService.h"
 #import "Medicine.h"
 #import "MedicinesFilter.h"
+#import "MBProgressHUD.h"
 
 @interface SearchViewController()
 
@@ -54,11 +55,7 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if(searchText.length < 3) {
-        [self search:searchBar text:@""];
-    } else {
-        [self search:searchBar text:searchText];
-    }
+    [self search:searchBar text:searchText];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -205,22 +202,26 @@
         return;
     }
     
-    if([searchBar isEqual:self.txtGenericName]) {
-        searchMode = @"generic";
-        [self loadSuggested:[medicineService getGenericNames:text ]];
-    } else if([searchBar isEqual:self.txtComercialName]) {
-        searchMode = @"comercial";
-        [self loadSuggested:[medicineService getComercialNames:text ]];
-    } else if([searchBar isEqual:self.txtLaboratory]) {
-        searchMode = @"laboratory";
-        [self loadSuggested:[medicineService getLaboratories:text ]];
-    } else {
-        searchMode = @"form";
-        [self loadSuggested:[medicineService getForms:text ]];
-    }
-    
-    [self.tblResults reloadData];
-    self.tblResults.hidden = NO;
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        if([searchBar isEqual:self.txtGenericName]) {
+            searchMode = @"generic";
+            [self loadSuggested:[medicineService getGenericNames:text ]];
+        } else if([searchBar isEqual:self.txtComercialName]) {
+            searchMode = @"comercial";
+            [self loadSuggested:[medicineService getComercialNames:text ]];
+        } else if([searchBar isEqual:self.txtLaboratory]) {
+            searchMode = @"laboratory";
+            [self loadSuggested:[medicineService getLaboratories:text ]];
+        } else {
+            searchMode = @"form";
+            [self loadSuggested:[medicineService getForms:text ]];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tblResults reloadData];
+            self.tblResults.hidden = NO;
+        });
+    });
 }
 
 -(void) loadSuggested:(NSArray *)values {

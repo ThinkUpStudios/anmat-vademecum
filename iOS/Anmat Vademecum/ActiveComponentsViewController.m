@@ -122,9 +122,14 @@
         return;
     }
     
-    [self loadSuggested:[componentsService getAll:text ]];
-    [self.tblResults reloadData];
-    self.tblResults.hidden = NO;
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self loadSuggested:[componentsService getAll:text ]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tblResults reloadData];
+            self.tblResults.hidden = NO;
+        });
+    }); 
 }
 
 -(void) loadSuggested:(NSArray *)values {
