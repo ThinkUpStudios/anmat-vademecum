@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnComponents;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnCommunication;
+- (IBAction)showCommunicationInfo:(id)sender;
 
 @end
 
@@ -41,12 +43,12 @@
     [btnContact setTarget:self];
     [btnContact setAction:@selector(showContactInfo:)];
     
-    
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:btnHelp, btnContact, nil];
     
     [self setBorder:self.btnMeds];
     [self setBorder:self.btnComponents];
     [self setBorder:self.btnInfo];
+    [self setBorder:self.btnCommunication];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +76,14 @@
     
     [self
      presentViewController:contactSheet animated:YES completion:nil];
+}
+
+- (IBAction)showCommunicationInfo:(id)sender {    
+    NSURL *url = [NSURL URLWithString:@"http://sistemas.anmat.gov.ar/aplicaciones_net/applications/fvg_eventos_adversos_nuevo/index.html"];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end
