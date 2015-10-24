@@ -20,31 +20,16 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4L-1b-Ew6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqD-a4-GCd" userLabel="Content View">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CqD-a4-GCd" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-WJ-bie" customClass="UISelectableButton">
-                                                <rect key="frame" x="16" y="8" width="568" height="95"/>
-                                                <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="Kvr-Uj-px8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <state key="normal" title="Medicamentos">
-                                                    <color key="titleColor" red="0.14901960784313725" green="0.38431372549019605" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="Zlx-am-yMZ" kind="show" id="2iX-lJ-I7h"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9C-Qb-7TV" customClass="UISelectableButton">
-                                                <rect key="frame" x="16" y="131" width="568" height="95"/>
+                                                <rect key="frame" x="20" y="113" width="560" height="80"/>
                                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="lty-fc-NJX"/>
+                                                    <constraint firstAttribute="height" constant="80" id="lty-fc-NJX"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <state key="normal" title="Principios Activos">
                                                     <color key="titleColor" red="0.14901960784313725" green="0.38431372549019605" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,12 +39,12 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-1I-y2j" userLabel="Btn Communication" customClass="UISelectableButton">
-                                                <rect key="frame" x="16" y="250" width="568" height="95"/>
+                                                <rect key="frame" x="20" y="201" width="560" height="80"/>
                                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="vch-VF-QNt"/>
+                                                    <constraint firstAttribute="height" constant="80" id="vch-VF-QNt"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <state key="normal" title="Comunicación de Eventos Adversos">
                                                     <color key="titleColor" red="0.14901960780000001" green="0.38431372549999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,13 +53,25 @@
                                                     <action selector="showCommunicationInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dno-t5-GBD"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLy-Tg-Ygp" customClass="UISelectableButton">
-                                                <rect key="frame" x="16" y="370" width="568" height="95"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epr-i8-nh4" userLabel="Btn Pregnancy" customClass="UISelectableButton">
+                                                <rect key="frame" x="20" y="289" width="560" height="80"/>
                                                 <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="95" id="WVv-OY-fAQ"/>
+                                                    <constraint firstAttribute="height" constant="80" id="uIW-VB-mv6"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <state key="normal" title="Medicamentos y Embarazo">
+                                                    <color key="titleColor" red="0.14901960780000001" green="0.38431372549999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLy-Tg-Ygp" customClass="UISelectableButton">
+                                                <rect key="frame" x="20" y="377" width="560" height="80"/>
+                                                <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="WVv-OY-fAQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <state key="normal" title="Información">
                                                     <color key="titleColor" red="0.14901960784313725" green="0.38431372549019605" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,30 +80,47 @@
                                                     <segue destination="tI1-S7-4hw" kind="show" id="ok1-np-3ep"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-WJ-bie" customClass="UISelectableButton">
+                                                <rect key="frame" x="20" y="25" width="560" height="80"/>
+                                                <color key="backgroundColor" red="0.93740135729999996" green="0.93740135729999996" blue="0.93740135729999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Kvr-Uj-px8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <state key="normal" title="Medicamentos">
+                                                    <color key="titleColor" red="0.14901960784313725" green="0.38431372549019605" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="Zlx-am-yMZ" kind="show" id="2iX-lJ-I7h"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.77647058823529413" green="0.80392156862745101" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="kLy-Tg-Ygp" firstAttribute="top" secondItem="cdb-1I-y2j" secondAttribute="bottom" constant="25" id="41M-s1-7XK"/>
-                                            <constraint firstAttribute="trailing" secondItem="cdb-1I-y2j" secondAttribute="trailing" constant="16" id="6WO-NU-bKO"/>
-                                            <constraint firstAttribute="trailing" secondItem="N9C-Qb-7TV" secondAttribute="trailing" constant="16" id="B7M-Qk-bKB"/>
-                                            <constraint firstItem="kLy-Tg-Ygp" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="16" id="KnB-eZ-804"/>
-                                            <constraint firstItem="cdb-1I-y2j" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="16" id="MB9-Gj-EuW"/>
-                                            <constraint firstAttribute="trailing" secondItem="kLy-Tg-Ygp" secondAttribute="trailing" constant="16" id="QIu-gY-URQ"/>
-                                            <constraint firstItem="N9C-Qb-7TV" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="28" id="fVJ-uX-Tct"/>
-                                            <constraint firstItem="r6G-WJ-bie" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="16" id="foH-rE-5sw"/>
-                                            <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="CqD-a4-GCd" secondAttribute="top" constant="8" id="g6r-ZL-DJ4"/>
-                                            <constraint firstAttribute="trailing" secondItem="r6G-WJ-bie" secondAttribute="trailing" constant="16" id="g7j-mh-G77"/>
-                                            <constraint firstItem="N9C-Qb-7TV" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="16" id="iAC-79-oHy"/>
-                                            <constraint firstItem="cdb-1I-y2j" firstAttribute="top" secondItem="N9C-Qb-7TV" secondAttribute="bottom" constant="24" id="v07-wy-8Gh"/>
+                                            <constraint firstItem="epr-i8-nh4" firstAttribute="top" secondItem="cdb-1I-y2j" secondAttribute="bottom" constant="8" id="5kG-fJ-4LR"/>
+                                            <constraint firstAttribute="trailing" secondItem="cdb-1I-y2j" secondAttribute="trailing" constant="20" symbolic="YES" id="6WO-NU-bKO"/>
+                                            <constraint firstAttribute="trailing" secondItem="N9C-Qb-7TV" secondAttribute="trailing" constant="20" symbolic="YES" id="B7M-Qk-bKB"/>
+                                            <constraint firstItem="epr-i8-nh4" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="20" id="EXj-xX-KA0"/>
+                                            <constraint firstItem="kLy-Tg-Ygp" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="20" symbolic="YES" id="KnB-eZ-804"/>
+                                            <constraint firstItem="cdb-1I-y2j" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="20" symbolic="YES" id="MB9-Gj-EuW"/>
+                                            <constraint firstAttribute="trailing" secondItem="kLy-Tg-Ygp" secondAttribute="trailing" constant="20" symbolic="YES" id="QIu-gY-URQ"/>
+                                            <constraint firstItem="r6G-WJ-bie" firstAttribute="top" secondItem="CqD-a4-GCd" secondAttribute="top" constant="25" id="Rco-iT-by0"/>
+                                            <constraint firstAttribute="trailing" secondItem="epr-i8-nh4" secondAttribute="trailing" constant="20" id="fSB-r1-GUx"/>
+                                            <constraint firstItem="N9C-Qb-7TV" firstAttribute="top" secondItem="r6G-WJ-bie" secondAttribute="bottom" constant="8" symbolic="YES" id="fVJ-uX-Tct"/>
+                                            <constraint firstItem="r6G-WJ-bie" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="20" symbolic="YES" id="foH-rE-5sw"/>
+                                            <constraint firstAttribute="trailing" secondItem="r6G-WJ-bie" secondAttribute="trailing" constant="20" symbolic="YES" id="g7j-mh-G77"/>
+                                            <constraint firstItem="N9C-Qb-7TV" firstAttribute="leading" secondItem="CqD-a4-GCd" secondAttribute="leading" constant="20" symbolic="YES" id="iAC-79-oHy"/>
+                                            <constraint firstItem="cdb-1I-y2j" firstAttribute="top" secondItem="N9C-Qb-7TV" secondAttribute="bottom" constant="8" symbolic="YES" id="v07-wy-8Gh"/>
+                                            <constraint firstItem="kLy-Tg-Ygp" firstAttribute="top" secondItem="epr-i8-nh4" secondAttribute="bottom" constant="8" id="yKA-tF-RdH"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="kLy-Tg-Ygp" secondAttribute="top" constant="122" id="LYl-w5-h4C"/>
-                                    <constraint firstAttribute="bottom" secondItem="CqD-a4-GCd" secondAttribute="bottom" id="fD4-wi-7hf"/>
-                                    <constraint firstItem="CqD-a4-GCd" firstAttribute="leading" secondItem="P4L-1b-Ew6" secondAttribute="leading" id="twU-ly-CS2"/>
-                                    <constraint firstItem="CqD-a4-GCd" firstAttribute="top" secondItem="P4L-1b-Ew6" secondAttribute="top" id="uxi-uX-HoW"/>
-                                    <constraint firstAttribute="trailing" secondItem="CqD-a4-GCd" secondAttribute="trailing" id="yM4-SN-scK"/>
+                                    <constraint firstItem="CqD-a4-GCd" firstAttribute="top" secondItem="P4L-1b-Ew6" secondAttribute="top" id="4Mt-4A-JOb"/>
+                                    <constraint firstAttribute="bottom" secondItem="CqD-a4-GCd" secondAttribute="bottom" id="9DA-yX-V8v"/>
+                                    <constraint firstItem="CqD-a4-GCd" firstAttribute="leading" secondItem="P4L-1b-Ew6" secondAttribute="leading" id="Pgj-jC-MjI"/>
+                                    <constraint firstAttribute="trailing" secondItem="CqD-a4-GCd" secondAttribute="trailing" id="y09-of-XAu"/>
                                 </constraints>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-7G-js0">
@@ -158,14 +172,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.77647058823529413" green="0.80392156862745101" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="P4L-1b-Ew6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1nW-BM-WT9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P4L-1b-Ew6" secondAttribute="bottom" id="1b2-fg-8Ld"/>
+                            <constraint firstItem="P4L-1b-Ew6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8hN-Gu-rj1"/>
                             <constraint firstAttribute="trailing" secondItem="dhb-7G-js0" secondAttribute="trailing" id="935-WG-wBa"/>
-                            <constraint firstAttribute="trailing" secondItem="P4L-1b-Ew6" secondAttribute="trailing" id="Oza-Ks-kIi"/>
                             <constraint firstAttribute="bottom" secondItem="dhb-7G-js0" secondAttribute="bottom" id="XEo-lj-Ul5"/>
+                            <constraint firstAttribute="trailing" secondItem="P4L-1b-Ew6" secondAttribute="trailing" id="aJW-VZ-Xsg"/>
+                            <constraint firstItem="CqD-a4-GCd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" priority="250" id="eSM-in-aS8"/>
                             <constraint firstItem="dhb-7G-js0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lAg-KR-WSD"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P4L-1b-Ew6" secondAttribute="bottom" id="tqx-Sw-3vH"/>
+                            <constraint firstItem="P4L-1b-Ew6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m2a-QI-LdZ"/>
                             <constraint firstAttribute="width" secondItem="CqD-a4-GCd" secondAttribute="width" id="v30-3u-toM"/>
-                            <constraint firstItem="P4L-1b-Ew6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vwu-6H-DPG"/>
+                            <constraint firstItem="CqD-a4-GCd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="zAv-E3-s77"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -176,6 +192,10 @@
                         <outlet property="btnComponents" destination="N9C-Qb-7TV" id="xY2-ei-cpD"/>
                         <outlet property="btnInfo" destination="kLy-Tg-Ygp" id="KDv-MH-ZOh"/>
                         <outlet property="btnMeds" destination="r6G-WJ-bie" id="Vh9-zD-k05"/>
+                        <outlet property="btnPregnancy" destination="epr-i8-nh4" id="Bg4-vR-860"/>
+                        <outlet property="contentMenu" destination="CqD-a4-GCd" id="TBt-L9-FNJ"/>
+                        <outlet property="scrMenu" destination="P4L-1b-Ew6" id="dkH-lb-qFe"/>
+                        <outlet property="toolBar" destination="dhb-7G-js0" id="dYI-fK-rk7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

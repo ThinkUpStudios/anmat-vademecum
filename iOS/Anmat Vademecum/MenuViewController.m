@@ -13,11 +13,15 @@
 #import "AboutViewController.h"
 
 @interface MenuViewController ()
-
+@property (weak, nonatomic) IBOutlet UIView *contentMenu;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrMenu;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnMeds;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnComponents;
-@property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
 @property (weak, nonatomic) IBOutlet UISelectableButton *btnCommunication;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnPregnancy;
+@property (weak, nonatomic) IBOutlet UISelectableButton *btnInfo;
+
 - (IBAction)showCommunicationInfo:(id)sender;
 
 @end
@@ -47,8 +51,12 @@
     
     [self setBorder:self.btnMeds];
     [self setBorder:self.btnComponents];
-    [self setBorder:self.btnInfo];
     [self setBorder:self.btnCommunication];
+    [self setBorder:self.btnPregnancy];
+    [self setBorder:self.btnInfo];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.scrMenu.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.toolBar.frame), 0);
 }
 
 - (void)didReceiveMemoryWarning {
