@@ -33,13 +33,19 @@
         return component;
     }
     
+    component.ifa = [self sanitize:component.ifa];
+    component.clasification = [self sanitize:component.clasification];
+    component.pharmacology = [self sanitize:component.pharmacology];
     component.action = [self sanitize:component.action];
+    component.cinetic = [self sanitize:component.cinetic];
     component.indication = [self sanitize:component.indication];
-    component.presentation = [self sanitize:component.presentation];
     component.posology = [self sanitize:component.posology];
-    component.duration = [self sanitize:component.duration];
     component.contraindication = [self sanitize:component.contraindication];
-    component.observation = [self sanitize:component.observation];
+    component.interaction = [self sanitize:component.interaction];
+    component.reaction = [self sanitize:component.reaction];
+    component.reference = [self sanitize:component.reference];
+    component.additionalInfo = [self sanitize:component.additionalInfo];
+    component.bibliography = [self sanitize:component.bibliography];
     
     return component;
 }
@@ -48,7 +54,7 @@
     NSString *result = value;
     
     if(result == nil || result.length == 0) {
-        result = @"-";
+        result = @"";
     }
     
     return result;

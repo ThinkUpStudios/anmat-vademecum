@@ -87,7 +87,7 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     } else {
         UILabel *lblMessage = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         
-        lblMessage.text = @"No hay detalle para mostrar";
+        lblMessage.text = @"Sin Información";
         lblMessage.textColor = [UIColor grayColor];
         lblMessage.numberOfLines = 0;
         lblMessage.textAlignment = NSTextAlignmentCenter;
