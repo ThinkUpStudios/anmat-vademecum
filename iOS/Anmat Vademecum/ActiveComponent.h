@@ -10,13 +10,18 @@
 
 @interface ActiveComponent : NSObject
 
-@property NSString *name;
+@property NSString *ifa;
+@property NSString *clasification;
+@property NSString *pharmacology;
 @property NSString *action;
+@property NSString *cinetic;
 @property NSString *indication;
-@property NSString *presentation;
 @property NSString *posology;
-@property NSString *duration;
 @property NSString *contraindication;
-@property NSString *observation;
+@property NSString *interaction;
+@property NSString *reaction;
+@property NSString *reference;
+@property NSString *additionalInfo;
+@property NSString *bibliography;
 
 @end

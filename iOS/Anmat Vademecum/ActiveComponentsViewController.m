@@ -8,7 +8,7 @@
 
 #import "ActiveComponentsViewController.h"
 #import "MedicineService.h"
-#import "ActiveComponentViewController.h"
+#import "ActiveComponentInfoViewController.h"
 #import "ActiveComponentService.h"
 
 @interface ActiveComponentsViewController ()
@@ -103,7 +103,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
-        ActiveComponentViewController *activeComponent = segue.destinationViewController;
+        ActiveComponentInfoViewController *activeComponent = segue.destinationViewController;
         NSIndexPath *selectedIndex = [self.tblResults indexPathForCell:sender];
         NSString *selectedComponentName = [searchResults objectAtIndex:selectedIndex.item];
         ActiveComponent *component = [componentsService getByName:selectedComponentName];

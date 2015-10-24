@@ -16,6 +16,7 @@
 		143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* Component.m */; };
+		14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
@@ -24,7 +25,7 @@
 		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
-		149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */; };
+		149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */; };
 		149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
@@ -85,6 +86,8 @@
 		1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		1451E5E61AAB7BBA00F9FEC7 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		1451E5E71AAB7BBA00F9FEC7 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		14780D931BDBFAB20030FCD0 /* ActiveComponentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentDetailViewController.h; sourceTree = "<group>"; };
+		14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentDetailViewController.m; sourceTree = "<group>"; };
 		147E2ABB1A97F6EE00C9B2EC /* MainDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDetailsViewController.h; sourceTree = "<group>"; };
 		147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDetailsViewController.m; sourceTree = "<group>"; };
 		147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsTabViewController.h; sourceTree = "<group>"; };
@@ -97,8 +100,8 @@
 		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
-		149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentViewController.h; sourceTree = "<group>"; };
-		149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentViewController.m; sourceTree = "<group>"; };
+		149856651ABF4CDB001B6B5A /* ActiveComponentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentInfoViewController.h; sourceTree = "<group>"; };
+		149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentInfoViewController.m; sourceTree = "<group>"; };
 		149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell.h; sourceTree = "<group>"; };
 		149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
@@ -183,8 +186,8 @@
 			children = (
 				149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */,
 				149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */,
-				149856651ABF4CDB001B6B5A /* ActiveComponentViewController.h */,
-				149856661ABF4CDB001B6B5A /* ActiveComponentViewController.m */,
+				149856651ABF4CDB001B6B5A /* ActiveComponentInfoViewController.h */,
+				149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */,
 				147E2ABB1A97F6EE00C9B2EC /* MainDetailsViewController.h */,
 				147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */,
 				147E2AC71A9811F000C9B2EC /* DetailsTabViewController.h */,
@@ -207,6 +210,8 @@
 				14F720721AEEC06A00FFEDA1 /* AboutViewController.m */,
 				148A260A1AEED9FE001DDBE6 /* InformationViewController.h */,
 				148A260B1AEED9FE001DDBE6 /* InformationViewController.m */,
+				14780D931BDBFAB20030FCD0 /* ActiveComponentDetailViewController.h */,
+				14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -479,7 +484,7 @@
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
-				149856671ABF4CDB001B6B5A /* ActiveComponentViewController.m in Sources */,
+				149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14F720611AEE86D900FFEDA1 /* AnmatDataService.m in Sources */,
@@ -487,6 +492,7 @@
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,
+				14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */,
 				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
 				143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */,
 				14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */,

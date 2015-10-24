@@ -7,7 +7,7 @@
 //
 
 #import "FormulaDetailsViewController.h"
-#import "ActiveComponentViewController.h"
+#import "ActiveComponentInfoViewController.h"
 #import "ActiveComponentService.h"
 #import "Formula.h"
 #import "Component.h"
@@ -78,7 +78,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"ShowActiveComponent"]) {
-        ActiveComponentViewController *activeComponent = segue.destinationViewController;
+        ActiveComponentInfoViewController *activeComponent = segue.destinationViewController;
         NSIndexPath *selectedIndex = [self.tableView indexPathForCell:sender];
         Component *selectedFormulaComponent = [[formula getComponents] objectAtIndex:selectedIndex.item];
         ActiveComponent *component = [componentsService getByName:selectedFormulaComponent.activeComponent];
