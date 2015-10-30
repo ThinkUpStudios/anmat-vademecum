@@ -5,6 +5,7 @@ import android.database.Cursor;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.List;
 import java.util.Vector;
 
@@ -23,6 +24,12 @@ public class GenericProvider {
 
     }
 
+    public String replaceSpecialChars(String str){
+        String string = Normalizer.normalize(str, Normalizer.Form.NFD);
+        string = string.replaceAll("[^\\p{ASCII}]", "");
+        return string;
+
+    }
     public List<String> getDistinctColumns(String tabla, String[] columnas){
 
         List<String> resultado = new Vector<>();

@@ -75,44 +75,6 @@
                 android:padding="20dp"
                 android:text="@string/lbl_informacion"
                 android:textColor="#1B5687" />
-            <Button
-                android:id="@+id/btn_efectos_adversos"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/btn_informacion"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
-                android:alpha="0.8"
-                android:background="@drawable/button_txt_search"
-
-                android:gravity="center"
-                android:minHeight="@dimen/button_height"
-                android:padding="20dp"
-                android:text="@string/lbl_efectos_adversos"
-                android:textColor="#1B5687" />
-            <Button
-                android:id="@+id/btn_embarazo"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/btn_efectos_adversos"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="@dimen/margen_entre_lineas_detalle"
-                android:alpha="0.8"
-                android:background="@drawable/button_txt_search"
-
-                android:gravity="center"
-                android:minHeight="@dimen/button_height"
-                android:padding="20dp"
-                android:text="@string/lbl_medicamentos_y_embarazo"
-                android:textColor="#1B5687" />
 
 
         </RelativeLayout>
