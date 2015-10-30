@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.bo.PairHeadDetail;
+import com.thinkupstudios.anmat.vademecum.bo.ToRenderWrapper;
 
 
 /**
@@ -33,12 +34,12 @@ public class DetalleCategoriaActivity extends Activity {
         sinDetalle.setVisibility(View.GONE);
         if(savedInstanceState!= null){
             if(savedInstanceState.containsKey(TO_RENDER)){
-                toRender = (PairHeadDetail[]) savedInstanceState.getSerializable(TO_RENDER);
+                toRender = ((ToRenderWrapper) savedInstanceState.getSerializable(TO_RENDER)).getToRender();
                 render();
             }
         }else{
             if(this.getIntent().getExtras() != null && this.getIntent().getExtras().containsKey(TO_RENDER)){
-                this.toRender = (PairHeadDetail[]) this.getIntent().getExtras().getSerializable(TO_RENDER);
+                toRender = ((ToRenderWrapper) this.getIntent().getExtras().getSerializable(TO_RENDER)).getToRender();
                 render();
             }else{
                 sinDetalle.setVisibility(View.VISIBLE);
@@ -64,7 +65,7 @@ public class DetalleCategoriaActivity extends Activity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(TO_RENDER,this.toRender);
+        outState.putSerializable(TO_RENDER, new ToRenderWrapper(this.toRender));
         super.onSaveInstanceState(outState);
     }
 

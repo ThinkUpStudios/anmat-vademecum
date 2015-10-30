@@ -1,8 +1,10 @@
 package com.thinkupstudios.anmat.vademecum;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
@@ -12,19 +14,53 @@ import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
  * Created by dcamarro on 02/03/2015.
  * Actividad que muestra la pantalla de Información
  */
-public class InformacionActivity extends NoMenuActivity {
+public class InformacionActivity extends NoMenuActivity implements View.OnClickListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView viewInfo;
         setContentView(R.layout.activity_info);
 
-        viewInfo = (TextView) findViewById(R.id.txt_informacion);
-        viewInfo.setText(
-                Html.fromHtml("<p class='c0'><b>&iquest;Qu&eacute; es el nombre gen&eacute;rico?</b></p>" +
+        View lyNavigate = (RelativeLayout) findViewById(R.id.ly_prescricpcion_nom_gen);
+        lyNavigate.setOnClickListener(this);
+        lyNavigate = (RelativeLayout) findViewById(R.id.ly_uso_racional);
+        lyNavigate.setOnClickListener(this);
+        lyNavigate = (RelativeLayout) findViewById(R.id.ly_sist_nac_traza);
+        lyNavigate.setOnClickListener(this);
+        lyNavigate = (RelativeLayout) findViewById(R.id.ly_medicamentos_embarazo);
+        lyNavigate.setOnClickListener(this);
+        lyNavigate = (RelativeLayout) findViewById(R.id.ly_efectos_adversos);
+        lyNavigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String urlEA = getString(R.string.url_efectos_adversos);
+                Intent iEA = new Intent(Intent.ACTION_VIEW);
+                iEA.setData(Uri.parse(urlEA));
+                startActivity(iEA);
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i = null;
+        Bundle b = new Bundle();
+        String strContent = "";
+        switch (v.getId()) {
+
+            case R.id.ly_prescricpcion_nom_gen: {
+                i = new Intent(this, DetalleHTMLActivity.class);
+                strContent = "<p class='c0'><b>&iquest;Qu&eacute; es el nombre gen&eacute;rico?</b></p>" +
                         "<p class='c0'><b>Nombre gen&eacute;rico</b>" +
                         "<span class='c1'>&nbsp;es la denominaci&oacute;n de un principio activo, monodroga &nbsp;o de una " +
                         "asociaci&oacute;n de principios activos a dosis fijas adoptada por la autoridad sanitaria (ANMAT)" +
@@ -47,20 +83,43 @@ public class InformacionActivity extends NoMenuActivity {
                         "inclusive registros y autorizaciones relativas a la elaboraci&oacute;n, fraccionamiento, comercializaci&oacute;n, " +
                         "exportaci&oacute;n e importaci&oacute;n de medicamentos;</span></p><p class='c0'><span class='c1'>&nbsp;&nbsp;&nbsp;" +
                         "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Toda publicidad o propaganda dirigida al p&uacute;blico en general.</span>" +
-                        "</p><p class='c0 c5'><span class='c1'></span></p><p class='c0'><b>&iquest;Qu&eacute; es el sistema de Trazabilidad?</b>" +
+                        "</p><p class='c0 c5'><span class='c1'></span></p>";
+
+                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
+                break;
+            }
+
+            case R.id.ly_uso_racional: {
+                i = new Intent(this, DetalleHTMLActivity.class);
+                break;
+            }
+            case R.id.ly_sist_nac_traza: {
+                i = new Intent(this, DetalleHTMLActivity.class);
+
+                strContent = "<p class='c0'><b>&iquest;Qu&eacute; es el sistema de Trazabilidad?</b>" +
                         "</p><p class='c0'><span class='c1'>Es un sistema de control que consiste en la </span><b>identificaci&oacute;n </b>" +
                         "<span class='c1'>de cada uno de los medicamentos que van a ser comercializados y su </span><b>seguimiento " +
                         "</b><span class='c1'>a trav&eacute;s de toda la </span><b>cadena de distribuci&oacute;n</b>" +
                         "<span class='c1'>&nbsp;(laboratorios, distribuidoras, operadores log&iacute;sticos, farmacias, " +
                         "establecimientos asistenciales) &nbsp;para erradicar los que sean ileg&iacute;timos.</span>" +
-                        "</p><p class='c0 c5'><span class='c1'></span></p><p class='c0'><span class='c1'>Si tenes dudas de cualquier" +
-                        " tipo referidas a medicamentos, alimentos, productos m&eacute;dicos, cosm&eacute;tcos, domisanitarios, reactivos de " +
-                        "diagn&oacute;stico, faltantes, tr&aacute;mites o legislaci&oacute;n comunicate ANMAT Responde al 0800-333-1234 o v&iacute;a mail a responde@anmat.gov.ar</span></p>")
-        );
+                        "</p><p class='c0 c5'><span class='c1'></span></p><p class='c0'>";
+                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
+
+                break;
+            }
+
+            case R.id.ly_medicamentos_embarazo: {
+                i = new Intent(this, DetalleHTMLActivity.class);
+
+                break;
+            }
+            default:
+                break;
+        }
+        if(i!=null){
+            i.putExtras(b);
+            startActivity(i);
+        }
 
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        ((MiAplicacion)this.getApplication()).updateCache(new DatabaseHelper(this),false);
-    }}
+}

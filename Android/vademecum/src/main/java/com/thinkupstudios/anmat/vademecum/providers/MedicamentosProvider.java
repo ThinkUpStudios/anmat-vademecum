@@ -22,7 +22,7 @@ import java.util.Vector;
 public class MedicamentosProvider extends GenericProvider {
 
 
-    public MedicamentosProvider(DatabaseHelper helper){
+    public MedicamentosProvider(DatabaseHelper helper) {
         super(helper);
     }
 
@@ -32,7 +32,7 @@ public class MedicamentosProvider extends GenericProvider {
 
         try {
             if (form != null && (!form.getNombreGenerico().isEmpty() || !form.getNombreComercial().isEmpty()
-                    || !form.getLaboratorio().isEmpty()) || !form.getForma().isEmpty()||form.isRemediar()) {
+                    || !form.getLaboratorio().isEmpty()) || !form.getForma().isEmpty() || form.isRemediar()) {
                 where += "where  1=1 ";
 
                 if (form.getNombreComercial() != null && !form.getNombreComercial().isEmpty())
@@ -46,7 +46,7 @@ public class MedicamentosProvider extends GenericProvider {
                     where += " and " + MedicamentosTable.COLUMNS[3] + " like '%" + form.getLaboratorio() + "%'";
                 if (!form.getForma().isEmpty())
                     where += " and " + MedicamentosTable.COLUMNS[7] + " like '%" + form.getForma() + "%'";
-                if(form.isRemediar()){
+                if (form.isRemediar()) {
                     where += " and " + MedicamentosTable.COLUMNS[15] + " = '1'";
                 }
             }
@@ -69,10 +69,9 @@ public class MedicamentosProvider extends GenericProvider {
             }
 
             return this.ordenarMedicamentos(medicamentoBOs);
-        }
-        finally {
+        } finally {
             // make sure to close the cursor
-            if(cursor != null)
+            if (cursor != null)
                 cursor.close();
         }
 
@@ -81,21 +80,21 @@ public class MedicamentosProvider extends GenericProvider {
     private String armarWhereANDyOR(String campo, Boolean useLike, String column) {
         String where = "";
         String[] filtros = campo.split("\\?");
-        if(filtros.length > 1){
+        if (filtros.length > 1) {
             int i = 0;
-            for(String dentroDelOR : filtros){
+            for (String dentroDelOR : filtros) {
                 String whereAnd = this.armarWhereAnd(dentroDelOR, useLike, column);
-                if(i == 0)
-                    where += " and "+ whereAnd;
+                if (i == 0)
+                    where += " and " + whereAnd;
                 else where += whereAnd;
                 i++;
-                if(filtros.length != i){
+                if (filtros.length != i) {
                     where += " or ";
                 }
 
             }
-        }else{
-            where = " and "+ this.armarWhereAnd(campo, useLike, column);
+        } else {
+            where = " and " + this.armarWhereAnd(campo, useLike, column);
         }
 
         return where;
@@ -105,28 +104,27 @@ public class MedicamentosProvider extends GenericProvider {
         String whereAnd = "";
         String[] ands = campo.split("#");
         String aux = " ";
-        if(ands.length > 1){
+        if (ands.length > 1) {
             int i = 0;
 
-            for(String valor : ands ){
-                if(i != 0){
+            for (String valor : ands) {
+                if (i != 0) {
                     aux += " and ";
                 }
-                if(useLike) {
+                if (useLike) {
                     String like = "'%" + valor.trim() + "%'";
                     whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + " ";
-                }else{
+                } else {
                     String campoString = "'" + campo.trim() + "'";
                     whereAnd += aux + this.matarCaracteresEspeciales(column) + " = " + this.matarCaracteresEspeciales(campoString) + " ";
                 }
                 i++;
             }
-        }
-        else{
-            if(useLike) {
+        } else {
+            if (useLike) {
                 String like = "'%" + campo.trim() + "%'";
                 whereAnd += aux + this.matarCaracteresEspeciales(column) + " like " + this.matarCaracteresEspeciales(like) + "";
-            }else{
+            } else {
                 String campoString = "'" + campo.trim() + "'";
                 whereAnd += aux + this.matarCaracteresEspeciales(column) + " = " + this.matarCaracteresEspeciales(campoString) + " ";
             }
@@ -158,25 +156,23 @@ public class MedicamentosProvider extends GenericProvider {
     }
 
 
-
-
     private List<MedicamentoBO> filtrarPorFormula(List<MedicamentoBO> medicamentoBOs, String principioActivo) {
         List<MedicamentoBO> resultadosFiltrados = new Vector<>();
 
-        String[] principiosActivos = principioActivo.split("\\?");
+        String[] principiosActivos = replaceSpecialChars(principioActivo.toUpperCase()).split("\\?");
         List<String> principios = Arrays.asList(principiosActivos);
 
         for (MedicamentoBO medicamento : medicamentoBOs) {
             boolean existe = false;
-            for(Component compuesto : medicamento.getFormula().getComponents()) {
-                if(principios.contains(compuesto.getActiveComponent())){
+            for (Component compuesto : medicamento.getFormula().getComponents()) {
+                if (principios.contains(compuesto.getActiveComponent())) {
                     existe = true;
                 }
             }
             if (existe) {
                 resultadosFiltrados.add(medicamento);
             }
-         }
+        }
 
         return resultadosFiltrados;
     }

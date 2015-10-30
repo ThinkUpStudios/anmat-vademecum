@@ -95,5 +95,9 @@
     <string name="lb_bibliografia">Bibliografía</string>
     <string name="lb_otros_nombres">Otros Nombres</string>
     <string name="txt_sin_detalle">SIN DETALLE</string>
+    <string name="lb_prescripcion_nom_gen">Prescripción por nombre genérico</string>
+    <string name="lb_uso_racional">Uso racional de medicamentos</string>
+    <string name="lb_sistema_nacional_traza">Sistema nacional de trazabilidad</string>
+    <string name="lb_reporte_efectos_adversos">Reporte de efectos adversos</string>
 
 </resources>
