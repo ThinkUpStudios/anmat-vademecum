@@ -64,6 +64,9 @@
                                                     <color key="titleColor" red="0.14901960780000001" green="0.38431372549999998" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="ZsO-Dh-a9A" kind="show" id="N6c-E4-K9P"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLy-Tg-Ygp" customClass="UISelectableButton">
                                                 <rect key="frame" x="20" y="377" width="560" height="80"/>
@@ -200,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="-2271"/>
+            <point key="canvasLocation" x="492" y="-2411"/>
         </scene>
         <!--About-->
         <scene sceneID="86y-Jy-cuc">
@@ -526,7 +529,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZJ-sb-Djx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="-2871"/>
+            <point key="canvasLocation" x="1312" y="-3455"/>
         </scene>
         <!--Active Components-->
         <scene sceneID="Jlq-Xy-p3S">
@@ -594,7 +597,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a88-H0-VaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="-2183"/>
+            <point key="canvasLocation" x="1312" y="-2767"/>
         </scene>
         <!--Active Component Information-->
         <scene sceneID="WBV-M4-guO">
@@ -635,7 +638,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbU-3I-Jar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="-2037"/>
+            <point key="canvasLocation" x="2085" y="-2767"/>
         </scene>
         <!--SearchResults-->
         <scene sceneID="F9X-Yo-5iu">
@@ -820,7 +823,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6e-5q-7Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2461" y="-2767"/>
+            <point key="canvasLocation" x="2085" y="-3455"/>
         </scene>
         <!--FormulaDetails-->
         <scene sceneID="OnJ-sG-uSD">
@@ -883,7 +886,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6O-Va-tU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3521" y="-1939"/>
+            <point key="canvasLocation" x="3739" y="-2915"/>
         </scene>
         <!--DetailTabs-->
         <scene sceneID="j2q-dk-me2">
@@ -902,7 +905,7 @@ Esta aplicación fue desarrollada a partir de la información brindada por el Mi
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KL3-dX-Lg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3201" y="-2767"/>
+            <point key="canvasLocation" x="2905" y="-3455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Df-GM-i6x">
@@ -1111,7 +1114,7 @@ Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrj-4M-07I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="-1214"/>
+            <point key="canvasLocation" x="424" y="-1214"/>
         </scene>
         <!--Main Details-->
         <scene sceneID="g05-Tf-cgq">
@@ -1158,7 +1161,7 @@ Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos 
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FN-lz-YPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2843" y="-1939"/>
+            <point key="canvasLocation" x="3739" y="-3591"/>
         </scene>
         <!--Active Component Details-->
         <scene sceneID="mrx-7C-HLg">
@@ -1204,7 +1207,64 @@ Si tenes dudas de cualquier tipo referidas a medicamentos, alimentos, productos 
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCc-kd-lpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="-1186"/>
+            <point key="canvasLocation" x="2085" y="-1986"/>
+        </scene>
+        <!--Pregnancy-->
+        <scene sceneID="9nQ-ES-wNC">
+            <objects>
+                <tableViewController id="ZsO-Dh-a9A" userLabel="Pregnancy" customClass="PregnancyViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bz0-fU-61V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="AutoLayoutCellWithDetail" rowHeight="72" id="7Us-5d-6WC" customClass="AutoLayoutCellWithDetail">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Us-5d-6WC" id="3Bj-89-IHQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="71.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-59-7f4" userLabel="Lbl Title" customClass="AutoLayoutLabel">
+                                            <rect key="frame" x="16" y="8" width="576" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="kEB-4Z-3vr" userLabel="Lbl Subtitle" customClass="AutoLayoutLabel">
+                                            <rect key="frame" x="16" y="37" width="576" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.50588235290000005" green="0.50588235290000005" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kEB-4Z-3vr" secondAttribute="trailing" id="4s9-bB-ih2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GaD-59-7f4" secondAttribute="bottom" constant="35" id="70w-FS-lwV"/>
+                                        <constraint firstAttribute="trailing" secondItem="GaD-59-7f4" secondAttribute="trailing" constant="8" id="CnK-4X-2WF"/>
+                                        <constraint firstItem="GaD-59-7f4" firstAttribute="top" secondItem="3Bj-89-IHQ" secondAttribute="top" constant="8" id="Mn4-qg-HYs"/>
+                                        <constraint firstItem="kEB-4Z-3vr" firstAttribute="leading" secondItem="3Bj-89-IHQ" secondAttribute="leadingMargin" constant="8" id="UDT-gp-K09"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kEB-4Z-3vr" secondAttribute="bottom" constant="6" id="XrY-ar-WWn"/>
+                                        <constraint firstItem="GaD-59-7f4" firstAttribute="leading" secondItem="3Bj-89-IHQ" secondAttribute="leading" constant="16" id="d9K-yn-Ldp"/>
+                                        <constraint firstItem="kEB-4Z-3vr" firstAttribute="top" secondItem="3Bj-89-IHQ" secondAttribute="topMargin" constant="29" id="dRS-aN-rec"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblSubtitle" destination="kEB-4Z-3vr" id="4E2-oz-9zY"/>
+                                    <outlet property="lblTitle" destination="GaD-59-7f4" id="fJd-PD-owN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="ZsO-Dh-a9A" id="XKg-I1-C77"/>
+                            <outlet property="delegate" destination="ZsO-Dh-a9A" id="ekw-7m-GaY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qyu-xa-kag" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="-2038"/>
         </scene>
     </scenes>
     <resources>

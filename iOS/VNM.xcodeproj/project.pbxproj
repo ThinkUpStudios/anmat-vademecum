@@ -11,6 +11,8 @@
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
+		142330B21BDD5ACE00B7D694 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 142330B11BDD5ACE00B7D694 /* Section.m */; settings = {ASSET_TAGS = (); }; };
+		142330B51BDD5B1A00B7D694 /* SectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 142330B41BDD5B1A00B7D694 /* SectionRow.m */; settings = {ASSET_TAGS = (); }; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		143A4DEA1AF2C5B800CAA8AE /* MedicinesFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */; };
 		143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */; };
@@ -26,6 +28,8 @@
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
 		149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */; };
+		149A72241BDC51C300A8D1CE /* AutoLayoutCellWithDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 149A72231BDC51C300A8D1CE /* AutoLayoutCellWithDetail.m */; settings = {ASSET_TAGS = (); }; };
+		149A72271BDC531800A8D1CE /* PregnancyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149A72261BDC531800A8D1CE /* PregnancyViewController.m */; settings = {ASSET_TAGS = (); }; };
 		149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
@@ -76,6 +80,10 @@
 		141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchSectionViewController.m; sourceTree = "<group>"; };
 		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		142330B01BDD5ACE00B7D694 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		142330B11BDD5ACE00B7D694 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		142330B31BDD5B1A00B7D694 /* SectionRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionRow.h; sourceTree = "<group>"; };
+		142330B41BDD5B1A00B7D694 /* SectionRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionRow.m; sourceTree = "<group>"; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
 		143A4DE81AF2C5B800CAA8AE /* MedicinesFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicinesFilter.h; sourceTree = "<group>"; };
@@ -102,6 +110,10 @@
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
 		149856651ABF4CDB001B6B5A /* ActiveComponentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentInfoViewController.h; sourceTree = "<group>"; };
 		149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentInfoViewController.m; sourceTree = "<group>"; };
+		149A72221BDC51C300A8D1CE /* AutoLayoutCellWithDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCellWithDetail.h; sourceTree = "<group>"; };
+		149A72231BDC51C300A8D1CE /* AutoLayoutCellWithDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCellWithDetail.m; sourceTree = "<group>"; };
+		149A72251BDC531800A8D1CE /* PregnancyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyViewController.h; sourceTree = "<group>"; };
+		149A72261BDC531800A8D1CE /* PregnancyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyViewController.m; sourceTree = "<group>"; };
 		149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell.h; sourceTree = "<group>"; };
 		149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
@@ -212,6 +224,8 @@
 				148A260B1AEED9FE001DDBE6 /* InformationViewController.m */,
 				14780D931BDBFAB20030FCD0 /* ActiveComponentDetailViewController.h */,
 				14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */,
+				149A72251BDC531800A8D1CE /* PregnancyViewController.h */,
+				149A72261BDC531800A8D1CE /* PregnancyViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -327,6 +341,12 @@
 				149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */,
 				14AE74791AF7C0ED00C32CF1 /* AutoLayoutLabel.h */,
 				14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */,
+				149A72221BDC51C300A8D1CE /* AutoLayoutCellWithDetail.h */,
+				149A72231BDC51C300A8D1CE /* AutoLayoutCellWithDetail.m */,
+				142330B01BDD5ACE00B7D694 /* Section.h */,
+				142330B11BDD5ACE00B7D694 /* Section.m */,
+				142330B31BDD5B1A00B7D694 /* SectionRow.h */,
+				142330B41BDD5B1A00B7D694 /* SectionRow.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -483,18 +503,22 @@
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */,
+				149A72241BDC51C300A8D1CE /* AutoLayoutCellWithDetail.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
 				149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14F720611AEE86D900FFEDA1 /* AnmatDataService.m in Sources */,
+				149A72271BDC531800A8D1CE /* PregnancyViewController.m in Sources */,
 				14F720641AEE878D00FFEDA1 /* AnmatData.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,
 				14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */,
+				142330B51BDD5B1A00B7D694 /* SectionRow.m in Sources */,
 				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
 				143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */,
+				142330B21BDD5ACE00B7D694 /* Section.m in Sources */,
 				14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */,
 				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
