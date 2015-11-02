@@ -36,6 +36,10 @@
             android:label="@string/title_activity_info"
             android:parentActivityName=".MainMenuActivity" />
         <activity
+            android:name=".EmbarazoActivity"
+            android:label="@string/title_activity_info"
+            android:parentActivityName=".MainMenuActivity" />
+        <activity
             android:name=".DetalleCategoriaActivity"
             android:label="@string/title_activity_detalle_principio_activo"
             android:parentActivityName=".MainMenuActivity" />

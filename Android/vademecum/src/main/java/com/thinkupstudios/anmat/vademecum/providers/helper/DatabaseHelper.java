@@ -2,9 +2,7 @@ package com.thinkupstudios.anmat.vademecum.providers.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -13,8 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.sql.SQLException;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     //The Android's default system path of your application database.
@@ -75,7 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * system folder, from where it can be accessed and handled.
      * This is done by transfering bytestream.
      */
-    private void copyDataBase() throws IOException {
+    public void copyDataBase() throws IOException {
 
 
         //Open your local db as the input stream

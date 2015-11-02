@@ -3,11 +3,11 @@ package com.thinkupstudios.anmat.vademecum.aplicacion;
 import android.app.Application;
 
 import com.thinkupstudios.anmat.vademecum.bo.VersionBo;
+import com.thinkupstudios.anmat.vademecum.providers.DetalleEmbarazoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
 import com.thinkupstudios.anmat.vademecum.providers.PrincipioActivoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.MedicamentosTable;
-import com.thinkupstudios.anmat.vademecum.providers.tables.PrincipiosActivosTable;
 
 import java.util.List;
 import java.util.Vector;
@@ -23,6 +23,8 @@ public class MiAplicacion extends Application {
     private List<String> laboratorios = new Vector<>();
     private List<String> principiosActivos = new Vector<>();
     private List<String> formasFarmaceuticas = new Vector<>();
+    private String htmlEmbarazo = "";
+
     private VersionBo versionBo;
 
     public List<String> getNombresComerciales() {
@@ -73,6 +75,14 @@ public class MiAplicacion extends Application {
         this.formasFarmaceuticas = formasFarmaceuticas;
     }
 
+    public String getHtmlEmbarazo() {
+        return htmlEmbarazo;
+    }
+
+    public void setHtmlEmbarazo(String htmlEmbarazo) {
+        this.htmlEmbarazo = htmlEmbarazo;
+    }
+
     @Override
     public void onCreate() {
 
@@ -99,6 +109,10 @@ public class MiAplicacion extends Application {
         }
         if(this.getFormasFarmaceuticas().isEmpty()||force){
             this.setFormasFarmaceuticas(genericProvider.getDistinctColumns(MedicamentosTable.TABLE_NAME, MedicamentosTable.COLUMN_FORMA));
+        }
+        DetalleEmbarazoProvider embarazoProvider = new DetalleEmbarazoProvider(dbHelper);
+        if(this.getHtmlEmbarazo().isEmpty()||force){
+            this.setHtmlEmbarazo(embarazoProvider.getDetalleHTML());
         }
         dbHelper.close();
         time_end = System.currentTimeMillis();

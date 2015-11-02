@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
@@ -23,15 +22,15 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
 
         setContentView(R.layout.activity_info);
 
-        View lyNavigate = (RelativeLayout) findViewById(R.id.ly_prescricpcion_nom_gen);
+        View lyNavigate = findViewById(R.id.ly_prescricpcion_nom_gen);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = (RelativeLayout) findViewById(R.id.ly_uso_racional);
+        lyNavigate = findViewById(R.id.ly_uso_racional);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = (RelativeLayout) findViewById(R.id.ly_sist_nac_traza);
+        lyNavigate = findViewById(R.id.ly_sist_nac_traza);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = (RelativeLayout) findViewById(R.id.ly_medicamentos_embarazo);
+        lyNavigate = findViewById(R.id.ly_medicamentos_embarazo);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = (RelativeLayout) findViewById(R.id.ly_efectos_adversos);
+        lyNavigate = findViewById(R.id.ly_efectos_adversos);
         lyNavigate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,8 +108,10 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
             }
 
             case R.id.ly_medicamentos_embarazo: {
-                i = new Intent(this, DetalleHTMLActivity.class);
-
+                i = new Intent(this, EmbarazoActivity.class);
+                MiAplicacion app = (MiAplicacion) this.getApplicationContext();
+                strContent = app.getHtmlEmbarazo();
+                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
                 break;
             }
             default:
