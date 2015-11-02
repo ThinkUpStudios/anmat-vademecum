@@ -71,7 +71,7 @@ public class DetalleEmbarazoProvider extends GenericProvider {
         String itemHTML = "<hr style=\"color: #CCCCCC;margin:0px\" />\n" +
                 "<div style='padding-top:5px'>\n" +
                 "<!-- Principio -->\n" +
-                "<div>\n" +
+                "<div style='overflow:hidden;width:100%; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;'>\n" +
                 "  <span style='color:#1B5687; '>#PRINCIPIO#</span>    \n" +
                 "</div>\n" +
                 "<!-- Medicamentos -->\n" +
