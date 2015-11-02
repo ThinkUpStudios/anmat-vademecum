@@ -15,12 +15,12 @@ namespace Anmat.Server.Core
     {
 		private static readonly string separator = ";";
 		private readonly AnmatConfiguration configuration;
-		private readonly IDictionary<Type, Func<string, DocumentColumnMetadata, string>> typeConverters;
+		private readonly IDictionary<Type, Func<string, DocumentMetadata, DocumentColumnMetadata, string>> typeConverters;
 
 		public CsvDocumentReader (AnmatConfiguration configuration)
 		{
 			this.configuration = configuration;
-			this.typeConverters = new Dictionary<Type, Func<string, DocumentColumnMetadata, string>> ();
+			this.typeConverters = new Dictionary<Type, Func<string, DocumentMetadata, DocumentColumnMetadata, string>> ();
 
 			this.LoadTypeConverters ();
 		}
@@ -50,10 +50,6 @@ namespace Anmat.Server.Core
 
 					var fields = parser.ReadFields();
 
-					if (parser.LineNumber == -1) {
-						continue;
-					}
-
 					fields = this.SanitizeColumns (fields, metadata);
 
 					this.ValidateDocumentColumns (metadata, fields, parser.LineNumber);
@@ -61,6 +57,10 @@ namespace Anmat.Server.Core
 					var row = this.GetRow (fields, metadata, parser.LineNumber);
                                 
 					document.AddRow(row);
+
+					if (parser.LineNumber == -1) {
+						continue;
+					}
 				}
 			}
 
@@ -165,7 +165,7 @@ namespace Anmat.Server.Core
 				return value;
 			}
 
-			var converter = default (Func<string, DocumentColumnMetadata, string>);
+			var converter = default (Func<string, DocumentMetadata, DocumentColumnMetadata, string>);
 			var fieldType = columnMetadata.GetType ();
 
 			if (!this.typeConverters.Any (c => c.Key == fieldType)) {
@@ -176,7 +176,7 @@ namespace Anmat.Server.Core
 				throw new FieldFormatException (string.Format(Resources.CsvDocumentReader_CantConvertFieldValue, value, columnMetadata.Type, metadata.DocumentName));
 			}
 
-			return converter (value, columnMetadata);
+			return converter (value, metadata, columnMetadata);
 		}
 
 		private string Normalize(string value)
@@ -190,39 +190,39 @@ namespace Anmat.Server.Core
 
 		private void LoadTypeConverters ()
 		{
-			this.typeConverters.Add (typeof (string), (value, columnMetadata) => value);
-			this.typeConverters.Add (typeof (bool), (value, columnMetadata) => {
+			this.typeConverters.Add (typeof (string), (value, metadata, columnMetadata) => value);
+			this.typeConverters.Add (typeof (bool), (value, metadata, columnMetadata) => {
 				var converted = default (bool);
 
 				if (!bool.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(bool).Name, columnMetadata.Metadata.DocumentName));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(bool).Name, metadata.DocumentName));
 				}
 
 				return converted.ToString();
 			});
-			this.typeConverters.Add (typeof (int), (value, columnMetadata) => {
+			this.typeConverters.Add (typeof (int), (value, metadata, columnMetadata) => {
 				var converted = default (int);
 
 				if (!int.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(int).Name, columnMetadata.Metadata.DocumentName));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(int).Name, metadata.DocumentName));
 				}
 
 				return converted.ToNumberString ();
 			});
-			this.typeConverters.Add (typeof (double), (value, columnMetadata) => {
+			this.typeConverters.Add (typeof (double), (value, metadata, columnMetadata) => {
 				var converted = default (double);
 
 				if (!double.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(double).Name, columnMetadata.Metadata.DocumentName));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(double).Name, metadata.DocumentName));
 				}
 
 				return converted.ToNumberString ();
 			});
-			this.typeConverters.Add (typeof (DateTime), (value, columnMetadata) => {
+			this.typeConverters.Add (typeof (DateTime), (value, metadata, columnMetadata) => {
 				var converted = default (DateTime);
 
 				if (!DateTime.TryParse (value, out converted)) {
-					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(DateTime).Name, columnMetadata.Metadata.DocumentName));
+					throw new FieldFormatException(string.Format(Resources.CsvDocumentReader_InvalidFieldFormat, columnMetadata.Name, typeof(DateTime).Name, metadata.DocumentName));
 				}
 
 				return converted.ToString ();

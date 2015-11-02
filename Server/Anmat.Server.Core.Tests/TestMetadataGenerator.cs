@@ -40,7 +40,7 @@ namespace Anmat.Server.Core.Tests
                 IsNullable = true,
                 RemovableAccents = false,
                 UpperCase = false
-            });
+			});
 
             columns.Add(new DocumentColumnMetadata
             {
@@ -50,7 +50,7 @@ namespace Anmat.Server.Core.Tests
                 IsNullable = true,
                 RemovableAccents = false,
                 UpperCase = false
-            });
+			});
 
             columns.Add(new DocumentColumnMetadata
             {
@@ -60,7 +60,7 @@ namespace Anmat.Server.Core.Tests
                 IsNullable = true,
                 RemovableAccents = false,
                 UpperCase = false
-            });
+			});
 
             return columns;
 		}
