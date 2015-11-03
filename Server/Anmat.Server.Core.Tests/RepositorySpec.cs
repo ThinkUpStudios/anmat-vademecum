@@ -34,7 +34,9 @@ namespace Anmat.Server.Core.Tests
 
 		public void Dispose()
         {
-			//this.testRepository.DeleteAll();
+			if(this.cleanDbWhenFinishes) {
+				this.testRepository.DeleteAll ();
+			}
         }
     }
 }
