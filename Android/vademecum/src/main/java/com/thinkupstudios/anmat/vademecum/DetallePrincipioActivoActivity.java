@@ -63,13 +63,11 @@ public class DetallePrincipioActivoActivity extends Activity {
                 principioActivo = null;
             }
 
-
-            if (principioActivo != null) {
-                scrollContent.setVisibility(View.VISIBLE);
                 txtPrincipioActivo.setText(principioActivo.getIfa());
-                txtNoResultados.setVisibility(View.GONE);
-                PairHeadDetail[] ctToRender = {new PairHeadDetail("Clasificaci\u00f3n Terap\u00e9utica", principioActivo.getClasificacionTerapeutica())};
-                lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(ctToRender));
+                if (principioActivo != null) {
+                    txtNoResultados.setVisibility(View.GONE);
+                    PairHeadDetail[] ctToRender = {new PairHeadDetail("Clasificaci\u00f3n Terap\u00e9utica", principioActivo.getClasificacionTerapeutica())};
+                    lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(ctToRender));
 
                 PairHeadDetail[] contraindicacionesToRender = {new PairHeadDetail("Contraindicaciones", principioActivo.getContraindicaciones())};
                 lyContraindicaciones.setOnClickListener(new CategoryClickHandler(contraindicacionesToRender));
