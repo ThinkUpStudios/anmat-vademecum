@@ -63,8 +63,9 @@ public class DetallePrincipioActivoActivity extends Activity {
                 principioActivo = null;
             }
 
-                txtPrincipioActivo.setText(principioActivo.getIfa());
+
                 if (principioActivo != null) {
+                    txtPrincipioActivo.setText(principioActivo.getIfa());
                     txtNoResultados.setVisibility(View.GONE);
                     PairHeadDetail[] ctToRender = {new PairHeadDetail("Clasificaci\u00f3n Terap\u00e9utica", principioActivo.getClasificacionTerapeutica())};
                     lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(ctToRender));
