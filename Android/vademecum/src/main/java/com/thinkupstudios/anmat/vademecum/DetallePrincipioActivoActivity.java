@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.thinkupstudios.anmat.vademecum.aplicacion.MiAplicacion;
@@ -45,6 +46,7 @@ public class DetallePrincipioActivoActivity extends Activity {
         RelativeLayout lyOtrosNombres = (RelativeLayout) findViewById(R.id.ly_otros_nombres);
         RelativeLayout lyReaccionesAdversas = (RelativeLayout) findViewById(R.id.ly_reacciones_adversas);
         RelativeLayout lyReferencias = (RelativeLayout) findViewById(R.id.ly_referencias);
+        ScrollView scrollContent = (ScrollView) findViewById(R.id.scroll_content);
 
 
         DatabaseHelper dh = null;
@@ -52,10 +54,14 @@ public class DetallePrincipioActivoActivity extends Activity {
         try {
             dh = new DatabaseHelper(this);
             provider = new PrincipioActivoProvider(dh);
+            String nombre = "";
             if (getIntent().getExtras() != null && getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO) != null) {
-                String nombre = getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO);
 
+                nombre = getIntent().getStringExtra(FormularioBusqueda.PRINCIPIO_ACTIVO);
                 principioActivo = provider.findPrincipioActivo(nombre);
+            } else {
+                principioActivo = null;
+            }
 
 
                 if (principioActivo != null) {
@@ -64,53 +70,58 @@ public class DetallePrincipioActivoActivity extends Activity {
                     PairHeadDetail[] ctToRender = {new PairHeadDetail("Clasificaci\u00f3n Terap\u00e9utica", principioActivo.getClasificacionTerapeutica())};
                     lyClasificacionTerapeutica.setOnClickListener(new CategoryClickHandler(ctToRender));
 
-                    PairHeadDetail[] contraindicacionesToRender = {new PairHeadDetail("Contraindicaciones", principioActivo.getContraindicaciones())};
-                    lyContraindicaciones.setOnClickListener(new CategoryClickHandler(contraindicacionesToRender));
+                PairHeadDetail[] contraindicacionesToRender = {new PairHeadDetail("Contraindicaciones", principioActivo.getContraindicaciones())};
+                lyContraindicaciones.setOnClickListener(new CategoryClickHandler(contraindicacionesToRender));
 
-                    PairHeadDetail[] bToRender = {new PairHeadDetail("Bibliograf\u00eda", principioActivo.getBibliografia())};
-                    lyBibliografia.setOnClickListener(new CategoryClickHandler(bToRender));
+                PairHeadDetail[] bToRender = {new PairHeadDetail("Bibliograf\u00eda", principioActivo.getBibliografia())};
+                lyBibliografia.setOnClickListener(new CategoryClickHandler(bToRender));
 
-                    PairHeadDetail[] farmaToRender = {
-                            new PairHeadDetail("Descripci\u00f3n", principioActivo.getDescripcionFarmacologia()),
-                            new PairHeadDetail("Mecanismo de Acci\u00f3n", principioActivo.getMecanismoAccion()),
-                            new PairHeadDetail("Farmacocinetica", principioActivo.getDescripcionFarmacologia())
-                    };
-                    lyFarmacologia.setOnClickListener(new CategoryClickHandler(farmaToRender));
+                PairHeadDetail[] farmaToRender = {
+                        new PairHeadDetail("Descripci\u00f3n", principioActivo.getDescripcionFarmacologia()),
+                        new PairHeadDetail("Mecanismo de Acci\u00f3n", principioActivo.getMecanismoAccion()),
+                        new PairHeadDetail("Farmacocinetica", principioActivo.getDescripcionFarmacologia())
+                };
+                lyFarmacologia.setOnClickListener(new CategoryClickHandler(farmaToRender));
 
-                    PairHeadDetail[] ipToRender = {
-                            new PairHeadDetail("Indicaciones", principioActivo.getIndicaciones()),
-                            new PairHeadDetail("Posolog\u00eda", principioActivo.getPosologia())
-                    };
-                    lyIndicacionesPosologia.setOnClickListener(new CategoryClickHandler(ipToRender));
+                PairHeadDetail[] ipToRender = {
+                        new PairHeadDetail("Indicaciones", principioActivo.getIndicaciones()),
+                        new PairHeadDetail("Posolog\u00eda", principioActivo.getPosologia())
+                };
+                lyIndicacionesPosologia.setOnClickListener(new CategoryClickHandler(ipToRender));
 
-                    PairHeadDetail[] infoToRender = {new PairHeadDetail("Informaci\u00f3n Adicional", principioActivo.getInformacionAdicional())};
-                    lyInfoAdicional.setOnClickListener(new CategoryClickHandler(infoToRender));
+                PairHeadDetail[] infoToRender = {new PairHeadDetail("Informaci\u00f3n Adicional", principioActivo.getInformacionAdicional())};
+                lyInfoAdicional.setOnClickListener(new CategoryClickHandler(infoToRender));
 
-                    PairHeadDetail[] interaccionesToRender = {new PairHeadDetail("Interacciones", principioActivo.getInteracciones())};
-                    lyInteracciones.setOnClickListener(new CategoryClickHandler(interaccionesToRender));
+                PairHeadDetail[] interaccionesToRender = {new PairHeadDetail("Interacciones", principioActivo.getInteracciones())};
+                lyInteracciones.setOnClickListener(new CategoryClickHandler(interaccionesToRender));
 
-                    PairHeadDetail[] otrosNombresToRender = {new PairHeadDetail("Otros Nombres", principioActivo.getOtrosNombres().replace("?", "; "))};
-                    lyOtrosNombres.setOnClickListener(new CategoryClickHandler(otrosNombresToRender));
+                PairHeadDetail[] otrosNombresToRender = {new PairHeadDetail("Otros Nombres", principioActivo.getOtrosNombres().replace("?", "; "))};
+                lyOtrosNombres.setOnClickListener(new CategoryClickHandler(otrosNombresToRender));
 
-                    PairHeadDetail[] reaccionesToRender = {new PairHeadDetail("Reacciones Adversas", principioActivo.getReaccionesAdversas())};
-                    lyReaccionesAdversas.setOnClickListener(new CategoryClickHandler(reaccionesToRender));
+                PairHeadDetail[] reaccionesToRender = {new PairHeadDetail("Reacciones Adversas", principioActivo.getReaccionesAdversas())};
+                lyReaccionesAdversas.setOnClickListener(new CategoryClickHandler(reaccionesToRender));
 
-                    PairHeadDetail[] referenciasToRender = {new PairHeadDetail("Referencias", principioActivo.getReferencias())};
-                    lyReferencias.setOnClickListener(new CategoryClickHandler(referenciasToRender));
-                } else {
+                PairHeadDetail[] referenciasToRender = {new PairHeadDetail("Referencias", principioActivo.getReferencias())};
+                lyReferencias.setOnClickListener(new CategoryClickHandler(referenciasToRender));
+            } else {
+                scrollContent.setVisibility(View.GONE);
+                int color = getResources().getColor(R.color.anmat_azul);
+                txtPrincipioActivo.setVisibility(View.GONE);
+                txtNoResultados.setVisibility(View.VISIBLE);
+                txtNoResultados.setText("Sin Detalle");
+                txtNoResultados.setTextColor(color);
 
-                    int color = getResources().getColor(R.color.anmat_azul);
-                    txtNoResultados.setVisibility(View.VISIBLE);
-                    txtNoResultados.setText("Sin Detalle");
-                    txtNoResultados.setTextColor(color);
-
-                }
             }
-        } finally {
-            if (dh != null)
-                dh.close();
-        }
+
     }
+
+    finally
+
+    {
+        if (dh != null)
+            dh.close();
+    }
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -162,23 +173,23 @@ public class DetallePrincipioActivoActivity extends Activity {
         ((MiAplicacion) this.getApplication()).updateCache(new DatabaseHelper(this), false);
     }
 
-    private class CategoryClickHandler implements View.OnClickListener {
+private class CategoryClickHandler implements View.OnClickListener {
 
-        private PairHeadDetail[] toRender;
+    private PairHeadDetail[] toRender;
 
-        public CategoryClickHandler(PairHeadDetail[] toRender) {
-            this.toRender = toRender;
-        }
-
-        @Override
-        public void onClick(View view) {
-            Bundle b = new Bundle();
-            b.putSerializable("toRender", new ToRenderWrapper(this.toRender));
-            Intent i = new Intent(DetallePrincipioActivoActivity.this, DetalleCategoriaActivity.class);
-            i.putExtras(b);
-            DetallePrincipioActivoActivity.this.startActivity(i);
-
-        }
+    public CategoryClickHandler(PairHeadDetail[] toRender) {
+        this.toRender = toRender;
     }
+
+    @Override
+    public void onClick(View view) {
+        Bundle b = new Bundle();
+        b.putSerializable("toRender", new ToRenderWrapper(this.toRender));
+        Intent i = new Intent(DetallePrincipioActivoActivity.this, DetalleCategoriaActivity.class);
+        i.putExtras(b);
+        DetallePrincipioActivoActivity.this.startActivity(i);
+
+    }
+}
 
 }
