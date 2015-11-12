@@ -3,6 +3,7 @@ package com.thinkupstudios.anmat.vademecum.providers;
 import android.database.Cursor;
 
 import com.thinkupstudios.anmat.vademecum.bo.GrupoPrincipiosEmbarazo;
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoEmbarazoBO;
 import com.thinkupstudios.anmat.vademecum.bo.PrincipioClasificacion;
 import com.thinkupstudios.anmat.vademecum.providers.helper.DatabaseHelper;
 import com.thinkupstudios.anmat.vademecum.providers.tables.GrupoPrincipioEmbTable;
@@ -16,9 +17,20 @@ import java.util.Vector;
  */
 public class DetalleEmbarazoProvider extends GenericProvider {
 
+    private MedicamentoEmbarazoBO m;
 
     public DetalleEmbarazoProvider(DatabaseHelper db) {
         super(db);
+        m = new MedicamentoEmbarazoBO();
+    }
+
+    public MedicamentoEmbarazoBO getMedicamendoEmbarazoBO(){
+        this.m.setCabecera(this.buildCabecera());
+        List<GrupoPrincipiosEmbarazo> grupos = this.findGrupo();
+        this.crearGrupos(grupos);
+        this.m.setGrupos(grupos);
+
+        return this.m;
     }
 
     public String getDetalleHTML() {
@@ -32,29 +44,70 @@ public class DetalleEmbarazoProvider extends GenericProvider {
     }
 
     private String buildCabecera() {
-        return "<!-- Cabecera -->\n" +
-                "<div style='background-color:#CCCCCC;padding-top:20px ' >\n" +
-                "  <span style='color:#1B5687; '>Principios activos con su factor de riesgo según la FDA, durante el embarazo</span>  \n" +
+        return "<div style='background-color:#CCCCCC;padding-top:20px ' >\n" +
+                "  <b style='color:#000000; '>Principios activos con su factor de riesgo según la FDA, durante el embarazo</b>  \n" +
                 "</div>\n" +
-                "<hr style=\"color: #CCCCCC;margin:0px\" />\n" +
-                "<div style='color:#848484;padding-top:5px; margin-bottom: 10px'  >\n" +
-                "  <span style='color:#000000; '>\n" +
+                "</br>\n" +
+                "<div style='color:#000000;padding-top:5px; margin-bottom: 10px'  >  \n" +
+                "  <span>  \n" +
                 "  La FDA según el riesgo clasifica los fármacos en las siguientes categorías:\n" +
-                "Categoría A: Estudios adecuados y bien controlados no han demostrado riesgo para el feto en el primer trimestre de embarazo y no existen evidencias de riesgo en trimestres posteriores. La posibilidad de daño fetal parece remota.\n" +
-                "Categoría B: Indica una de las siguientes posibilidades:\n" +
-                "- Estudios en animales no indican riesgo teratogénico fetal, pero esto no ha sido confirmado en embarazadas\n" +
-                "- Estudios en animales muestran cierto potencial teratógeno, pero estudios bien controlados con gestantes no han demostrado riesgos para el feto en el primer trimestre y no existen evidencias para el feto en trimestres posteriores\n" +
-                "Categoría C: Se suele asignar a fármacos cuya administración solo debe considerarse si el beneficio esperado justifica el potencial riesgo para el feto. Indica una de las sig. posibilidades:\n" +
-                "- Estudios sobre animales han detectado efecto teratógeno o embriocida del fármaco, pero aún no se ha ensayado en la mujer.\n" +
-                "- No se dispone de estudios ni en animales ni en mujeres.\n" +
-                "Categoría D: Se dispone de evidencia de efectos teratógenos sobre el feto humano y por tanto de la existencia de un claro riesgo. Sin embargo el beneficio obtenido con estos medicamentos puede superar el riesgo esperado y hacer aconsejable su uso(situaciones límites de posible muerte materna, afecciones graves en las que no es posible usar alternativas más seguras o éstas son ineficaces…)\n" +
-                "Categoría X: Estudios en animales o en  humanos han demostrado anomalías congénitas manifiestas, existen evidencias de riesgo fetal basadas enla experiencia en embarazadas y los riesgos superan claramente cualquier posible beneficio a obtener, por lo que los fármacos están absolutamente contraindicados.\n" +
-                "  </span>  \n" +
+                "  </span>\n" +
+                "  <ul style=\"list-style-type:none\">\n" +
+                "\t<li> Categoría A: Estudios adecuados y bien controlados no han demostrado riesgo para el feto en el primer trimestre de embarazo y no existen evidencias de riesgo en trimestres posteriores. La posibilidad de daño fetal parece remota. </li>  \n" +
+                "\t</br>\n" +
+                "\t<li> Categoría B: Indica una de las siguientes posibilidades:\n" +
+                "\t\t<ul style=\"list-style-type:square\">\n" +
+                "\t\t\t<li>\n" +
+                "\t\t\tEstudios en animales no indican riesgo teratogénico fetal, pero esto no ha sido confirmado en embarazadas\n" +
+                "\t\t\t</li>\n" +
+                "\t\t\t<li>\n" +
+                "\t\t\tEstudios en animales muestran cierto potencial teratógeno, pero estudios bien controlados con gestantes no han demostrado riesgos para el feto en el primer trimestre y no existen evidencias para el feto en trimestres posteriores\n" +
+                "\t\t\t</li>\n" +
+                "\t\t</ul>\n" +
+                "\t</li>  \n" +
+                "\t</br>\n" +
+                "\t<li> Categoría C: Se suele asignar a fármacos cuya administración solo debe considerarse si el beneficio esperado justifica el potencial riesgo para el feto. \n" +
+                "\t\t</br> Indica una de las sig. posibilidades: \n" +
+                "\t\t<ul style=\"list-style-type:square\">\n" +
+                "\t\t\t<li>\n" +
+                "\t\t\tEstudios sobre animales han detectado efecto teratógeno o embriocida del fármaco, pero aún no se ha ensayado en la mujer.\n" +
+                "\t\t\t</li>\n" +
+                "\t\t\t<li>\n" +
+                "\t\t\tNo se dispone de estudios ni en animales ni en mujeres.\n" +
+                "\t\t\t</li>\n" +
+                "\t\t</ul>\n" +
+                "\t</li>\n" +
+                "    </br>\t\n" +
+                "\t<li> Categoría D: Se dispone de evidencia de efectos teratógenos sobre el feto humano y por tanto de la existencia de un claro riesgo. Sin embargo el beneficio obtenido con estos medicamentos puede superar el riesgo esperado y hacer aconsejable su uso(situaciones límites de posible muerte materna, afecciones graves en las que no es posible usar alternativas más seguras o éstas son ineficaces…)</li>  \n" +
+                "\t</br>\n" +
+                "\t<li> Categoría X: Estudios en animales o en  humanos han demostrado anomalías congénitas manifiestas, existen evidencias de riesgo fetal basadas enla experiencia en embarazadas y los riesgos superan claramente cualquier posible beneficio a obtener, por lo que los fármacos están absolutamente contraindicados.</li>  \n" +
+                "\t\n" +
+                "  </ul>\n" +
                 "</div>";
     }
 
 
     private String crearGrupos(List<GrupoPrincipiosEmbarazo> grupos) {
+        String gruposHTML = "";
+
+        for (GrupoPrincipiosEmbarazo g : grupos) {
+
+            String grupoHTML = this.buildGrupoHTML(g.getNombreGrupo());
+            String itemsHTML = "";
+            for (PrincipioClasificacion principio : g.getPrincipios()) {
+                String itemHTML = this.buildItemHTML(principio);
+                itemsHTML = itemsHTML.concat(itemHTML);
+
+            }
+            g.setPrincipiosHTML(itemsHTML);
+            grupoHTML = grupoHTML.concat(itemsHTML);
+            gruposHTML = gruposHTML.concat(grupoHTML);
+
+        }
+        return gruposHTML;
+    }
+
+    private String crearGruposLista(List<GrupoPrincipiosEmbarazo> grupos) {
         String gruposHTML = "";
         for (GrupoPrincipiosEmbarazo g : grupos) {
             String grupoHTML = this.buildGrupoHTML(g.getNombreGrupo());

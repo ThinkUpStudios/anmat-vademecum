@@ -145,6 +145,35 @@
                     android:src="@drawable/ic_more" />
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/ly_medicamentos_embarazo_new"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/divider"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/lbl_medicamentos_y_embarazo"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="@dimen/header_text_size" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more" />
+            </RelativeLayout>
+            <RelativeLayout
                 android:id="@+id/ly_efectos_adversos"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

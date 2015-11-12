@@ -63,6 +63,11 @@
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
+            android:name=".DetalleMedicamentoEmbarazoActivity"
+            android:label="@string/title_activity_detalle_principio_activo"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+        <activity
             android:name=".UpdateDBActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/splashScreenTheme"
