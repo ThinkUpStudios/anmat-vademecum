@@ -115,8 +115,9 @@
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_more" />
             </RelativeLayout>
+
             <RelativeLayout
-                android:id="@+id/ly_medicamentos_embarazo"
+                android:id="@+id/ly_medicamentos_embarazo_new"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/divider"

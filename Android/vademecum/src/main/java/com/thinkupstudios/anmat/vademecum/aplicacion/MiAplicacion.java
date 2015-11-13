@@ -2,6 +2,7 @@ package com.thinkupstudios.anmat.vademecum.aplicacion;
 
 import android.app.Application;
 
+import com.thinkupstudios.anmat.vademecum.bo.MedicamentoEmbarazoBO;
 import com.thinkupstudios.anmat.vademecum.bo.VersionBo;
 import com.thinkupstudios.anmat.vademecum.providers.DetalleEmbarazoProvider;
 import com.thinkupstudios.anmat.vademecum.providers.GenericProvider;
@@ -24,6 +25,7 @@ public class MiAplicacion extends Application {
     private List<String> principiosActivos = new Vector<>();
     private List<String> formasFarmaceuticas = new Vector<>();
     private String htmlEmbarazo = "";
+    private MedicamentoEmbarazoBO medicamentoEmbarazoBO;
 
     private VersionBo versionBo;
 
@@ -83,6 +85,14 @@ public class MiAplicacion extends Application {
         this.htmlEmbarazo = htmlEmbarazo;
     }
 
+    public MedicamentoEmbarazoBO getMedicamentoEmbarazoBO() {
+        return medicamentoEmbarazoBO;
+    }
+
+    public void setMedicamentoEmbarazoBO(MedicamentoEmbarazoBO medicamentoEmbarazoBO) {
+        this.medicamentoEmbarazoBO = medicamentoEmbarazoBO;
+    }
+
     @Override
     public void onCreate() {
 
@@ -113,6 +123,9 @@ public class MiAplicacion extends Application {
         DetalleEmbarazoProvider embarazoProvider = new DetalleEmbarazoProvider(dbHelper);
         if(this.getHtmlEmbarazo().isEmpty()||force){
             this.setHtmlEmbarazo(embarazoProvider.getDetalleHTML());
+        }
+        if(this.getMedicamentoEmbarazoBO()==null){
+            this.setMedicamentoEmbarazoBO(embarazoProvider.getMedicamendoEmbarazoBO());
         }
         dbHelper.close();
         time_end = System.currentTimeMillis();

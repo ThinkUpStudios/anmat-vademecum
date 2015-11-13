@@ -28,7 +28,7 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
         lyNavigate.setOnClickListener(this);
         lyNavigate = findViewById(R.id.ly_sist_nac_traza);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = findViewById(R.id.ly_medicamentos_embarazo);
+        lyNavigate = findViewById(R.id.ly_medicamentos_embarazo_new);
         lyNavigate.setOnClickListener(this);
         lyNavigate = findViewById(R.id.ly_efectos_adversos);
         lyNavigate.setOnClickListener(new View.OnClickListener() {
@@ -130,11 +130,9 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
                 break;
             }
 
-            case R.id.ly_medicamentos_embarazo: {
-                i = new Intent(this, EmbarazoActivity.class);
-                MiAplicacion app = (MiAplicacion) this.getApplicationContext();
-                strContent = app.getHtmlEmbarazo();
-                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
+            case R.id.ly_medicamentos_embarazo_new: {
+                i = new Intent(this, DetalleMedicamentoEmbarazoActivity.class);
+
                 break;
             }
             default:

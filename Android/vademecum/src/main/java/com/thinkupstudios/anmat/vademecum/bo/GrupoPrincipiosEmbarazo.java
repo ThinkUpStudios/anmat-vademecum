@@ -10,6 +10,7 @@ public class GrupoPrincipiosEmbarazo {
 
     private String nombreGrupo;
     private List<PrincipioClasificacion> principios;
+    private String principiosHTML;
 
     public String getNombreGrupo() {
         return nombreGrupo;
@@ -29,4 +30,13 @@ public class GrupoPrincipiosEmbarazo {
         }
         this.principios.add(p);
     }
+
+    public String getPrincipiosHTML() {
+        return principiosHTML;
+    }
+
+    public void setPrincipiosHTML(String principiosHTML) {
+        this.principiosHTML = principiosHTML;
+    }
+
 }
