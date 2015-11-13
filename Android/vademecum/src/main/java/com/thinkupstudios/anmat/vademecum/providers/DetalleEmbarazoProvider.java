@@ -44,45 +44,27 @@ public class DetalleEmbarazoProvider extends GenericProvider {
     }
 
     private String buildCabecera() {
-        return "<div style='background-color:#CCCCCC;padding-top:20px ' >\n" +
-                "  <b style='color:#000000; '>Principios activos con su factor de riesgo según la FDA, durante el embarazo</b>  \n" +
-                "</div>\n" +
-                "</br>\n" +
-                "<div style='color:#000000;padding-top:5px; margin-bottom: 10px'  >  \n" +
+        return "<div>  \n" +
                 "  <span>  \n" +
                 "  La FDA según el riesgo clasifica los fármacos en las siguientes categorías:\n" +
                 "  </span>\n" +
-                "  <ul style=\"list-style-type:none\">\n" +
-                "\t<li> Categoría A: Estudios adecuados y bien controlados no han demostrado riesgo para el feto en el primer trimestre de embarazo y no existen evidencias de riesgo en trimestres posteriores. La posibilidad de daño fetal parece remota. </li>  \n" +
-                "\t</br>\n" +
-                "\t<li> Categoría B: Indica una de las siguientes posibilidades:\n" +
-                "\t\t<ul style=\"list-style-type:square\">\n" +
-                "\t\t\t<li>\n" +
-                "\t\t\tEstudios en animales no indican riesgo teratogénico fetal, pero esto no ha sido confirmado en embarazadas\n" +
-                "\t\t\t</li>\n" +
-                "\t\t\t<li>\n" +
-                "\t\t\tEstudios en animales muestran cierto potencial teratógeno, pero estudios bien controlados con gestantes no han demostrado riesgos para el feto en el primer trimestre y no existen evidencias para el feto en trimestres posteriores\n" +
-                "\t\t\t</li>\n" +
-                "\t\t</ul>\n" +
-                "\t</li>  \n" +
-                "\t</br>\n" +
-                "\t<li> Categoría C: Se suele asignar a fármacos cuya administración solo debe considerarse si el beneficio esperado justifica el potencial riesgo para el feto. \n" +
-                "\t\t</br> Indica una de las sig. posibilidades: \n" +
-                "\t\t<ul style=\"list-style-type:square\">\n" +
-                "\t\t\t<li>\n" +
-                "\t\t\tEstudios sobre animales han detectado efecto teratógeno o embriocida del fármaco, pero aún no se ha ensayado en la mujer.\n" +
-                "\t\t\t</li>\n" +
-                "\t\t\t<li>\n" +
-                "\t\t\tNo se dispone de estudios ni en animales ni en mujeres.\n" +
-                "\t\t\t</li>\n" +
-                "\t\t</ul>\n" +
-                "\t</li>\n" +
-                "    </br>\t\n" +
-                "\t<li> Categoría D: Se dispone de evidencia de efectos teratógenos sobre el feto humano y por tanto de la existencia de un claro riesgo. Sin embargo el beneficio obtenido con estos medicamentos puede superar el riesgo esperado y hacer aconsejable su uso(situaciones límites de posible muerte materna, afecciones graves en las que no es posible usar alternativas más seguras o éstas son ineficaces…)</li>  \n" +
-                "\t</br>\n" +
-                "\t<li> Categoría X: Estudios en animales o en  humanos han demostrado anomalías congénitas manifiestas, existen evidencias de riesgo fetal basadas enla experiencia en embarazadas y los riesgos superan claramente cualquier posible beneficio a obtener, por lo que los fármacos están absolutamente contraindicados.</li>  \n" +
+                "  <p>\n" +
+                "\t<p> Categoría A: Estudios adecuados y bien controlados no han demostrado riesgo para el feto en el primer trimestre de embarazo y no existen evidencias de riesgo en trimestres posteriores. La posibilidad de daño fetal parece remota.\n" +
                 "\t\n" +
-                "  </ul>\n" +
+                "\t<p> Categoría B: Indica una de las siguientes posibilidades:\t\t\n" +
+                "\t<p>- Estudios en animales no indican riesgo teratogénico fetal, pero esto no ha sido confirmado en embarazadas</p>\n" +
+                "\t<p>- Estudios en animales muestran cierto potencial teratógeno, pero estudios bien controlados con gestantes no han demostrado riesgos para el feto en el primer trimestre y no existen evidencias para el feto en trimestres posteriores</p>\n" +
+                "\t</p>\n" +
+                "\t<p> Categoría C: Se suele asignar a fármacos cuya administración solo debe considerarse si el beneficio esperado justifica el potencial riesgo para el feto. \n" +
+                "\t\t<p>\tIndica una de las sig. posibilidades: \t</p>\n" +
+                "\t\t<p>-Estudios sobre animales han detectado efecto teratógeno o embriocida del fármaco, pero aún no se ha ensayado en la mujer.</p>\n" +
+                "\t\t<p>-No se dispone de estudios ni en animales ni en mujeres.\t</p>\t\t\n" +
+                "\t</p>\n" +
+                "\t<p> Categoría D: Se dispone de evidencia de efectos teratógenos sobre el feto humano y por tanto de la existencia de un claro riesgo. Sin embargo el beneficio obtenido con estos medicamentos puede superar el riesgo esperado y hacer aconsejable su uso(situaciones límites de posible muerte materna, afecciones graves en las que no es posible usar alternativas más seguras o éstas son ineficaces…)</li>  \n" +
+                "\t</br>\n" +
+                "\t<p> Categoría X: Estudios en animales o en  humanos han demostrado anomalías congénitas manifiestas, existen evidencias de riesgo fetal basadas enla experiencia en embarazadas y los riesgos superan claramente cualquier posible beneficio a obtener, por lo que los fármacos están absolutamente contraindicados.</li>  \n" +
+                "\t\n" +
+                "  </p>\n" +
                 "</div>";
     }
 
@@ -121,8 +103,8 @@ public class DetalleEmbarazoProvider extends GenericProvider {
     }
 
     private String buildItemHTML(PrincipioClasificacion principio) {
-        String itemHTML = "<hr style=\"color: #CCCCCC;margin:0px\" />\n" +
-                "<div style='padding-top:5px'>\n" +
+        String itemHTML = "<body style='background-color: #CCCCCC'>\n" +
+                "<div style='background-color:#CCCCCC; padding-top:5px'>\n" +
                 "<!-- Principio -->\n" +
                 "<div style='overflow:hidden;width:100%; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;'>\n" +
                 "  <span style='color:#1B5687; '>#PRINCIPIO#</span>    \n" +
@@ -134,7 +116,9 @@ public class DetalleEmbarazoProvider extends GenericProvider {
                 "<div style='color:#848484;padding-top:5px'  >\n" +
                 "  <span>#CLASIFICACION#</span>  \n" +
                 "</div>\n" +
-                "</div>\n";
+                "<hr style=\"color: #CCCCCC;margin:0px\" />\n" +
+                "</div>\n"+
+                "</body>\n";
         itemHTML = itemHTML.replace("#PRINCIPIO#", principio.getPrincipio());
         itemHTML = itemHTML.replace("#MEDICAMENTOS#", principio.getMedicamentos());
         itemHTML = itemHTML.replace("#CLASIFICACION#", principio.getClasificacion());

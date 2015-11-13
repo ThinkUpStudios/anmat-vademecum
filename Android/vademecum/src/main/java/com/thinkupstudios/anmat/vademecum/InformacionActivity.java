@@ -28,8 +28,6 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
         lyNavigate.setOnClickListener(this);
         lyNavigate = findViewById(R.id.ly_sist_nac_traza);
         lyNavigate.setOnClickListener(this);
-        lyNavigate = findViewById(R.id.ly_medicamentos_embarazo);
-        lyNavigate.setOnClickListener(this);
         lyNavigate = findViewById(R.id.ly_medicamentos_embarazo_new);
         lyNavigate.setOnClickListener(this);
         lyNavigate = findViewById(R.id.ly_efectos_adversos);
@@ -129,14 +127,6 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
                         "</p><p class='c0 c5'><span class='c1'></span></p><p class='c0'>";
                 b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
 
-                break;
-            }
-
-            case R.id.ly_medicamentos_embarazo: {
-                i = new Intent(this, EmbarazoActivity.class);
-                MiAplicacion app = (MiAplicacion) this.getApplicationContext();
-                strContent = app.getHtmlEmbarazo();
-                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
                 break;
             }
 
