@@ -92,6 +92,29 @@ public class InformacionActivity extends NoMenuActivity implements View.OnClickL
 
             case R.id.ly_uso_racional: {
                 i = new Intent(this, DetalleHTMLActivity.class);
+                strContent = "<p><b>Uso Racional de Medicamentos</b></p>" +
+                        "<br />" +
+                        "<p>\"Los pacientes deben recibir la medicación adecuada a sus necesidades clínicas, en las dosis correspondientes a sus requisitos individuales, durante un período de tiempo adecuado y al menor coste posible para ellos y para la comunidad”. (OMS, 1985).</p>" +
+                        "<p>En el proceso de la prescripción de medicamentos es importante:</p>" +
+                        "<ul>" +
+                        "<li><p>Definir el o los problemas del paciente.</p>" +
+                        "</li>" +
+                        "<li><p>Especificar los objetivos terapéuticos.</p>" +
+                        "</li>" +
+                        "<li><p>Diseñar un esquema terapéutico apropiado para cada paciente.</p>" +
+                        "</li>" +
+                        "<li><p>Escribir la receta (iniciar el tratamiento) según lo dispuesto por Ley de Promoción de la Utilización de Medicamentos por Nombre Genérico N° 25649.</p>" +
+                        "</li>" +
+                        "<li><p>Brindar información, instrucciones y advertencias.</p>" +
+                        "</li>" +
+                        "<li><p>Supervisar la evolución del tratamiento.</p>" +
+                        "</li>" +
+                        "</ul>" +
+                        "<p>El uso apropiado de los medicamentos impacta directamente en la salud de las personas, y por ejemplo en el caso de los antibióticos, el uso adecuado contribuye a combatir la resistencia de los microorganismos a los antibióticos.</p>" +
+                        "<p>Cabe señalar que, en la Argentina por Resolución conjunta del Ministerio de Salud de la Nación N° 834/2015 y del Ministerio de Agricultura, Ganadería y Pesca N° 391/2015 se establece la Estrategia para el Control de la Resistencia Antimicrobiana, y uno de sus ejes de trabajo es la correcta administración de los antibióticos.</p>" +
+                        "<br />";
+                b.putString(DetalleHTMLActivity.DETAIL_CONTENT, strContent);
+
                 break;
             }
             case R.id.ly_sist_nac_traza: {
