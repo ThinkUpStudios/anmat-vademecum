@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/txt_detalle"
             android:textSize="@dimen/size_text_collapsible"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:textColor="@color/anmat_azul" />
 
     </ScrollView>
     <LinearLayout
