@@ -26,7 +26,7 @@ namespace Anmat.Server.Core.Context
 				DefaultCulture = ConfigurationManager.AppSettings["DefaultCulture"],
 				DefaultTextEncoding = ConfigurationManager.AppSettings["DefaultTextEncoding"]
 			};
-			var dataContext = new AnmatDataContext ();
+			var dataContext = new AnmatDataContext (configuration);
 			var metadataRepository = new SqlRepository<DocumentMetadata>(dataContext, configuration, new DocumentMetadataInitializer(configuration));
 			var versionRepository = new SqlRepository<UpdateVersion>(dataContext, configuration, new UpdateVersionInitializer());
 			var jobRepository = new SqlRepository<DataGenerationJob>(dataContext, configuration);

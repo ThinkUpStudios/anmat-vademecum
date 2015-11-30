@@ -2,25 +2,33 @@
 
 namespace Anmat.Server.Web.Controllers
 {
-    public class HomeController : Controller
-    {
-        public ActionResult Index()
-        {
-            return View();
-        }
+	public class HomeController : Controller
+	{
+		public ActionResult Index ()
+		{
+			return View ();
+		}
 
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your app description page.";
+		public ActionResult DownloadTemplates ()
+		{
+			var filePath = HttpContext.Server.MapPath("~/bin/VNMTemplates.zip");
+			var fileContent = System.IO.File.ReadAllBytes (filePath);
 
-        //    return View();
-        //}
+			return File (fileContent, "application/zip", System.IO.Path.GetFileName (filePath));
+		}
 
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
+		//public ActionResult About()
+		//{
+		//    ViewBag.Message = "Your app description page.";
 
-        //    return View();
-        //}
-    }
+		//    return View();
+		//}
+
+		//public ActionResult Contact()
+		//{
+		//    ViewBag.Message = "Your contact page.";
+
+		//    return View();
+		//}
+	}
 }
