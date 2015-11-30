@@ -41,9 +41,7 @@ namespace Anmat.Server.Core.Data
                 Name = "id",
                 Type = typeof(string).ToString(),
                 IsNullable = true, 
-                RemovableAccents = false,
                 UpperCase = false
-
             });
             columns.Add(new DocumentColumnMetadata()
             {
@@ -51,7 +49,6 @@ namespace Anmat.Server.Core.Data
                 Name = "certificado",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
             columns.Add(new DocumentColumnMetadata()
@@ -60,7 +57,6 @@ namespace Anmat.Server.Core.Data
                 Name = "cuit",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -78,7 +74,6 @@ namespace Anmat.Server.Core.Data
                 Name = "gtin",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -87,7 +82,6 @@ namespace Anmat.Server.Core.Data
                 Name = "troquel",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -121,7 +115,6 @@ namespace Anmat.Server.Core.Data
                 Name = "pais",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -130,7 +123,6 @@ namespace Anmat.Server.Core.Data
                 Name = "expendio",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -139,7 +131,6 @@ namespace Anmat.Server.Core.Data
                 Name = "trazabilidad",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -148,7 +139,6 @@ namespace Anmat.Server.Core.Data
                 Name = "presentacion",
 				Type = typeof(string).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -157,7 +147,6 @@ namespace Anmat.Server.Core.Data
                 Name = "precio",
 				Type = typeof(double).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 			columns.Add(new DocumentColumnMetadata()
@@ -166,7 +155,6 @@ namespace Anmat.Server.Core.Data
                 Name = "es_hospitalario",
 				Type = typeof(int).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
             columns.Add(new DocumentColumnMetadata()
@@ -175,7 +163,6 @@ namespace Anmat.Server.Core.Data
                 Name = "es_remediar",
                 Type = typeof(int).ToString(),
                 IsNullable = true,
-                RemovableAccents = false,
                 UpperCase = false
             });
 
@@ -196,66 +183,96 @@ namespace Anmat.Server.Core.Data
             columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 0,
-                Name = "principio",
+                Name = "ifa",
                 Type = typeof(string).ToString(),
                 IsNullable = false
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 1,
-                Name = "accion",
+                Name = "clasificacion_terapeutica",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 2,
-                Name = "indicaciones",
+                Name = "farma_descripcion",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 3,
-                Name = "presentacion",
+                Name = "farma_mecanismo_accion",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 4,
-                Name = "posologia",
+                Name = "farma_farmacocinetica",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 5,
-                Name = "duracion",
+                Name = "iyp_indicaciones",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 6,
-                Name = "contraindicaciones",
+                Name = "iyp_posologia",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 7,
-                Name = "observaciones",
+                Name = "contraindicaciones",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
 			columns.Add(new DocumentColumnMetadata()
             {
                 ColumnNumber = 8,
-                Name = "otros_nombres",
+                Name = "interacciones",
                 Type = typeof(string).ToString(),
                 IsNullable = true
             });
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 9,
+				Name = "reacciones_adversas",
+				Type = typeof (string).ToString (),
+				IsNullable = true
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 10,
+				Name = "referencias",
+				Type = typeof (string).ToString (),
+				IsNullable = true
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 11,
+				Name = "informacion_adicional",
+				Type = typeof (string).ToString (),
+				IsNullable = true
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 12,
+				Name = "bibliografia",
+				Type = typeof (string).ToString (),
+				IsNullable = true
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 13,
+				Name = "otros_nombres",
+				Type = typeof (string).ToString (),
+				IsNullable = true
+			});
 
 			var metadata = new DocumentMetadata
             {
