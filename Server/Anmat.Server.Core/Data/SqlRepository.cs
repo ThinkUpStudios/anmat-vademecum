@@ -25,19 +25,19 @@ namespace Anmat.Server.Core.Data
 		public IEnumerable<T> GetAll (Expression<Func<T, bool>> predicate = null)
 		{
 			if (predicate == null) {
-				return this.dataContext.Set<T>().AsEnumerable ();
+				return this.dataContext.Set<T>().AsNoTracking().AsEnumerable ();
 			}
 
-			return this.dataContext.Set<T>().Where (predicate).AsEnumerable();
+			return this.dataContext.Set<T>().Where (predicate).AsNoTracking().AsEnumerable();
 		}
 
 		public T Get (Expression<Func<T, bool>> predicate = null)
 		{
 			if (predicate == null) {
-				return this.dataContext.Set<T>().FirstOrDefault ();
+				return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault ();
 			}
 
-			return this.dataContext.Set<T>().FirstOrDefault (predicate);
+			return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault (predicate);
 		}
 
 		public bool Exist (Expression<Func<T, bool>> predicate = null)
@@ -53,9 +53,10 @@ namespace Anmat.Server.Core.Data
 
 		public void Update (T dataEntity)
 		{
+			this.dataContext.Set<T> ().Attach (dataEntity);
 			this.dataContext.Entry (dataEntity).State = EntityState.Modified;
 			this.Save ();
-			this.Refresh (dataEntity);
+			//this.Refresh (dataEntity);
 		}
 
 		public void Delete (T dataEntity)
@@ -79,7 +80,7 @@ namespace Anmat.Server.Core.Data
 			this.dataContext.SaveChanges ();
 		}
 
-		private void Refresh<T>(T dataEntity)
+		private void Refresh(T dataEntity)
 		{
 			((IObjectContextAdapter)this.dataContext).ObjectContext.Refresh (RefreshMode.StoreWins, dataEntity);
 		}
