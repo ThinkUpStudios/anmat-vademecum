@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 
 namespace Anmat.Server.Core
@@ -40,8 +39,7 @@ namespace Anmat.Server.Core
 		public string GetVersionPath(int version)
 		{
 			var versionValue = string.Format("v.{0}.0", version);
-			var expandedDocumentsPath = Environment.ExpandEnvironmentVariables (this.DocumentsPath);
-			var versionPath = Path.Combine (expandedDocumentsPath, versionValue);
+			var versionPath = Path.Combine (this.DocumentsPath, versionValue);
 
 			if (!Directory.Exists (versionPath)) {
 				Directory.CreateDirectory (versionPath);

@@ -13,7 +13,7 @@ using System.Globalization;
 namespace Anmat.Server.Core
 {
 	public class SQLiteGenerator : ISQLGenerator
-    {
+	{
 		private readonly StringBuilder scriptBuilder;
 		private readonly IDataGenerationJobService jobService;
 		private readonly IVersionService versionService;
@@ -29,7 +29,7 @@ namespace Anmat.Server.Core
 
 		public string FileExtension { get { return ".sqlite"; } }
 
-        public string Script { get; private set; }
+		public string Script { get; private set; }
 
 		/// <exception cref="SQLGenerationException">SQLGenerationException</exception>
 		public string GenerateDatabase (IEnumerable<IDocumentGenerator> documentGenerators)
@@ -38,8 +38,8 @@ namespace Anmat.Server.Core
 		}
 
 		/// <exception cref="SQLGenerationException">SQLGenerationException</exception>
-        public string GenerateDatabase(params IDocumentGenerator[] documentGenerators)
-        {
+		public string GenerateDatabase (params IDocumentGenerator[] documentGenerators)
+		{
 			this.scriptBuilder.Clear ();
 
 			var job = this.jobService.GetLatestJob ();
@@ -49,43 +49,65 @@ namespace Anmat.Server.Core
 			}
 
 			if (job.Status != DataGenerationJobStatus.InProgress) {
-				throw new SQLGenerationException (string.Format(Resources.LatestJob_NotInProgress, job.Id, job.Version));
+				throw new SQLGenerationException (string.Format (Resources.LatestJob_NotInProgress, job.Id, job.Version));
 			}
 
 			var databaseFileName = Path.Combine (this.configuration.GetVersionPath (job.Version), this.configuration.TargetDatabaseName + this.FileExtension);
 
-			if(!configuration.ReplaceExistingTargetDatabase && File.Exists(databaseFileName)) {
-				throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_DatabaseAlreadyExists, databaseFileName));
+			if (File.Exists (databaseFileName)) {
+				if (!configuration.ReplaceExistingTargetDatabase) {
+					throw new SQLGenerationException (string.Format (Resources.SQLiteGenerator_DatabaseAlreadyExists, databaseFileName));
+				}
+
+				File.Delete (databaseFileName);
 			}
 
-			SQLiteConnection.CreateFile (databaseFileName);
+			var templateFile = Path.Combine(this.configuration.DocumentsPath, "template.sqlite");
 
-			var inMemoryConnectionString = string.Format ("Data Source=:memory:");
+			if (File.Exists (templateFile)) {
+				File.Copy (templateFile, databaseFileName);
+			} else {
+				SQLiteConnection.CreateFile (databaseFileName);
+			}
 
-			using (var inMemoryConnection = new SQLiteConnection (inMemoryConnectionString)) {
-				inMemoryConnection.Open ();
+			var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
 
-				this.CreateDocumentTables (documentGenerators, inMemoryConnection);
+			using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
+				fileConnection.Open ();
+
+				this.CreateDocumentTables (documentGenerators, fileConnection);
 
 				var newVersion = this.versionService.IncrementVersion ();
 
-				this.CreateVersionTable (newVersion, inMemoryConnection);
-
-				var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
-
-				using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
-					fileConnection.Open ();
-
-					inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
-				}
+				this.CreateVersionTable (newVersion, fileConnection);
 			}
+
+			//var inMemoryConnectionString = string.Format ("Data Source=:memory:");
+
+			//using (var inMemoryConnection = new SQLiteConnection (inMemoryConnectionString)) {
+			//	inMemoryConnection.Open ();
+
+			//	this.CreateDocumentTables (documentGenerators, inMemoryConnection);
+
+			//	var newVersion = this.versionService.IncrementVersion ();
+
+			//	this.CreateVersionTable (newVersion, inMemoryConnection);
+
+			//	var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
+
+			//	using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
+			//		fileConnection.Open ();
+
+			//		inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
+			//	}
+			//}
 
 			this.Script = scriptBuilder.ToString ();
 
 			return databaseFileName;
-        }
+		}
 
-		private void CreateDocumentTables(IDocumentGenerator[] documentGenerators, SQLiteConnection connection)
+		private void CreateDocumentTables (IDocumentGenerator[] documentGenerators, SQLiteConnection connection)
 		{
 			foreach (var documentGenerator in documentGenerators) {
 				var document = documentGenerator.Generate ();
@@ -93,48 +115,48 @@ namespace Anmat.Server.Core
 				var tableCommand = new SQLiteCommand(tableScript, connection);
 
 				try {
-					tableCommand.ExecuteNonQuery();
+					tableCommand.ExecuteNonQuery ();
 				} catch (Exception ex) {
-					throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_UnhandledTableError, documentGenerator.Metadata.DocumentName), ex);
+					throw new SQLGenerationException (string.Format (Resources.SQLiteGenerator_UnhandledTableError, documentGenerator.Metadata.DocumentName), ex);
 				}
-				
+
 				this.scriptBuilder.AppendLine (tableScript);
 
 				var i = 1;
 
-				foreach(var row in document.Rows) {
+				foreach (var row in document.Rows) {
 					var insertScript = this.GetInsertScript(documentGenerator.Metadata, row);
 					var insertCommand = new SQLiteCommand(insertScript, connection);
 
 					try {
-						insertCommand.ExecuteNonQuery();
+						insertCommand.ExecuteNonQuery ();
 						i++;
 					} catch (Exception ex) {
-						throw new SQLGenerationException (string.Format(Resources.SQLiteGenerator_UnhandledRowError, i, documentGenerator.Metadata.DocumentName), ex);
+						throw new SQLGenerationException (string.Format (Resources.SQLiteGenerator_UnhandledRowError, i, documentGenerator.Metadata.DocumentName), ex);
 					}
 
-					this.scriptBuilder.AppendLine(insertScript);
+					this.scriptBuilder.AppendLine (insertScript);
 				}
 			}
 		}
 
-		private void CreateVersionTable(UpdateVersion version, SQLiteConnection connection)
+		private void CreateVersionTable (UpdateVersion version, SQLiteConnection connection)
 		{
 			var tableScript = "CREATE TABLE version (numero	INT NOT NULL, ultima_actualizacion TEXT NOT NULL)";
 			var tableCommand = new SQLiteCommand(tableScript, connection);
 
-			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')", 
+			var insertScript = string.Format ("INSERT INTO version (numero, ultima_actualizacion) VALUES ({0}, '{1}')",
 				version.Number, version.Date.ToString ("D", new CultureInfo ("es-AR")));
 			var insertCommand = new SQLiteCommand(insertScript, connection);
 
-			tableCommand.ExecuteNonQuery();
-			insertCommand.ExecuteNonQuery();
+			tableCommand.ExecuteNonQuery ();
+			insertCommand.ExecuteNonQuery ();
 
-			this.scriptBuilder.AppendLine(insertScript);
+			this.scriptBuilder.AppendLine (insertScript);
 			this.scriptBuilder.AppendLine (tableScript);
 		}
 
-		private string GetCreateTableScript(DocumentMetadata metadata)
+		private string GetCreateTableScript (DocumentMetadata metadata)
 		{
 			var scriptBuilder = new StringBuilder ();
 
@@ -144,18 +166,17 @@ namespace Anmat.Server.Core
 
 			var i = 1;
 
-			foreach (var columnMetadaData in metadata.Columns.OrderBy(c => c.ColumnNumber))
-			{
-				 scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (columnMetadaData)));
+			foreach (var columnMetadaData in metadata.Columns.OrderBy (c => c.ColumnNumber)) {
+				scriptBuilder.Append (string.Format ("{0} {1}", columnMetadaData.Name, this.GetSQLiteType (columnMetadaData)));
 
-				 if (i < metadata.Columns.Count ()) {
+				if (i < metadata.Columns.Count ()) {
 					scriptBuilder.Append (", ");
-				 }
+				}
 
 				i++;
 			}
 
-			scriptBuilder.Append(");");
+			scriptBuilder.Append (");");
 
 			return scriptBuilder.ToString ();
 		}
@@ -177,14 +198,12 @@ namespace Anmat.Server.Core
 			for (var i = 0; i < row.Cells.Count (); i++) {
 				var cell = row.Cells.ElementAt (i);
 
-				if(cell.Type == typeof(string) || cell.Type == typeof(DateTime)) {
-					scriptBuilder.Append (string.Format("'{0}'", cell.Value.Replace("'", "''")));
-				} else if(cell.Type == typeof(bool))
-				{
+				if (cell.Type == typeof (string) || cell.Type == typeof (DateTime)) {
+					scriptBuilder.Append (string.Format ("'{0}'", cell.Value.Replace ("'", "''")));
+				} else if (cell.Type == typeof (bool)) {
 					scriptBuilder.Append (string.Format ("{0}", cell.Value.ToLower () == "true" ? 1 : 0));
-				} else
-				{
-					scriptBuilder.Append (string.IsNullOrEmpty(cell.Value) ? "NULL" : cell.Value);	
+				} else {
+					scriptBuilder.Append (string.IsNullOrEmpty (cell.Value) ? "NULL" : cell.Value);
 				}
 
 				if (i == row.Cells.Count () - 1) {
@@ -197,7 +216,7 @@ namespace Anmat.Server.Core
 			return scriptBuilder.ToString ();
 		}
 
-		private string GetSQLiteType(DocumentColumnMetadata columnMetadata)
+		private string GetSQLiteType (DocumentColumnMetadata columnMetadata)
 		{
 			var columnType = columnMetadata.GetType();
 			var sqlType = columnType == typeof (double) ? "REAL" :

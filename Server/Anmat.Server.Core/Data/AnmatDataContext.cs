@@ -8,7 +8,7 @@ namespace Anmat.Server.Core.Data
         {
 			//Database.SetInitializer<AnmatDataContext>(new CreateDatabaseIfNotExists<AnmatDataContext>());
 			Database.SetInitializer<AnmatDataContext> (new DropCreateDatabaseIfModelChanges<AnmatDataContext> ());
-			//Database.SetInitializer<AnmatDataContext>(new DropCreateDatabaseAlways<AnmatDataContext>());
+			//Database.SetInitializer<AnmatDataContext> (new DropCreateDatabaseAlways<AnmatDataContext> ());
 		}
 
 		public DbSet<UpdateVersion> Versions { get; set; }
