@@ -15,7 +15,12 @@ namespace Anmat.Server.Web
 		public AnmatGenerationServiceClient (AnmatConfiguration configuration)
 		{
 			this.configuration = configuration;
-			this.channelFactory = new WebChannelFactory<IAnmatDataService> (new WebHttpBinding (), new Uri(this.configuration.AnmatDataServiceUrl));
+
+			var binding = new WebHttpBinding ();
+
+			binding.SendTimeout = TimeSpan.FromMinutes (10);
+
+            this.channelFactory = new WebChannelFactory<IAnmatDataService> (binding, new Uri(this.configuration.AnmatDataServiceUrl));
 
 			this.channelFactory.Endpoint.Behaviors.Add(new WebHttpBehavior());
 		}
