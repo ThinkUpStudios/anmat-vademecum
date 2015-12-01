@@ -28,6 +28,10 @@ namespace Anmat.Server.Core
 
 		public string TargetActiveComponentsTableName { get; set; }
 
+		public string TargetGroupsTableName { get; set; }
+
+		public string TargetPregnancyComponentsTableName { get; set; }
+
 		public bool ReplaceExistingTargetDatabase { get; set; }
 
 		public bool FullInitialize { get; set; }

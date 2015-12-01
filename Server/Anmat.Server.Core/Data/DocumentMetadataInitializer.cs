@@ -22,8 +22,10 @@ namespace Anmat.Server.Core.Data
 				this.CleanExistingData (repository);
 			}
 
-			this.InitializeMedicineMetadata (repository);
+			this.InitializeMedicinesMetadata (repository);
 			this.InitializeActiveComponentsMetadata (repository);
+			this.InitializeGroupsMetadata (repository);
+			this.InitializePregnancyComponentsMetadata (repository);
 		}
 
 		private void CleanExistingData (IRepository<DocumentMetadata> repository)
@@ -31,7 +33,7 @@ namespace Anmat.Server.Core.Data
 			(repository as SqlRepository<DocumentMetadata>).DeleteAll ();
 		}
 
-		private void InitializeMedicineMetadata(IRepository<DocumentMetadata> repository)
+		private void InitializeMedicinesMetadata(IRepository<DocumentMetadata> repository)
 		{
 			var columns = new List<DocumentColumnMetadata>();
 
@@ -282,6 +284,78 @@ namespace Anmat.Server.Core.Data
             };
 
             repository.Create(metadata);
+		}
+
+		private void InitializeGroupsMetadata (IRepository<DocumentMetadata> repository)
+		{
+			var columns = new List<DocumentColumnMetadata>();
+
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 0,
+				Name = "id",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 1,
+				Name = "descripcion",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+
+			var metadata = new DocumentMetadata
+			{
+				DocumentName = this.configuration.TargetGroupsTableName,
+				HasHeader = true,
+				Columns = columns,
+			};
+
+			repository.Create (metadata);
+		}
+
+		private void InitializePregnancyComponentsMetadata (IRepository<DocumentMetadata> repository)
+		{
+			var columns = new List<DocumentColumnMetadata>();
+
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 0,
+				Name = "grupo_id",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 1,
+				Name = "principio",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 2,
+				Name = "medicamentos",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+			columns.Add (new DocumentColumnMetadata () {
+				ColumnNumber = 3,
+				Name = "clasificacion",
+				Type = typeof (string).ToString (),
+				IsNullable = true,
+				UpperCase = false
+			});
+
+			var metadata = new DocumentMetadata
+			{
+				DocumentName = this.configuration.TargetPregnancyComponentsTableName,
+				HasHeader = true,
+				Columns = columns,
+			};
+
+			repository.Create (metadata);
 		}
 	}
 }
