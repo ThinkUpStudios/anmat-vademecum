@@ -59,17 +59,22 @@ namespace Anmat.Server.DataService
 				context.Configuration.TargetMedicinesTableName, 
 				context.Configuration.TargetActiveComponentsTableName 
 			};
-			var tempFiles = this.GetVersionTempFiles (latestJob.Version)
-				.Where(f => expectedFiles.Any(e => e == Path.GetFileNameWithoutExtension(f)));
+			var currentFiles = new List<string>();
+
+			currentFiles.AddRange (this.GetVersionTempFiles (latestJob.Version)
+				.Where (f => expectedFiles.Any (e => e == Path.GetFileNameWithoutExtension (f))));
+			currentFiles.Add (Path.Combine (context.Configuration.DocumentsPath, context.Configuration.TargetGroupsTableName + ".csv"));
+			currentFiles.Add (Path.Combine (context.Configuration.DocumentsPath, context.Configuration.TargetPregnancyComponentsTableName + ".csv"));
+
 			var destinationPath = context.Configuration.GetVersionPath (latestJob.Version);
 
-			foreach (var tempFile in tempFiles) {
-				var destinationFile = Path.Combine(destinationPath, Path.GetFileName(tempFile));
+			foreach (var file in currentFiles) {
+				var destinationFile = Path.Combine(destinationPath, Path.GetFileName(file));
 
-				File.Copy(tempFile, destinationFile, overwrite: true);
+				File.Copy(file, destinationFile, overwrite: true);
 			}
 
-			var missingFiles = expectedFiles.Where (e => !tempFiles.Any (t => Path.GetFileNameWithoutExtension(t) == e));
+			var missingFiles = expectedFiles.Where (e => !currentFiles.Any (t => Path.GetFileNameWithoutExtension(t) == e));
 
 			if (missingFiles.Any ()) {
 				var previousVersionFiles = this.GetVersionFiles (latestJob.Version - 1);

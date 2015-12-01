@@ -21,6 +21,8 @@ namespace Anmat.Server.Core.Context
 				TargetDatabaseName = ConfigurationManager.AppSettings["TargetDatabaseName"],
 				TargetMedicinesTableName = ConfigurationManager.AppSettings["TargetMedicinesTableName"],
 				TargetActiveComponentsTableName = ConfigurationManager.AppSettings["TargetActiveComponentsTableName"],
+				TargetGroupsTableName = ConfigurationManager.AppSettings["TargetGroupsTableName"],
+				TargetPregnancyComponentsTableName = ConfigurationManager.AppSettings["TargetPregnancyComponentsTableName"],
 				ReplaceExistingTargetDatabase = bool.Parse(ConfigurationManager.AppSettings["ReplaceExistingTargetDatabase"]),
 				FullInitialize = bool.Parse(ConfigurationManager.AppSettings["FullInitialize"]),
 				DefaultCulture = ConfigurationManager.AppSettings["DefaultCulture"],
@@ -40,8 +42,11 @@ namespace Anmat.Server.Core.Context
 
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetMedicinesTableName, 
 				documentReader, jobService, metadataService, configuration));
-
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetActiveComponentsTableName, 
+				documentReader, jobService, metadataService, configuration));
+			documentGenerators.Add (new DocumentGenerator (configuration.TargetGroupsTableName,
+				documentReader, jobService, metadataService, configuration));
+			documentGenerators.Add (new DocumentGenerator (configuration.TargetPregnancyComponentsTableName,
 				documentReader, jobService, metadataService, configuration));
 
 			var sqlGenerator = new SQLiteGenerator(jobService, versionService, configuration);

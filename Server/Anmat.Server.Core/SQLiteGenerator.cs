@@ -62,45 +62,27 @@ namespace Anmat.Server.Core
 				File.Delete (databaseFileName);
 			}
 
-			var templateFile = Path.Combine(this.configuration.DocumentsPath, "template.sqlite");
+			SQLiteConnection.CreateFile (databaseFileName);
 
-			if (File.Exists (templateFile)) {
-				File.Copy (templateFile, databaseFileName);
-			} else {
-				SQLiteConnection.CreateFile (databaseFileName);
-			}
+			var inMemoryConnectionString = string.Format ("Data Source=:memory:");
 
-			var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
+			using (var inMemoryConnection = new SQLiteConnection (inMemoryConnectionString)) {
+				inMemoryConnection.Open ();
 
-			using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
-				fileConnection.Open ();
-
-				this.CreateDocumentTables (documentGenerators, fileConnection);
+				this.CreateDocumentTables (documentGenerators, inMemoryConnection);
 
 				var newVersion = this.versionService.IncrementVersion ();
 
-				this.CreateVersionTable (newVersion, fileConnection);
+				this.CreateVersionTable (newVersion, inMemoryConnection);
+
+				var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
+
+				using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
+					fileConnection.Open ();
+
+					inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
+				}
 			}
-
-			//var inMemoryConnectionString = string.Format ("Data Source=:memory:");
-
-			//using (var inMemoryConnection = new SQLiteConnection (inMemoryConnectionString)) {
-			//	inMemoryConnection.Open ();
-
-			//	this.CreateDocumentTables (documentGenerators, inMemoryConnection);
-
-			//	var newVersion = this.versionService.IncrementVersion ();
-
-			//	this.CreateVersionTable (newVersion, inMemoryConnection);
-
-			//	var fileConnectionString = string.Format("Data Source={0};Version=3;", databaseFileName);
-
-			//	using (var fileConnection = new SQLiteConnection (fileConnectionString)) {
-			//		fileConnection.Open ();
-
-			//		inMemoryConnection.BackupDatabase (fileConnection, "main", "main", -1, callback: null, retryMilliseconds: 0);
-			//	}
-			//}
 
 			this.Script = scriptBuilder.ToString ();
 
