@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SectionRow.h"
 
 @interface Section : NSObject
 
@@ -15,7 +14,11 @@
 
 - (id) initWithName:(NSString *) name;
 
-- (void) addRow:(NSString *) value detail:(NSString *) detail;
+- (void) addRow:(NSString *) line1;
+
+- (void) addRow:(NSString *) line1 line2:(NSString *) line2;
+
+- (void) addRow:(NSString *) line1 line2:(NSString *) line2 line3:(NSString *) line3;
 
 - (NSArray *) getRows;
 

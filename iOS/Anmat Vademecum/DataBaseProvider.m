@@ -61,6 +61,14 @@
     if(overwrite || ![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
         NSError *error;
         NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseFilename];
+        if([[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+            [[NSFileManager defaultManager] removeItemAtPath:destinationPath error:&error];
+            
+            if (error != nil) {
+                NSLog(@"%@", [error localizedDescription]);
+            }
+        }
+        
         [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
         
         if (error != nil) {

@@ -8,6 +8,9 @@
 
 #import "Section.h"
 #import "SectionRow.h"
+#import "SectionRow1Line.h"
+#import "SectionRow2Lines.h"
+#import "SectionRow3Lines.h"
 
 @implementation Section {
     NSMutableArray *rows;
@@ -21,10 +24,20 @@
     return self;
 }
 
-- (void) addRow:(NSString *)value detail:(NSString *)detail {
-    SectionRow *row = [[SectionRow alloc] initWithValue:value];
+- (void) addRow:(NSString *) line1 {
+    SectionRow1Line *row = [[SectionRow1Line alloc] initWithLine:line1];
     
-    row.detail = detail;
+    [rows addObject:row];
+}
+
+- (void) addRow:(NSString *) line1 line2:(NSString *) line2 {
+    SectionRow2Lines *row = [[SectionRow2Lines alloc] initWithLines:line1 line2:line2];
+    
+    [rows addObject:row];
+}
+
+- (void) addRow:(NSString *) line1 line2:(NSString *) line2 line3:(NSString *) line3 {
+    SectionRow3Lines *row = [[SectionRow3Lines alloc] initWithLines:line1 line2:line2 line3:line3];
     
     [rows addObject:row];
 }
