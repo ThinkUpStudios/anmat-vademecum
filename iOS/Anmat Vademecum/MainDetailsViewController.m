@@ -9,9 +9,9 @@
 #import "MainDetailsViewController.h"
 #import "Medicine.h"
 #import "DetailsTabViewController.h"
-#import "AutoLayoutCell.h"
+#import "AutoLayoutCell1Line.h"
 
-static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
+static NSString * const AutoLayoutCellIdentifier = @"MainDetailCell";
 
 @interface MainDetailsViewController ()
 
@@ -120,15 +120,15 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     return medicineTitles[section];
 }
 
-- (AutoLayoutCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
-    AutoLayoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier forIndexPath:indexPath];
+- (AutoLayoutCell1Line *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
+    AutoLayoutCell1Line *cell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier forIndexPath:indexPath];
     
     [self configureBasicCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
-- (void)configureBasicCell:(AutoLayoutCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureBasicCell:(AutoLayoutCell1Line *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSString *title = medicineTitles[indexPath.section];
     NSString *content = medicineDetails[indexPath.section];
     NSTextAlignment alignment = NSTextAlignmentLeft;
@@ -147,19 +147,19 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     [self setContentForCell:cell content:content alignment:alignment bold:bold];
 }
 
-- (void)setContentForCell:(AutoLayoutCell *)cell content:(NSString *)content alignment:(NSTextAlignment) alignment bold:(BOOL) bold {
+- (void)setContentForCell:(AutoLayoutCell1Line *)cell content:(NSString *)content alignment:(NSTextAlignment) alignment bold:(BOOL) bold {
     NSString *text = content ?: NSLocalizedString(@"[-]", nil);
     
     if(bold) {
-        [cell.lblContent setFont:[UIFont boldSystemFontOfSize:15]];
+        [cell.lblLine1 setFont:[UIFont boldSystemFontOfSize:15]];
     }
     
-    cell.lblContent.textAlignment = alignment;
-    [cell.lblContent setText:text];
+    cell.lblLine1.textAlignment = alignment;
+    [cell.lblLine1 setText:text];
 }
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-    static AutoLayoutCell *sizingCell = nil;
+    static AutoLayoutCell1Line *sizingCell = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{

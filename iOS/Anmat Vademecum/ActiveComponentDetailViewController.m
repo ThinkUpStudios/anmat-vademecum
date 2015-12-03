@@ -7,9 +7,9 @@
 //
 
 #import "ActiveComponentDetailViewController.h"
-#import "AutoLayoutCell.h"
+#import "AutoLayoutCell1Line.h"
 
-static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
+static NSString * const AutoLayoutCellIdentifier = @"ActiveComponentCell";
 
 @interface ActiveComponentDetailViewController ()
 
@@ -71,28 +71,28 @@ static NSString * const AutoLayoutCellIdentifier = @"AutoLayoutCell";
     return self.subtitles[section];
 }
 
-- (AutoLayoutCell *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
-    AutoLayoutCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier forIndexPath:indexPath];
+- (AutoLayoutCell1Line *)basicCellAtIndexPath:(NSIndexPath *)indexPath {
+    AutoLayoutCell1Line *cell = [self.tableView dequeueReusableCellWithIdentifier:AutoLayoutCellIdentifier forIndexPath:indexPath];
     
     [self configureBasicCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
-- (void)configureBasicCell:(AutoLayoutCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureBasicCell:(AutoLayoutCell1Line *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSString *content = self.details[indexPath.section];
     
     [self setContentForCell:cell content:content];
 }
 
-- (void)setContentForCell:(AutoLayoutCell *)cell content:(NSString *)content {
+- (void)setContentForCell:(AutoLayoutCell1Line *)cell content:(NSString *)content {
     NSString *text = content ?: NSLocalizedString(@"[-]", nil);
     
-    [cell.lblContent setText:text];
+    [cell.lblLine1 setText:text];
 }
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
-    static AutoLayoutCell *sizingCell = nil;
+    static AutoLayoutCell1Line *sizingCell = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{

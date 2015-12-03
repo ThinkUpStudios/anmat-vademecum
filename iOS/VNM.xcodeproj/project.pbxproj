@@ -11,22 +11,36 @@
 		141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E41A97652D00B78F0B /* SearchViewController.m */; };
 		141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */; };
 		141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */; };
+		141FE5961C0F6D1700F7B948 /* InformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE5951C0F6D1700F7B948 /* InformationDetailViewController.m */; };
+		141FE59C1C0F804600F7B948 /* PregnancyComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE59B1C0F804600F7B948 /* PregnancyComponent.m */; };
+		141FE59F1C0F810100F7B948 /* PregnancyComponentRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE59E1C0F810100F7B948 /* PregnancyComponentRepository.m */; };
+		141FE5A21C0F854700F7B948 /* PregnancyGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE5A11C0F854700F7B948 /* PregnancyGroup.m */; };
+		141FE5A51C0F856C00F7B948 /* PregnancyGroupService.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE5A41C0F856C00F7B948 /* PregnancyGroupService.m */; };
+		141FE5A81C0FF40B00F7B948 /* PregnancyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141FE5A71C0FF40B00F7B948 /* PregnancyDetailsViewController.m */; };
+		142330B21BDD5ACE00B7D694 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 142330B11BDD5ACE00B7D694 /* Section.m */; };
+		142330B51BDD5B1A00B7D694 /* SectionRow2Lines.m in Sources */ = {isa = PBXBuildFile; fileRef = 142330B41BDD5B1A00B7D694 /* SectionRow2Lines.m */; };
 		1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */; };
 		143A4DEA1AF2C5B800CAA8AE /* MedicinesFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */; };
 		143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 143A4DEC1AF2C8D500CAA8AE /* MBProgressHUD.m */; };
 		1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E41AAB618C00F9FEC7 /* MenuViewController.m */; };
 		1451E5E81AAB7BBA00F9FEC7 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = 1451E5E71AAB7BBA00F9FEC7 /* Component.m */; };
-		14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */; };
 		147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2ABC1A97F6EE00C9B2EC /* MainDetailsViewController.m */; };
 		147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 147E2AC81A9811F000C9B2EC /* DetailsTabViewController.m */; };
 		148987AE1AD096330054FE02 /* logo-patria-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AD1AD096330054FE02 /* logo-patria-toolbar.png */; };
 		148987B01AD097340054FE02 /* logo-vnm.png in Resources */ = {isa = PBXBuildFile; fileRef = 148987AF1AD097340054FE02 /* logo-vnm.png */; };
 		148A260C1AEED9FE001DDBE6 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148A260B1AEED9FE001DDBE6 /* InformationViewController.m */; };
+		148D25541BE521DB00931D74 /* AutoLayoutCell3Lines.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D25531BE521DB00931D74 /* AutoLayoutCell3Lines.m */; };
+		148D25571BE5235700931D74 /* SectionRow3Lines.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D25561BE5235700931D74 /* SectionRow3Lines.m */; };
+		148D255A1BE5295800931D74 /* SectionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D25591BE5295800931D74 /* SectionRow.m */; };
+		148D255D1BE52A4900931D74 /* SectionRow1Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 148D255C1BE52A4900931D74 /* SectionRow1Line.m */; };
 		1491151F1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */; };
 		149115201AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */; };
 		149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */; };
 		149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */; };
-		149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */; };
+		149A72241BDC51C300A8D1CE /* AutoLayoutCell2Lines.m in Sources */ = {isa = PBXBuildFile; fileRef = 149A72231BDC51C300A8D1CE /* AutoLayoutCell2Lines.m */; };
+		149A72271BDC531800A8D1CE /* PregnancyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149A72261BDC531800A8D1CE /* PregnancyViewController.m */; };
+		149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell1Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell1Line.m */; };
 		14AABA451A97C1BC00126B22 /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AABA441A97C1BC00126B22 /* Medicine.m */; };
 		14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC8E001AB6EFA300DA84C7 /* MedicineRepository.m */; };
 		14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */; };
@@ -53,7 +67,7 @@
 		14F720701AEEA78E00FFEDA1 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7206F1AEEA78E00FFEDA1 /* Version.m */; };
 		14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F720721AEEC06A00FFEDA1 /* AboutViewController.m */; };
 		14F720751AEECAFC00FFEDA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F720741AEECAFC00FFEDA1 /* SystemConfiguration.framework */; };
-		14F7C5271BD541A200694F6C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7C5261BD541A200694F6C /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
+		14F7C5271BD541A200694F6C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F7C5261BD541A200694F6C /* Reachability.m */; };
 		14F7C52D1BD5564900694F6C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F7C52C1BD5564900694F6C /* libsqlite3.tbd */; };
 		14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F97A3B1AD229C300C08620 /* ContactAlertController.m */; };
 /* End PBXBuildFile section */
@@ -76,6 +90,22 @@
 		141BC4E71A9765FC00B78F0B /* MainSearchSectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSearchSectionViewController.m; sourceTree = "<group>"; };
 		141BC4E91A97672900B78F0B /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		141BC4EA1A97672900B78F0B /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		141FE5941C0F6D1700F7B948 /* InformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationDetailViewController.h; sourceTree = "<group>"; };
+		141FE5951C0F6D1700F7B948 /* InformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationDetailViewController.m; sourceTree = "<group>"; };
+		141FE59A1C0F804600F7B948 /* PregnancyComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyComponent.h; sourceTree = "<group>"; };
+		141FE59B1C0F804600F7B948 /* PregnancyComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyComponent.m; sourceTree = "<group>"; };
+		141FE59D1C0F810100F7B948 /* PregnancyComponentRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyComponentRepository.h; sourceTree = "<group>"; };
+		141FE59E1C0F810100F7B948 /* PregnancyComponentRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyComponentRepository.m; sourceTree = "<group>"; };
+		141FE5A01C0F854700F7B948 /* PregnancyGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyGroup.h; sourceTree = "<group>"; };
+		141FE5A11C0F854700F7B948 /* PregnancyGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyGroup.m; sourceTree = "<group>"; };
+		141FE5A31C0F856C00F7B948 /* PregnancyGroupService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyGroupService.h; sourceTree = "<group>"; };
+		141FE5A41C0F856C00F7B948 /* PregnancyGroupService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyGroupService.m; sourceTree = "<group>"; };
+		141FE5A61C0FF40B00F7B948 /* PregnancyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyDetailsViewController.h; sourceTree = "<group>"; };
+		141FE5A71C0FF40B00F7B948 /* PregnancyDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyDetailsViewController.m; sourceTree = "<group>"; };
+		142330B01BDD5ACE00B7D694 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		142330B11BDD5ACE00B7D694 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		142330B31BDD5B1A00B7D694 /* SectionRow2Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionRow2Lines.h; sourceTree = "<group>"; };
+		142330B41BDD5B1A00B7D694 /* SectionRow2Lines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionRow2Lines.m; sourceTree = "<group>"; };
 		1437FA3F1A98B6DC00EC5D40 /* FormulaDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormulaDetailsViewController.h; sourceTree = "<group>"; };
 		1437FA401A98B6DC00EC5D40 /* FormulaDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormulaDetailsViewController.m; sourceTree = "<group>"; };
 		143A4DE81AF2C5B800CAA8AE /* MedicinesFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicinesFilter.h; sourceTree = "<group>"; };
@@ -96,14 +126,26 @@
 		148987AF1AD097340054FE02 /* logo-vnm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-vnm.png"; sourceTree = "<group>"; };
 		148A260A1AEED9FE001DDBE6 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		148A260B1AEED9FE001DDBE6 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		148D25521BE521DB00931D74 /* AutoLayoutCell3Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell3Lines.h; sourceTree = "<group>"; };
+		148D25531BE521DB00931D74 /* AutoLayoutCell3Lines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell3Lines.m; sourceTree = "<group>"; };
+		148D25551BE5235700931D74 /* SectionRow3Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionRow3Lines.h; sourceTree = "<group>"; };
+		148D25561BE5235700931D74 /* SectionRow3Lines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionRow3Lines.m; sourceTree = "<group>"; };
+		148D25581BE5295800931D74 /* SectionRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionRow.h; sourceTree = "<group>"; };
+		148D25591BE5295800931D74 /* SectionRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionRow.m; sourceTree = "<group>"; };
+		148D255B1BE52A4900931D74 /* SectionRow1Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionRow1Line.h; sourceTree = "<group>"; };
+		148D255C1BE52A4900931D74 /* SectionRow1Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionRow1Line.m; sourceTree = "<group>"; };
 		1491151C1AC4E07B00A4F1D7 /* logo-anmat-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-anmat-toolbar.png"; sourceTree = "<group>"; };
 		1491151D1AC4E07B00A4F1D7 /* logo-ministerio-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-ministerio-toolbar.png"; sourceTree = "<group>"; };
 		149856621ABF3819001B6B5A /* ActiveComponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentsViewController.h; sourceTree = "<group>"; };
 		149856631ABF3819001B6B5A /* ActiveComponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentsViewController.m; sourceTree = "<group>"; };
 		149856651ABF4CDB001B6B5A /* ActiveComponentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveComponentInfoViewController.h; sourceTree = "<group>"; };
 		149856661ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveComponentInfoViewController.m; sourceTree = "<group>"; };
-		149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell.h; sourceTree = "<group>"; };
-		149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell.m; sourceTree = "<group>"; };
+		149A72221BDC51C300A8D1CE /* AutoLayoutCell2Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell2Lines.h; sourceTree = "<group>"; };
+		149A72231BDC51C300A8D1CE /* AutoLayoutCell2Lines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell2Lines.m; sourceTree = "<group>"; };
+		149A72251BDC531800A8D1CE /* PregnancyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PregnancyViewController.h; sourceTree = "<group>"; };
+		149A72261BDC531800A8D1CE /* PregnancyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PregnancyViewController.m; sourceTree = "<group>"; };
+		149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell1Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLayoutCell1Line.h; sourceTree = "<group>"; };
+		149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell1Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutCell1Line.m; sourceTree = "<group>"; };
 		14AABA431A97C1BC00126B22 /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
 		14AABA441A97C1BC00126B22 /* Medicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicine.m; sourceTree = "<group>"; };
 		14AC8DFF1AB6EFA300DA84C7 /* MedicineRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineRepository.h; sourceTree = "<group>"; };
@@ -212,6 +254,12 @@
 				148A260B1AEED9FE001DDBE6 /* InformationViewController.m */,
 				14780D931BDBFAB20030FCD0 /* ActiveComponentDetailViewController.h */,
 				14780D941BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m */,
+				149A72251BDC531800A8D1CE /* PregnancyViewController.h */,
+				149A72261BDC531800A8D1CE /* PregnancyViewController.m */,
+				141FE5941C0F6D1700F7B948 /* InformationDetailViewController.h */,
+				141FE5951C0F6D1700F7B948 /* InformationDetailViewController.m */,
+				141FE5A61C0FF40B00F7B948 /* PregnancyDetailsViewController.h */,
+				141FE5A71C0FF40B00F7B948 /* PregnancyDetailsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +285,10 @@
 				14F7206F1AEEA78E00FFEDA1 /* Version.m */,
 				143A4DE81AF2C5B800CAA8AE /* MedicinesFilter.h */,
 				143A4DE91AF2C5B800CAA8AE /* MedicinesFilter.m */,
+				141FE59A1C0F804600F7B948 /* PregnancyComponent.h */,
+				141FE59B1C0F804600F7B948 /* PregnancyComponent.m */,
+				141FE5A01C0F854700F7B948 /* PregnancyGroup.h */,
+				141FE5A11C0F854700F7B948 /* PregnancyGroup.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -252,6 +304,8 @@
 				14DDAC461ACB59F4003A1A52 /* DataBaseProvider.m */,
 				14F7206B1AEEA6BF00FFEDA1 /* VersionRepository.h */,
 				14F7206C1AEEA6BF00FFEDA1 /* VersionRepository.m */,
+				141FE59D1C0F810100F7B948 /* PregnancyComponentRepository.h */,
+				141FE59E1C0F810100F7B948 /* PregnancyComponentRepository.m */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -265,6 +319,8 @@
 				14BC10C31AACABF100CA80FC /* MedicineService.m */,
 				14F7205F1AEE86D900FFEDA1 /* AnmatDataService.h */,
 				14F720601AEE86D900FFEDA1 /* AnmatDataService.m */,
+				141FE5A31C0F856C00F7B948 /* PregnancyGroupService.h */,
+				141FE5A41C0F856C00F7B948 /* PregnancyGroupService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -323,10 +379,24 @@
 				14BC10C81AACF33C00CA80FC /* UISelectableButton.m */,
 				14F720681AEEA44C00FFEDA1 /* PushNoAnimationSegue.h */,
 				14F720691AEEA44C00FFEDA1 /* PushNoAnimationSegue.m */,
-				149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell.h */,
-				149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell.m */,
+				149C4BF41AF7B05300EFEDC3 /* AutoLayoutCell1Line.h */,
+				149C4BF51AF7B05300EFEDC3 /* AutoLayoutCell1Line.m */,
 				14AE74791AF7C0ED00C32CF1 /* AutoLayoutLabel.h */,
 				14AE747A1AF7C0ED00C32CF1 /* AutoLayoutLabel.m */,
+				149A72221BDC51C300A8D1CE /* AutoLayoutCell2Lines.h */,
+				149A72231BDC51C300A8D1CE /* AutoLayoutCell2Lines.m */,
+				142330B01BDD5ACE00B7D694 /* Section.h */,
+				142330B11BDD5ACE00B7D694 /* Section.m */,
+				142330B31BDD5B1A00B7D694 /* SectionRow2Lines.h */,
+				142330B41BDD5B1A00B7D694 /* SectionRow2Lines.m */,
+				148D25521BE521DB00931D74 /* AutoLayoutCell3Lines.h */,
+				148D25531BE521DB00931D74 /* AutoLayoutCell3Lines.m */,
+				148D25551BE5235700931D74 /* SectionRow3Lines.h */,
+				148D25561BE5235700931D74 /* SectionRow3Lines.m */,
+				148D25581BE5295800931D74 /* SectionRow.h */,
+				148D25591BE5295800931D74 /* SectionRow.m */,
+				148D255B1BE52A4900931D74 /* SectionRow1Line.h */,
+				148D255C1BE52A4900931D74 /* SectionRow1Line.m */,
 			);
 			path = "Anmat Vademecum";
 			sourceTree = "<group>";
@@ -464,37 +534,51 @@
 			buildActionMask = 2147483647;
 			files = (
 				148A260C1AEED9FE001DDBE6 /* InformationViewController.m in Sources */,
+				148D25541BE521DB00931D74 /* AutoLayoutCell3Lines.m in Sources */,
 				14F720671AEE94C700FFEDA1 /* UpdatesViewController.m in Sources */,
 				14AC8E011AB6EFA300DA84C7 /* MedicineRepository.m in Sources */,
 				14F720701AEEA78E00FFEDA1 /* Version.m in Sources */,
 				14F7206D1AEEA6BF00FFEDA1 /* VersionRepository.m in Sources */,
 				14DDAC441ACB590E003A1A52 /* ActiveComponent.m in Sources */,
 				14F7C5271BD541A200694F6C /* Reachability.m in Sources */,
-				149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell.m in Sources */,
+				149C4BF61AF7B05300EFEDC3 /* AutoLayoutCell1Line.m in Sources */,
 				149856641ABF3819001B6B5A /* ActiveComponentsViewController.m in Sources */,
 				147E2AC91A9811F000C9B2EC /* DetailsTabViewController.m in Sources */,
+				141FE59C1C0F804600F7B948 /* PregnancyComponent.m in Sources */,
 				14E29FE51A975D83005292FE /* AppDelegate.m in Sources */,
+				148D255D1BE52A4900931D74 /* SectionRow1Line.m in Sources */,
+				141FE5A81C0FF40B00F7B948 /* PregnancyDetailsViewController.m in Sources */,
+				148D25571BE5235700931D74 /* SectionRow3Lines.m in Sources */,
 				14DDAC471ACB59F4003A1A52 /* DataBaseProvider.m in Sources */,
+				141FE5961C0F6D1700F7B948 /* InformationDetailViewController.m in Sources */,
 				141BC4EB1A97672900B78F0B /* SearchResultsViewController.m in Sources */,
 				14DDAC4A1ACB6365003A1A52 /* ActiveComponentService.m in Sources */,
+				141FE5A51C0F856C00F7B948 /* PregnancyGroupService.m in Sources */,
 				14E843121AD979A500FB8213 /* Formula.m in Sources */,
 				14DDAC411ACB588B003A1A52 /* ActiveComponentRepository.m in Sources */,
 				14F7206A1AEEA44C00FFEDA1 /* PushNoAnimationSegue.m in Sources */,
 				14BC10C41AACABF100CA80FC /* MedicineService.m in Sources */,
 				141BC4E81A9765FC00B78F0B /* MainSearchSectionViewController.m in Sources */,
 				14AE747B1AF7C0ED00C32CF1 /* AutoLayoutLabel.m in Sources */,
+				149A72241BDC51C300A8D1CE /* AutoLayoutCell2Lines.m in Sources */,
 				147E2ABD1A97F6EE00C9B2EC /* MainDetailsViewController.m in Sources */,
 				149856671ABF4CDB001B6B5A /* ActiveComponentInfoViewController.m in Sources */,
+				141FE59F1C0F810100F7B948 /* PregnancyComponentRepository.m in Sources */,
 				141BC4E51A97652D00B78F0B /* SearchViewController.m in Sources */,
 				1437FA411A98B6DC00EC5D40 /* FormulaDetailsViewController.m in Sources */,
 				14F720611AEE86D900FFEDA1 /* AnmatDataService.m in Sources */,
+				149A72271BDC531800A8D1CE /* PregnancyViewController.m in Sources */,
+				148D255A1BE5295800931D74 /* SectionRow.m in Sources */,
 				14F720641AEE878D00FFEDA1 /* AnmatData.m in Sources */,
 				14E29FE21A975D83005292FE /* main.m in Sources */,
 				14AABA451A97C1BC00126B22 /* Medicine.m in Sources */,
 				14E8431B1ADAE4C900FB8213 /* String.m in Sources */,
 				14780D951BDBFAB20030FCD0 /* ActiveComponentDetailViewController.m in Sources */,
+				142330B51BDD5B1A00B7D694 /* SectionRow2Lines.m in Sources */,
 				14F97A3C1AD229C300C08620 /* ContactAlertController.m in Sources */,
+				141FE5A21C0F854700F7B948 /* PregnancyGroup.m in Sources */,
 				143A4DED1AF2C8D500CAA8AE /* MBProgressHUD.m in Sources */,
+				142330B21BDD5ACE00B7D694 /* Section.m in Sources */,
 				14F720731AEEC06A00FFEDA1 /* AboutViewController.m in Sources */,
 				14BC10C91AACF33C00CA80FC /* UISelectableButton.m in Sources */,
 				1451E5E51AAB618C00F9FEC7 /* MenuViewController.m in Sources */,
