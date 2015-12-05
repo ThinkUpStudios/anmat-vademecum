@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -22,22 +20,34 @@ namespace Anmat.Server.Core.Data
 			}
 		}
 
-		public IEnumerable<T> GetAll (Expression<Func<T, bool>> predicate = null)
+		public IEnumerable<T> GetAll (Expression<Func<T, bool>> predicate = null, bool cache = false)
 		{
 			if (predicate == null) {
-				return this.dataContext.Set<T>().AsNoTracking().AsEnumerable ();
+				return cache ? 
+					this.dataContext.Set<T> ().AsEnumerable() : 
+					this.dataContext.Set<T> ().AsNoTracking().AsEnumerable ();
 			}
 
-			return this.dataContext.Set<T>().Where (predicate).AsNoTracking().AsEnumerable();
+			var query = this.dataContext.Set<T> ().Where (predicate);
+
+			return cache ? 
+				query.AsEnumerable () : 
+				query.AsNoTracking ().AsEnumerable ();
 		}
 
-		public T Get (Expression<Func<T, bool>> predicate = null)
+		public T Get (Expression<Func<T, bool>> predicate = null, bool cache = false)
 		{
 			if (predicate == null) {
-				return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault ();
+				return cache ?
+					this.dataContext.Set<T> ().FirstOrDefault () :
+					this.dataContext.Set<T> ().AsNoTracking ().FirstOrDefault ();
 			}
 
-			return this.dataContext.Set<T>().AsNoTracking().FirstOrDefault (predicate);
+			var query = this.dataContext.Set<T> ().Where (predicate);
+
+			return cache ?
+				query.AsEnumerable ().FirstOrDefault() :
+				query.AsNoTracking ().AsEnumerable ().FirstOrDefault();
 		}
 
 		public bool Exist (Expression<Func<T, bool>> predicate = null)
@@ -53,21 +63,27 @@ namespace Anmat.Server.Core.Data
 
 		public void Update (T dataEntity)
 		{
-			this.dataContext.Set<T> ().Attach (dataEntity);
+			if(!this.IsAttached(dataEntity)) {
+				this.dataContext.Set<T> ().Attach (dataEntity);
+			}
+			
 			this.dataContext.Entry (dataEntity).State = EntityState.Modified;
 			this.Save ();
-			//this.Refresh (dataEntity);
 		}
 
 		public void Delete (T dataEntity)
 		{
+			if (!this.IsAttached (dataEntity)) {
+				this.dataContext.Set<T> ().Attach (dataEntity);
+			}
+
 			this.dataContext.Set<T> ().Remove (dataEntity);
 			this.Save ();
 		}
 
 		public void DeleteAll()
         {
-			var all = this.GetAll ().ToList();
+			var all = this.GetAll (cache: true).ToList();
 
 			foreach (var entity in all) {
 				this.Delete (entity);
@@ -80,9 +96,9 @@ namespace Anmat.Server.Core.Data
 			this.dataContext.SaveChanges ();
 		}
 
-		private void Refresh(T dataEntity)
+		private bool IsAttached(T dataEntity)
 		{
-			((IObjectContextAdapter)this.dataContext).ObjectContext.Refresh (RefreshMode.StoreWins, dataEntity);
+			return this.dataContext.Set<T> ().Local.Any (entity => entity.Id == dataEntity.Id);
 		}
 	}
 }

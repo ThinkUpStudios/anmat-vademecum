@@ -9,6 +9,7 @@ using Anmat.Server.Core.Properties;
 using Microsoft.VisualBasic.FileIO;
 using System.Text.RegularExpressions;
 using Anmat.Server.Core;
+using System.Text;
 
 namespace Anmat.Server.Core
 {
@@ -36,8 +37,10 @@ namespace Anmat.Server.Core
 			this.ValidateDocumentFile (path);
 
 			var document = new Document();
+			var defaultEncoding = this.configuration.GetDefaultEncoding ();
+			var encoding = TextFileEncodingDetector.DetectTextFileEncoding(path);
 
-			using (var parser = new TextFieldParser (path, this.configuration.GetDefaultEncoding ())) {
+			using (var parser = new TextFieldParser (path, encoding ?? defaultEncoding)) {
 				parser.TextFieldType = FieldType.Delimited;
 				parser.SetDelimiters (separator);
 				parser.HasFieldsEnclosedInQuotes = true;

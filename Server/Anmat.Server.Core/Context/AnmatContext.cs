@@ -40,13 +40,13 @@ namespace Anmat.Server.Core.Context
 			var documentReader = new CsvDocumentReader (configuration);
 			var documentGenerators = new List<IDocumentGenerator> ();
 
-			documentGenerators.Add (new DocumentGenerator (configuration.TargetMedicinesTableName, 
-				documentReader, jobService, metadataService, configuration));
-			documentGenerators.Add (new DocumentGenerator (configuration.TargetActiveComponentsTableName, 
-				documentReader, jobService, metadataService, configuration));
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetGroupsTableName,
 				documentReader, jobService, metadataService, configuration));
 			documentGenerators.Add (new DocumentGenerator (configuration.TargetPregnancyComponentsTableName,
+				documentReader, jobService, metadataService, configuration));
+			documentGenerators.Add (new DocumentGenerator (configuration.TargetMedicinesTableName, 
+				documentReader, jobService, metadataService, configuration));
+			documentGenerators.Add (new DocumentGenerator (configuration.TargetActiveComponentsTableName, 
 				documentReader, jobService, metadataService, configuration));
 
 			var sqlGenerator = new SQLiteGenerator(jobService, versionService, configuration);

@@ -5,13 +5,13 @@ namespace Anmat.Server.Core.Data
 	public class AnmatDataContext : DbContext
 	{
 		public AnmatDataContext (AnmatConfiguration configuration = null) : base("DefaultConnection")
-        {
-			//Database.SetInitializer<AnmatDataContext>(new CreateDatabaseIfNotExists<AnmatDataContext>());
+		{
+			//Database.SetInitializer<AnmatDataContext> (new CreateDatabaseIfNotExists<AnmatDataContext> ());
 
-			if(configuration != null && configuration.FullInitialize) {
-				Database.SetInitializer(new DropCreateDatabaseAlways<AnmatDataContext> ());
+			if (configuration != null && configuration.FullInitialize) {
+				Database.SetInitializer (new DropCreateDatabaseAlways<AnmatDataContext> ());
 			} else {
-				Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AnmatDataContext> ());
+				Database.SetInitializer (new DropCreateDatabaseIfModelChanges<AnmatDataContext> ());
 			}
 		}
 
