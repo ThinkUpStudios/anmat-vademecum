@@ -223,10 +223,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Anmat.Server.Web-20150423234302.mdf" />
-    <Content Include="App_Data\aspnet-Anmat.Server.Web-20150423234302_log.ldf">
-      <DependentUpon>aspnet-Anmat.Server.Web-20150423234302.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\Gridmvc.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -368,7 +364,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

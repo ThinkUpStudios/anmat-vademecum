@@ -1,0 +1,346 @@
+grupo_id;principio;medicamentos;clasificacion
+1;Cefalosporinas;Cefuroxima, Cefaclor, Cefixima, Cefradina, Etc;B
+1;Penicilinas;Amoxicilina, Ampicilina, Amoxi/Clavulánico;B
+1;Tetraciclinas;Doxiciclina, Oxitetraciclina, Demeclociclina;D
+1;Quinolonas;Ciprofloxacina,Norfloxacina, Ofloxacina;C
+1;Macrólidos;Azitromicina;B
+1;Macrólidos;Claritromicina;C
+1;Macrólidos;Eritromicina;B/C
+1;Macrólidos;Metronidazol;B Y D en 1ø trimestre
+1;Macrólidos;Nitrofurantoína;B
+1;Macrólidos;Sulfonamidas, Sulfametoxazol;B/C/D
+1;Clindamicina;;B
+1;Fosfomicina;;B
+1;Rifampicina;;C
+1;Tobramicina Oftálmica;;B
+1;Doxorrubicina;;D
+1;Espiramicina;;B
+1;Etambutol;;B
+1;Ácido Fusídico;;C
+1;Minociclina;;D
+1;Neomicina;;C
+1;Dihidroestreptomicina;;X
+1;Espectinomicina;;B
+1;Pirazinamida;;C
+1;Gentamicina;;C
+1;Bleomicina;;D
+1;Polimixina B;;B
+1;Tianfenicol;;C
+2;Paracetamol;;A
+2;Aas;;C Y D en 3° trimestre
+2;Diclofenac;;B/C 1° Y 2° trimestre y D 3°
+2;Indometacina;;C
+2;Ketoralac;;C
+2;Naproxeno;;B/C 1° Y 2° trimestre y D 3°
+2;Ibuprofeno;;B/C 1° Y 2° trimestre y D 3°
+2;Ketoprofeno;Dexketoprofeno;B/C 1° Y 2° trimestre y D 3°
+2;Dipirona;;Puede producir abortos
+2;Piroxicam;;B/C
+2;Meloxicam;;C
+2;Carisoprodol;;C/D
+2;Flurbiprofeno;;B
+2;Acido Meclofenamico;;B
+2;Tramadol;;C
+2;Buprenorfina, Morfina, Metadona, Pentazocina;;B/C
+3;Azatadina;;B/C
+3;Carbinoxamina;;C
+3;Cetirizina;;B/C
+3;Ciproheptadina;;B.
+3;Clorfeniramina;Dexclorfeniramina;B
+3;Desloratadina;;C
+3;Bromfeniramina;Dexbromfeniramina;C
+3;Difenhidramina;Dimenhidrinato;B
+3;Doxilamina;;B
+3;Epinastina;;C
+3;Fenoxifenadina;;C
+3;Hidroxicina;;C
+3;Loratadina;;B
+3;Terfenadina;;C
+3;Acido Cromoglicico;;B
+3;Clemastina;;C
+3;Mepiramida;;C
+3;Buclizina;;C
+4;Fenilefrina;;C
+4;Efedrina;;C
+4;Pseudoefedrina;;B/C
+4;Acetilcisteína;;B
+5;Verapamilo;;C
+5;Terazosina;;C
+5;Labetalol;;B/C
+5;Metildopa;;B/C
+5;Nadolol, Propranolol;;C
+5;Carvedilol,Bisoprolol;;C
+5;Hidralazina;;C
+5;Clonidina;;C
+5;Nitroprusiato;;C
+5;Nitroglicerina;;C
+5;Nifedipina;Nimodipina, Felodipina, Nicardipina;C
+5;Amlodipina;;C
+5;Atenolol;;D
+5;Enalapril;Captopril, Lisinopril, Benazepril;C/D
+5;Sartanes;Telmisartan;C/D
+5;Reserpina;;C
+5;Diltiazem;;C
+5;Doxasocina;;C
+5;Flecainida;;C
+5;Guanetidina;;C
+5;Isosorbide;;C
+5;Metoprolol;;C
+5;Amiodarona;;C
+6;Aas;;C/D
+6;Clopidrogel;;B
+6;Dipiridamol;;B
+7;Acenocumarol;;X
+7;Heparina,Enoxaparina;;B
+8;Hidroclorotiazida;;D
+8;Clortalidona;;D
+8;Furosemida;;C.
+8;Espironolactona;;D
+8;Amiloride;;B
+8;Indapamida;;B
+8;Metolazona;;B
+8;Triamtereno;;B/C
+9;Aripiprazol;;C
+9;Acido Valproico;;D
+9;Valpromida;;D
+9;Fenitoína;;D
+9;Fenobarbital;;D
+9;Carbamacepina;;C
+9;Clonazepam;;C
+9;Diazepam;;D
+9;Primidona;;D
+9;Meprobamato;;D
+9;Clordiazepóxido;;D
+9;Lorazepam, Lormetazepam;;D
+9;Alprazolam;;D
+9;Clorazepato;;D
+9;Clomipramina;;D
+9;Clorpromacina;;C
+9;Haloperidol;;C
+9;Fluoxetina/ Paroxetina;;B
+9;Sertralina,Duloxetina;;C
+9;Venlafaxina;;C
+9;Litio;;D (evitar el 1° trimestre)
+9;Bupropion;;B
+9;Citalopram/Escitalopram;;C
+9;Duloxetina;;C
+9;Flufenazina;;C
+9;Flunitrazepam;Oxacepam;D
+9;Flurazepam;;X
+9;Gabapentina;;C
+9;Ketazolam;;D
+9;Midazolam;;D
+9;Mirtazapina;;C
+9;Clozapina;;B
+9;Olanzapina,Quetiapina,Risperidona;;B/C
+9;Pregabalina;;C
+9;Tiagabina;;C
+9;Trazodone;;C
+9;Trifluoperazina;;C
+9;Topiramato;;C
+9;Amitriptilina;;D
+9;Clobazam;;D
+9;Clometiazol;;A
+9;Clotiazepam;Tetrazepam;D
+9;Flupentixol;;C/D
+9;Fluvoxamina;;C
+9;Halazepam;;D
+9;Imipramina;Trimipramina;D
+9;Lamotrigina;;C
+9;Loprazolam;;D
+9;Levomepromazina;;C
+9;Maprotilina;;B
+9;Meprobamato;;D
+9;Nortriptilina;;D
+9;Perfenazina, Periciazina;;C
+9;Pimozida;;C
+9;Biperideno;;C
+9;Tioridazina;;C
+9;Zolpidem;;B
+9;Zuclopentixol;;C
+10;Metimazol, Tiamazol;;D
+10;Levotiroxina;;A
+10;Insulina,Glucagon,Desmopresina,Corticoide Excepto Dexametasona;;B
+10;Dexametasona, Calcitonina;;C
+10;Metformina;;B
+10;Repaglinida;;C
+10;Antidiabéticos Orales Y Antitiroideos;;D
+10;Cortisona;;D
+10;Fluticasona;;C
+10;Hidrocortisona;;C
+10;Prednisolona, Prednisona;;C
+10;Metilprednisolona;;C
+10;Triamcinolona;;C
+10;Liotironina;;A
+10;Beclometasona(Inhalación);;C
+10;Protirelina;;C
+11;Budesonide;;C
+11;Teofilina, Aminofilina;;C
+11;Terbutalina;;B
+11;Salmeterol;;C
+11;Salbutamol;;C
+11;Adrenalina;;C
+11;Fenoterol;;B
+11;Bromuro De Ipratropio;;B/C
+12;Ambroxol;;A
+12;Dextrometorfano;;C.
+12;Codeina;;C/D
+13;Acido Ursodesoxicólico;;B
+13;Metoclopramida;;B
+13;Doxilamina;;B
+13;Ondasetron;;C
+13;Ranitidina;;B
+13;Famotidina;;B
+13;Carbonato De Calcio;;A
+13;Sucralfato;;B
+13;Omeprazol;;C
+13;Lanzoprazol;;B
+13;Pantoprazol;;B/C
+13;Rabeprazol;;B
+13;Domperidona;;C
+13;Hidróxido De Aluminio/Magnesio;;B/C
+13;Loperamida;;B
+13;Celulosa,Metilcelulosa,Carboximetilcelulosa;;B
+13;Psyllium, Salvado De Trigo;;B
+13;Vaselina Líquida, Docusato Sódico;;C
+13;Glicerina;;C
+13;Lactulosa;;B
+13;Polietilenglicol;;C
+13;Sales De Magnesio;;B
+13;Sales De Sodio;;C
+13;Bisacodilo;;C
+13;Allopurinol;;C
+13;Cimetidina;;B
+13;Cinitrapida;;B/C
+13;Cisaprida;;C
+13;Dicicloverina,Dicloverina;;B
+13;Dimeticona;;C
+13;Simeticona;;C
+13;Enzimas Digestivas;;C
+13;Fenolftaleína;;C
+13;Bromuro De Otilonio;;C
+13;Cascara Sagrada;Rhamnus Purshiana;C
+14;Anfotericina B;;B
+14;Nistatina;;B
+14;Clotrimazol;;B
+14;Fluconazol;;C
+14;Miconazol;;C
+14;Itraconazol;;C
+14;Griseofulvina;;C
+14;Flucitosina;;C
+14;Ketoconazol;;C
+14;Terbinafina;;B
+15;Ganciclovir;;C
+15;Famciclovir;;B
+15;Valaciclovir;;B
+15;Ritonavir;;B
+15;Saquinavir;;B
+15;Aciclovir;;B/C
+15;Vidabarina, Cidofovir, Efavirenz, Abacavir, Zidovudina, Zalcitabina;;C
+15;Indanavir, Lamivudina, Neviparina, Estavudina, Ganciclovir;;C
+15;Amantadina, Interferon Alfa;;C
+15;Rivavirina;;D
+16;Proguanil;;A
+16;Cloroquina,Quinidina,Lindano;;B/C
+16;Mefloquina,Primaquina,Albendazol,Mebendazol,Tiabendazol;;C/D
+16;Dietilcarbamazina,Pentamidina,Dapsona,Pirimetamina;;D
+16;Quinina;;D
+16;Piperazina;;B/C
+16;Tinidazol;;B/C
+17;Ciclosporina;;C
+17;Azatioprina;;D
+17;Ciclofosfamida;;D
+17;Dacarbazina;;C
+18;Gripe;;
+18;Hepatitis A+B;;C
+18;Fiebre Amarilla, Sarampión,Parotiditis,Varicela, Tbc;;D
+18;Fiebre Tifoidea;;C
+18;Hepatitis A;;C
+18;Rubeola;;X
+18;Tetánica;;B
+19;Vitaminas B,C,B9- Ac. Fólico;;A
+19;Vitamina A;;X
+19;Vitamina D-Calciferol;;A , en alta dosis D
+19;Aspartato Magnesio;;B
+19;Aspartato Potasico;;A
+19;Dexpantenol;;A
+20;Linestrenol;;
+20;Retinol;;
+20;Isotretinoína;;
+20;Andrógenos;;
+20;Ergotamínicos;;
+20;Dietilestilbestrol;;
+20;Lovastatina;;
+20;Metotrexato;;
+20;Misoprostol;;
+20;Acido Acetohidroxámico;;
+20;Atorvastatina;;
+20;Simvastatina;;
+20;Cerivastatina;;
+20;Ciproterona;;
+20;Desogestrel, Levonorgestrel;;
+20;Etinilestradiol;;
+20;Gestodeno;;
+20;Leflunomida;;
+20;Leuprorelina;;
+20;Progesterona (D/X);;
+20;Medrogestona;;
+20;Medroxiprogesterona;;
+20;Noretisterona;;
+20;Norgestrel;;
+20;Estradiol;;
+20;Talidomida;;
+20;Triptorelina;;
+21;Atropina;;C
+21;Bromocriptina;;C
+21;Bupivacaína;;C
+21;Butalvital;;C
+21;Butilescopolamina;;C
+21;Cabergolina;;B
+21;Cafeina;;B
+21;Calcio;;A
+21;Calcitriol;;A
+21;Ciclobenzaprina;;B
+21;Clobenzorez;;C
+21;Colchicina;;C
+21;Colestiramina;;B
+21;Desmopresina;;B
+21;Dipiridamol;;B
+21;Disulfiram;;C
+21;Estreptoquinasa;;C
+21;Etanol;;D
+21;Flunarizina;;C
+21;Fluoruracilo;;D
+21;Flutamida;;D
+21;Gonadorelina;;B
+21;Hidroxiprogesterona;;D
+21;Hidroxiurea;;D
+21;Infliximab;;C/B
+21;Interferon Alfa Y Beta;;C
+21;Isoniazida;;C
+21;Levodopa-Carbidopa;;C
+21;Levodopa-Benserazida;;C
+21;Lidocaína;;B
+21;Magnesio;;B
+21;Manitol;;C
+21;Mercaptopurina;;D
+21;Mesalazina, Sulfamesalazina;;B
+21;Metocarbamol;;C
+21;Metotrexate;;D
+21;Minoxidilo;;C
+21;Montelukast;;B
+21;Naltrexona;;C
+21;Naratriptan;;C
+21;Sumatriptan;;C
+21;Pentoxifilina;;C
+21;Piridostigmina;;C
+21;Pirimetamina;;C
+21;Pramipexol;;C
+21;Procaína;;C
+21;Sulbutiamina;;A
+21;Tamoxifeno;;D
+21;Terazosina;;C
+21;Tetracaína;;C
+21;Timolol Colirio;;C
+21;Vinblastina;;D
+21;Zolmitriptan;;C

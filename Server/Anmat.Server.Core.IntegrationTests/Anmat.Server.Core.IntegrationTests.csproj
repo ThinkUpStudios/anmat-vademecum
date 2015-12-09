@@ -74,9 +74,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Files\template.sqlite">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Files\v.2.0\grupo.csv" />
+    <None Include="Files\v.2.0\grupo_principio_emb.csv" />
     <None Include="Files\v.2.0\medicamentos.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
