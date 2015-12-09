@@ -471,7 +471,7 @@
 		14E29FD41A975D83005292FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Think Up Studios";
 				TargetAttributes = {
 					14E29FDB1A975D83005292FE = {
@@ -646,6 +646,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -717,6 +718,7 @@
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/Tcl/sqlite3",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkupstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = VNM;
 				PROVISIONING_PROFILE = "";
 			};
@@ -735,6 +737,7 @@
 					"$(inherited)",
 					"$(SYSTEM_LIBRARY_DIR)/Tcl/sqlite3",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkupstudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = VNM;
 				PROVISIONING_PROFILE = "";
 			};
@@ -754,6 +757,7 @@
 				);
 				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkupstudios.anmat.vademecum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = VNMTests;
 				TEST_HOST = "";
 			};
@@ -769,6 +773,7 @@
 				);
 				INFOPLIST_FILE = "Anmat VademecumTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkupstudios.anmat.vademecum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = VNMTests;
 				TEST_HOST = "";
 			};

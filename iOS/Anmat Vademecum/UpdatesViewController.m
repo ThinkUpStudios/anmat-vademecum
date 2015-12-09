@@ -31,7 +31,9 @@
             [self setProgress:@"Obteniendo nueva versión..."];
             [self requestNewData];
         } else {
-            [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+            });
         }
     }];
 }
@@ -58,12 +60,16 @@
             [self setProgress:@"Ha ocurrido un problema al obtener la información..."];
         }
     
-        [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+        });
     }];
 }
 
 -(void) setProgress:(NSString *) progress {
-    self.lblProgress.text = progress;
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+         self.lblProgress.text = progress;
+    });
 }
 
 @end

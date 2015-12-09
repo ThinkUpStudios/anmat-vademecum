@@ -28,20 +28,19 @@
     NSURL *serviceUrl = [NSURL URLWithString:serviceUriString];
     NSURLRequest *request = [NSURLRequest requestWithURL:serviceUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:5.0];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if (completion) {
-                                   if (error)
-                                   {
-                                       [self logError:error message:@"Error al chequear nueva version disponible"];
-                                       completion(NO, error);
-                                   } else {
-                                       NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-                                       completion([responseBody boolValue], error);
-                                   }
-                               }
-                           }];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (completion) {
+            if (error)
+            {
+                [self logError:error message:@"Error al chequear nueva version disponible"];
+                completion(NO, error);
+            } else {
+                NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                completion([responseBody boolValue], error);
+            }
+        }
+    }] resume];
 }
 
 -(void)processNewData:(void (^)(AnmatData *, NSError *))completion {
@@ -49,33 +48,32 @@
     NSURL *serviceUrl = [NSURL URLWithString:serviceUriString];
     NSURLRequest *request = [NSURLRequest requestWithURL:serviceUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:120];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if (completion) {
-                                   if (error)
-                                   {
-                                       [self logError:error message:@"Error al bajar la nueva version"];
-                                       completion(nil, error);
-                                   } else {
-                                       id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-                                   
-                                       if ([json isKindOfClass:[NSDictionary class]] && error == nil)
-                                       {
-                                           NSNumber *contentSize = [json objectForKey:@"ContentSize"];
-                                           NSString *content = [json objectForKey:@"Content"];
-                                           AnmatData *data = [[AnmatData alloc] init];
-                                           
-                                           data.content = content;
-                                           data.contentSize = [contentSize longValue];
-                                        
-                                           completion(data, error);
-                                       } else {
-                                           [self logError:error message:@"Error deserializar el contenido de la nueva version"];
-                                           completion(nil, error);
-                                       }
-                                   }
-                               }
-                           }];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (completion) {
+            if (error)
+            {
+                [self logError:error message:@"Error al bajar la nueva version"];
+                completion(nil, error);
+            } else {
+                id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+                
+                if ([json isKindOfClass:[NSDictionary class]] && error == nil)
+                {
+                    NSNumber *contentSize = [json objectForKey:@"ContentSize"];
+                    NSString *content = [json objectForKey:@"Content"];
+                    AnmatData *data = [[AnmatData alloc] init];
+                    
+                    data.content = content;
+                    data.contentSize = [contentSize longValue];
+                    
+                    completion(data, error);
+                } else {
+                    [self logError:error message:@"Error deserializar el contenido de la nueva version"];
+                    completion(nil, error);
+                }
+            }
+        }
+    }] resume];
 }
 
 - (int) getLatestVersion {
