@@ -1,7 +1,10 @@
 ﻿using System.Web.Mvc;
+using Anmat.Server.Web.Filters;
 
 namespace Anmat.Server.Web.Controllers
 {
+	[Authorize]
+	[InitializeSimpleMembership]
 	public class HomeController : Controller
 	{
 		public ActionResult Index ()
