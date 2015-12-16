@@ -9,8 +9,8 @@ android {
         applicationId "com.thinkupstudios.annmat.vademecum"
         minSdkVersion 13
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.1.beta"
     }
     buildTypes {
         release {
