@@ -16,6 +16,7 @@ import java.io.IOException;
  */
 public class SQLiteDBService implements IRemoteDBService {
 
+    public static final String ROOT_URL_SERVICE = "http://recorriendo.cloudapp.net:81/anmatdataservice";
     private DatabaseHelper dbHelper;
 
 
@@ -31,7 +32,7 @@ public class SQLiteDBService implements IRemoteDBService {
         VersionProvider vProvider = new VersionProvider(dbHelper);
         Integer versionLocal = vProvider.getVersionBo().getNumero();
         try {
-            String url = "http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/isnewdataavailable?version=" + versionLocal;
+            String url = ROOT_URL_SERVICE +"/AnmatDataService.svc/isnewdataavailable?version=" + versionLocal;
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
@@ -45,7 +46,7 @@ public class SQLiteDBService implements IRemoteDBService {
     public boolean updateDatabase() throws UpdateNotPosibleException {
         try {
             System.gc();
-            String url = String.format("http://anmatmanager.cloudapp.net/anmatdataservice/AnmatDataService.svc/getdata");
+            String url = String.format(ROOT_URL_SERVICE + "/AnmatDataService.svc/getdata");
 
             String resultado = HttpRequest.get(url).connectTimeout(5000).readTimeout(120000).accept("application/json").body();
 
