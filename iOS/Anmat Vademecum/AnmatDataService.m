@@ -15,7 +15,7 @@
 }
 
 - (id) init {
-    serviceUriTemplate = @"http://recorriendo.cloudapp.net/anmatdataservice/AnmatDataService.svc/%@";
+    serviceUriTemplate = @"http://recorriendo.cloudapp.net:81/anmatdataservice/AnmatDataService.svc/%@";
     versionRepository = [[VersionRepository alloc] init];
     
     return self;
