@@ -97,7 +97,7 @@
 - (NSArray *) getAllIdentifiers:(NSString *)name {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     sqlite3 *database = [[DataBaseProvider instance] getDataBase];
-    NSString *query = [NSString stringWithFormat: @"SELECT ifa, otros_nombres FROM principio_activo WHERE ifa=\"%@\" COLLATE NOCASE OR otros_nombres LIKE \"%%%@%%\" COLLATE NOCASE  LIMIT 1", [String trim:name], [String trim:name]];
+    NSString *query = [NSString stringWithFormat: @"SELECT LOWER(ifa), LOWER(otros_nombres) FROM principio_activo WHERE ifa=\"%@\" COLLATE NOCASE OR otros_nombres LIKE \"%%%@%%\" COLLATE NOCASE  LIMIT 1", [String trim:name], [String trim:name]];
     sqlite3_stmt *statement;
     
     if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil)

@@ -43,7 +43,7 @@
 }
 
 - (NSArray *) getMedicines:(NSString *) activeComponent orderBy:(SortOptions) orderBy {
-    NSString *trimmedActiveComponent = [String trim:activeComponent];
+    NSString *trimmedActiveComponent = [[String trim:activeComponent] lowercaseString] ;
     
     NSMutableArray *componentIdentifiers = [[NSMutableArray alloc] initWithArray:[componentsRepository getAllIdentifiers:trimmedActiveComponent]];
     
@@ -89,7 +89,7 @@
             }
             
             
-            if([componentIdentifiers containsObject:[String trim:componentName]]) {
+            if([componentIdentifiers containsObject:[[String trim:componentName] lowercaseString]]) {
                 include = YES;
                 break;
             }
